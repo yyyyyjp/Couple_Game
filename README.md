@@ -84,6 +84,7 @@ Couple_Game/
 ├── index.html               # 站点入口（自动重定向到对应语言首页）
 ├── manifest.json            # PWA 渐进式应用配置文件
 ├── README.md                # 项目详细说明文档
+├── agent.md                 # AI 协作与开发规范指南 (代码变更必更 README)
 ├── .gitignore               # Git 忽略配置
 │
 ├── cn/                      # 简体中文版页面目录
