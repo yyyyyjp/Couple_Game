@@ -16,13 +16,13 @@
       <div class="absolute top-0 left-0 h-[500px] w-[500px] bg-violet-900/25 blur-[120px] rounded-full mix-blend-screen animate-spin-slow"></div>
       <div class="absolute bottom-0 right-0 h-[500px] w-[500px] bg-rose-900/25 blur-[120px] rounded-full mix-blend-screen animate-spin-slow animation-delay-2000"></div>
     </div>
-    <div class="mx-auto flex min-h-screen w-full max-w-7xl 2xl:max-w-[1600px] flex-col px-3 py-3 sm:py-4 sm:px-6 lg:px-8">
+    <div class="ludo-page-container mx-auto flex min-h-screen w-full flex-col px-2 sm:px-4 lg:px-6 py-1.5 sm:py-2.5">
 
-      <nav class="p-2 sm:p-0 sm:mb-3 flex flex-wrap flex-row sm:items-center sm:justify-between gap-3">
-        <a class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2.5 text-xs font-bold uppercase tracking-wide text-white/70 backdrop-blur-md transition-all hover:bg-white/10 hover:text-white hover:border-white/20 sm:px-5 sm:py-2.5" href="index.html"><span class="transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span><span class="inline">返回遊戲列表</span></a>
+      <nav class="p-1 sm:p-0 mb-1 sm:mb-2 flex flex-wrap flex-row sm:items-center sm:justify-between gap-2">
+        <a class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 text-xs font-bold uppercase tracking-wide text-white/70 backdrop-blur-md transition-all hover:bg-white/10 hover:text-white hover:border-white/20 sm:px-4 sm:py-2" href="index.html"><span class="transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span><span class="inline">返回遊戲列表</span></a>
         <div class="flex items-center gap-2">
           <div class="relative md:hidden">
-            <select class="h-9 appearance-none rounded-full bg-white/10 py-2.5 pl-4 pr-8 text-xs text-white backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/10" aria-label="語言">
+            <select class="h-8 appearance-none rounded-full bg-white/10 py-1.5 pl-3 pr-7 text-xs text-white backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/10" aria-label="語言">
               <option value="en" class="bg-gray-900 text-white">En</option>
               <option value="cn" class="bg-gray-900 text-white">简体</option>
               <option value="tw" class="bg-gray-900 text-white" selected>正體</option>
@@ -31,17 +31,17 @@
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white/70"><svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></div>
           </div>
-          <nav aria-label="語言" class="h-9 hidden md:flex items-center gap-2 rounded-full bg-white/10 px-2 py-1 backdrop-blur border border-white/10">
-            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../en/ludo.html">En</a>
-            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../cn/ludo.html">简体</a>
-            <a class="flex items-center rounded-full px-3 py-1 text-sm bg-white text-gray-900" href="ludo.html">正體</a>
-            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../ja/ludo.html">日本語</a>
-            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../ko/ludo.html">한국인</a>
+          <nav aria-label="語言" class="h-8 hidden md:flex items-center gap-1.5 rounded-full bg-white/10 px-2 py-0.5 backdrop-blur border border-white/10">
+            <a class="flex items-center rounded-full px-2.5 py-0.5 text-xs transition text-white/70 hover:text-white" href="../en/ludo.html">En</a>
+            <a class="flex items-center rounded-full px-2.5 py-0.5 text-xs transition text-white/70 hover:text-white" href="../cn/ludo.html">简体</a>
+            <a class="flex items-center rounded-full px-2.5 py-0.5 text-xs bg-white text-gray-900 font-bold" href="ludo.html">正體</a>
+            <a class="flex items-center rounded-full px-2.5 py-0.5 text-xs transition text-white/70 hover:text-white" href="../ja/ludo.html">日本語</a>
+            <a class="flex items-center rounded-full px-2.5 py-0.5 text-xs transition text-white/70 hover:text-white" href="../ko/ludo.html">한국인</a>
           </nav>
         </div>
       </nav>
 
-      <div id="ludo-root" class="relative flex w-full flex-1 flex-col items-center gap-3 sm:gap-4"></div>
+      <div id="ludo-root" class="relative flex w-full flex-1 flex-col items-center gap-1.5 sm:gap-2"></div>
 
       <section id="instructions" class="mt-20 max-w-4xl w-full mx-auto px-4 text-white/80 space-y-12 mb-20">
         <div class="space-y-4">

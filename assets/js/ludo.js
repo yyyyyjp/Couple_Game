@@ -441,11 +441,11 @@
     const h = window.innerHeight;
     const isLandscape = w > h;
     // 宽屏桌面端大屏
-    if (w >= 1180 && h >= 680) {
+    if (w >= 1024) {
       return "desktop";
     }
-    // 平板横屏或宽屏状态优先双栏同屏
-    if (w >= 920 || (isLandscape && w >= 720 && h >= 460)) {
+    // 平板设备 (包括 iPad 768px~834px、华为平板 800px、以及各类平板横屏)
+    if (w >= 700 || (isLandscape && w >= 600 && h >= 460)) {
       return "tablet";
     }
     return "mobile";
@@ -459,7 +459,7 @@
 
     let dev = "手机端";
     if (w >= 1024) dev = "电脑 / 大屏";
-    else if (w >= 768 || (isLandscape && w >= 640)) dev = "平板 / 横屏";
+    else if (w >= 700 || (isLandscape && w >= 600)) dev = "平板 / 横屏";
     else dev = "手机端";
 
     const layoutName = eff === "desktop" ? "电脑全屏" : eff === "tablet" ? "平板双栏" : "紧凑竖屏";
@@ -467,6 +467,8 @@
   }
 
   let CELL = 46;
+  let currentSidebarW = 280;
+
   function updateCellSize() {
     const eff = getEffectiveLayoutMode();
     const winW = window.innerWidth;
@@ -475,36 +477,46 @@
     let targetBoardSize;
     if (eff === "desktop" || eff === "tablet") {
       // 电脑与平板布局：【#board】在左边，设置和骰子在右边，页面内最大化棋盘尺寸
-      const sidebarW = eff === "desktop"
-        ? Math.min(390, Math.max(340, Math.floor(winW * 0.28)))
-        : Math.min(350, Math.max(310, Math.floor(winW * 0.32)));
+      // 允许改变【#control-card】与【#settings-card】的尺寸：根据屏幕可用空间动态计算侧边栏宽度
+      if (winW >= 1500) {
+        currentSidebarW = 320;
+      } else if (winW >= 1200) {
+        currentSidebarW = 280;
+      } else if (winW >= 960) {
+        currentSidebarW = 260;
+      } else if (winW >= 768) {
+        currentSidebarW = 240;
+      } else {
+        currentSidebarW = 210;
+      }
 
-      // 可用水平宽度：总宽减去右侧侧边栏、间隙与页面内边距
-      const availW = Math.max(320, winW - sidebarW - 68);
+      // 可用水平宽度：总宽减去右侧侧边栏、间隙 (12~16px) 与页面左右内边距 (16~32px)
+      const gapAndPad = winW >= 1200 ? 52 : winW >= 768 ? 36 : 24;
+      const availW = Math.max(240, winW - currentSidebarW - gapAndPad);
 
       // 可用垂直高度：视口高度减去顶部紧凑栏与安全边距
-      const topOffset = eff === "desktop" ? 105 : 95;
-      const availH = Math.max(320, winH - topOffset);
+      const topOffset = winH >= 800 ? 80 : 70;
+      const availH = Math.max(240, winH - topOffset);
 
-      // 棋盘为正方形，尺寸严格取水平与垂直可用空间的较小值，以保证一屏内完全展示无需纵向滚轮
+      // 棋盘为正方形，尺寸严格取水平与垂直可用空间的较小值，以保证一屏内最大化展现且无纵向滚动
       targetBoardSize = Math.min(availW, availH);
 
       // 棋盘总宽 = 13 * CELL + 12 * 2px(gap) + 8px(padding) = 13 * CELL + 32px
       const sz = Math.floor((targetBoardSize - 32) / N);
 
-      // 突破旧版 50px 限制：电脑端大屏可扩展至 78px，平板端扩展至 60px
+      // 突破限制：允许 CELL 最大扩展至 84px（电脑大屏）/ 64px（平板），最小为 20px
       if (eff === "desktop") {
-        CELL = Math.max(26, Math.min(78, sz));
+        CELL = Math.max(20, Math.min(84, sz));
       } else {
-        CELL = Math.max(26, Math.min(60, sz));
+        CELL = Math.max(20, Math.min(64, sz));
       }
     } else {
-      // 手机紧凑单栏模式：根据屏幕宽度缩放防横向溢出
-      const availW = Math.min(winW - 20, 520);
-      const availH = winH > 520 ? winH - 280 : winH - 120;
-      targetBoardSize = Math.max(280, Math.min(availW, availH, 500));
+      currentSidebarW = 0;
+      const availW = Math.min(winW - 16, 520);
+      const availH = winH > 520 ? winH - 250 : winH - 90;
+      targetBoardSize = Math.max(250, Math.min(availW, availH, 500));
       const sz = Math.floor((targetBoardSize - 32) / N);
-      CELL = Math.max(21, Math.min(38, sz));
+      CELL = Math.max(20, Math.min(38, sz));
     }
   }
 
@@ -516,7 +528,7 @@
     const btn = (val, icon, label) => {
       const active = mode === val;
       return `
-        <button data-layout-mode="${val}" class="relative px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap ${
+        <button data-layout-mode="${val}" class="relative px-2 sm:px-2.5 py-1 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1 whitespace-nowrap ${
           active
             ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_4px_16px_rgba(244,63,94,0.4)] scale-100 ring-1 ring-white/30"
             : "text-white/60 hover:text-white hover:bg-white/10"
@@ -528,12 +540,12 @@
     };
 
     return `
-    <div id="layout-switch-bar" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg select-none">
+    <div id="layout-switch-bar" class="flex flex-wrap items-center justify-center gap-1 px-2 py-1 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg select-none">
       <div class="hidden xl:flex items-center gap-1.5 text-xs text-white/70 mr-1">
         <span class="text-sm">📐</span>
         <span class="text-[11px] font-mono text-pink-300 bg-pink-500/10 border border-pink-500/25 px-2 py-0.5 rounded-full">${getDeviceHintText()}</span>
       </div>
-      <div class="inline-flex flex-wrap justify-center p-0.5 rounded-xl bg-white/5 border border-white/10 gap-1 select-none">
+      <div class="inline-flex flex-wrap justify-center p-0.5 rounded-xl bg-white/5 border border-white/10 gap-0.5 select-none">
         ${btn("auto", "🔄", "自动适配")}
         ${btn("desktop", "💻", "电脑布局")}
         ${btn("tablet", "📟", "平板双栏")}
@@ -551,8 +563,8 @@
     if (isSideBySide) {
       root.innerHTML = `
         <!-- 电脑/平板顶部紧凑栏：标题与切换按钮并列，最大限度留出垂直空间给棋盘 -->
-        <header id="ludo-top-bar" class="w-full flex flex-col sm:flex-row items-center justify-between gap-2.5 px-1 py-0.5">
-          <div class="flex items-center gap-3">
+        <header id="ludo-top-bar" class="w-full flex flex-col sm:flex-row items-center justify-between gap-2 px-1 py-0.5 select-none">
+          <div class="flex items-center gap-2.5">
             <h1 class="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
             <span class="text-[11px] text-white/50 hidden md:inline-block">${esc(L("tagline"))}</span>
           </div>
@@ -560,7 +572,7 @@
         </header>
 
         <!-- 主游戏区域：【#board】在左边，设置和骰子在右边 -->
-        <div id="game-main-area" class="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-5 lg:gap-6 mt-1">
+        <div id="game-main-area" class="ludo-side-by-side w-full flex flex-row items-start justify-center gap-3 sm:gap-4 lg:gap-5 mt-1" style="--ludo-sidebar-w: ${currentSidebarW}px;">
           
           <!-- 左侧：棋盘主体区域 (尺寸最大化) -->
           <div id="board-column" class="flex flex-col items-center justify-center shrink-0">
@@ -573,10 +585,10 @@
             </div>
           </div>
 
-          <!-- 右侧：玩家胶囊、骰子控制台与设置工具侧边栏 -->
-          <div id="control-column" class="w-full lg:w-[350px] xl:w-[380px] lg:sticky lg:top-3 flex flex-col gap-3 shrink-0">
+          <!-- 右侧：控制卡片与设置卡片 (尺寸随屏幕自适应缩放) -->
+          <div id="control-column" class="flex flex-col gap-2 shrink-0 select-none" style="width: ${currentSidebarW}px; min-width: ${currentSidebarW}px; max-width: ${currentSidebarW}px;">
             <!-- 玩家指示胶囊 -->
-            <div id="player-capsules" class="flex flex-wrap items-center justify-center lg:justify-start gap-2"></div>
+            <div id="player-capsules" class="flex flex-wrap items-center justify-start gap-1.5 select-none"></div>
             
             <!-- 骰子与行动卡片 -->
             ${controlCard()}
@@ -606,7 +618,7 @@
     } else {
       // 手机竖屏紧凑单栏布局
       root.innerHTML = `
-        <header class="w-full text-center space-y-1.5">
+        <header class="w-full text-center space-y-1.5 select-none">
           <h1 class="text-2xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
           <p class="text-xs text-white/70 max-w-xl mx-auto leading-relaxed">${esc(L("tagline"))}</p>
         </header>
@@ -614,7 +626,7 @@
         ${layoutSwitchBar()}
 
         <div id="game-main-area" class="w-full max-w-md flex flex-col items-center gap-3.5">
-          <div id="player-capsules" class="flex flex-wrap items-center justify-center gap-2"></div>
+          <div id="player-capsules" class="flex flex-wrap items-center justify-center gap-2 select-none"></div>
           
           <div id="board-container" class="relative w-full flex justify-center">
             <div id="board-wrap" class="relative rounded-2xl overflow-hidden shadow-[0_16px_50px_rgba(0,0,0,0.6)] border border-white/15 bg-black/60 backdrop-blur-xl">
@@ -624,7 +636,7 @@
             </div>
           </div>
 
-          <div id="control-column" class="w-full flex flex-col items-center gap-3">
+          <div id="control-column" class="w-full flex flex-col items-center gap-2.5">
             ${controlCard()}
             ${sidebarSettingsCard()}
           </div>
@@ -648,32 +660,32 @@
 
   function tabletTipsCard() {
     return `
-      <div class="hidden lg:block rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/70 space-y-1 backdrop-blur shadow-md">
-        <div class="flex items-center gap-1.5 font-bold text-pink-300 text-xs">
+      <div class="hidden xl:block rounded-xl border border-white/10 bg-white/5 p-2 text-xs text-white/70 space-y-0.5 backdrop-blur shadow-md select-none">
+        <div class="flex items-center gap-1.5 font-bold text-pink-300 text-[11px]">
           <span>💡</span><span>快捷提示</span>
         </div>
-        <p class="leading-relaxed text-[11px] text-white/60">• 棋盘已自适应最大化展现，轻触任意格子可随时查看事件详情。</p>
-        <p class="leading-relaxed text-[11px] text-white/60">• 右侧一站式集中控制掷骰与规则设置。</p>
+        <p class="leading-relaxed text-[10px] text-white/60">• 棋盘已自适应最大化展现，轻触任意格子可随时查看事件详情。</p>
+        <p class="leading-relaxed text-[10px] text-white/60">• 右侧一站式集中控制掷骰与规则设置。</p>
       </div>`;
   }
 
   function sidebarSettingsCard() {
     const btn = (id, icon, txt, highlight) =>
-      `<button id="${id}" class="inline-flex items-center justify-center gap-1.5 rounded-xl border ${
+      `<button id="${id}" class="inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded-xl border ${
         highlight 
           ? "border-amber-400/40 bg-amber-500/20 text-amber-200" 
           : "border-white/10 bg-white/5 text-white/80"
-      } px-3 py-2 text-xs font-semibold hover:bg-white/15 transition active:scale-95 shadow-sm">
-        <span>${icon}</span><span class="truncate">${esc(txt)}</span>
+      } px-2 sm:px-2.5 py-1.5 text-xs font-semibold hover:bg-white/15 transition active:scale-95 shadow-sm">
+        <span class="text-xs sm:text-sm">${icon}</span><span class="truncate">${esc(txt)}</span>
       </button>`;
 
     return `
-    <div id="settings-card" class="w-full rounded-3xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-md shadow-lg space-y-2.5">
+    <div id="settings-card" class="w-full rounded-2xl border border-white/10 bg-black/40 p-2.5 sm:p-3 backdrop-blur-md shadow-lg space-y-1.5 sm:space-y-2">
       <div class="flex items-center justify-between px-1 text-xs font-bold text-white/70">
-        <span class="flex items-center gap-1.5"><span class="text-sm">⚙️</span><span>游戏设置与工具</span></span>
+        <span class="flex items-center gap-1.5"><span class="text-xs sm:text-sm">⚙️</span><span>游戏设置与工具</span></span>
         <span class="text-[10px] text-pink-300 font-mono">自定义选项</span>
       </div>
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-2 gap-1.5">
         ${btn("btn-rules", "⚙️", L("options.title"))}
         ${btn("btn-library", "📚", L("buttons.openLibrary"))}
         ${btn("btn-ai-prompt", "🤖", L("buttons.aiGenerateEvents") || "AI生成", true)}
@@ -682,7 +694,7 @@
         ${btn("btn-json", "🔧", L("buttons.openJson"))}
       </div>
       <div class="pt-0.5">
-        <button id="btn-reset" class="w-full inline-flex items-center justify-center gap-1.5 rounded-xl border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs font-semibold text-rose-200 hover:bg-rose-500/20 transition active:scale-95 shadow-sm">
+        <button id="btn-reset" class="w-full inline-flex items-center justify-center gap-1.5 rounded-xl border border-rose-500/30 bg-rose-500/10 px-2.5 py-1.5 text-xs font-semibold text-rose-200 hover:bg-rose-500/20 transition active:scale-95 shadow-sm">
           <span>🔄</span><span>${esc(L("buttons.reset"))}</span>
         </button>
       </div>
@@ -691,12 +703,12 @@
 
   function controlCard() {
     return `
-    <div id="control-card" class="w-full rounded-3xl border border-white/15 bg-gradient-to-b from-[#190a24]/95 to-[#0e0417]/95 p-4 sm:p-5 text-center shadow-[0_20px_60px_rgba(244,114,182,0.25)] backdrop-blur">
-      <div id="turn-label" class="text-sm font-semibold tracking-wide text-white/90"></div>
-      <div id="dice-area" class="my-3 flex items-center justify-center min-h-[72px]"></div>
-      <div id="roll-btn-wrap" class="min-h-[46px] flex items-center justify-center"></div>
-      <div id="event-msg" class="mt-2 text-xs sm:text-sm text-pink-200/90 whitespace-pre-line leading-relaxed min-h-[1.5rem]"></div>
-      <div id="ack-btn-wrap" class="mt-2"></div>
+    <div id="control-card" class="w-full rounded-2xl border border-white/15 bg-gradient-to-b from-[#190a24]/95 to-[#0e0417]/95 p-3 sm:p-3.5 text-center shadow-[0_16px_50px_rgba(244,114,182,0.22)] backdrop-blur">
+      <div id="turn-label" class="text-xs sm:text-sm font-bold tracking-wide text-white/90"></div>
+      <div id="dice-area" class="my-2 flex items-center justify-center min-h-[58px]"></div>
+      <div id="roll-btn-wrap" class="min-h-[38px] flex items-center justify-center"></div>
+      <div id="event-msg" class="mt-1.5 text-xs text-pink-200/90 whitespace-pre-line leading-relaxed min-h-[1.25rem] max-h-24 overflow-y-auto"></div>
+      <div id="ack-btn-wrap" class="mt-1.5"></div>
     </div>`;
   }
 
@@ -706,6 +718,18 @@
     const board = document.getElementById("board");
     if (!board) return;
     board.style.gridTemplateColumns = `repeat(${N}, ${CELL}px)`;
+
+    const gameArea = document.getElementById("game-main-area");
+    if (gameArea) {
+      gameArea.style.setProperty("--ludo-sidebar-w", `${currentSidebarW}px`);
+    }
+    const ctrlCol = document.getElementById("control-column");
+    const eff = getEffectiveLayoutMode();
+    if (ctrlCol && (eff === "desktop" || eff === "tablet")) {
+      ctrlCol.style.width = `${currentSidebarW}px`;
+      ctrlCol.style.minWidth = `${currentSidebarW}px`;
+      ctrlCol.style.maxWidth = `${currentSidebarW}px`;
+    }
 
     const activeDirs = new Set(MODE_DIR[settings.playerMode]);
     const dCell = settings.playerMode === "two" ? D_CELL2 : D_CELL4;
@@ -912,8 +936,8 @@
     const rbw = document.getElementById("roll-btn-wrap");
     if (!winner && !ui.needAck && !selectState) {
       rbw.innerHTML = `
-        <button id="btn-roll" ${rolling ? "disabled" : ""} class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-500 px-8 py-3 text-base font-extrabold text-white shadow-[0_8px_25px_rgba(244,63,94,0.45)] transition hover:scale-105 active:scale-95 disabled:opacity-50">
-          <span class="text-xl">🎲</span><span>${esc(L("buttons.roll"))}</span>
+        <button id="btn-roll" ${rolling ? "disabled" : ""} class="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-500 px-6 py-2 sm:px-7 sm:py-2.5 text-sm sm:text-base font-extrabold text-white shadow-[0_6px_20px_rgba(244,63,94,0.45)] transition hover:scale-105 active:scale-95 disabled:opacity-50">
+          <span class="text-base sm:text-lg">🎲</span><span>${esc(L("buttons.roll"))}</span>
         </button>`;
       const b = document.getElementById("btn-roll");
       if (b) b.onclick = () => doRoll();
@@ -926,7 +950,7 @@
     const aw = document.getElementById("ack-btn-wrap");
     if (ui.needAck) {
       aw.innerHTML = `
-        <button id="btn-ack" class="inline-flex items-center gap-2 rounded-full border border-emerald-400/60 bg-emerald-500/25 px-7 py-2.5 text-sm font-bold text-emerald-100 hover:bg-emerald-500/35 transition active:scale-95 shadow-lg shadow-emerald-500/20">
+        <button id="btn-ack" class="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/60 bg-emerald-500/25 px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-emerald-100 hover:bg-emerald-500/35 transition active:scale-95 shadow-md shadow-emerald-500/20">
           <span>✅</span><span>${esc(L("messages.acknowledge"))}</span>
         </button>`;
       const b = document.getElementById("btn-ack");

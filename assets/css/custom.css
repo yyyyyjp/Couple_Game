@@ -319,11 +319,71 @@ button, [role="button"] {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 平板双栏控制台吸顶支撑 */
-@media (min-width: 1024px) {
-  #control-column {
-    position: sticky;
-    top: 1.5rem;
-  }
+/* 工具栏与切换按钮防双击缩放 */
+#layout-switch-bar button,
+button, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ============================================================
+ * 情侣飞行棋 - 电脑与平板【左侧棋盘最大化 + 右侧控制与设置】
+ * ============================================================ */
+.ludo-page-container {
+  width: 100% !important;
+  max-width: 1680px !important;
+}
+
+/* 坚决锁定横向双栏并列结构，彻底杜绝换行至下方 */
+.ludo-side-by-side {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.ludo-side-by-side #board-column {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ludo-side-by-side #control-column {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: var(--ludo-sidebar-w, 280px) !important;
+  min-width: var(--ludo-sidebar-w, 280px) !important;
+  max-width: var(--ludo-sidebar-w, 280px) !important;
+  max-height: calc(100vh - 75px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: sticky !important;
+  top: 0.75rem !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.ludo-side-by-side #control-column::-webkit-scrollbar {
+  width: 4px;
+}
+.ludo-side-by-side #control-column::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+#control-card {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#settings-card {
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
