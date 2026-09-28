@@ -287,14 +287,9 @@ input[type="number"] { -moz-appearance: textfield; }
 }
 
 /* ============================================================
- * 真心话大冒险 - 物理转盘与指针微动
+ * 真心话大冒险 - 硬件加速转盘
  * ============================================================ */
 #wheel-disc {
   will-change: transform;
-}
-
-#wheel-pointer {
-  transform-origin: 50% 85%;
-  transition: transform 0.05s ease-out;
 }
 

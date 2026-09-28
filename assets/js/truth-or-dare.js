@@ -184,11 +184,14 @@
     } else seg = "rgba(255,255,255,0.05) 0deg 360deg";
     var bg = "conic-gradient(from -90deg, " + seg + ")";
 
+    var maxLen = items.length > 16 ? 5 : (items.length > 8 ? 8 : 12);
+    var fontClass = items.length > 16 ? "text-[10px]" : (items.length > 8 ? "text-xs" : "text-sm sm:text-base");
+
     var labels = items.length ? items.map(function (it, i) {
       var ang = (i + 0.5) * (360 / items.length) - 90;
-      var shown = it.length > 10 ? it.slice(0, 9) + "…" : it;
+      var shown = it.length > maxLen ? it.slice(0, maxLen - 1) + "…" : it;
       return '<div class="absolute inset-0 pointer-events-none" style="transform:rotate(' + ang + 'deg)">' +
-        '<span class="absolute left-1/2 top-[4%] -translate-x-1/2 text-center text-xs font-bold uppercase tracking-wide text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-sm lg:text-base select-none" style="writing-mode:vertical-lr;text-orientation:mixed">' + LG.escapeHtml(shown) + "</span></div>";
+        '<span class="absolute left-1/2 top-[4%] -translate-x-1/2 text-center ' + fontClass + ' font-bold uppercase tracking-wide text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] select-none" style="writing-mode:vertical-lr;text-orientation:mixed">' + LG.escapeHtml(shown) + "</span></div>";
     }).join("") : "";
 
     return { bg: bg, labels: labels };
@@ -206,8 +209,8 @@
           '<div id="wheel-disc" class="absolute inset-3 rounded-full shadow-inner will-change-transform" style="background:' + segs.bg + ";transform:rotate(" + rotation + "deg);box-shadow:inset 0 0 24px rgba(0,0,0,0.6)\">" +
             '<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-white/15 to-transparent opacity-60 pointer-events-none"></div>' + segs.labels +
           "</div>" +
-          /* 物理指针 */
-          '<div id="wheel-pointer" class="pointer-events-none absolute -top-[28px] left-1/2 -translate-x-1/2 z-30 drop-shadow-[0_4px_12px_rgba(244,63,94,0.6)]" style="transform-origin: 50% 85%; transition: transform 0.06s ease-out;">' +
+          /* 顶部固定指示指针（无机械弹跳） */
+          '<div id="wheel-pointer" class="pointer-events-none absolute -top-[28px] left-1/2 -translate-x-1/2 z-30 drop-shadow-[0_4px_12px_rgba(244,63,94,0.6)]">' +
             '<svg width="42" height="56" viewBox="0 0 42 56" fill="none">' +
               '<path d="M21 0L2 48L21 42V0Z" fill="#f43f5e"/>' +
               '<path d="M21 0L40 48L21 42V0Z" fill="#be123c"/>' +
@@ -228,14 +231,14 @@
       '<div class="flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white/80 backdrop-blur border border-white/10">' +
         '<span class="inline-block size-2 animate-pulse rounded-full bg-emerald-400"></span>' +
         '<span id="wheel-status-badge">' + label + "</span></div>" +
-      (items.length ? '<ul class="custom-scrollbar mt-1 grid max-h-[150px] w-full gap-2 overflow-y-auto rounded-xl border border-white/5 bg-black/20 p-3 text-xs text-white/80 sm:grid-cols-2">' +
-        items.map(function (it, i) {
+      '<ul id="wheel-items-list" class="custom-scrollbar mt-1 grid max-h-[150px] w-full gap-2 overflow-y-auto rounded-xl border border-white/5 bg-black/20 p-3 text-xs text-white/80 sm:grid-cols-2">' +
+        (items.length ? items.map(function (it, i) {
           return '<li class="flex items-center gap-3 rounded-lg border border-white/5 bg-white/5 px-3 py-2"><span class="size-2 shrink-0 rounded-full" style="background:' + WHEEL_COLORS[i % WHEEL_COLORS.length] + '"></span><span class="flex-1 truncate">' + LG.escapeHtml(it) + "</span></li>";
-        }).join("") + "</ul>" : "") +
+        }).join("") : "") + "</ul>" +
     "</div>";
   }
 
-  /* ---------- 物理转盘音画同步 ---------- */
+  /* ---------- 物理转盘音效与动效引擎 ---------- */
   var spinTimeout = null, tickTimers = [];
   function clearSpinTimers() {
     if (spinTimeout) { clearTimeout(spinTimeout); spinTimeout = null; }
@@ -251,17 +254,10 @@
     }
     var total = r.reduce(function (a, b) { return a + b; }, 0);
     var scale = duration / total;
-    var pointer = document.getElementById("wheel-pointer");
 
     function playTick(i) {
       if (i >= tickCount || !S.spinning) return;
       LG.sound.play("tick");
-      if (pointer) {
-        pointer.style.transform = "translateX(-50%) rotate(-14deg)";
-        setTimeout(function () {
-          if (pointer) pointer.style.transform = "translateX(-50%) rotate(0deg)";
-        }, 45);
-      }
       tickTimers.push(setTimeout(function () { playTick(i + 1); }, r[i] * scale));
     }
     playTick(0);
@@ -276,14 +272,48 @@
     var badge = document.getElementById("wheel-status-badge");
 
     if (spinPlayerBtn) spinPlayerBtn.disabled = spinning;
-    if (truthBtn) truthBtn.disabled = spinning || !S.currentPlayer;
-    if (dareBtn) dareBtn.disabled = spinning || !S.currentPlayer;
+    if (truthBtn) truthBtn.disabled = spinning;
+    if (dareBtn) dareBtn.disabled = spinning;
     if (centerBtn) centerBtn.disabled = spinning;
     if (centerText) centerText.textContent = spinning ? "..." : e("spin");
     if (badge) {
       var wheelLabel = S.phase === "truth" ? e("chooseTruth") : S.phase === "dare" ? e("chooseDare") : e("spinPlayer");
       badge.textContent = wheelLabel + (spinning ? " (" + e("spin") + "...)" : "");
     }
+  }
+
+  function updateWheelListAndBadge(items, purpose, spinning) {
+    var badge = document.getElementById("wheel-status-badge");
+    if (badge) {
+      var wheelLabel = purpose === "truth" ? e("chooseTruth") : purpose === "dare" ? e("chooseDare") : e("spinPlayer");
+      badge.textContent = wheelLabel + (spinning ? " (" + e("spin") + "...)" : "");
+    }
+    var list = document.getElementById("wheel-items-list");
+    if (list && items && items.length) {
+      list.innerHTML = items.map(function (it, i) {
+        return '<li class="flex items-center gap-3 rounded-lg border border-white/5 bg-white/5 px-3 py-2">' +
+          '<span class="size-2 shrink-0 rounded-full" style="background:' + WHEEL_COLORS[i % WHEEL_COLORS.length] + '"></span>' +
+          '<span class="flex-1 truncate">' + LG.escapeHtml(it) + "</span></li>";
+      }).join("");
+    }
+  }
+
+  function updateCurrentPlayerBadge() {
+    var el = document.getElementById("current-player-name");
+    if (el) {
+      el.textContent = S.currentPlayer ? S.currentPlayer.name : e("noPlayers");
+    }
+  }
+
+  function ensureCurrentPlayer() {
+    if (!S.currentPlayer) {
+      var valid = S.players.filter(function (p) { return p.name.trim(); });
+      if (valid.length) {
+        S.currentPlayer = valid[0];
+        updateCurrentPlayerBadge();
+      }
+    }
+    return S.currentPlayer;
   }
 
   function spinWheel(entries, purpose, onEmpty, onComplete) {
@@ -330,48 +360,88 @@
     // 2. 禁用操作按钮
     updateControlButtons(true);
 
-    // 3. 启动高帧率减速贝塞尔飞旋 (5.2 秒)
-    var spinDuration = 5200;
-    if (disc) {
-      disc.style.transition = "transform " + spinDuration + "ms cubic-bezier(0.12, 0.85, 0.2, 1)";
-      disc.style.transform = "rotate(" + targetRotation + "deg)";
-    }
+    // 3. 更新下方列表与状态提示
+    updateWheelListAndBadge(display, purpose, true);
 
-    // 4. 指针物理抖动与递减 Tick 音效
+    // 4. 启动高帧率减速贝塞尔飞旋 (5.2 秒)
+    var spinDuration = 5200;
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        if (!disc || !S.spinning) return;
+        disc.style.transition = "transform " + spinDuration + "ms cubic-bezier(0.12, 0.85, 0.2, 1)";
+        disc.style.transform = "rotate(" + targetRotation + "deg)";
+      });
+    });
+
+    // 5. Web Audio 渐缓 Tick 音效（指针固定，无弹跳）
     startTicks(spinDuration);
 
     spinTimeout = setTimeout(function () {
       clearSpinTimers();
       S.spinning = false;
       updateControlButtons(false);
+      updateWheelListAndBadge(display, purpose, false);
       onComplete(o, a[o]);
-      renderModal();
     }, spinDuration + 100);
   }
 
   /* ---------- 选玩家 ---------- */
   function pickPlayer() {
+    if (S.spinning) return;
     var valid = S.players.filter(function (p) { return p.name.trim(); });
-    if (!valid.length) { S.notice = e("noPlayers"); S.phase = "idle"; S.wheelItems = []; render(); return; }
+    if (!valid.length) {
+      S.notice = e("noPlayers");
+      LG.toast(e("noPlayers"));
+      S.phase = "idle";
+      S.wheelItems = [];
+      render();
+      return;
+    }
     if (S.sequential) {
       var idx = 0;
       if (S.currentPlayer) {
         var fi = valid.findIndex(function (p) { return p.id === S.currentPlayer.id; });
         if (fi >= 0) idx = (fi + 1) % valid.length;
       }
-      S.currentPlayer = valid[idx]; S.notice = null;
-      afterPlayerPicked(); LG.sound.play("select"); render(); return;
+      S.currentPlayer = valid[idx];
+      S.notice = null;
+      updateCurrentPlayerBadge();
+      afterPlayerPicked();
+      LG.sound.play("select");
+      renderModal();
+      return;
     }
     spinWheel(valid.map(function (p) { return p.name; }), "player",
-      function () { S.notice = e("noPlayers"); },
-      function (i) { S.currentPlayer = valid[i]; S.notice = null; afterPlayerPicked(); });
+      function () { S.notice = e("noPlayers"); render(); },
+      function (i) {
+        S.currentPlayer = valid[i];
+        S.notice = null;
+        updateCurrentPlayerBadge();
+        afterPlayerPicked();
+        renderModal();
+      });
   }
   function afterPlayerPicked() { S.showModeChoice = true; }
 
   /* ---------- 选题 ---------- */
   function choosePrompt(type) {
+    if (S.spinning) return;
     S.showModeChoice = false;
-    if (!S.currentPlayer) { S.notice = e("noPlayers"); S.phase = "idle"; render(); return; }
+    renderModal(); // 立即关闭模式选择弹窗，露出现场大转盘
+
+    var valid = S.players.filter(function (p) { return p.name.trim(); });
+    if (!valid.length) {
+      S.notice = e("noPlayers");
+      LG.toast(e("noPlayers"));
+      S.phase = "idle";
+      render();
+      return;
+    }
+    if (!S.currentPlayer) {
+      S.currentPlayer = valid[0];
+      updateCurrentPlayerBadge();
+    }
+
     var src = type === "truth" ? S.workingTruths : S.workingDares;
     var others = S.players.filter(function (p) { return p.id !== S.currentPlayer.id && p.name.trim(); }).length;
     var pool = src.map(function (x) { return x.trim(); }).filter(function (x) { return (x.match(PLACEHOLDER_RE) || []).length <= others; });
@@ -380,8 +450,13 @@
     var entries;
     if (S.noRepeat) entries = [...new Set(pool)].filter(function (x) { return S.drawn.indexOf(x) < 0; });
     else entries = pool;
+
     spinWheel(entries, type,
-      function () { S.notice = e(S.noRepeat && pool.length > 0 ? "noRepeatExhausted" : "noPrompts"); },
+      function () {
+        S.notice = e(S.noRepeat && pool.length > 0 ? "noRepeatExhausted" : "noPrompts");
+        LG.toast(S.notice);
+        render();
+      },
       function (i, text) {
         if (S.noRepeat) S.drawn.push(text);
         S.resultType = type;
@@ -389,8 +464,12 @@
         S.showResult = true;
         LG.sound.play("fanfare");
         S.turnCount++;
-        if (S.turnCount >= S.players.length && S.players.length) { LG.incrementGameSession("truthOrDare", 10); S.turnCount = 0; }
-        saveWorking(); render();
+        if (S.turnCount >= S.players.length && S.players.length) {
+          LG.incrementGameSession("truthOrDare", 10);
+          S.turnCount = 0;
+        }
+        saveWorking();
+        renderModal();
       });
   }
   function confirmResult() { S.showResult = false; S.phase = "idle"; S.wheelItems = []; render(); }
@@ -420,13 +499,13 @@
                 '<div class="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-2 shadow-lg backdrop-blur-md">' +
                   '<span class="text-xs font-bold uppercase tracking-widest text-white/50">' + e("currentTurn") + "</span>" +
                   '<div class="h-4 w-px bg-white/20"></div>' +
-                  '<span class="text-sm font-bold text-white">' + (cp ? LG.escapeHtml(cp.name) : e("noPlayers")) + "</span>" +
+                  '<span id="current-player-name" class="text-sm font-bold text-white">' + (cp ? LG.escapeHtml(cp.name) : e("noPlayers")) + "</span>" +
                 "</div></div>" +
               '<div class="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-3">' +
                 '<button data-act="spin-player" ' + (S.spinning ? "disabled" : "") + ' class="cursor-pointer group relative overflow-hidden rounded-full bg-white px-7 py-3 text-sm font-bold uppercase tracking-wider text-black shadow transition hover:scale-105 disabled:opacity-50 disabled:hover:scale-100">' +
                   (S.sequential ? e("nextPlayer") : e("spinPlayer")) + "</button>" +
-                '<button data-act="choose-truth" ' + (S.spinning || !cp ? "disabled" : "") + ' class="cursor-pointer rounded-full border border-purple-400/50 bg-purple-500/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-purple-200 transition hover:bg-purple-500/20 disabled:opacity-50">' + e("chooseTruth") + "</button>" +
-                '<button data-act="choose-dare" ' + (S.spinning || !cp ? "disabled" : "") + ' class="cursor-pointer rounded-full border border-rose-400/50 bg-rose-500/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-rose-200 transition hover:bg-rose-500/20 disabled:opacity-50">' + e("chooseDare") + "</button>" +
+                '<button data-act="choose-truth" ' + (S.spinning ? "disabled" : "") + ' class="cursor-pointer rounded-full border border-purple-400/50 bg-purple-500/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-purple-200 transition hover:bg-purple-500/20 disabled:opacity-50">' + e("chooseTruth") + "</button>" +
+                '<button data-act="choose-dare" ' + (S.spinning ? "disabled" : "") + ' class="cursor-pointer rounded-full border border-rose-400/50 bg-rose-500/10 px-5 py-3 text-xs font-bold uppercase tracking-wider text-rose-200 transition hover:bg-rose-500/20 disabled:opacity-50">' + e("chooseDare") + "</button>" +
               "</div>" +
               (S.notice && S.phase === "idle" ? '<p class="relative z-10 mb-4 max-w-md px-4 text-center text-sm text-amber-200">' + S.notice + "</p>" : "") +
               renderWheel(idleItems, S.rotation, S.spinning, wheelLabel, spinLabel) +
@@ -636,18 +715,26 @@
     if (S.spinning) return;
     var el = ev.target.closest("[data-act]");
     if (!el) {
-      // 中心指针
+      // 中心按钮
       var c = ev.target.closest("[data-wheel-center]");
       if (c && !S.spinning) {
         if (S.phase === "truth" || S.phase === "dare") choosePrompt(S.phase);
-        else pickPlayer();
+        else {
+          ensureCurrentPlayer();
+          if (S.currentPlayer && S.phase === "idle") {
+            afterPlayerPicked();
+            renderModal();
+          } else {
+            pickPlayer();
+          }
+        }
       }
       return;
     }
     var a = el.getAttribute("data-act");
     if (a === "spin-player") pickPlayer();
-    else if (a === "choose-truth") { if (S.currentPlayer) choosePrompt("truth"); else LG.toast(e("noPlayers")); }
-    else if (a === "choose-dare") { if (S.currentPlayer) choosePrompt("dare"); else LG.toast(e("noPlayers")); }
+    else if (a === "choose-truth") choosePrompt("truth");
+    else if (a === "choose-dare") choosePrompt("dare");
     else if (a === "toggle-players") S.playersOpen = !S.playersOpen;
     else if (a === "add-player") S.players.push({ id: uid(), name: e("defaultNamePrefix") + " " + (S.players.length + 1), color: PLAYER_COLORS[S.players.length % PLAYER_COLORS.length] });
     else if (a === "toggle-sequential") { S.sequential = !S.sequential; try { localStorage.setItem(K.sequential, S.sequential ? "true" : "false"); } catch (e) {} }
@@ -687,10 +774,10 @@
     var el = ev.target.closest("[data-modal-act]");
     if (el) {
       var a = el.getAttribute("data-modal-act");
-      if (a === "close-result") confirmResult();
-      else if (a === "pick-truth") choosePrompt("truth");
-      else if (a === "pick-dare") choosePrompt("dare");
-      else if (a === "close-libs") { S.modal = null; }
+      if (a === "close-result") { confirmResult(); return; }
+      if (a === "pick-truth") { choosePrompt("truth"); return; }
+      if (a === "pick-dare") { choosePrompt("dare"); return; }
+      if (a === "close-libs") { S.modal = null; }
       else if (a === "save-lib") saveNewLibrary();
       else if (a === "close-editor") { S.modal = null; S.editorType = null; saveWorking(); }
       else if (a === "add-prompt") {
