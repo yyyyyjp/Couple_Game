@@ -119,3 +119,19 @@ input[type="number"] { -moz-appearance: textfield; }
 .animate-spin-3d-fast { animation: spin-3d-fast 2.5s linear infinite; }
 .land-player1 { transform: rotateY(0) scale(1); box-shadow: 0 0 50px rgba(244,63,94,.6); }
 .land-player2 { transform: rotateY(180deg) scale(1); box-shadow: 0 0 50px rgba(59,130,246,.6); }
+
+/* ============================================================
+ * 心动飞行棋：呼吸微光与高光效果
+ * ============================================================ */
+@keyframes breathing {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.02); }
+}
+.animate-breathing { animation: breathing 4s ease-in-out infinite; }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
