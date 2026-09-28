@@ -788,7 +788,7 @@
     // 掷骰动画 (优先使用 Dice3D 真实物理翻滚)
     if (!silent) {
       if (window.Dice3D && dice3dInstance) {
-        await dice3dInstance.roll(dice, 850);
+        await dice3dInstance.roll(dice, 900);
         diceVal = dice;
       } else {
         const iv = setInterval(() => {

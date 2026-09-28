@@ -137,8 +137,10 @@ input[type="number"] { -moz-appearance: textfield; }
 }
 
 /* ============================================================
- * 全局通用 3D 物理实心骰子 (Realistic Solid 3D Physics Dice)
- * 采用 6 面无缝紧密咬合 + 实心内胆技术，彻底解决面与面之间空白空心问题
+/* ============================================================
+ * 全局通用 3D 物理实心圆润骰子 (Realistic Rounded 3D Physics Dice)
+ * 采用 6 面微重叠密闭咬合 + 内嵌圆润面板工艺 (无缝实心且面体圆润)
+ * 纯物理全同步抛掷：起跳、腾空、连续三轴飞旋、落地回弹与投影全链路绝对同步
  * ============================================================ */
 .dice-3d-scene {
   position: relative;
@@ -158,7 +160,6 @@ input[type="number"] { -moz-appearance: textfield; }
   width: 60px;
   height: 60px;
   transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(0.25, 0.9, 0.35, 1);
 }
 
 /* 旋转立方体本体 */
@@ -167,35 +168,45 @@ input[type="number"] { -moz-appearance: textfield; }
   width: 60px;
   height: 60px;
   transform-style: preserve-3d;
-  background: #eaeaf2;
-  transition: transform 0.9s cubic-bezier(0.2, 0.85, 0.3, 1.05);
+  background: #eaebf2;
+  border-radius: 4px;
+  transition: transform 0.9s cubic-bezier(0.2, 0.85, 0.3, 1.0);
 }
 
-/* 实心防漏光内层 (兼容结构) */
-.dice-3d-core {
-  display: none;
-}
-
-/* 6 个外部质感面 (0.5px微重叠密闭咬合，彻底消除面与面之间的空白缝隙与黑洞空隙) */
+/* 6 个外部基座面 (微重叠密闭咬合，构成 100% 坚实不漏光的象牙体) */
 .dice-3d-face {
   position: absolute;
   top: -0.5px;
   left: -0.5px;
   width: 61px;
   height: 61px;
-  background: linear-gradient(135deg, #ffffff 0%, #f6f6f9 55%, #eaeaf2 100%);
-  border: 1px solid rgba(220, 224, 235, 0.85);
+  background: #eaebf2;
+  border-radius: 4px;
   box-shadow: 
-    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6),
     inset 0 0 5px rgba(0, 0, 0, 0.12);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  padding: 2.5px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* 6 个内嵌圆润面板 (具有真实骰子微凹倒角的触感与高雅圆角) */
+.dice-face-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8fb 55%, #eaeaf2 100%);
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 4px rgba(0, 0, 0, 0.08);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  padding: 7px;
+  padding: 5px;
   gap: 2px;
-  user-select: none;
   box-sizing: border-box;
 }
 
@@ -241,26 +252,37 @@ input[type="number"] { -moz-appearance: textfield; }
   width: 54px;
   height: 14px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 72%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 72%);
   pointer-events-none;
-  transition: transform 0.9s cubic-bezier(0.25, 0.9, 0.35, 1), opacity 0.9s ease;
 }
 
-/* 腾空抛掷态：阴影扩散变淡，骰子被向上抛起 */
+/* 抛物线垂直跃动 (严格 0.9s，与 3D 旋转完全绝对同步) */
+@keyframes diceTossMotion {
+  0% { transform: translateY(0); }
+  45% { transform: translateY(-46px); }
+  82% { transform: translateY(0); }
+  90% { transform: translateY(-6px); }
+  96% { transform: translateY(0); }
+  98% { transform: translateY(-1.5px); }
+  100% { transform: translateY(0); }
+}
+
+/* 地面阴影同步扩散与收聚 (严格 0.9s，与抛掷高度 100% 同步) */
+@keyframes diceShadowMotion {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  45% { transform: translateX(-50%) scale(1.65); opacity: 0.16; }
+  82% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  90% { transform: translateX(-50%) scale(1.15); opacity: 0.48; }
+  96% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  98% { transform: translateX(-50%) scale(1.04); opacity: 0.55; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+}
+
+.dice-3d-scene.is-tossing .dice-3d-toss {
+  animation: diceTossMotion 0.9s cubic-bezier(0.25, 0.9, 0.35, 1) forwards;
+}
+
 .dice-3d-scene.is-tossing .dice-3d-shadow {
-  transform: translateX(-50%) scale(1.65);
-  opacity: 0.18;
-}
-
-/* 落地撞击弹性关键帧 (Settling bounce) */
-@keyframes diceLandingBounce {
-  0% { transform: translateY(0) scale(1, 1); }
-  25% { transform: translateY(-12px) scale(0.94, 1.06); }
-  55% { transform: translateY(0) scale(1.08, 0.92); }
-  75% { transform: translateY(-4px) scale(0.98, 1.02); }
-  100% { transform: translateY(0) scale(1, 1); }
-}
-.dice-3d-toss.is-landing {
-  animation: diceLandingBounce 0.45s ease-out 1;
+  animation: diceShadowMotion 0.9s cubic-bezier(0.25, 0.9, 0.35, 1) forwards;
 }
 

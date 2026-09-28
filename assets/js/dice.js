@@ -397,10 +397,9 @@
     for (var j = 0; j < S.diceCount; j++) final.push(LG.dice1_6());
 
     if (window.Dice3D && activeDiceInstances.length === S.diceCount) {
-      // 触发全 3D 物理抛掷与空中连续旋转
+      // 触发全 3D 物理抛掷与空中连续旋转 (多骰严格绝对同步)
       var rollPromises = activeDiceInstances.map(function (inst, i) {
-        var dur = 880 + Math.floor(Math.random() * 80);
-        return inst.roll(final[i], dur);
+        return inst.roll(final[i], 900);
       });
 
       Promise.all(rollPromises).then(function () {

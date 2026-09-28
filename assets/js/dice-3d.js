@@ -29,7 +29,7 @@
   };
 
   /**
-   * 生成单个面 (face) 的 HTML，精雕凹陷圆点
+   * 生成单个面 (face) 的 HTML，精雕凹陷圆点与内嵌圆润面板
    */
   function buildFaceHtml(val) {
     const pips = PIPS_MAP[val] || [];
@@ -40,12 +40,12 @@
       const pipClass = isPip ? `dice-pip ${isRed ? "pip-red" : ""}` : "w-2.5 h-2.5 opacity-0";
       pipsHtml += `<div class="${pipClass}"></div>`;
     }
-    return `<div class="dice-3d-face dice-face-${val}">${pipsHtml}</div>`;
+    return `<div class="dice-3d-face dice-face-${val}"><div class="dice-face-inner">${pipsHtml}</div></div>`;
   }
 
   /**
-   * 生成完整 3D 实心骰子 HTML 结构
-   * 包含：地面软阴影、垂直抛跃层 (toss)、实心内胆 (core)、6 个质感面
+   * 生成完整 3D 实心圆润骰子 HTML 结构
+   * 包含：地面软阴影、垂直抛跃层 (toss)、6 个微重叠圆润面板
    */
   function buildDiceHtml(initialValue, id) {
     initialValue = initialValue || 1;
@@ -61,7 +61,6 @@
         <div class="dice-3d-shadow"></div>
         <div class="dice-3d-toss">
           <div class="dice-3d-wrapper" style="transform:${transform}">
-            <div class="dice-3d-core"></div>
             ${faces}
           </div>
         </div>
@@ -121,14 +120,14 @@
         window.LG.sound.play("roll");
       }
 
-      // 1. 抛起动效：外层抛起、地面阴影扩大
+      // 1. 触发纯 CSS 垂直抛物线与地面动态软阴影 (与三维飞旋严格 900ms 同步)
+      this.sceneEl.classList.remove("is-tossing");
+      void this.sceneEl.offsetWidth; // 触发 reflow 确保 keyframe 重新执行
       this.sceneEl.classList.add("is-tossing");
-      this.tossEl.classList.remove("is-landing");
-      this.tossEl.style.transform = "translateY(-48px)";
 
-      // 2. 计算连续目标欧拉角 (保证永远向前翻转 3~4 圈后精准无缝停在目标面上)
+      // 2. 计算连续目标欧拉角 (统一 3 整圈 1080°，多骰并发时速度完全同步)
       const targetBase = FACE_ANGLES[targetValue] || FACE_ANGLES[1];
-      const extraSpins = (3 + Math.floor(Math.random() * 2)) * 360; // 1080° 或 1440°
+      const extraSpins = 3 * 360; // 统一 1080°，杜绝多骰间转速差异
 
       const curX = ((this.currentX % 360) + 360) % 360;
       const curY = ((this.currentY % 360) + 360) % 360;
@@ -147,30 +146,16 @@
       this.wrapperEl.style.transform = `rotateX(${nextX}deg) rotateY(${nextY}deg) rotateZ(0deg)`;
 
       return new Promise((resolve) => {
-        // 中途 (约 50% 进度) 开始受重力下坠
-        const halfTime = Math.floor(duration * 0.48);
         setTimeout(() => {
-          this.sceneEl.classList.remove("is-tossing");
-          this.tossEl.style.transform = "translateY(0px)";
-        }, halfTime);
-
-        // 落地瞬间 (100% 进度)
-        setTimeout(() => {
-          // 播放清脆的骰子落地声
+          // 落地瞬间播放清脆的骰子落地声与震动
           if (this.options.sound && window.LG && window.LG.sound) {
             window.LG.sound.play("stop");
           }
           if (navigator.vibrate) navigator.vibrate(35);
 
-          // 触发落地弹性微回弹
-          this.tossEl.classList.add("is-landing");
-
-          setTimeout(() => {
-            this.tossEl.classList.remove("is-landing");
-            this.isRolling = false;
-            resolve(targetValue);
-          }, 450);
-
+          this.sceneEl.classList.remove("is-tossing");
+          this.isRolling = false;
+          resolve(targetValue);
         }, duration);
       });
     }
