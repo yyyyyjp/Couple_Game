@@ -153,25 +153,47 @@
       '<div class="relative z-10 grid size-14 grid-cols-3 grid-rows-3 gap-1.5 p-1.5">' + dots + '</div>' +
     '</div>';
   }
-  function renderDice(value, rolling, key) {
-    if (window.Dice3D) {
-      var h = window.Dice3D.buildDiceHtml(value, "dice-" + key);
-      if (rolling) {
-        h = h.replace('class="dice-3d-scene"', 'class="dice-3d-scene is-airborne"')
-             .replace('class="dice-3d-wrapper"', 'class="dice-3d-wrapper is-rolling"');
-      }
-      return h;
-    }
+  function renderDiceFallback(value, rolling, key) {
     var faces = "";
     for (var v = 1; v <= 6; v++) faces += diceFace(v, FACE_ROT[v]);
-    var transform;
-    if (rolling) {
-      var n = S.rollTick;
-      transform = "rotateX(" + (360 * (n + 1) + key * 72) + "deg) rotateY(" + (360 * (n + 1) + 137 * (key + 1)) + "deg)";
-    } else transform = STOP_ROT[value];
-    return '<div class="relative" style="width:80px;height:80px;perspective:500px">' +
-      '<div class="relative w-full h-full transform-style-preserve-3d transition-transform duration-500 ease-out" style="transform:' + transform + '">' +
+    var transform = STOP_ROT[value] || STOP_ROT[1];
+    return '<div class="relative" style="width:76px;height:76px;perspective:500px">' +
+      '<div class="relative w-full h-full transform-style-preserve-3d" style="transform:' + transform + '">' +
       faces + '</div></div>';
+  }
+
+  var activeDiceInstances = [];
+  function syncDiceView() {
+    var box = document.getElementById("dice-slots-box");
+    if (!box) return;
+
+    var needRebuild = (activeDiceInstances.length !== S.diceCount) ||
+                      (box.children.length !== S.diceCount);
+
+    if (needRebuild) {
+      box.innerHTML = "";
+      activeDiceInstances = [];
+      for (var i = 0; i < S.diceCount; i++) {
+        var slot = document.createElement("div");
+        slot.className = "inline-flex items-center justify-center";
+        box.appendChild(slot);
+        var val = S.currentRolls[i] || 1;
+        if (window.Dice3D) {
+          var inst = window.Dice3D.create(slot, { initialValue: val, sound: (i === 0) });
+          activeDiceInstances.push(inst);
+        } else {
+          slot.innerHTML = renderDiceFallback(val, false, i);
+        }
+      }
+    } else {
+      if (S.gameState !== "rolling") {
+        for (var j = 0; j < S.diceCount; j++) {
+          if (activeDiceInstances[j]) {
+            activeDiceInstances[j].setValue(S.currentRolls[j] || 1);
+          }
+        }
+      }
+    }
   }
 
   /* 彩纸 */
@@ -194,10 +216,6 @@
     var gs2 = S.gameState, eg = currentPlayer(), sum = sumRolls();
     var sp = stageProgress(), sc = stageColors(stageOf());
     var clickable = (gs2 === "idle" || gs2 === "success" || gs2 === "fail");
-
-    var diceHtml = S.currentRolls.map(function (v, i) {
-      return renderDice(v, gs2 === "rolling", i);
-    }).join("");
 
     /* 结果区 */
     var resultHtml = "";
@@ -271,8 +289,8 @@
                 "</div>" +
               "</div>" +
             "</div>" +
-            /* 骰子 */
-            '<div class="relative z-10 flex flex-wrap justify-center gap-6 p-4">' + diceHtml + "</div>" +
+            /* 骰子舞台容器 */
+            '<div id="dice-slots-box" class="relative z-10 flex flex-wrap justify-center items-center gap-6 p-4 min-h-[110px]"></div>' +
             /* 结果 */
             '<div class="relative z-10 mt-8 min-h-[6rem] text-center flex flex-col items-center justify-center">' + resultHtml + "</div>" +
             /* 按钮 */
@@ -335,10 +353,17 @@
       "</section>";
 
     document.getElementById("dice-root").innerHTML = html;
+    syncDiceView();
   }
 
   function editIcon(cls) {
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4 ' + cls + '"><path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z"></path><path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"></path></svg>';
+  }
+  function libIcon() {
+    return '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"></path></svg>';
+  }
+  function gearIcon() {
+    return '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 text-white/40 hover:text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>';
   }
   function libIcon() {
     return '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"></path></svg>';
@@ -365,30 +390,52 @@
     if (S.gameState === "rolling" || S.gameState === "settling") return;
     LG.recordDetailStat("diceRolls");
     S.gameState = "rolling";
-    LG.sound.play("roll");
+    save();
     renderMain();
 
-    setTimeout(function () {
-      var final = [];
-      for (var j = 0; j < S.diceCount; j++) final.push(LG.dice1_6());
-      S.currentRolls = final;
-      S.gameState = "settling";
-      LG.sound.play("stop");
-      if (navigator.vibrate) navigator.vibrate(30);
-      renderMain();
+    var final = [];
+    for (var j = 0; j < S.diceCount; j++) final.push(LG.dice1_6());
 
+    if (window.Dice3D && activeDiceInstances.length === S.diceCount) {
+      // 触发全 3D 物理抛掷与空中连续旋转
+      var rollPromises = activeDiceInstances.map(function (inst, i) {
+        var dur = 880 + Math.floor(Math.random() * 80);
+        return inst.roll(final[i], dur);
+      });
+
+      Promise.all(rollPromises).then(function () {
+        S.currentRolls = final;
+        S.gameState = "settling";
+        if (navigator.vibrate) navigator.vibrate(35);
+        renderMain();
+
+        setTimeout(function () {
+          var sum = sumRolls();
+          if (sum > S.targetNumber) {
+            if (S.diceCount >= 10) {
+              S.gameState = "win"; LG.sound.play("win");
+              LG.recordDetailStat("diceWins");
+              LG.incrementGameSession("dice", 10);
+            } else { S.gameState = "success"; LG.sound.play("success"); }
+          } else { S.gameState = "fail"; LG.sound.play("fail"); }
+          save(); render();
+        }, 550);
+      });
+    } else {
       setTimeout(function () {
-        var sum = sumRolls();
-        if (sum > S.targetNumber) {
-          if (S.diceCount >= 10) {
-            S.gameState = "win"; LG.sound.play("win");
-            LG.recordDetailStat("diceWins");
-            LG.incrementGameSession("dice", 10);
-          } else { S.gameState = "success"; LG.sound.play("success"); }
-        } else { S.gameState = "fail"; LG.sound.play("fail"); }
-        save(); render();
-      }, 750);
-    }, 850);
+        S.currentRolls = final;
+        S.gameState = "settling";
+        renderMain();
+        setTimeout(function () {
+          var sum = sumRolls();
+          if (sum > S.targetNumber) {
+            if (S.diceCount >= 10) { S.gameState = "win"; }
+            else { S.gameState = "success"; }
+          } else { S.gameState = "fail"; }
+          save(); render();
+        }, 600);
+      }, 850);
+    }
   }
   function actPass() {
     LG.sound.play("levelUp");

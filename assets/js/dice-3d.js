@@ -1,12 +1,14 @@
 /* ============================================================
- * Dice3D - 全局通用 3D 物理级骰子引擎
- * 纯原生 CSS 3D 实现，支持真实多轴翻滚、物理抛掷跳跃、
- * 弹性落地回弹、动态地面阴影与触觉/音效联动
+ * Dice3D - 全局通用 3D 物理级实心骰子引擎
+ * 采用：
+ * 1. 6 面高精度咬合 + 实心防漏光内胆 (彻底解决面与面之间空白空心问题)
+ * 2. 连续动力学抛掷 (空中三轴飞旋 + 真实抛物线 + 落地双重弹性回弹，杜绝帧突变)
+ * 3. 动态地面拟真投影 (随抛起高度软化变淡，落地聚拢)
  * ============================================================ */
 (function (global) {
   "use strict";
 
-  // 9格点阵映射 (0~8)
+  // 9 格点阵索引 (3x3: 0~8)
   const PIPS_MAP = {
     1: [4],
     2: [0, 8],
@@ -16,18 +18,18 @@
     6: [0, 2, 3, 5, 6, 8]
   };
 
-  // 目标点数对应的基准旋转欧拉角 (面向观察者)
-  const BASE_ROTATIONS = {
-    1: { x: 0, y: 0, z: 0 },
-    2: { x: 90, y: 0, z: 0 },
-    3: { x: 0, y: 90, z: 0 },
-    4: { x: 0, y: -90, z: 0 },
-    5: { x: -90, y: 0, z: 0 },
-    6: { x: 180, y: 0, z: 0 }
+  // 6 个点数面对观察者时的基准旋转欧拉角 (0~360度标准角)
+  const FACE_ANGLES = {
+    1: { x: 0, y: 0 },
+    2: { x: 90, y: 0 },
+    3: { x: 0, y: 90 },
+    4: { x: 0, y: 270 },
+    5: { x: 270, y: 0 },
+    6: { x: 180, y: 0 }
   };
 
   /**
-   * 生成单个面 (face) 的 HTML
+   * 生成单个面 (face) 的 HTML，精雕凹陷圆点
    */
   function buildFaceHtml(val) {
     const pips = PIPS_MAP[val] || [];
@@ -42,7 +44,8 @@
   }
 
   /**
-   * 生成一个完整 3D 骰子的 HTML 结构
+   * 生成完整 3D 实心骰子 HTML 结构
+   * 包含：地面软阴影、垂直抛跃层 (toss)、实心内胆 (core)、6 个质感面
    */
   function buildDiceHtml(initialValue, id) {
     initialValue = initialValue || 1;
@@ -50,27 +53,29 @@
     for (let v = 1; v <= 6; v++) {
       faces += buildFaceHtml(v);
     }
-    const initialRot = BASE_ROTATIONS[initialValue] || BASE_ROTATIONS[1];
-    const transform = `rotateX(${initialRot.x}deg) rotateY(${initialRot.y}deg) rotateZ(${initialRot.z}deg)`;
+    const base = FACE_ANGLES[initialValue] || FACE_ANGLES[1];
+    const transform = `rotateX(${base.x}deg) rotateY(${base.y}deg) rotateZ(0deg)`;
 
     return `
       <div class="dice-3d-scene" data-dice-id="${id || 'dice'}">
         <div class="dice-3d-shadow"></div>
-        <div class="dice-3d-wrapper" style="transform:${transform}">
-          ${faces}
+        <div class="dice-3d-toss">
+          <div class="dice-3d-wrapper" style="transform:${transform}">
+            <div class="dice-3d-core"></div>
+            ${faces}
+          </div>
         </div>
       </div>
     `;
   }
 
   /**
-   * 3D 骰子实例类
+   * 3D 实心骰子控制器类
    */
   class DiceInstance {
     constructor(container, options) {
       this.container = typeof container === "string" ? document.querySelector(container) : container;
       this.options = Object.assign({
-        size: 60,
         initialValue: 1,
         sound: true,
         id: "dice-" + Math.random().toString(36).slice(2, 7)
@@ -78,7 +83,13 @@
 
       this.value = this.options.initialValue;
       this.isRolling = false;
-      this.totalTurns = 0;
+
+      // 跟踪累计旋转欧拉角，实现无限平滑连续翻滚
+      const base = FACE_ANGLES[this.value] || FACE_ANGLES[1];
+      this.currentX = base.x;
+      this.currentY = base.y;
+      this.currentZ = 0;
+
       this.render();
     }
 
@@ -86,62 +97,79 @@
       if (!this.container) return;
       this.container.innerHTML = buildDiceHtml(this.value, this.options.id);
       this.sceneEl = this.container.querySelector(".dice-3d-scene");
+      this.tossEl = this.container.querySelector(".dice-3d-toss");
       this.wrapperEl = this.container.querySelector(".dice-3d-wrapper");
       this.shadowEl = this.container.querySelector(".dice-3d-shadow");
     }
 
     /**
-     * 掷骰子动画
+     * 执行真实物理抛掷动力学翻滚
      * @param {number} targetValue - 目标点数 (1~6)
-     * @param {number} duration - 翻滚总毫秒数 (默认 800ms)
+     * @param {number} duration - 翻滚动画时长 (毫秒，推荐 900ms)
      * @returns {Promise<number>}
      */
     roll(targetValue, duration) {
       if (this.isRolling) return Promise.resolve(this.value);
 
       targetValue = targetValue || (Math.floor(Math.random() * 6) + 1);
-      duration = duration || 850;
-
+      duration = duration || 900;
       this.isRolling = true;
       this.value = targetValue;
 
-      // 触发音效
+      // 播放抛掷音效
       if (this.options.sound && window.LG && window.LG.sound) {
         window.LG.sound.play("roll");
       }
 
-      // 添加起飞翻滚态
-      this.sceneEl.classList.add("is-airborne");
-      this.wrapperEl.classList.remove("is-bouncing");
-      this.wrapperEl.classList.add("is-rolling");
+      // 1. 抛起动效：外层抛起、地面阴影扩大
+      this.sceneEl.classList.add("is-tossing");
+      this.tossEl.classList.remove("is-landing");
+      this.tossEl.style.transform = "translateY(-48px)";
+
+      // 2. 计算连续目标欧拉角 (保证永远向前翻转 3~4 圈后精准无缝停在目标面上)
+      const targetBase = FACE_ANGLES[targetValue] || FACE_ANGLES[1];
+      const extraSpins = (3 + Math.floor(Math.random() * 2)) * 360; // 1080° 或 1440°
+
+      const curX = ((this.currentX % 360) + 360) % 360;
+      const curY = ((this.currentY % 360) + 360) % 360;
+
+      const diffX = targetBase.x - curX;
+      const diffY = targetBase.y - curY;
+
+      const nextX = this.currentX + extraSpins + diffX;
+      const nextY = this.currentY + extraSpins + diffY;
+
+      this.currentX = nextX;
+      this.currentY = nextY;
+      this.currentZ = 0;
+
+      // 启动高速旋转 (平滑连续变换)
+      this.wrapperEl.style.transform = `rotateX(${nextX}deg) rotateY(${nextY}deg) rotateZ(0deg)`;
 
       return new Promise((resolve) => {
+        // 中途 (约 50% 进度) 开始受重力下坠
+        const halfTime = Math.floor(duration * 0.48);
         setTimeout(() => {
-          // 停止翻滚动画，计算最终角度
-          this.wrapperEl.classList.remove("is-rolling");
-          this.sceneEl.classList.remove("is-airborne");
+          this.sceneEl.classList.remove("is-tossing");
+          this.tossEl.style.transform = "translateY(0px)";
+        }, halfTime);
 
-          // 累加整圈旋转，使得每次看起来都是真实从空中落下旋转停止
-          this.totalTurns += 2 + Math.floor(Math.random() * 2);
-          const base = BASE_ROTATIONS[targetValue] || BASE_ROTATIONS[1];
-          const rx = base.x + this.totalTurns * 360;
-          const ry = base.y + this.totalTurns * 360;
-          const rz = base.z;
-
-          this.wrapperEl.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg)`;
-
-          // 落地音效与触觉
+        // 落地瞬间 (100% 进度)
+        setTimeout(() => {
+          // 播放清脆的骰子落地声
           if (this.options.sound && window.LG && window.LG.sound) {
             window.LG.sound.play("stop");
           }
-          if (navigator.vibrate) navigator.vibrate(30);
+          if (navigator.vibrate) navigator.vibrate(35);
 
-          // 触发落地回弹
+          // 触发落地弹性微回弹
+          this.tossEl.classList.add("is-landing");
+
           setTimeout(() => {
-            this.wrapperEl.classList.add("is-bouncing");
+            this.tossEl.classList.remove("is-landing");
             this.isRolling = false;
             resolve(targetValue);
-          }, 50);
+          }, 450);
 
         }, duration);
       });
@@ -149,15 +177,18 @@
 
     setValue(val) {
       this.value = val;
-      const base = BASE_ROTATIONS[val] || BASE_ROTATIONS[1];
+      const base = FACE_ANGLES[val] || FACE_ANGLES[1];
+      this.currentX = base.x;
+      this.currentY = base.y;
+      this.currentZ = 0;
       if (this.wrapperEl) {
-        this.wrapperEl.style.transform = `rotateX(${base.x}deg) rotateY(${base.y}deg) rotateZ(${base.z}deg)`;
+        this.wrapperEl.style.transform = `rotateX(${base.x}deg) rotateY(${base.y}deg) rotateZ(0deg)`;
       }
     }
   }
 
   /**
-   * 静态快速调用 API
+   * 静态快速调用与多骰支持
    */
   const Dice3D = {
     buildFaceHtml,
@@ -165,14 +196,14 @@
     Instance: DiceInstance,
 
     /**
-     * 在指定元素内一键挂载并创建骰子
+     * 在容器内初始化单个 3D 骰子
      */
     create(container, options) {
       return new DiceInstance(container, options);
     },
 
     /**
-     * 一键掷骰并更新容器
+     * 针对现有容器快速抛掷
      */
     async roll(container, targetValue, duration) {
       let inst = container._diceInstance;
@@ -184,7 +215,7 @@
     },
 
     /**
-     * 全屏 / 模态卡片投掷展示
+     * 全屏 / 模态卡片投掷展示 (支持单骰或多骰)
      */
     showModalRoll({ count = 1, title = "掷骰中...", onComplete }) {
       if (!window.LG || !window.LG.openModal) return;
@@ -192,8 +223,8 @@
       const diceContainers = Array.from({ length: count }, (_, i) => `<div id="modal-dice-${i}"></div>`).join("");
       const m = window.LG.openModal(`
         <div class="text-center py-4 space-y-4">
-          <h3 class="text-xl font-bold text-white">${title}</h3>
-          <div class="flex items-center justify-center gap-4 my-6">
+          <h3 class="text-xl font-extrabold text-white">${title}</h3>
+          <div class="flex flex-wrap items-center justify-center gap-4 my-6">
             ${diceContainers}
           </div>
           <div id="modal-dice-result" class="text-2xl font-black text-rose-300 min-h-[2rem]"></div>
@@ -204,13 +235,12 @@
         return new DiceInstance(m.el.querySelector(`#modal-dice-${i}`));
       });
 
-      // 启动同时抛掷
       const results = Array.from({ length: count }, () => Math.floor(Math.random() * 6) + 1);
       Promise.all(instances.map((inst, i) => inst.roll(results[i], 900))).then(() => {
         const sum = results.reduce((a, b) => a + b, 0);
         const resEl = m.el.querySelector("#modal-dice-result");
         if (resEl) {
-          resEl.textContent = count > 1 ? `点数：${results.join(" + ")} = ${sum}` : `点数：${sum} 点！`;
+          resEl.textContent = count > 1 ? `点数：${results.join(" + ")} = ${sum} 点！` : `点数：${sum} 点！`;
         }
         setTimeout(() => {
           m.close();

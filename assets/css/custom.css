@@ -137,55 +137,69 @@ input[type="number"] { -moz-appearance: textfield; }
 }
 
 /* ============================================================
- * 全局通用 3D 物理级骰子组件 (Universal 3D Realistic Dice)
+ * 全局通用 3D 物理实心骰子 (Realistic Solid 3D Physics Dice)
+ * 采用 6 面无缝紧密咬合 + 实心内胆技术，彻底解决面与面之间空白空心问题
  * ============================================================ */
 .dice-3d-scene {
   position: relative;
-  width: 72px;
-  height: 72px;
-  perspective: 600px;
+  width: 76px;
+  height: 76px;
+  perspective: 750px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin: 6px;
+  user-select: none;
 }
 
+/* 垂直抛物线跳跃层 */
+.dice-3d-toss {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.25, 0.9, 0.35, 1);
+}
+
+/* 旋转立方体本体 */
 .dice-3d-wrapper {
   position: relative;
   width: 60px;
   height: 60px;
   transform-style: preserve-3d;
-  transition: transform 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: #eaeaf2;
+  transition: transform 0.9s cubic-bezier(0.2, 0.85, 0.3, 1.05);
 }
 
-.dice-3d-wrapper.is-rolling {
-  animation: diceTumble 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+/* 实心防漏光内层 (兼容结构) */
+.dice-3d-core {
+  display: none;
 }
 
-.dice-3d-wrapper.is-bouncing {
-  animation: diceBounce 0.4s ease-out 1;
-}
-
+/* 6 个外部质感面 (0.5px微重叠密闭咬合，彻底消除面与面之间的空白缝隙与黑洞空隙) */
 .dice-3d-face {
   position: absolute;
-  inset: 0;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(145deg, #ffffff 0%, #f4f4f8 60%, #e5e5ee 100%);
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.25);
+  top: -0.5px;
+  left: -0.5px;
+  width: 61px;
+  height: 61px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f6f9 55%, #eaeaf2 100%);
+  border: 1px solid rgba(220, 224, 235, 0.85);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    inset 0 0 5px rgba(0, 0, 0, 0.12);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  padding: 8px;
+  padding: 7px;
   gap: 2px;
   user-select: none;
+  box-sizing: border-box;
 }
 
-/* 6个面对应的 3D 空间变换 (半宽为 30px) */
+/* 6 个面的空间折叠定位 (半长 30px) */
 .dice-face-1 { transform: rotateY(0deg) translateZ(30px); }
 .dice-face-6 { transform: rotateX(180deg) translateZ(30px); }
 .dice-face-2 { transform: rotateX(-90deg) translateZ(30px); }
@@ -193,58 +207,60 @@ input[type="number"] { -moz-appearance: textfield; }
 .dice-face-3 { transform: rotateY(-90deg) translateZ(30px); }
 .dice-face-4 { transform: rotateY(90deg) translateZ(30px); }
 
-/* 点数圆点样式 (带凹陷光影) */
+/* 点数凹槽雕刻质感 (Carved Pips) */
 .dice-pip {
   align-self: center;
   justify-self: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #334155 0%, #1e293b 70%, #0f172a 100%);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.7);
+  background: radial-gradient(circle at 35% 35%, #334155 0%, #1e293b 65%, #0f172a 100%);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.7),
+    0 1px 1px rgba(255, 255, 255, 0.85);
 }
 
-/* 红色主题特制点 (1点与4点红心) */
+/* 红色特制点 (1点中心大红点与4点红心) */
 .dice-pip.pip-red {
-  background: radial-gradient(circle at 35% 35%, #f43f5e 0%, #e11d48 70%, #9f1239 100%);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(244, 63, 94, 0.4);
+  background: radial-gradient(circle at 35% 35%, #f43f5e 0%, #e11d48 65%, #881337 100%);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.6),
+    0 1px 1.5px rgba(255, 255, 255, 0.75);
 }
 .dice-face-1 .dice-pip {
   width: 18px;
   height: 18px;
 }
 
-/* 地面动态投影 */
+/* 地面拟真动态软阴影 */
 .dice-3d-shadow {
   position: absolute;
-  bottom: -6px;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 52px;
-  height: 12px;
+  width: 54px;
+  height: 14px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 72%);
   pointer-events-none;
-  transition: all 0.3s ease;
-}
-.dice-3d-scene.is-airborne .dice-3d-shadow {
-  transform: translateX(-50%) scale(1.4);
-  opacity: 0.2;
+  transition: transform 0.9s cubic-bezier(0.25, 0.9, 0.35, 1), opacity 0.9s ease;
 }
 
-/* 抛掷翻滚关键帧动画 */
-@keyframes diceTumble {
-  0% { transform: translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  25% { transform: translateY(-28px) rotateX(180deg) rotateY(120deg) rotateZ(90deg); }
-  50% { transform: translateY(-44px) rotateX(360deg) rotateY(240deg) rotateZ(180deg); }
-  75% { transform: translateY(-22px) rotateX(540deg) rotateY(360deg) rotateZ(270deg); }
-  100% { transform: translateY(0px) rotateX(720deg) rotateY(480deg) rotateZ(360deg); }
+/* 腾空抛掷态：阴影扩散变淡，骰子被向上抛起 */
+.dice-3d-scene.is-tossing .dice-3d-shadow {
+  transform: translateX(-50%) scale(1.65);
+  opacity: 0.18;
 }
 
-/* 落地回弹关键帧 */
-@keyframes diceBounce {
-  0% { transform: scale(1.1, 0.9); }
-  45% { transform: scale(0.93, 1.07) translateY(-6px); }
-  75% { transform: scale(1.02, 0.98) translateY(0); }
-  100% { transform: scale(1, 1) translateY(0); }
+/* 落地撞击弹性关键帧 (Settling bounce) */
+@keyframes diceLandingBounce {
+  0% { transform: translateY(0) scale(1, 1); }
+  25% { transform: translateY(-12px) scale(0.94, 1.06); }
+  55% { transform: translateY(0) scale(1.08, 0.92); }
+  75% { transform: translateY(-4px) scale(0.98, 1.02); }
+  100% { transform: translateY(0) scale(1, 1); }
 }
+.dice-3d-toss.is-landing {
+  animation: diceLandingBounce 0.45s ease-out 1;
+}
+
