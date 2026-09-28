@@ -316,11 +316,12 @@
     return S.currentPlayer;
   }
 
-  function spinWheel(entries, purpose, onEmpty, onComplete) {
+  function spinWheel(entries, purpose, onEmpty, onComplete, targetIndex) {
     if (S.spinning) return;
     var a = entries.map(function (x) { return x.trim(); }).filter(Boolean);
     if (!a.length) { onEmpty(); S.phase = "idle"; S.wheelItems = []; render(); return; }
 
+    var spinDuration = 5200;
     S.phase = purpose;
     var generic = e("genericPlayer");
     var display = a;
@@ -330,7 +331,9 @@
     S.wheelItems = display;
 
     var n = 360 / a.length;
-    var o = LG.randInt(a.length);
+    var o = (typeof targetIndex === "number" && targetIndex >= 0 && targetIndex < a.length)
+      ? targetIndex
+      : LG.randInt(a.length);
     var spins = 5 + Math.floor(Math.random() * 2); // 5~6 圈平滑飞旋
     var u = 0.32 * n * (2 * Math.random() - 1);
     var p = mod360(-(-90 + o * n + n / 2 + u));
@@ -355,6 +358,8 @@
       disc.style.transition = "none";
       disc.style.transform = "rotate(" + startRotation + "deg)";
       void disc.offsetWidth; // 关键：强制重绘，确保起点确立！
+      disc.style.transition = "transform " + spinDuration + "ms cubic-bezier(0.12, 0.85, 0.2, 1)";
+      disc.style.transform = "rotate(" + targetRotation + "deg)";
     }
 
     // 2. 禁用操作按钮
@@ -363,17 +368,7 @@
     // 3. 更新下方列表与状态提示
     updateWheelListAndBadge(display, purpose, true);
 
-    // 4. 启动高帧率减速贝塞尔飞旋 (5.2 秒)
-    var spinDuration = 5200;
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        if (!disc || !S.spinning) return;
-        disc.style.transition = "transform " + spinDuration + "ms cubic-bezier(0.12, 0.85, 0.2, 1)";
-        disc.style.transform = "rotate(" + targetRotation + "deg)";
-      });
-    });
-
-    // 5. Web Audio 渐缓 Tick 音效（指针固定，无弹跳）
+    // 4. Web Audio 渐缓 Tick 音效（指针固定，无弹跳）
     startTicks(spinDuration);
 
     spinTimeout = setTimeout(function () {
@@ -397,20 +392,17 @@
       render();
       return;
     }
+
+    var targetIdx = undefined;
     if (S.sequential) {
       var idx = 0;
       if (S.currentPlayer) {
         var fi = valid.findIndex(function (p) { return p.id === S.currentPlayer.id; });
         if (fi >= 0) idx = (fi + 1) % valid.length;
       }
-      S.currentPlayer = valid[idx];
-      S.notice = null;
-      updateCurrentPlayerBadge();
-      afterPlayerPicked();
-      LG.sound.play("select");
-      renderModal();
-      return;
+      targetIdx = idx;
     }
+
     spinWheel(valid.map(function (p) { return p.name; }), "player",
       function () { S.notice = e("noPlayers"); render(); },
       function (i) {
@@ -419,7 +411,8 @@
         updateCurrentPlayerBadge();
         afterPlayerPicked();
         renderModal();
-      });
+      },
+      targetIdx);
   }
   function afterPlayerPicked() { S.showModeChoice = true; }
 
@@ -718,16 +711,9 @@
       // 中心按钮
       var c = ev.target.closest("[data-wheel-center]");
       if (c && !S.spinning) {
-        if (S.phase === "truth" || S.phase === "dare") choosePrompt(S.phase);
-        else {
-          ensureCurrentPlayer();
-          if (S.currentPlayer && S.phase === "idle") {
-            afterPlayerPicked();
-            renderModal();
-          } else {
-            pickPlayer();
-          }
-        }
+        if (S.phase === "truth") choosePrompt("truth");
+        else if (S.phase === "dare") choosePrompt("dare");
+        else pickPlayer();
       }
       return;
     }
