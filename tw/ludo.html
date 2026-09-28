@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>心动飞行棋 — 情侣真心话大冒险在线玩 | 网页版情侣互动游戏</title>
+  <meta name="description" content="互动版情趣飞行棋，可自定义每一格事件，支持异地联机。包含丰富的恋爱真心话大冒险题目，是异地恋、情人节约会、聚会破冰的必备神器。" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="stylesheet" href="../assets/css/tailwind.css" />
+  <link rel="stylesheet" href="../assets/css/custom.css" />
+</head>
+<body>
+  <main class="relative min-h-screen overflow-hidden bg-[#0a0a0a]">
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute top-0 left-0 h-[500px] w-[500px] bg-violet-900/25 blur-[120px] rounded-full mix-blend-screen animate-spin-slow"></div>
+      <div class="absolute bottom-0 right-0 h-[500px] w-[500px] bg-rose-900/25 blur-[120px] rounded-full mix-blend-screen animate-spin-slow animation-delay-2000"></div>
+    </div>
+    <div class="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-8 sm:px-6 lg:px-8">
+
+      <nav class="p-3 sm:p-0 sm:mb-8 flex flex-wrap flex-row sm:items-center sm:justify-between gap-4">
+        <a class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2.5 text-xs font-bold uppercase tracking-wide text-white/70 backdrop-blur-md transition-all hover:bg-white/10 hover:text-white hover:border-white/20 sm:px-5 sm:py-2.5" href="index.html"><span class="transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span><span class="inline">返回游戏列表</span></a>
+        <div class="flex items-center gap-2">
+          <div class="relative md:hidden">
+            <select class="h-9 appearance-none rounded-full bg-white/10 py-2.5 pl-4 pr-8 text-xs text-white backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/10" aria-label="语言">
+              <option value="en" class="bg-gray-900 text-white">En</option>
+              <option value="cn" class="bg-gray-900 text-white">简体</option>
+              <option value="tw" class="bg-gray-900 text-white" selected>正體</option>
+              <option value="ja" class="bg-gray-900 text-white">日本語</option>
+              <option value="ko" class="bg-gray-900 text-white">한국인</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white/70"><svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></div>
+          </div>
+          <nav aria-label="语言" class="h-9 hidden md:flex items-center gap-2 rounded-full bg-white/10 px-2 py-1 backdrop-blur border border-white/10">
+            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../en/ludo.html">En</a>
+            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../cn/ludo.html">简体</a>
+            <a class="flex items-center rounded-full px-3 py-1 text-sm bg-white text-gray-900" href="ludo.html">正體</a>
+            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../ja/ludo.html">日本語</a>
+            <a class="flex items-center rounded-full px-3 py-1 text-sm transition text-white/70 hover:text-white" href="../ko/ludo.html">한국인</a>
+          </nav>
+        </div>
+      </nav>
+
+      <div id="ludo-root" class="relative flex w-full flex-1 flex-col items-center gap-6"></div>
+
+      <section id="instructions" class="mt-20 max-w-4xl w-full mx-auto px-4 text-white/80 space-y-12 mb-20">
+        <div class="space-y-4">
+          <h2 class="text-2xl font-black text-white">什么是情侣飞行棋？</h2>
+          <p class="leading-relaxed text-white/70">情侣飞行棋（Couples Ludo）是经典飞行棋的浪漫升级版，专为亲密伴侣设计。与普通飞行棋不同，棋盘上的每一个格子都藏着精心设计的互动任务，从真心话大冒险到亲密接触，旨在打破隔阂、升温感情。无论是热恋期的情侣，还是相伴多年的夫妻，都能在游戏中找到新鲜感和刺激。游戏支持自定义事件库，您可以根据双方的接受程度和喜好，量身定制专属的私密挑战。无需下载APP，打开网页即可即时体验，是约会之夜、异地恋互动的完美助攻神器。</p>
+        </div>
+        <div class="space-y-4">
+          <h2 class="text-2xl font-black text-white">游戏规则</h2>
+          <ul class="space-y-3 text-white/70 leading-relaxed list-none">
+            <li><strong class="text-white">准备阶段：</strong>双方（或多人）选择代表自己的颜色棋子，还可以选择不同的事件库模式（如热恋、私密、异地恋等）。</li>
+            <li><strong class="text-white">掷骰子：</strong>玩家轮流掷骰子。只有掷出 6 点，棋子才能从基地起飞进入棋盘。</li>
+            <li><strong class="text-white">行进与任务：</strong>根据骰子点数移动棋子。当棋子停留在某个格子上时，必须执行该格子对应的事件任务（如“亲吻对方”、“说出真心话”等）。</li>
+            <li><strong class="text-white">特殊机制：</strong>如果掷出 6 点，可以额外再掷一次。如果棋子移动终点刚好有对方棋子，可以将对方撞回基地（可视规则设定开启或关闭）。</li>
+            <li><strong class="text-white">胜利条件：</strong>率先将所有棋子移动到棋盘中心终点的玩家获胜。赢家通常可以获得输家提供的特别奖励（由双方约定）。</li>
+          </ul>
+        </div>
+        <div class="space-y-4">
+          <h2 class="text-2xl font-black text-white">常见问题 (FAQ)</h2>
+          <div class="space-y-2">
+            <p class="font-bold text-white">异地恋可以玩吗？</p>
+            <p class="text-white/70 leading-relaxed">当然可以！我们特别设计了“异地恋模式”事件库，包含专门针对视频通话场景的互动任务。利用内置的联机功能，双方只需进入同一个房间号，即可实时同步棋盘状态，跨越距离感受彼此的陪伴。</p>
+          </div>
+          <div class="space-y-2">
+            <p class="font-bold text-white">需要下载 APP 吗？</p>
+            <p class="text-white/70 leading-relaxed">不需要。情侣飞行棋是基于网页的在线游戏（Web App），支持电脑、平板和手机浏览器直接访问。您可以将网页添加到手机主屏幕，享受类似 APP 的全屏流畅体验，既不占内存又方便快捷。</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 text-center text-sm text-white/70 backdrop-blur">
+        <p>请在充分沟通界限的前提下玩乐，确保每一步都建立在积极同意之上。</p>
+        <div class="flex justify-center items-center gap-4 mt-2">
+          © 2024 ~ 2026
+          <a href="https://www.hoothin.com" target="_blank" rel="noopener noreferrer" class="relative group text-white/70 hover:text-white"><span class="relative z-10">www.hoothin.com</span><span class="absolute inset-x-0 bottom-0 h-px bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span></a>
+          <a href="https://x.com/HoothinDev" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="flex items-center justify-center h-8 w-8 rounded-full text-white/70 transition-colors hover:bg-gray-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg></a>
+          <a href="https://github.com/hoothin/qinglv" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="flex items-center justify-center h-8 w-8 rounded-full text-white/70 transition-colors hover:bg-gray-700 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.86 10.923c.575.107.785-.25.785-.556 0-.274-.01-1-.016-1.963-3.197.695-3.872-1.54-3.872-1.54-.523-1.328-1.277-1.682-1.277-1.682-1.044-.714.08-.7.08-.7 1.154.08 1.76 1.185 1.76 1.185 1.026 1.758 2.692 1.25 3.348.955.104-.743.402-1.25.73-1.538-2.552-.29-5.236-1.276-5.236-5.682 0-1.255.448-2.282 1.183-3.087-.119-.29-.513-1.458.112-3.04 0 0 .964-.309 3.16 1.18A10.97 10.97 0 0 1 12 6.04c.976.005 1.959.132 2.878.387 2.194-1.49 3.156-1.18 3.156-1.18.627 1.582.233 2.75.114 3.04.737.805 1.18 1.832 1.18 3.087 0 4.417-2.688 5.389-5.248 5.674.414.356.783 1.06.783 2.136 0 1.542-.013 2.786-.013 3.164 0 .309.207.668.79.555A11.503 11.503 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z"></path></svg></a>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <div id="ludo-modal-root"></div>
+
+  <script src="../assets/js/i18n.tw.js"></script>
+  <script src="../assets/js/core.js"></script>
+  <script src="../assets/js/share.js"></script>
+  <script src="../assets/js/ludo.js"></script>
+</body>
+</html>

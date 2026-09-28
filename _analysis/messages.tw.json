@@ -1,0 +1,4113 @@
+{
+  "meta": {
+    "title": "情侶互動小游戲合輯",
+    "base": "線上情侶互動遊戲",
+    "description": "探索專為夫妻伴侶設計的情趣互動遊戲，如真心話大冒險和情趣飛行棋，可自訂事件庫。非常適合約會之夜，旨在加深情侶夫妻的感情聯繫。"
+  },
+  "navigation": {
+    "language": "語言"
+  },
+  "hero": {
+    "eyebrow": "18+ 體驗",
+    "title": "越親密，越敢玩",
+    "subtitle": "多款氛圍火辣的派對體驗，專為敢玩敢愛的親密情侶而設。",
+    "cta": "開始探索",
+    "installApp": "安裝 APP",
+    "onlineNow": "目前線上：{count}"
+  },
+  "games": {
+    "sectionTitle": "遊戲合集",
+    "sectionSubtitle": "挑一款遊戲，跟隨指令，讓慾望引路。",
+    "viewGame": "進入遊戲",
+    "backToCollection": "返回遊戲列表",
+    "ludo": {
+      "title": "情侶飛行棋",
+      "tagline": "經典飛行棋的情趣浪漫升級版，專為情侶設計的增進親密感的情趣遊戲。",
+      "roll": "擲骰前進",
+      "reset": "重新開始",
+      "position": "當前位置",
+      "instruction": "執行指令",
+      "multiplayer": {
+        "onlinePlay": "連線對戰",
+        "panelTitle": "連線飛行棋",
+        "tabs": {
+          "create": "建立房間",
+          "join": "加入房間"
+        },
+        "labels": {
+          "onlineRoom": "連線房間：{roomId}",
+          "playersCount": "玩家：{count}/{max}",
+          "selectColor": "選擇顏色：",
+          "selecting": "選擇中...",
+          "you": "（你）",
+          "roomId": "房間號",
+          "passwordOptional": "密碼（可選）",
+          "password": "密碼",
+          "yourColor": "你的顏色"
+        },
+        "placeholders": {
+          "passwordOptional": "留空表示公開",
+          "roomId": "XXXXXX"
+        },
+        "actions": {
+          "minimize": "最小化",
+          "exit": "退出",
+          "copyId": "複製房間號",
+          "copied": "已複製",
+          "share": "分享",
+          "startGame": "開始遊戲",
+          "createRoom": "建立房間",
+          "joinRoom": "加入房間"
+        },
+        "confirmExit": "確定要退出房間嗎？退出後房間將解散。",
+        "status": {
+          "creatingRoom": "正在建立房間...",
+          "joiningRoom": "正在加入房間...",
+          "roomCreated": "房間已建立！房間號：{roomId}",
+          "joinedRoom": "已加入房間：{roomId}",
+          "reconnecting": "正在重新連線...",
+          "waitingForPlayers": "等待其他玩家加入...",
+          "waitingForHost": "等待房主開始...",
+          "waitingForYouSelectColor": "請先選擇你的顏色...",
+          "waitingForPlayerAct": "等待 {player} 操作..."
+        },
+        "share": {
+          "title": "加入我的飛行棋房間",
+          "text": "加入我的飛行棋遊戲！房間號：{roomId}"
+        },
+        "overlay": {
+          "waiting": "等待其他玩家加入..."
+        },
+        "errors": {
+          "connectionFailed": "連線失敗",
+          "reconnectFailed": "重新連線失敗",
+          "roomDisbanded": "房間已被解散。",
+          "roomNotFound": "房間不存在",
+          "invalidPassword": "密碼錯誤",
+          "colorAlreadyTaken": "顏色已被佔用",
+          "gameMismatch": "該房間屬於其他遊戲。",
+          "createRoomFailed": "建立房間失敗",
+          "onlyHostCanDisband": "只有房主可以解散房間",
+          "cannotDisbandLobby": "不能解散大廳",
+          "createRoomWrongTarget": "建立房間請求必須送到大廳",
+          "unknown": "發生錯誤"
+        }
+      },
+      "history": {
+        "title": "遊戲記錄",
+        "subtitle": "追蹤每一步的精彩時刻",
+        "emptyTitle": "擲出第一顆骰子",
+        "emptySubtitle": "開始你們的激情之旅",
+        "restIcon": "休"
+      },
+      "emptyHistory": "擲出第一顆骰子，解鎖今晚的第一份刺激。",
+      "events": {
+        "1-1": {
+          "name": "男方起點",
+          "description": "擲出 6 開始遊戲"
+        },
+        "11-11": {
+          "name": "女方起點",
+          "description": "擲出 6 開始遊戲"
+        },
+        "6-6": {
+          "name": "浪漫終點",
+          "description": "抵達終點，寫下今晚最想和對方一起實現的那個願望，必須執行"
+        },
+        "3-0": {
+          "name": "溫情探問",
+          "description": "把下巴靠在對方肩上，輕聲問他現在開不開心"
+        },
+        "4-0": {
+          "name": "指尖如吻",
+          "description": "用小指勾住對方的小指，輕輕晃動許下個小約定"
+        },
+        "5-0": {
+          "name": "額間溫度",
+          "description": "閉眼額頭相抵，安靜感受彼此的體溫五秒"
+        },
+        "6-0": {
+          "name": "呼吸同頻",
+          "description": "握住雙手對視，調整呼吸直到兩人頻率一致"
+        },
+        "7-0": {
+          "name": "耳畔私語",
+          "description": "貼著耳朵用氣音說一句平時不好意思說的情話"
+        },
+        "8-0": {
+          "name": "頸側遊走",
+          "description": "指尖沿著對方耳後慢慢滑到鎖骨窩，輕柔緩慢"
+        },
+        "9-0": {
+          "name": "靜止擁抱",
+          "description": "什麼都不做，緊緊抱住對方，聽聽彼此的心跳聲"
+        },
+        "9-1": {
+          "name": "手背吻禮",
+          "description": "像騎士一樣托起對方的手，在手背印下一個虔誠的吻"
+        },
+        "9-2": {
+          "name": "慢舞時光",
+          "description": "雙手搭在對方肩頸，隨意地哼著歌慢慢搖晃身體"
+        },
+        "9-3": {
+          "name": "三點連吻",
+          "description": "在左臉、右臉、額頭各落下一個輕柔的吻"
+        },
+        "10-3": {
+          "name": "心底秘密",
+          "description": "坦白一件最近覺得對方特別可愛但沒說出口的小事"
+        },
+        "11-3": {
+          "name": "深情凝視",
+          "description": "不論誰笑場都要重來，深情對視直到看清對方眼裡的自己"
+        },
+        "12-3": {
+          "name": "紙短情長",
+          "description": "在紙條寫下對方最讓你心動的瞬間，摺好塞進他口袋"
+        },
+        "12-4": {
+          "name": "掌心暗號",
+          "description": "在對方手心一筆一劃寫下「愛」字，讓他握拳抓住"
+        },
+        "12-5": {
+          "name": "耳根酥麻",
+          "description": "撥開頭髮，在敏感的耳根處落下一個濕潤的吻"
+        },
+        "12-6": {
+          "name": "背後依賴",
+          "description": "從背後環抱住對方，下巴抵在肩膀，享受此刻的安全感"
+        },
+        "12-7": {
+          "name": "貼身慢搖",
+          "description": "身體緊貼，即使沒有音樂，也跟隨彼此的心跳搖擺"
+        },
+        "12-8": {
+          "name": "雨點輕吻",
+          "description": "像細雨一樣，密集而輕柔地親吻對方的臉頰"
+        },
+        "12-9": {
+          "name": "頸窩傳情",
+          "description": "把臉埋進對方頸窩深呼吸，記住他身上的味道"
+        },
+        "11-9": {
+          "name": "肌膚探險",
+          "description": "指尖像羽毛一樣，從對方手腕內側一路滑到掌心"
+        },
+        "10-9": {
+          "name": "十指連心",
+          "description": "掌心相對，十指慢慢扣緊，用拇指摩挲對方虎口"
+        },
+        "9-9": {
+          "name": "背靠背",
+          "description": "背靠背坐在地上，閉上眼，感受對方脊背的溫度"
+        },
+        "9-10": {
+          "name": "暖心時刻",
+          "description": "餵對方喝一口水或飲料，順手幫他擦擦嘴角"
+        },
+        "9-11": {
+          "name": "親密定格",
+          "description": "臉貼臉拍一張搞怪或甜蜜的合照，設為手機桌布"
+        },
+        "9-12": {
+          "name": "腰際掌控",
+          "description": "雙手扶住對方的腰，將他輕輕拉向自己"
+        },
+        "8-12": {
+          "name": "後背依偎",
+          "description": "像無尾熊一樣，整個人貼在對方背上撒個嬌"
+        },
+        "7-12": {
+          "name": "鼻尖磨蹭",
+          "description": "像小動物一樣，用鼻尖輕輕磨蹭對方的鼻尖"
+        },
+        "6-12": {
+          "name": "鎖骨描摹",
+          "description": "用食指指腹沿著對方性感的鎖骨線條慢慢描繪"
+        },
+        "5-12": {
+          "name": "大膽示愛",
+          "description": "用最誘惑的語氣告訴對方，你此刻最想要他做什麼"
+        },
+        "4-12": {
+          "name": "唇角試探",
+          "description": "吻落在對方唇角，似有若無地停留，引誘他主動"
+        },
+        "3-12": {
+          "name": "怦然心動",
+          "description": "一步步逼近對方直到身體貼合，感受彼此急促的心跳"
+        },
+        "3-11": {
+          "name": "蠻橫擁抱",
+          "description": "不容分說地從背後緊緊箍住他的腰，宣示主權"
+        },
+        "3-10": {
+          "name": "挑逗低語",
+          "description": "咬著耳朵說出一個讓他臉紅心跳的大膽想法"
+        },
+        "3-9": {
+          "name": "肩頭依靠",
+          "description": "拍拍自己的肩膀，示意他靠上來休息一會兒"
+        },
+        "2-9": {
+          "name": "感恩此刻",
+          "description": "握緊對方的手，看著眼睛認真說：「有你在真好」"
+        },
+        "1-9": {
+          "name": "心靈交換",
+          "description": "貼著耳朵分享一個從未對人說過的脆弱時刻"
+        },
+        "0-9": {
+          "name": "頸側印記",
+          "description": "在頸側動脈跳動處，用力吸吮或輕咬一口"
+        },
+        "0-8": {
+          "name": "鎖骨流連",
+          "description": "沿著鎖骨起伏的線條，落下細碎而連貫的吻"
+        },
+        "0-7": {
+          "name": "背後溫存",
+          "description": "從背後抱住，雙手在身前交握，隨性地左右輕晃"
+        },
+        "0-6": {
+          "name": "腰線撫觸",
+          "description": "手掌貼著腰側的曲線，帶著溫度緩慢地撫摸一圈"
+        },
+        "0-5": {
+          "name": "掌心聽心",
+          "description": "拉著對方的手按在自己胸口：「你聽，它為你跳得好快」"
+        },
+        "0-4": {
+          "name": "窒息擁抱",
+          "description": "像要把對方揉進身體裡一樣，用力地交叉擁抱"
+        },
+        "0-3": {
+          "name": "氣息交融",
+          "description": "埋首在對方頸間或手腕，深深嗅聞屬於他的費洛蒙"
+        },
+        "1-3": {
+          "name": "驚喜突襲",
+          "description": "趁其不備從背後抱住，在耳邊輕聲說「抓住你了」"
+        },
+        "2-3": {
+          "name": "額頭密語",
+          "description": "額頭抵著額頭，在極近的距離說一句只有你們懂的暗語"
+        },
+        "3-3": {
+          "name": "未來幻想",
+          "description": "描述一個你想和他一起去嘗試的大膽場景"
+        },
+        "3-2": {
+          "name": "蜻蜓點水",
+          "description": "快速地、調皮地在對方嘴唇上啄一下就跑"
+        },
+        "3-1": {
+          "name": "氣息糾纏",
+          "description": "慢慢靠近，鼻尖幾乎相觸，交換彼此溫熱的呼吸"
+        },
+        "1-6": {
+          "name": "對視挑戰",
+          "description": "鼻尖相抵，對視直到誰先忍不住吻上誰"
+        },
+        "2-6": {
+          "name": "膝上親暱",
+          "description": "坐到對方腿上，雙手環頸，感受大腿傳來的溫度"
+        },
+        "3-6": {
+          "name": "慾望清單",
+          "description": "貼在耳邊，用氣音逐一列舉今晚想對他做的事"
+        },
+        "4-6": {
+          "name": "虔誠巡禮",
+          "description": "從額頭開始，依序親吻眉心、鼻尖、嘴唇、下巴"
+        },
+        "5-6": {
+          "name": "曖昧支撐",
+          "description": "將對方壓在身下雙手撐地，懸停在上方凝視，做 5 下慢速伏地挺身"
+        },
+        "7-6": {
+          "name": "掌心升溫",
+          "description": "雙手伸進對方後腰衣擺內，貼著肌膚慢慢收緊擁抱"
+        },
+        "8-6": {
+          "name": "心跳共鳴",
+          "description": "側臉貼在對方左胸，安靜地聽那顆為你跳動的心"
+        },
+        "9-6": {
+          "name": "曲線讚美",
+          "description": "輕柔地撫摸對方的臀部曲線，低聲誇讚他的身材"
+        },
+        "10-6": {
+          "name": "迷人認證",
+          "description": "貼著脖頸，具體描述他此刻哪個表情讓你最受不了"
+        },
+        "11-6": {
+          "name": "深吻封緘",
+          "description": "不需要語言，用一個漫長、深入、缺氧的吻結束回合"
+        }
+      },
+      "eventsThree": {
+        "1-1": {
+          "name": "雪菜",
+          "description": "溫柔的校園偶像，試圖維繫這脆弱的三角關係。擲出 6 出發"
+        },
+        "11-1": {
+          "name": "春希",
+          "description": "愛管閒事的班長，在兩個女孩之間搖擺不定。擲出 6 出發"
+        },
+        "11-11": {
+          "name": "冬馬",
+          "description": "孤高的鋼琴天才，隱藏著對他的深深愛意。擲出 6 出發"
+        },
+        "6-6": {
+          "name": "傳達不到的愛戀",
+          "description": "抵達終點。無論結局是 CODA 還是 Closing，此刻三人緊緊擁抱。"
+        },
+        "3-0": {
+          "name": "輕音部成立",
+          "description": "三人一起喊出「輕音同好會，加油！」的口號"
+        },
+        "4-0": {
+          "name": "放學後的練習",
+          "description": "模仿樂器演奏動作，合奏一小段《White Album》"
+        },
+        "5-0": {
+          "name": "便利商店的偶遇",
+          "description": "每人說出一種白色相簿 2 中出現的食物（如炸雞塊、布丁）"
+        },
+        "6-0": {
+          "name": "屋頂的午餐",
+          "description": "三人圍坐在一起，分享彼此「便當」裡的（想像）食物"
+        },
+        "7-0": {
+          "name": "黑板報幫忙",
+          "description": "一人假裝寫字，另外兩人要在旁邊誇獎他字寫得好看"
+        },
+        "8-0": {
+          "name": "第二音樂室",
+          "description": "安靜地坐在一起，閉眼聆聽周圍的聲音 30 秒"
+        },
+        "9-0": {
+          "name": "溫泉合宿",
+          "description": "假裝在泡溫泉，互相給對方擦背（隔空動作）"
+        },
+        "9-1": {
+          "name": "試膽大會",
+          "description": "三人手牽手走過一段「黑暗」的路（閉眼走 3 步）"
+        },
+        "9-2": {
+          "name": "學園祭前夜",
+          "description": "以興奮的語氣討論明天的演出計畫"
+        },
+        "9-3": {
+          "name": "吉他的教學",
+          "description": "一人手把手教另一人彈吉他的姿勢，第三人旁觀"
+        },
+        "10-3": {
+          "name": "歌詞的創作",
+          "description": "三人輪流接龍，創作一句「白色相簿」風格的歌詞"
+        },
+        "11-3": {
+          "name": "補習時光",
+          "description": "互相考對方一個關於 WA2 的小問題，答不上來的被彈額頭"
+        },
+        "12-3": {
+          "name": "雪中的等待",
+          "description": "模仿在雪中跺腳取暖等待對方的樣子"
+        },
+        "12-4": {
+          "name": "卡拉 OK 包廂",
+          "description": "三人一起合唱一首喜歡的歌（不限於 WA2）"
+        },
+        "12-5": {
+          "name": "家庭餐廳",
+          "description": "模擬在餐廳聊天，討論未來的夢想"
+        },
+        "12-6": {
+          "name": "各懷心事",
+          "description": "每人做出一個憂鬱的表情，另外兩人猜測他在想什麼"
+        },
+        "12-7": {
+          "name": "真心話時刻",
+          "description": "模仿經典台詞：「如果是我的話...」 說出一句真心話"
+        },
+        "12-8": {
+          "name": "相簿翻看",
+          "description": "三人頭靠頭，假裝在看同一本相冊"
+        },
+        "12-9": {
+          "name": "偷吻",
+          "description": "趁一人閉眼時，另外兩人（或一人）偷偷親他臉頰一下"
+        },
+        "11-9": {
+          "name": "特殊的稱呼",
+          "description": "為彼此取一個 WA2 風格的暱稱，並在接下來的 3 輪中使用"
+        },
+        "10-9": {
+          "name": "髮夾的禮物",
+          "description": "模仿互送禮物的場景，要表現出害羞"
+        },
+        "9-9": {
+          "name": "背靠背的依偎",
+          "description": "三人背靠背坐在地上，感受彼此的體溫"
+        },
+        "9-10": {
+          "name": "感冒的探望",
+          "description": "一人裝病，另外兩人溫柔地照顧他（餵水、摸額頭）"
+        },
+        "9-11": {
+          "name": "借宿一晚",
+          "description": "三人擠在一起（假裝睡地舖），聊八卦"
+        },
+        "9-12": {
+          "name": "畢業的約定",
+          "description": "伸出小指，三人一起打勾勾許下一個約定"
+        },
+        "8-12": {
+          "name": "打工的疲憊",
+          "description": "互相給對方捏肩搥背，緩解「打工」的疲勞"
+        },
+        "7-12": {
+          "name": "複雜的視線",
+          "description": "三人呈三角形站立，互相用複雜的眼神注視右邊的人"
+        },
+        "6-12": {
+          "name": "誤會的產生",
+          "description": "表演一段「你怎麼能這樣」的小劇場"
+        },
+        "5-12": {
+          "name": "和好的擁抱",
+          "description": "不管剛才發生了什麼，現在三人緊緊擁抱在一起"
+        },
+        "4-12": {
+          "name": "聖誕派對",
+          "description": "假裝交換聖誕禮物，並說一句祝福的話"
+        },
+        "3-12": {
+          "name": "新年的參拜",
+          "description": "三人雙手合十，許下關於三個人關係的願望"
+        },
+        "3-11": {
+          "name": "情書的發現",
+          "description": "假裝發現了一封情書，三人一起朗讀內容"
+        },
+        "3-10": {
+          "name": "吃醋的瞬間",
+          "description": "模仿吃醋的樣子，哪怕很誇張"
+        },
+        "3-9": {
+          "name": "秘密的共享",
+          "description": "每人說出一個只有這三個人知道的秘密（現編也可以）"
+        },
+        "2-9": {
+          "name": "雨中的奔跑",
+          "description": "原地小跑，假裝在躲雨，還要互相遮擋"
+        },
+        "1-9": {
+          "name": "借出的外套",
+          "description": "一人脫下外套給另一人披上，第三人表示羨慕"
+        },
+        "0-9": {
+          "name": "眼神交流",
+          "description": "不說話，只用眼神傳達「我喜歡你」或「謝謝」"
+        },
+        "0-8": {
+          "name": "手指的觸碰",
+          "description": "三人伸出食指，指尖觸碰在一起，感受電流"
+        },
+        "0-7": {
+          "name": "同喝一杯水",
+          "description": "假裝用同一根吸管喝飲料（間接接吻）"
+        },
+        "0-6": {
+          "name": "膝枕福利",
+          "description": "一人躺下，享受另外兩人的膝枕（或大腿）"
+        },
+        "0-5": {
+          "name": "耳邊吹氣",
+          "description": "輪流在右邊人的耳邊吹一口氣"
+        },
+        "0-4": {
+          "name": "心跳加速",
+          "description": "把手放在對方胸口，測試誰的心跳最快"
+        },
+        "0-3": {
+          "name": "深情告白",
+          "description": "模仿 WA2 名場面，對其中一人進行深情告白"
+        },
+        "1-3": {
+          "name": "誰是多餘的",
+          "description": "開玩笑地討論「誰是電燈泡」，最後得出結論「缺一不可」"
+        },
+        "2-3": {
+          "name": "羈絆的證明",
+          "description": "展示身上的一樣東西，說明它對三人關係的意義"
+        },
+        "3-3": {
+          "name": "永遠在一起",
+          "description": "三人手疊手，大喊「我們要永遠在一起！」"
+        },
+        "3-2": {
+          "name": "夢中的婚禮",
+          "description": "描述一下如果三人結婚會是什麼場景"
+        },
+        "3-1": {
+          "name": "最初的相遇",
+          "description": "回憶三人第一次見面的場景（或編造一個）"
+        },
+        "1-6": {
+          "name": "強顏歡笑的生日",
+          "description": "「雖然只有兩個人...但還是要慶祝啊。」 露出那個最讓人心疼的笑容。"
+        },
+        "2-6": {
+          "name": "屆不到的戀歌",
+          "description": "在卡拉 OK 包廂裡獨自唱著《White Album》，等待那個不會來的人。"
+        },
+        "3-6": {
+          "name": "虛偽的溫柔",
+          "description": "「我沒關係的，你去吧。」 明明心在滴血，卻還要把他推向另一個人。"
+        },
+        "4-6": {
+          "name": "壞掉的八音盒",
+          "description": "「為什麼...為什麼會變成這樣...」 抱著壞掉的禮物哭泣。"
+        },
+        "5-6": {
+          "name": "雪中的獨白",
+          "description": "「我不需要什麼最好的朋友了，我只要你。」 終於說出了自私的願望。"
+        },
+        "6-1": {
+          "name": "第二音樂室",
+          "description": "一切開始的地方。看著窗邊的夕陽，回想起那兩個人的背影。"
+        },
+        "6-2": {
+          "name": "背叛的初吻",
+          "description": "趁著她睡著的時候...「我到底在做什麼...」 內心的罪惡感在蔓延。"
+        },
+        "6-3": {
+          "name": "無法做出的選擇",
+          "description": "「兩個我都不想傷害。」 結果卻傷害了所有人。痛苦地抱頭。"
+        },
+        "6-4": {
+          "name": "冬日的十字路口",
+          "description": "雪花飄落，站在分岔路口。一邊是責任，一邊是真愛。"
+        },
+        "6-5": {
+          "name": "最後的決斷",
+          "description": "「對不起...」 哪怕背負罵名，也要邁出那一步。"
+        },
+        "11-6": {
+          "name": "被遺棄的小狗",
+          "description": "躲在連帽衫裡，眼神躲閃。「別管我，反正我習慣一個人了。」"
+        },
+        "10-6": {
+          "name": "鋼琴房的秘密",
+          "description": "每天放學後的合奏，是只屬於兩個人的秘密時光。指尖觸碰的瞬間，心跳漏了一拍。"
+        },
+        "9-6": {
+          "name": "發燒的夜",
+          "description": "「別走...留下來。」 脆弱的時候，終於抓住了他的衣角。"
+        },
+        "8-6": {
+          "name": "離別的機場",
+          "description": "「不要看我！」 含淚的深吻，是最後的告別，也是永遠的詛咒。"
+        },
+        "7-6": {
+          "name": "Strassburg 的雪",
+          "description": "異國他鄉的重逢。「這次，我絕不會再放手了。」"
+        }
+      },
+      "eventsFour": {
+        "1-1": {
+          "name": "玫瑰",
+          "description": "擲出6開始遊戲。"
+        },
+        "1-11": {
+          "name": "翠綠",
+          "description": "擲出6開始遊戲。"
+        },
+        "11-11": {
+          "name": "橙黄",
+          "description": "擲出6開始遊戲。"
+        },
+        "11-1": {
+          "name": "碧空",
+          "description": "擲出6開始遊戲。"
+        },
+        "6-6": {
+          "name": "友誼勝利",
+          "description": "第一個到達中心的玩家獲勝！與朋友們一起慶祝勝利！"
+        },
+        "3-0": {
+          "name": "分享笑聲",
+          "description": "講一個有趣的笑話或幽默的故事，讓大家開懷大笑。"
+        },
+        "4-0": {
+          "name": "讚美傳遞",
+          "description": "真誠地讚美你左邊的玩家。"
+        },
+        "5-0": {
+          "name": "團隊歡呼",
+          "description": "帶領大家為所有玩家來一次簡短的、充滿鼓勵的歡呼。"
+        },
+        "6-0": {
+          "name": "最愛回憶",
+          "description": "分享一個你和在座所有人最喜歡的回憶。"
+        },
+        "7-0": {
+          "name": "積極肯定",
+          "description": "說一些關於自己或團隊的積極話語。"
+        },
+        "8-0": {
+          "name": "快速塗鴉",
+          "description": "為右邊的玩家快速畫一幅滑稽的肖像畫。"
+        },
+        "9-0": {
+          "name": "趣味事實",
+          "description": "分享一個有趣且適合家庭的冷知識。"
+        },
+        "9-1": {
+          "name": "擊掌慶祝！",
+          "description": "與桌上所有玩家擊掌。"
+        },
+        "9-2": {
+          "name": "搞怪舞步",
+          "description": "展示你最滑稽的舞步，持續5秒。"
+        },
+        "9-3": {
+          "name": "團體合照姿勢",
+          "description": "構思一個有趣的假想團體合照姿勢。"
+        },
+        "10-3": {
+          "name": "友好揮手",
+          "description": "熱情地向棋盤對面的玩家揮手。"
+        },
+        "11-3": {
+          "name": "模仿動物",
+          "description": "模仿你最喜歡的動物的叫聲和動作。"
+        },
+        "12-3": {
+          "name": "幸運符",
+          "description": "告訴大家你個人專屬的幸運符是什麼。"
+        },
+        "12-4": {
+          "name": "最愛愛好",
+          "description": "用三個詞描述你最喜歡的愛好。"
+        },
+        "12-5": {
+          "name": "夢想假期",
+          "description": "與大家分享你的夢想度假目的地。"
+        },
+        "12-6": {
+          "name": "最佳建議",
+          "description": "分享一條你收到過的最佳建議。"
+        },
+        "12-7": {
+          "name": "創意故事開場",
+          "description": "用一句話開啟一個故事；下一位玩家繼續。"
+        },
+        "12-8": {
+          "name": "暱稱交換",
+          "description": "為對面的玩家提議一個有趣的新暱稱。"
+        },
+        "12-9": {
+          "name": "最愛美食",
+          "description": "說出你最喜歡的一道安慰食物。"
+        },
+        "11-9": {
+          "name": "才藝展示",
+          "description": "展示一個不令人尷尬的才藝（例如：吹口哨、平衡物品）。"
+        },
+        "10-9": {
+          "name": "分享微笑",
+          "description": "與每位玩家對視，並給他們一個溫暖的微笑。"
+        },
+        "9-9": {
+          "name": "團隊抱團",
+          "description": "快速抱團並高喊「團隊加油！」"
+        },
+        "9-10": {
+          "name": "最愛顏色",
+          "description": "告訴大家你最喜歡的顏色和原因。"
+        },
+        "9-11": {
+          "name": "快樂瞬間",
+          "description": "分享今天讓你開心的一件事。"
+        },
+        "9-12": {
+          "name": "最愛季節",
+          "description": "你最喜歡哪個季節，為什麼？"
+        },
+        "8-12": {
+          "name": "夢想寵物",
+          "description": "如果你能擁有任何寵物，會是什麼？"
+        },
+        "7-12": {
+          "name": "最愛書籍/電影",
+          "description": "推薦一部你喜歡的適合家庭觀看的書籍或電影。"
+        },
+        "6-12": {
+          "name": "最棒的旅行",
+          "description": "描述你經歷過的最棒的一次旅行。"
+        },
+        "5-12": {
+          "name": "超能力願望",
+          "description": "如果你有一種超能力，會是什麼？"
+        },
+        "4-12": {
+          "name": "善舉",
+          "description": "說一件你最近做過或計劃做的小善舉。"
+        },
+        "3-12": {
+          "name": "未來目標",
+          "description": "分享一個你對未來的激動人心的目標。"
+        },
+        "3-11": {
+          "name": "謎語解決者",
+          "description": "出個簡單的謎語或腦筋急轉彎讓大家猜。"
+        },
+        "3-10": {
+          "name": "快樂歌曲",
+          "description": "哼唱幾句讓你感到快樂的歌曲。"
+        },
+        "3-9": {
+          "name": "感恩時刻",
+          "description": "表達你現在最感恩的一件事。"
+        },
+        "2-9": {
+          "name": "最愛遊戲",
+          "description": "你最喜歡的棋盤遊戲或紙牌遊戲是什麼？"
+        },
+        "1-9": {
+          "name": "童年夢想",
+          "description": "你小時候的夢想職業是什麼？"
+        },
+        "0-9": {
+          "name": "最愛科目",
+          "description": "你學校裡最喜歡的科目是什麼？"
+        },
+        "0-8": {
+          "name": "動物聲音接龍",
+          "description": "你先發出一種動物聲音，下一個人發出另一種。"
+        },
+        "0-7": {
+          "name": "發明握手方式",
+          "description": "與旁邊的玩家創造一個獨特的握手方式。"
+        },
+        "0-6": {
+          "name": "最愛名言",
+          "description": "分享一句你喜歡的鼓舞人心或有趣的引言。"
+        },
+        "0-5": {
+          "name": "雲朵形狀",
+          "description": "抬頭看看雲朵，描述你看到的形狀（室內則想像）"
+        },
+        "0-4": {
+          "name": "最佳技能",
+          "description": "你最擅長的一項技能是什麼？"
+        },
+        "0-3": {
+          "name": "積極詞語",
+          "description": "說一個以你名字首字母開頭的積極詞語。"
+        },
+        "1-3": {
+          "name": "快速伸展",
+          "description": "帶領大家做一次快速、提神的伸展運動。"
+        },
+        "2-3": {
+          "name": "最愛甜點",
+          "description": "慶祝時你最喜歡吃什麼甜點？"
+        },
+        "3-3": {
+          "name": "團隊吉祥物",
+          "description": "想像我們的團隊有一個吉祥物；它會是什麼？"
+        },
+        "3-2": {
+          "name": "友誼誓言",
+          "description": "與所有玩家共同立下一個滑稽友好的友誼誓言。"
+        },
+        "3-1": {
+          "name": "拼圖碎片",
+          "description": "把自己比作一個拼圖碎片；你是如何融入的？"
+        },
+        "1-6": {
+          "name": "創意讚美",
+          "description": "給另一位玩家一個獨特而富有創意的讚美。"
+        },
+        "2-6": {
+          "name": "友誼之歌",
+          "description": "哼唱一首讓你想起友誼的短歌。"
+        },
+        "3-6": {
+          "name": "快樂舞蹈",
+          "description": "來一段慶祝友誼的快樂舞蹈。"
+        },
+        "4-6": {
+          "name": "團隊精神",
+          "description": "大聲喊出一個代表優秀團隊精神的詞語。"
+        },
+        "5-6": {
+          "name": "搞怪表情",
+          "description": "做出你最搞怪的表情給大家看。"
+        },
+        "7-6": {
+          "name": "最好的禮物",
+          "description": "你收到過或送出過的最好的禮物是什麼？"
+        },
+        "8-6": {
+          "name": "夢想寵物名字",
+          "description": "如果你有一個夢想寵物，它的名字會是什麼？"
+        },
+        "9-6": {
+          "name": "最愛季節活動",
+          "description": "你最喜歡的季節裡，最喜歡做的事情是什麼？"
+        },
+        "10-6": {
+          "name": "隱藏才藝",
+          "description": "分享一個適合家庭的隱藏才藝。"
+        },
+        "11-6": {
+          "name": "未來冒險",
+          "description": "描述一個你希望與朋友們一起進行的有趣冒險。"
+        },
+        "6-11": {
+          "name": "團體故事",
+          "description": "一人起頭一句，下一個人接著講，共同創作一個有趣的故事。"
+        },
+        "6-10": {
+          "name": "回憶小道",
+          "description": "分享一個你和朋友們之間有趣或甜蜜的回憶。"
+        },
+        "6-9": {
+          "name": "智力挑戰",
+          "description": "提出一個簡單有趣的謎語或腦筋急轉彎讓大家猜。"
+        },
+        "6-8": {
+          "name": "善行",
+          "description": "描述你最近做過的一件善事。"
+        },
+        "6-7": {
+          "name": "夢想之旅",
+          "description": "如果你和這些朋友一起進行史詩般的公路旅行，你會去哪裡？"
+        },
+        "6-1": {
+          "name": "團隊歡呼",
+          "description": "為團隊創作一個簡短有趣的歡呼。"
+        },
+        "6-2": {
+          "name": "最愛表情符號",
+          "description": "你最常用的表情符號是什麼，為什麼？"
+        },
+        "6-3": {
+          "name": "隱藏瑰寶",
+          "description": "分享一個酷但鮮為人知的事實或地方。"
+        },
+        "6-4": {
+          "name": "創意問候",
+          "description": "為團隊發明一個全新的、友好的問候方式。"
+        },
+        "6-5": {
+          "name": "友誼乾杯",
+          "description": "舉起想像中的酒杯，為友誼乾杯。"
+        }
+      },
+      "startLabels": {
+        "two": {
+          "north": "男方起點",
+          "south": "女方起點"
+        },
+        "four": {
+          "north": "紅方起點",
+          "east": "綠方起點",
+          "south": "黃方起點",
+          "west": "藍方起點"
+        }
+      },
+      "players": {
+        "male": {
+          "short": "男方",
+          "badge": "♂ 男方"
+        },
+        "female": {
+          "short": "女方",
+          "badge": "♀ 女方"
+        },
+        "red": {
+          "short": "紅方",
+          "badge": "🔴 紅方"
+        },
+        "yellow": {
+          "short": "黃方",
+          "badge": "🟡 黃方"
+        },
+        "blue": {
+          "short": "藍方",
+          "badge": "🔵 藍方"
+        },
+        "green": {
+          "short": "綠方",
+          "badge": "🟢 綠方"
+        },
+        "states": {
+          "started": "已出列",
+          "waiting": "未出列"
+        }
+      },
+      "effects": {
+        "forward2": {
+          "label": "⬆️ +2 前進",
+          "short": "⬆️+2",
+          "legend": "⬆️ 前進兩格"
+        },
+        "backward2": {
+          "label": "⬇️ -2 後退",
+          "short": "⬇️-2",
+          "legend": "⬇️ 後退兩格"
+        },
+        "rest": {
+          "label": "⏸️ 休息一輪",
+          "short": "⏸️休息",
+          "legend": "⏸️ 休息一回合"
+        }
+      },
+      "preStartActions": {
+        "kiss": "親吻對方一口",
+        "sip": "喝一口酒",
+        "reroll": "再擲一次",
+        "fitnessWarmup": "原地高抬腿10次",
+        "fitnessHydrate": "喝一口水"
+      },
+      "messages": {
+        "restTurn": "{player} 休息一回合",
+        "needRest": "需要休息一回合",
+        "rollSixToStart": "擲出6開始遊戲",
+        "waitingForSix": "等待擲出6開始",
+        "playerStarted": "{player}的棋子出列了！",
+        "rollAgain": "擲出6，再來一次！",
+        "rollAgainWithContext": "{context}（擲出6，再來一次！）",
+        "winnerReached": "{player} 抵達終點！ {description}",
+        "celebrationTitle": "浪漫終章",
+        "celebrationSubtitleDefault": "愛意與勇氣終於抵達終點",
+        "resetCelebration": "重新開始慶典",
+        "acknowledge": "知道了",
+        "banner": "🎲 擲出6開始遊戲，體驗每個格子的刺激事件 🎲",
+        "diceRolling": "擲骰中...",
+        "diceResult": "點數 {value}",
+        "diceWaiting": "等待擲骰",
+        "currentBadge": "{badge} 當前行動",
+        "winnerBadge": "{badge} 獲勝",
+        "goalReached": "已到達終點！",
+        "needExactHomeEntry": "{player}需要剛好停在回家路徑入口才能進入。",
+        "bumpSuccess": "{player}把{opponent}撞回了出生點！",
+        "noMovableTokens": "{player}沒有可以移動的棋子",
+        "selectTokenToMove": "{player}請選擇要移動的棋子",
+        "tokenMoved": "{player}移動了棋子"
+      },
+      "labels": {
+        "malePath": "男方路徑",
+        "femalePath": "女方路徑",
+        "overlapPath": "重疊路徑",
+        "currentPlayer": "當前玩家",
+        "currentEvent": "🎯 當前事件"
+      },
+      "options": {
+        "title": "規則",
+        "enabled": "開啟",
+        "disabled": "關閉",
+        "playerMode": {
+          "label": "玩家模式",
+          "two": "2 人模式",
+          "three": "3 人模式",
+          "four": "4 人模式"
+        },
+        "pieceCount": {
+          "label": "棋子數量"
+        },
+        "requireExactHomeEntry": {
+          "label": "進入回家路徑需剛好停留"
+        },
+        "enableBump": {
+          "label": "撞到對手送回出生點"
+        },
+        "boardBackground": {
+          "title": "棋盤背景",
+          "custom": "自訂背景",
+          "none": "無背景",
+          "urlPlaceholder": "輸入棋盤背景圖片URL",
+          "add": "新增",
+          "delete": "刪除"
+        },
+        "eventBackground": {
+          "title": "事件背景",
+          "custom": "自訂背景",
+          "none": "無背景",
+          "urlPlaceholder": "輸入事件背景圖片URL",
+          "add": "新增",
+          "delete": "刪除",
+          "randomPool": "隨機池"
+        }
+      },
+      "buttons": {
+        "roll": "擲骰子",
+        "roll_aria": "為 {player} 擲骰子",
+        "enterEdit": "編輯",
+        "exitEdit": "退出編輯模式",
+        "openJson": "打開 JSON 面板",
+        "closeJson": "關閉 JSON 面板",
+        "openLibrary": "事件庫",
+        "closeLibrary": "關閉事件庫",
+        "reset": "重置遊戲",
+        "confirm": "確定",
+        "aiGenerateEvents": "AI生成事件",
+        "promptCopied": "提示已複製！",
+        "generatePromptTitle": "將複製後的文字貼上到任意AI聊天助手，即可獲得新的事件庫。",
+        "generatePromptTemplate": "這是我的情侶飛行棋事件庫，請替換新的事件，使其尺度更大\n```json\n{json}\n```"
+      },
+      "editor": {
+        "title": "編輯格子事件",
+        "position": "位置 {coordinates}",
+        "nameLabel": "事件標題",
+        "namePlaceholder": "輸入事件名稱",
+        "descriptionLabel": "事件描述",
+        "descriptionPlaceholder": "輸入事件詳情",
+        "cancel": "取消",
+        "save": "儲存",
+        "notice": "編輯模式已開啟：點擊棋盤上的格子將在螢幕中央彈出編輯視窗。留空標題與描述可移除該格子的事件。",
+        "messages": {
+          "saved": "已儲存格子事件",
+          "importSuccess": "匯入成功",
+          "importProtectedSuccess": "匯入成功，事件內容已鎖定",
+          "exportSuccess": "已匯出 lovegame.txt",
+          "reset": "所有格子事件已恢復為預設值"
+        },
+        "errors": {
+          "saveFailed": "儲存失敗",
+          "importFailed": "匯入失敗",
+          "exportFailed": "匯出失敗",
+          "emptyContent": "內容為空，無法匯入",
+          "base64Decode": "匯入內容解碼失敗",
+          "invalidFormat": "資料格式必須是物件。",
+          "invalidEvent": "無效的事件：{key}"
+        }
+      },
+      "json": {
+        "title": "JSON 資料管理",
+        "subtitle": "支援直接編輯與智慧匯入。",
+        "import": "智慧匯入（JSON/編碼檔案）",
+        "export": "匯出 lovegame.txt",
+        "exportAlt": "匯出為 lovegame.txt",
+        "exportFileButton": "匯出",
+        "importFileButton": "匯入",
+        "exportFileTitle": "匯出 lovegame.txt",
+        "importFileTitle": "匯入 lovegame.txt",
+        "passwordExportPrompt": "為 lovegame.txt 設定密碼。留空則不加密匯出。",
+        "passwordHintExportPrompt": "可選：加入解鎖提示詞。留空則不加入。",
+        "compressExportPrompt": "是否匯出為二進位檔案？\n\n確定：匯出為壓縮後的二進位檔案。\n取消：匯出為壓縮後的文字檔，內容僅包含數字與大小寫字母。",
+        "passwordUnlockPrompt": "輸入密碼以顯示事件內容。",
+        "passwordUnlockSuccess": "密碼正確，事件內容現已顯示。",
+        "passwordUnlockFailed": "密碼錯誤。",
+        "passwordRelocked": "事件內容已重新隱藏。",
+        "urlImportSuccess": "URL 匯入成功。",
+        "urlImportInvalid": "URL 匯入失敗：匯入參數無效。",
+        "urlImportFetchFailed": "URL 匯入失敗：無法下載檔案。",
+        "urlImportParseFailed": "URL 匯入失敗：檔案內容無法解析。",
+        "passwordRequiredBeforeExport": "請先解鎖此事件庫，再匯出完整內容。",
+        "passwordProtectedBadge": "密碼保護",
+        "passwordProtectedLocked": "此事件庫已設定密碼保護。輸入正確密碼前，只會顯示事件標題。",
+        "passwordProtectedUnlocked": "此事件庫已解鎖",
+        "passwordHintLabel": "解鎖提示詞：{hint}",
+        "passwordLockedContentPlaceholder": "輸入密碼解鎖事件內容...",
+        "unlockProtectedButton": "輸入密碼解鎖",
+        "relockProtectedButton": "重新隱藏內容",
+        "placeholder": "在此貼上或編輯 JSON / 編碼內容",
+        "close": "關閉"
+      },
+      "library": {
+        "title": "事件庫",
+        "subtitle": "保存並切換不同模式的事件組合。",
+        "discordHint": "更多事件庫請加入 Discord 獲取",
+        "close": "關閉",
+        "newLabel": "將目前事件保存為新庫",
+        "namePlaceholder": "輸入事件庫名稱...",
+        "saveNew": "保存事件庫",
+        "empty": "暫無事件庫，先建立一個吧！",
+        "stats": "已保存 {count} 個事件格",
+        "activeBadge": "使用中",
+        "use": "切換",
+        "overwrite": "覆蓋目前庫",
+        "rename": "重新命名",
+        "reload": "重新載入",
+        "delete": "刪除",
+        "deleteDefault": "預設事件庫無法刪除。",
+        "deleteSuccess": "已刪除「{name}」事件庫。",
+        "defaultName": "預設事件庫",
+        "defaultBadge": "預設事件庫",
+        "overwriteDefault": "預設事件庫不可覆蓋。",
+        "nameRequired": "請填寫事件庫名稱。",
+        "nameExists": "已存在同名事件庫。",
+        "saveSuccess": "已存入「{name}」事件庫。",
+        "switchSuccess": "已切換到「{name}」事件庫。",
+        "overwriteSuccess": "「{name}」已更新為目前事件。",
+        "unnamed": "未命名事件庫",
+        "privateName": "私密事件庫",
+        "funnyName": "搞笑版",
+        "longDistanceName": "異地戀版",
+        "drunkName": "酒後亂性",
+        "intenseName": "重度調教",
+        "fitnessName": "雙人健身",
+        "fourPrivateName": "四人私密庫"
+      },
+      "privateEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "擲出 6 開始遊戲"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "擲出 6 開始遊戲"
+        },
+        "6-6": {
+          "name": "極樂終點",
+          "description": "贏家可以指定今晚的姿勢，或要求輸家無條件服務一次"
+        },
+        "3-0": {
+          "name": "耳鬢廝磨",
+          "description": "含住對方耳垂輕咬、吹氣，持續 15 秒"
+        },
+        "4-0": {
+          "name": "絕對服從",
+          "description": "對方指定你做一個羞恥的動作或發出一种聲音"
+        },
+        "5-0": {
+          "name": "指尖挑逗",
+          "description": "用指尖在對方大腿內側畫圈，直到對方忍不住出聲"
+        },
+        "6-0": {
+          "name": "視覺剝奪",
+          "description": "戴上眼罩（或閉眼），任由對方在身上任意部位親吻一分鐘"
+        },
+        "7-0": {
+          "name": "濕熱低語",
+          "description": "貼著耳孔用濕熱的呼吸描述你現在最想對他做的壞事"
+        },
+        "8-0": {
+          "name": "敏感帶巡禮",
+          "description": "詢問對方最敏感的部位，並用舌頭輕舔三下"
+        },
+        "9-0": {
+          "name": "緊窒擁抱",
+          "description": "正面緊緊擁抱，用力讓身體嚴絲合縫，感受彼此的反應"
+        },
+        "9-1": {
+          "name": "指尖含吮",
+          "description": "將對方的一根手指含入口中，模仿某种節奏吮吸"
+        },
+        "9-2": {
+          "name": "胸膛遊走",
+          "description": "手伸進對方上衣裡，撫摸胸肌或柔軟處 30 秒"
+        },
+        "9-3": {
+          "name": "種下草莓",
+          "description": "在對方脖頸或鎖骨處用力吸出一個吻痕（如果不介意的話）"
+        },
+        "10-3": {
+          "name": "真心話",
+          "description": "說出對方身體上你最渴望進入或觸碰的一個部位"
+        },
+        "11-3": {
+          "name": "深情對視",
+          "description": "對視 20 秒，期間誰先眨眼或臉紅，誰就脫一件衣服"
+        },
+        "12-3": {
+          "name": "所謂懲罰",
+          "description": "輕打對方屁股三下，力度由對方決定"
+        },
+        "12-4": {
+          "name": "神秘探險",
+          "description": "隔著衣物撫摸對方私密處 10 秒，觀察他的表情"
+        },
+        "12-5": {
+          "name": "舌尖試探",
+          "description": "用舌尖沿著對方的下頜線一路舔到耳根"
+        },
+        "12-6": {
+          "name": "背後掌控",
+          "description": "從背後抱住，雙手直接覆上胸部揉捏"
+        },
+        "12-7": {
+          "name": "下半身貼合",
+          "description": "下半身緊貼對方，緩慢摩擦搖擺 15 秒"
+        },
+        "12-8": {
+          "name": "全身巡吻",
+          "description": "親吻對方身上三個不同的敏感部位（唇、頸、胸、腹等）"
+        },
+        "12-9": {
+          "name": "溫差遊戲",
+          "description": "含一口冰水（或熱水），然後親吻對方的脖子或胸口"
+        },
+        "11-9": {
+          "name": "衣下風景",
+          "description": "掀起對方上衣，用手機拍一張局部特寫（僅供二人欣賞）"
+        },
+        "10-9": {
+          "name": "十指相扣",
+          "description": "將對方雙手壓在頭頂或背後，強勢親吻"
+        },
+        "9-9": {
+          "name": "特殊的椅子",
+          "description": "一方坐在另一方腿上，保持這個姿勢直到下一輪"
+        },
+        "9-10": {
+          "name": "解開束縛",
+          "description": "替對方解開一顆扣子，或者是鬆開腰帶/解開內衣扣"
+        },
+        "9-11": {
+          "name": "大腿枕頭",
+          "description": "躺在對方大腿之間，臉朝向私密處，保持 10 秒"
+        },
+        "9-12": {
+          "name": "腰窩盛宴",
+          "description": "雙手掐住對方的腰，從後方啃咬對方的肩膀和後頸"
+        },
+        "8-12": {
+          "name": "坦誠相見",
+          "description": "雙方各脫去一件衣物（如果是最後一件可保留或通過懲罰抵消）"
+        },
+        "7-12": {
+          "name": "鼻尖磨蹭",
+          "description": "鼻尖蹭鼻尖，然後慢慢向下蹭過嘴唇、下巴直到鎖骨"
+        },
+        "6-12": {
+          "name": "足尖撩撥",
+          "description": "用腳趾去蹭對方的小腿，一路向上滑到大腿根部"
+        },
+        "5-12": {
+          "name": "大膽示愛",
+          "description": "用手在對方身上任意部位寫下「我要你」三個字"
+        },
+        "4-12": {
+          "name": "唇齒交鋒",
+          "description": "互相輕咬對方的下嘴唇，看誰先受不了"
+        },
+        "3-12": {
+          "name": "步步緊逼",
+          "description": "將對方逼到牆角或床邊，壁咚並深吻"
+        },
+        "3-11": {
+          "name": "手心的溫度",
+          "description": "握住對方的手，引導他觸碰自己身體有反應的部位"
+        },
+        "3-10": {
+          "name": "無聲挑逗",
+          "description": "不許說話，用眼神和肢體動作讓對方產生反應"
+        },
+        "3-9": {
+          "name": "肌膚之親",
+          "description": "撩起衣服，肌膚直接相貼，感受彼此體溫 20 秒"
+        },
+        "2-9": {
+          "name": "主導權",
+          "description": "獲得一張「命令卡」，遊戲中隨時可使用，命令對方做任何事一次"
+        },
+        "1-9": {
+          "name": "喉結／鎖骨",
+          "description": "舔舐對方的喉結（男）或鎖骨窩（女）"
+        },
+        "0-9": {
+          "name": "危險地帶",
+          "description": "手在對方內褲邊緣遊走畫圈，但不進去，持續 15 秒"
+        },
+        "0-8": {
+          "name": "虔誠膜拜",
+          "description": "從腳踝開始，一路向上親吻到膝蓋內側"
+        },
+        "0-7": {
+          "name": "後背抓痕",
+          "description": "指甲輕輕劃過對方整個後背，引起一陣顫慄"
+        },
+        "0-6": {
+          "name": "人魚線／馬甲線",
+          "description": "沿著對方腹部肌肉線條舔舐或用手指描繪"
+        },
+        "0-5": {
+          "name": "聽聽心跳",
+          "description": "臉貼在左胸，手伸進衣服裡揉捏撫摸"
+        },
+        "0-4": {
+          "name": "交纏",
+          "description": "雙腿交纏在一起，盡量靠近對方的敏感部位摩擦"
+        },
+        "0-3": {
+          "name": "費洛蒙",
+          "description": "聞對方腋下、頸後或胸口的味道，並評價"
+        },
+        "1-3": {
+          "name": "背後突襲",
+          "description": "從背後抱住，手不安分地遊走全身"
+        },
+        "2-3": {
+          "name": "私密問答",
+          "description": "詢問對方性幻想的一個場景，對方必須誠實回答"
+        },
+        "3-3": {
+          "name": "角色扮演",
+          "description": "接下來 3 分鐘，稱呼對方為「主人／女王」或其他指定稱呼"
+        },
+        "3-2": {
+          "name": "蜻蜓點水",
+          "description": "親吻對方大腿內側一下，然後迅速離開"
+        },
+        "3-1": {
+          "name": "氣息交換",
+          "description": "口對口餵對方吃一樣東西（水果／飲料／空氣）"
+        },
+        "1-6": {
+          "name": "法式熱吻",
+          "description": "舌吻 30 秒，手不能閒著，必須撫摸對方身體"
+        },
+        "2-6": {
+          "name": "坐擁入懷",
+          "description": "跨坐在對方身上，雙方隔著衣物摩擦私處"
+        },
+        "3-6": {
+          "name": "慾望清單",
+          "description": "在耳邊列舉 3 個今晚想嘗試的姿勢"
+        },
+        "4-6": {
+          "name": "連環爆破",
+          "description": "脫掉一件衣服，如果沒有衣服可脫，做 10 個深蹲（對方在面前看）"
+        },
+        "5-6": {
+          "name": "伏地挺身",
+          "description": "對方躺下，你在上面做伏地挺身，每次下去都要親到嘴或胸"
+        },
+        "7-6": {
+          "name": "絕對領域",
+          "description": "手探入對方兩腿之間，輕輕按壓或撫摸"
+        },
+        "8-6": {
+          "name": "心跳同頻",
+          "description": "赤裸上身緊貼，感受對方乳頭的硬度和心跳"
+        },
+        "9-6": {
+          "name": "臀部掌控",
+          "description": "用力揉捏對方臀部，並發出清脆的拍打聲"
+        },
+        "10-6": {
+          "name": "意亂情迷",
+          "description": "互相撫摸對方最敏感的帶，持續 30 秒，看誰先受不了求饒"
+        },
+        "11-6": {
+          "name": "臨門一腳",
+          "description": "深喉吻或將手伸入內衣／內褲中進行實質性撫摸，作為最後的預熱"
+        }
+      },
+      "drunkEvents": {
+        "1-1": {
+          "name": "男方起點",
+          "description": "擲出6，開啟微醺之夜"
+        },
+        "11-11": {
+          "name": "女方起點",
+          "description": "擲出6，步入醉人良宵"
+        },
+        "6-6": {
+          "name": "終點",
+          "description": "抵達彼岸，輸家需為贏家發一個100元的「示愛紅包」"
+        },
+        "3-0": {
+          "name": "寬衣解帶",
+          "description": "動作輕柔地為對方脫去一件衣物"
+        },
+        "4-0": {
+          "name": "獨飲半杯",
+          "description": "自己喝下半杯酒"
+        },
+        "5-0": {
+          "name": "耳畔溫存",
+          "description": "用舌尖輕舔對方耳廓與耳根，細細品味十秒"
+        },
+        "6-0": {
+          "name": "以吻渡酒",
+          "description": "含一口酒，通過接吻慢慢餵給對方"
+        },
+        "7-0": {
+          "name": "輕拍臀部",
+          "description": "在對方臀部輕輕拍打一下"
+        },
+        "8-0": {
+          "name": "半杯消愁",
+          "description": "自己喝下半杯酒"
+        },
+        "9-0": {
+          "name": "再褪衣衫",
+          "description": "再次為對方脫去一件衣物"
+        },
+        "9-1": {
+          "name": "俯身受罰",
+          "description": "雙手撐地俯身，翹起臀部讓對方拍打一下"
+        },
+        "9-2": {
+          "name": "再次渡酒",
+          "description": "再次用嘴餵對方喝一口酒"
+        },
+        "9-3": {
+          "name": "私密愛撫",
+          "description": "手探入內衣/褲中，溫柔撫摸敏感部位三十秒"
+        },
+        "10-3": {
+          "name": "主動寬衣",
+          "description": "自己脫掉一件衣物"
+        },
+        "11-3": {
+          "name": "暢飲半杯",
+          "description": "自己喝下半杯酒"
+        },
+        "12-3": {
+          "name": "留下吻痕",
+          "description": "在對方身上吸吮出一個清晰的吻痕（草莓印）"
+        },
+        "12-4": {
+          "name": "指尖撫慰",
+          "description": "用靈活的手指為對方的敏感部位服務一分鐘"
+        },
+        "12-5": {
+          "name": "親吻胸懷",
+          "description": "親吻對方胸部肌膚，停留十秒"
+        },
+        "12-6": {
+          "name": "半杯助興",
+          "description": "自己喝下半杯酒"
+        },
+        "12-7": {
+          "name": "深情擁吻",
+          "description": "與對方深情接吻，舌尖糾纏三十秒"
+        },
+        "12-8": {
+          "name": "豪飲一杯",
+          "description": "自己喝下一整杯酒"
+        },
+        "12-9": {
+          "name": "輕咬蓓蕾",
+          "description": "輕輕咬住對方乳頭，溫存逗弄十秒"
+        },
+        "11-9": {
+          "name": "再次擁吻",
+          "description": "再次與對方深情舌吻三十秒"
+        },
+        "10-9": {
+          "name": "大腿內側",
+          "description": "用舌頭舔舐對方大腿內側嬌嫩肌膚十秒"
+        },
+        "9-9": {
+          "name": "親密口侍",
+          "description": "用嘴為對方服務，直到對方有明顯的生理反應"
+        },
+        "9-10": {
+          "name": "一杯敬愛",
+          "description": "自己喝下一整杯酒"
+        },
+        "9-11": {
+          "name": "難捨難分",
+          "description": "與對方舌吻三十秒"
+        },
+        "9-12": {
+          "name": "探秘花園",
+          "description": "手探入內衣/褲中，撫摸敏感處三十秒"
+        },
+        "8-12": {
+          "name": "專屬印記",
+          "description": "在指定位置吸吮出一個吻痕"
+        },
+        "7-12": {
+          "name": "微醺時刻",
+          "description": "自己喝下半杯酒"
+        },
+        "6-12": {
+          "name": "解除防線",
+          "description": "溫柔地為對方脫去一件衣物"
+        },
+        "5-12": {
+          "name": "耳鬢廝磨",
+          "description": "舔舐對方耳根與頸側十秒"
+        },
+        "4-12": {
+          "name": "齒間溫柔",
+          "description": "輕咬對方乳頭十秒，注意控制力度"
+        },
+        "3-12": {
+          "name": "受罰姿態",
+          "description": "背對對方翹起臀部，接受一下拍打"
+        },
+        "3-11": {
+          "name": "半杯入喉",
+          "description": "自己喝下半杯酒"
+        },
+        "3-10": {
+          "name": "溫柔探尋",
+          "description": "手探入內衣/褲中，愛撫敏感處三十秒"
+        },
+        "3-9": {
+          "name": "一路向下",
+          "description": "從耳根一路親吻舔舐直到胸口"
+        },
+        "2-9": {
+          "name": "坦誠相對",
+          "description": "自己脫掉一件衣物"
+        },
+        "1-9": {
+          "name": "私密留影",
+          "description": "露出隱私部位，允許對方拍一張照片（閱後即焚）"
+        },
+        "0-9": {
+          "name": "熱烈激吻",
+          "description": "與對方激烈舌吻三十秒"
+        },
+        "0-8": {
+          "name": "含住要害",
+          "description": "用嘴含住對方最敏感的部位，輕柔吞吐三十秒"
+        },
+        "0-7": {
+          "name": "手部服務",
+          "description": "用手為對方的私密處提供一分鐘的愉悅服務"
+        },
+        "0-6": {
+          "name": "肌膚相親",
+          "description": "用私密部位輕蹭對方的臉頰或身體十秒"
+        },
+        "0-5": {
+          "name": "痛飲一杯",
+          "description": "自己喝下一整杯酒"
+        },
+        "0-4": {
+          "name": "纏綿之吻",
+          "description": "與對方舌吻三十秒"
+        },
+        "0-3": {
+          "name": "甜蜜舔食",
+          "description": "將酸奶或飲品塗在乳頭上並舔舐乾淨"
+        },
+        "1-3": {
+          "name": "全身膜拜",
+          "description": "從耳後親吻至腳趾，遍布全身"
+        },
+        "2-3": {
+          "name": "指間溫熱",
+          "description": "手探入內衣/褲中，撫摸三十秒"
+        },
+        "3-3": {
+          "name": "69式歡愉",
+          "description": "採取69姿勢，互相用嘴為對方服務一分鐘"
+        },
+        "3-2": {
+          "name": "吻之封印",
+          "description": "與對方舌吻三十秒"
+        },
+        "3-1": {
+          "name": "淺酌",
+          "description": "自己喝下半杯酒"
+        },
+        "1-6": {
+          "name": "後入衝刺",
+          "description": "採取後入姿勢，進行一分鐘的實質結合"
+        },
+        "2-6": {
+          "name": "背後溫存",
+          "description": "從背後緊緊抱住，雙手上下撫摸全身一分鐘"
+        },
+        "3-6": {
+          "name": "深度口侍",
+          "description": "專注於為對方進行口部服務三分鐘"
+        },
+        "4-6": {
+          "name": "金錢助興",
+          "description": "對方喝酒，每喝一杯給對方轉帳13.14元"
+        },
+        "5-6": {
+          "name": "舔舐蓓蕾",
+          "description": "舔舐對方乳頭一分鐘"
+        },
+        "7-6": {
+          "name": "再次口侍",
+          "description": "為對方進行三分鐘的口部服務"
+        },
+        "8-6": {
+          "name": "求愛紅包",
+          "description": "自己喝酒，每喝一杯對方給自己轉帳52元"
+        },
+        "9-6": {
+          "name": "隨心所欲",
+          "description": "選一個喜歡的姿勢，進行實質結合並抽動至少10下"
+        },
+        "10-6": {
+          "name": "女權在手",
+          "description": "採取女上位（觀音坐蓮），女方主動起伏至少10下"
+        },
+        "11-6": {
+          "name": "交換津液",
+          "description": "餵對方喝一口自己的口水"
+        }
+      },
+      "intenseEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "脫去下半身衣物，保持興奮狀態開始"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "脫去下半身衣物，分開雙腿等待"
+        },
+        "6-6": {
+          "name": "極樂終點",
+          "description": "贏家指定體位，立刻進行實質性的深入結合直至巔峰"
+        },
+        "3-0": {
+          "name": "吸吮乳尖",
+          "description": "用牙齒輕咬並用力吸吮乳頭，持續二十秒"
+        },
+        "4-0": {
+          "name": "完全敞開",
+          "description": "平躺並最大程度張開雙腿，展示私密處給對方檢查"
+        },
+        "5-0": {
+          "name": "指尖律動",
+          "description": "手指探入體內，快速有力地抽動30下"
+        },
+        "6-0": {
+          "name": "蒙眼調教",
+          "description": "蒙上眼睛，任由對方用手指或玩具玩弄私處，不許出聲"
+        },
+        "7-0": {
+          "name": "私密羞辱",
+          "description": "貼著耳朵，用露骨的語言描述對方現在的身體反應"
+        },
+        "8-0": {
+          "name": "直擊根源",
+          "description": "直接含住對方的私密部位，吞吐舔舐三十秒"
+        },
+        "9-0": {
+          "name": "隔空摩擦",
+          "description": "脫去內褲，私密處直接貼合摩擦，但暫不進入"
+        },
+        "9-1": {
+          "name": "深喉模擬",
+          "description": "將對方手指想像成慾望本身，吞入喉嚨深處用力吸吮"
+        },
+        "9-2": {
+          "name": "雙峰夾擊",
+          "description": "用胸部夾住對方的敏感部位，對方用力挺動"
+        },
+        "9-3": {
+          "name": "痛吻印記",
+          "description": "在大腿內側或胸口用力吸吮，必須留下清晰紅印"
+        },
+        "10-3": {
+          "name": "說出幻想",
+          "description": "詳細描述一個想被對方粗暴對待的性幻想場景"
+        },
+        "11-3": {
+          "name": "69式互慰",
+          "description": "採取69姿勢互相口舌侍奉，直到有人忍不住出聲"
+        },
+        "12-3": {
+          "name": "掌摑臀肉",
+          "description": "翹起臀部，贏家用力拍打三下，需要打出紅印"
+        },
+        "12-4": {
+          "name": "揉搓核心",
+          "description": "手探入內褲，用力揉搓最敏感的那一點二十秒"
+        },
+        "12-5": {
+          "name": "舔舐私處",
+          "description": "舌頭從肚臍一路向下，直到舔遍私密處的每一寸"
+        },
+        "12-6": {
+          "name": "後入揉捏",
+          "description": "從背後抱住，模仿後入的節奏用力揉捏私處"
+        },
+        "12-7": {
+          "name": "赤裸撞擊",
+          "description": "全裸緊緊擁抱，下體用力撞擊對方，感受彼此溫度"
+        },
+        "12-8": {
+          "name": "舔遍三角區",
+          "description": "親吻舔舐大腿根部、會陰及後庭周圍"
+        },
+        "12-9": {
+          "name": "冰火兩重",
+          "description": "口含冰水（或熱水），直接為對方進行口部服務"
+        },
+        "11-9": {
+          "name": "內部特寫",
+          "description": "分開私密處，用閃光燈拍一張內部特寫"
+        },
+        "10-9": {
+          "name": "強行深喉",
+          "description": "按住頭部，強迫對方吞入私密處或手指，直達喉嚨深處"
+        },
+        "9-9": {
+          "name": "騎臉",
+          "description": "一方平躺，另一方跨坐在臉上，用私處摩擦口鼻"
+        },
+        "9-10": {
+          "name": "一絲不掛",
+          "description": "脫掉最後一件遮擋物，完全赤裸相對"
+        },
+        "9-11": {
+          "name": "舌尖彈動",
+          "description": "埋頭在兩腿之間，快速用舌頭彈動敏感點"
+        },
+        "9-12": {
+          "name": "後庭探秘",
+          "description": "潤滑手指，嘗試探入後庭深處一指關節"
+        },
+        "8-12": {
+          "name": "赤身待機",
+          "description": "雙方完全赤裸，之後的懲罰都不許穿衣"
+        },
+        "7-12": {
+          "name": "餵食津液",
+          "description": "深吻時將口水渡給對方，命令對方嚥下"
+        },
+        "6-12": {
+          "name": "足部愛撫",
+          "description": "用腳掌和腳趾踩踏、夾弄對方的私密部位"
+        },
+        "5-12": {
+          "name": "精油手作",
+          "description": "將精油倒在私處，用手掌大面積用力套弄揉搓"
+        },
+        "4-12": {
+          "name": "激烈舌吻",
+          "description": "互相啃咬嘴唇，舌頭用力交纏，模仿結合的頻率"
+        },
+        "3-12": {
+          "name": "站立模擬",
+          "description": "將對方按在牆上，撩起腿，隔空模擬衝刺動作"
+        },
+        "3-11": {
+          "name": "當面自慰",
+          "description": "看著對方自我撫慰，並發出聲音，直到對方喊停"
+        },
+        "3-10": {
+          "name": "邊緣寸止",
+          "description": "口交或手淫至快要釋放時停下，重複兩次"
+        },
+        "3-9": {
+          "name": "肉體拍打",
+          "description": "赤裸身體快速撞擊，發出響亮的啪啪聲"
+        },
+        "2-9": {
+          "name": "高潮命令",
+          "description": "獲得特權，可隨時命令對方通過自慰達到高潮"
+        },
+        "1-9": {
+          "name": "深喉挑戰",
+          "description": "嘗試將私密處或道具吞入喉嚨深處，堅持十秒"
+        },
+        "0-9": {
+          "name": "邊緣磨蹭",
+          "description": "只在入口處摩擦不進去，忍耐三十秒"
+        },
+        "0-8": {
+          "name": "足上朝聖",
+          "description": "從腳趾舔到大腿，最後含住私密部位"
+        },
+        "0-7": {
+          "name": "痛感助興",
+          "description": "口交/手淫時，另一隻手用力掐對方大腿或臀肉"
+        },
+        "0-6": {
+          "name": "塗抹愛液",
+          "description": "將私處的體液塗在嘴唇上，親吻使其均勻"
+        },
+        "0-5": {
+          "name": "乳間歡愉",
+          "description": "胸部塗抹潤滑油，夾住對方私處套弄"
+        },
+        "0-4": {
+          "name": "私處研磨",
+          "description": "雙腿張開，私密處緊貼互相研磨擠壓"
+        },
+        "0-3": {
+          "name": "聞香識味",
+          "description": "臉埋進私處深呼吸聞味道，然後舔一下"
+        },
+        "1-3": {
+          "name": "背後突襲",
+          "description": "手從背後伸到身前，握住要害大力套弄"
+        },
+        "2-3": {
+          "name": "隱秘拷問",
+          "description": "誠實回答：現在最想讓對方對自己做什麼過分的事"
+        },
+        "3-3": {
+          "name": "主奴遊戲",
+          "description": "未來三分鐘，贏家是主人，輸家是奴隸，聽憑擺布"
+        },
+        "3-2": {
+          "name": "一觸即分",
+          "description": "僅用敏感點輕碰對方一下，立刻分開"
+        },
+        "3-1": {
+          "name": "口對口餵水",
+          "description": "餵水給對方，若有漏出需舔舐乾淨"
+        },
+        "1-6": {
+          "name": "互慰比賽",
+          "description": "互相用手為對方服務，誰先忍不住出聲誰輸"
+        },
+        "2-6": {
+          "name": "隔空騎乘",
+          "description": "跨坐在身上，對準私處摩擦，嚴禁實質進入"
+        },
+        "3-6": {
+          "name": "體位點單",
+          "description": "贏家指定接下來結合時必須使用的三個體位"
+        },
+        "4-6": {
+          "name": "赤裸深蹲",
+          "description": "全裸做10個深蹲，正面直視對方臉龐"
+        },
+        "5-6": {
+          "name": "69懸空",
+          "description": "69式，輸家在上方支撐身體並為下方服務"
+        },
+        "7-6": {
+          "name": "雙指探洞",
+          "description": "兩根手指伸入體內模擬抽插，直到對方喘息"
+        },
+        "8-6": {
+          "name": "玩弄蓓蕾",
+          "description": "用力捏、拉乳頭，直到充血挺立"
+        },
+        "9-6": {
+          "name": "拍打私處",
+          "description": "用手掌用力拍打私密部位，發出清脆聲音"
+        },
+        "10-6": {
+          "name": "高潮封印",
+          "description": "快高潮時強行按住不許釋放"
+        },
+        "11-6": {
+          "name": "半入靜止",
+          "description": "只結合一半深度，靜止不動，保持三十秒"
+        }
+      },
+      "funnyEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "擲出6出發，出發前必須大喊一聲「我是豬豬俠」"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "擲出6出發，出發前必須模仿一種靈長類動物的叫聲"
+        },
+        "6-6": {
+          "name": "冤家終點",
+          "description": "贏家可以指定輸家做一個必須保持10分鐘的醜臉，並拍照留念（禁止修圖）"
+        },
+        "3-0": {
+          "name": "塑膠誇獎",
+          "description": "用最虛偽、最做作的語氣，誇獎對方的鼻毛或者是雙下巴很性感"
+        },
+        "4-0": {
+          "name": "金雞獨立",
+          "description": "單腳站立，模仿超人力霸王發射光線動作，堅持20秒不許笑"
+        },
+        "5-0": {
+          "name": "眼神鬥法",
+          "description": "雙方鬥雞眼對視，誰先恢復正常或笑場，誰就做5個深蹲"
+        },
+        "6-0": {
+          "name": "人工除味",
+          "description": "捧起對方的腳（或者是襪子），深吸一口氣，並用美食家的口吻評價味道"
+        },
+        "7-0": {
+          "name": "土味情話",
+          "description": "必須用極其油膩的霸道總裁語氣，對牆壁說一句土味情話"
+        },
+        "8-0": {
+          "name": "屁股寫字",
+          "description": "背對對方，用屁股在空中寫出對方的名字，讓對方辨認"
+        },
+        "9-0": {
+          "name": "靜止發呆",
+          "description": "張大嘴巴發呆10秒，期間口水流出來算輸（如果沒有流出來，對方可以負責逗笑）"
+        },
+        "9-1": {
+          "name": "大佬敬茶",
+          "description": "單膝下跪（或蹲下），用太監的聲音請對方喝水：「皇上/娘娘，請用膳」"
+        },
+        "9-2": {
+          "name": "群魔亂舞",
+          "description": "沒有任何音樂，必須跳一段老年迪斯可，表情要極其享受"
+        },
+        "9-3": {
+          "name": "洗腦循環",
+          "description": "用美聲唱法唱兒歌《兩隻老虎》，必須要唱出歌劇的感覺"
+        },
+        "10-3": {
+          "name": "真心話大冒險",
+          "description": "坦白一件做過的蠢事，如果對方覺得不夠蠢，需要重說一件"
+        },
+        "11-3": {
+          "name": "醜照鑑賞",
+          "description": "手機相簿裡翻出一張自己最醜的照片給對方看，展示3秒"
+        },
+        "12-3": {
+          "name": "商業互吹",
+          "description": "握住對方的手，深情感謝TA當年「瞎了眼」才看上自己"
+        },
+        "12-4": {
+          "name": "搔癢挑戰",
+          "description": "被對方搔癢癢10秒鐘，如果發出笑聲，就要學三聲狗叫"
+        },
+        "12-5": {
+          "name": "耳邊魔音",
+          "description": "貼著對方耳朵，用最大的音量喊一聲「收破爛囉——」"
+        },
+        "12-6": {
+          "name": "人肉靠墊",
+          "description": "趴在地上當靠墊，讓對方把腳擱在你背上休息1分鐘"
+        },
+        "12-7": {
+          "name": "相撲推手",
+          "description": "模仿相撲選手準備動作（拍大腿、頓腳），然後互推手掌，腳動者輸"
+        },
+        "12-8": {
+          "name": "暴雨梨花",
+          "description": "用手指在對方頭頂瘋狂亂抓，把對方髮型搞成鳥窩狀"
+        },
+        "12-9": {
+          "name": "聞香識人",
+          "description": "聞對方的腋窩，並大聲喊出：「這就是自由的味道！」"
+        },
+        "11-9": {
+          "name": "指尖酷刑",
+          "description": "對方可以用手指輕輕彈你的腦門，響度不夠要重來"
+        },
+        "10-9": {
+          "name": "掰手腕",
+          "description": "只能用小拇指進行掰手腕比賽，輸的人要做鬼臉"
+        },
+        "9-9": {
+          "name": "背靠背",
+          "description": "背靠背站立，必須同時下蹲再站起，失敗了就一起學鴨子走一圈"
+        },
+        "9-10": {
+          "name": "卑微服務",
+          "description": "給對方捶腿1分鐘，並且每捶一下都要問一句「力道合適嗎老闆？」"
+        },
+        "9-11": {
+          "name": "顏值崩塌",
+          "description": "用前置鏡頭，必須用極其詭異的角度（如下巴視角）拍一張合照發給死黨"
+        },
+        "9-12": {
+          "name": "人肉轎子",
+          "description": "嘗試背起對方（背不動就抱起一隻腿），在房間裡走兩步並喊「起轎」"
+        },
+        "8-12": {
+          "name": "樹袋熊",
+          "description": "抱著對方的大腿不撒手，還要假裝哭訴：「不要趕我走！」"
+        },
+        "7-12": {
+          "name": "豬鼻拱拱",
+          "description": "用手指把自己的鼻孔推成豬鼻子，然後去拱對方的手臂"
+        },
+        "6-12": {
+          "name": "鎖骨彈琴",
+          "description": "在對方鎖骨上假裝彈鋼琴，嘴裡還要自帶極其難聽的配樂"
+        },
+        "5-12": {
+          "name": "大膽挑釁",
+          "description": "用手指勾起對方下巴，說：「妞/爺，給大爺笑一個，不笑就打你屁股」"
+        },
+        "4-12": {
+          "name": "唇語猜謎",
+          "description": "不能出聲，用誇張口型說一個成語，對方猜不出就一直做"
+        },
+        "3-12": {
+          "name": "心臟暴擊",
+          "description": "突然大喊一聲嚇唬對方，如果對方沒被嚇到，自己做10個伏地挺身"
+        },
+        "3-11": {
+          "name": "強人鎖男",
+          "description": "從背後鎖喉（輕點），並威脅對方交出今天的零食/私房錢"
+        },
+        "3-10": {
+          "name": "加密通話",
+          "description": "含一口水在嘴裡（不能嚥），嘗試說清楚「吃葡萄不吐葡萄皮」"
+        },
+        "3-9": {
+          "name": "難兄難弟",
+          "description": "像武俠片裡結拜一樣，單膝跪地抱拳：「大哥/二弟，受小弟一拜！」"
+        },
+        "2-9": {
+          "name": "感恩時刻",
+          "description": "握著對方的手，深情地說：「謝謝你，這麼多年沒打死我。」"
+        },
+        "1-9": {
+          "name": "秘密交換",
+          "description": "告訴對方自己上廁所時的一個怪癖，越怪越好"
+        },
+        "0-9": {
+          "name": "狠狠咬住",
+          "description": "咬住空氣，模仿瘋狗的樣子搖頭晃腦，持續5秒"
+        },
+        "0-8": {
+          "name": "鎖骨存水",
+          "description": "往對方鎖骨窩裡倒一點點水（或假裝倒），然後嘗試用嘴吸出來（發出很大聲音）"
+        },
+        "0-7": {
+          "name": "背後搗亂",
+          "description": "跳到對方背上（或者是假裝），大喊「駕！駕！」，讓對方帶你跑兩步"
+        },
+        "0-6": {
+          "name": "癢癢肉攻擊",
+          "description": "精準攻擊對方最怕癢的地方，直到對方求饒喊「爸爸/媽媽」"
+        },
+        "0-5": {
+          "name": "聽診器",
+          "description": "把耳朵貼在對方肚子上，聽聽有沒有屎在滾動的聲音，並如實匯報"
+        },
+        "0-4": {
+          "name": "大力金剛",
+          "description": "給對方展示你的肱二頭肌，並擺出健美先生/小姐的油膩Pose"
+        },
+        "0-3": {
+          "name": "氣味鑑賞",
+          "description": "對方哈一口氣，你必須深吸並評價這口氣是韭菜味還是大蒜味"
+        },
+        "1-3": {
+          "name": "伏地魔",
+          "description": "在地上爬行一圈，還要模仿掃地機器人的聲音"
+        },
+        "2-3": {
+          "name": "頭鐵神功",
+          "description": "輕輕用頭撞對方的頭，比比誰的頭更硬，並發出金屬撞擊的配音"
+        },
+        "3-3": {
+          "name": "白日做夢",
+          "description": "大聲描述如果中了五百萬，你會怎麼把對方換掉"
+        },
+        "3-2": {
+          "name": "蜻蜓點水",
+          "description": "用手指沾點口水，迅速抹在對方臉上然後逃跑"
+        },
+        "3-1": {
+          "name": "人中比拼",
+          "description": "盡量拉長自己的人中，模仿猴子，保持這個表情合照"
+        },
+        "1-6": {
+          "name": "瞪眼比賽",
+          "description": "互瞪，期間可以做鬼臉干擾，誰先眨眼誰負責洗下次的碗"
+        },
+        "2-6": {
+          "name": "膝蓋跪碎",
+          "description": "模仿犯錯跪搓衣板的姿勢，跪在沙發上，大聲朗誦一遍九九乘法表"
+        },
+        "3-6": {
+          "name": "奇葩清單",
+          "description": "列舉對方身上三個最讓你受不了的毛病，說完立刻抱頭蹲防挨打"
+        },
+        "4-6": {
+          "name": "臉部按摩",
+          "description": "用手把對方的臉擠壓成變形（比如金魚嘴），並拍照存證"
+        },
+        "5-6": {
+          "name": "人體平板",
+          "description": "做平板支撐，對方可以坐在你背上（或者放重物），堅持15秒"
+        },
+        "7-6": {
+          "name": "暖手寶寶",
+          "description": "把冰冷的手伸進對方的脖子裡取暖，對方不許躲"
+        },
+        "8-6": {
+          "name": "心跳過速",
+          "description": "快速原地高抬腿30秒，然後氣喘吁吁地對著對方臉哈熱氣"
+        },
+        "9-6": {
+          "name": "曲線讚美",
+          "description": "拍拍對方的肚子，誇獎道：「這手感，也是沒誰了，幾個月了？」"
+        },
+        "10-6": {
+          "name": "迷人認證",
+          "description": "模仿對方平時生氣或撒嬌的樣子，要極其誇張，直到對方承認像為止"
+        },
+        "11-6": {
+          "name": "窒息深吻",
+          "description": "並不是親吻！是用手捏住對方嘴巴成鴨子狀，強迫對方說「我是大嘴怪」"
+        }
+      },
+      "longDistanceEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "調整好攝像頭角度，擲出6開始"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "檢查門鎖與耳機，擲出6開始"
+        },
+        "6-6": {
+          "name": "雲端極樂",
+          "description": "贏家指定輸家使用一種道具或手法的全套Solo表演，直到結束"
+        },
+        "3-0": {
+          "name": "顱內高潮",
+          "description": "緊貼麥克風，用濕潤的口腔音或急促呼吸持續轟炸對方耳朵15秒"
+        },
+        "4-0": {
+          "name": "遠程遙控",
+          "description": "對方下達一個羞恥指令（如擺個M字腿），你必須保持該動作直到下一輪"
+        },
+        "5-0": {
+          "name": "自我指引",
+          "description": "看著鏡頭，手指在自己大腿內側畫圈，眼神必須時刻鎖死對方"
+        },
+        "6-0": {
+          "name": "視覺剝奪",
+          "description": "戴上眼罩（或閉眼），聽對方描述想對你做的事，不許發出聲音，只能用身體反應"
+        },
+        "7-0": {
+          "name": "午夜電台",
+          "description": "用最情色的聲線，詳細描述你此刻內衣下的狀態（濕度/硬度/顏色）"
+        },
+        "8-0": {
+          "name": "雲端巡禮",
+          "description": "詢問對方最想親吻哪裡，然後自己用手指代替對方的嘴唇，那裡輕按三下"
+        },
+        "9-0": {
+          "name": "隔空擁抱",
+          "description": "雙臂用力環抱自己，想像是對方的體溫，發出滿足的嘆息聲給對方聽"
+        },
+        "9-1": {
+          "name": "指尖含吮",
+          "description": "將自己的一根手指含入口中，模擬口部吞吐動作，給對方特寫"
+        },
+        "9-2": {
+          "name": "禁忌視角",
+          "description": "調整攝像頭位置，給出一個平時很少展示的私密部位特寫（如足底、腋下、臀底）"
+        },
+        "9-3": {
+          "name": "虛擬留痕",
+          "description": "用口紅或筆，在自己身上對方最喜歡的位置畫一個吻痕或記號"
+        },
+        "10-3": {
+          "name": "真心話",
+          "description": "說出上次做夢夢到對方時，具體的場景是什麼"
+        },
+        "11-3": {
+          "name": "眼神拉絲",
+          "description": "臉貼近屏幕對視20秒，想像正在接吻，誰先迴避視線誰脫一件"
+        },
+        "12-3": {
+          "name": "雲端懲罰",
+          "description": "自己掌摑臀部三下，聲音必須響亮到通過麥克風傳過去"
+        },
+        "12-4": {
+          "name": "隔衣探險",
+          "description": "隔著衣物用力揉搓自己的敏感點，表情要表現出彷彿是對方在動手"
+        },
+        "12-5": {
+          "name": "舌尖誘惑",
+          "description": "伸出舌頭，模擬舔舐動作，不僅要靈活還要有唾液拉絲的光澤"
+        },
+        "12-6": {
+          "name": "後背風景",
+          "description": "背對攝像頭，撩起上衣/脫下上衣，展示背部線條並扭動腰肢"
+        },
+        "12-7": {
+          "name": "鏡頭貼合",
+          "description": "私密部位緊貼攝像頭（隔著衣物或不隔），模擬騎在對方臉上的視角"
+        },
+        "12-8": {
+          "name": "全身掃描",
+          "description": "拿著手機從頭到腳緩慢移動拍攝，如同對方的目光在巡視領地"
+        },
+        "12-9": {
+          "name": "冰火兩重",
+          "description": "找一樣冰的或熱的物體（冰塊/熱茶杯），觸碰自己的敏感帶，展示反應"
+        },
+        "11-9": {
+          "name": "衣下乾坤",
+          "description": "掀起上衣下襬，僅露出胸部下緣或腹肌，保持10秒特寫"
+        },
+        "10-9": {
+          "name": "束縛幻想",
+          "description": "用領帶、數據線或皮帶將自己的雙手捆在身前或身後，持續一輪"
+        },
+        "9-9": {
+          "name": "特殊座椅",
+          "description": "想像自己坐在對方臉上或對方正坐在自己身上，擺出相應的姿勢保持一輪"
+        },
+        "9-10": {
+          "name": "解開束縛",
+          "description": "慢動作解開自己領口的兩顆釦子，或者拉開褲鏈展示內側布料"
+        },
+        "9-11": {
+          "name": "私密特寫",
+          "description": "將攝像頭對準兩腿之間，調整焦距，雖不裸露但要極盡誘惑"
+        },
+        "9-12": {
+          "name": "指痕盛宴",
+          "description": "雙手用力抓撓自己的大腿或胸口，留下紅色的指印給對方檢查"
+        },
+        "8-12": {
+          "name": "坦誠相見",
+          "description": "雙方各脫去一件衣物，如果已經沒得脫，就做一個M腿開合動作"
+        },
+        "7-12": {
+          "name": "屏幕之吻",
+          "description": "緩慢靠近攝像頭，直到嘴唇貼上鏡頭，留下霧氣和吻痕"
+        },
+        "6-12": {
+          "name": "足尖撩撥",
+          "description": "抬起一隻腳，在鏡頭前展示腳趾的靈活性，模擬夾住對方某處"
+        },
+        "5-12": {
+          "name": "大膽示愛",
+          "description": "在自己身上寫下對方的名字，位置由對方指定（大腿內側/胸口等）"
+        },
+        "4-12": {
+          "name": "唇齒交鋒",
+          "description": "咬住下唇，用手指拉扯嘴唇，展示口腔內部的粉紅與濕潤"
+        },
+        "3-12": {
+          "name": "逼問真心",
+          "description": "看著鏡頭逼問對方：「此時此刻你想怎麼弄壞我？」，對方需詳細回答"
+        },
+        "3-11": {
+          "name": "手心溫度",
+          "description": "將手伸進自己的衣服裡遊走，隨著對方的指令停在某處不動"
+        },
+        "3-10": {
+          "name": "無聲挑逗",
+          "description": "靜音麥克風，僅通過肢體語言和口型，向對方索求或挑釁"
+        },
+        "3-9": {
+          "name": "肌膚之親",
+          "description": "撫摸屏幕上對方的臉/身體，同時自己撫摸自己對應的部位，實現「通感」"
+        },
+        "2-9": {
+          "name": "主導權",
+          "description": "獲得一張「截圖卡」，對方必須擺出一個你指定的羞恥姿勢供你截圖保存"
+        },
+        "1-9": {
+          "name": "喉結/鎖骨",
+          "description": "仰起頭，給喉結（男）或鎖骨窩（女）特寫，並做吞嚥動作"
+        },
+        "0-9": {
+          "name": "危險地帶",
+          "description": "手在內褲邊緣來回試探，偶爾伸進去一點點又立刻抽出來，持續20秒"
+        },
+        "0-8": {
+          "name": "足控福利",
+          "description": "將腳掌對準鏡頭，由遠及近，直到佔據整個屏幕"
+        },
+        "0-7": {
+          "name": "後背抓痕",
+          "description": "如果沒有指甲，就用筆在後背/臀部畫出抓痕的效果，展示給對方"
+        },
+        "0-6": {
+          "name": "線條勾勒",
+          "description": "用手指沾一點水或乳液，沿著自己的人魚線/馬甲線緩慢描繪高光"
+        },
+        "0-5": {
+          "name": "聽聽心跳",
+          "description": "將麥克風緊貼左胸，跳躍幾下或揉捏幾下，讓對方聽劇烈的心跳聲"
+        },
+        "0-4": {
+          "name": "夾緊",
+          "description": "雙腿用力夾緊（可夾枕頭或被子），配合急促的呼吸，眼神迷離地看著鏡頭"
+        },
+        "0-3": {
+          "name": "費洛蒙",
+          "description": "把穿了一天的貼身衣物脫下來，蓋在攝像頭上，製造朦朧的色情感"
+        },
+        "1-3": {
+          "name": "背身突襲",
+          "description": "背對鏡頭，手反向伸到身後撫摸臀部或私處，給對方看背面視角"
+        },
+        "2-3": {
+          "name": "私密問答",
+          "description": "如果有機會見面，第一件事想在哪個地點做？（如玄關、廚房、車裡）"
+        },
+        "3-3": {
+          "name": "角色扮演",
+          "description": "接下來3分鐘，用「陌生人網聊」的語氣對話，假裝不認識但在調情"
+        },
+        "3-2": {
+          "name": "蜻蜓點水",
+          "description": "快速掀開內衣看一眼又蓋上，讓對方只看到殘影，吊足胃口"
+        },
+        "3-1": {
+          "name": "吞吐練習",
+          "description": "找一根香蕉/手指/柱狀物，對著鏡頭模擬深喉或舔舐動作"
+        },
+        "1-6": {
+          "name": "濕吻特寫",
+          "description": "對著手背或空氣進行濕吻，發出嘖嘖的水聲，眼神要騷"
+        },
+        "2-6": {
+          "name": "騎乘視角",
+          "description": "跨坐在椅子或枕頭上，上下起伏摩擦，模擬騎在對方身上的動作"
+        },
+        "3-6": {
+          "name": "慾望清單",
+          "description": "對著鏡頭唸出3個你想讓對方對自己使用的道具或姿勢"
+        },
+        "4-6": {
+          "name": "連環爆破",
+          "description": "脫掉一件關鍵衣物，如果是最後一件，則對著鏡頭張開雙腿3秒"
+        },
+        "5-6": {
+          "name": "俯臥撐",
+          "description": "對著手機做俯臥撐/深蹲，每次下壓都要湊近屏幕親吻對方"
+        },
+        "7-6": {
+          "name": "絕對領域",
+          "description": "手伸入兩腿之間遮擋住關鍵部位，但在周邊撫摸，留給對方無限遐想"
+        },
+        "8-6": {
+          "name": "心跳同頻",
+          "description": "赤裸上身緊貼屏幕，擠壓胸肌/乳肉，讓對方看到變形的肉感"
+        },
+        "9-6": {
+          "name": "臀部掌控",
+          "description": "背對鏡頭，雙手掰開臀瓣，給對方展示最深處的幽秘一瞬"
+        },
+        "10-6": {
+          "name": "意亂情迷",
+          "description": "自我撫慰30秒（不脫最後防線），伴隨呻吟，然後展示私處的液體並摩擦發出粘膩的聲音，之後張開手指使其拉絲"
+        },
+        "11-6": {
+          "name": "臨門一腳",
+          "description": "手直接伸進內褲裡，進行實質性的揉搓，必須讓對方看到手腕的抽動頻率"
+        }
+      },
+      "seo": {
+        "about": {
+          "title": "什么是情侣飞行棋？",
+          "content": "情侣飞行棋（Couples Ludo）是经典飞行棋的浪漫升级版，专为情侣、夫妻和亲密伴侣设计。与普通飞行棋不同，棋盘上的每一个格子都藏着精心设计的互动任务，从真心话大冒险到亲密肢体接触，旨在打破隔阂、升温感情。无论是热恋期的情侣，还是相伴多年的夫妻，都能在游戏中找到新鲜感和刺激。游戏支持自定义事件库，您可以根据双方的接受程度和喜好，量身定制专属的私密挑战。无需下载APP，打开网页即可即时体验，是约会之夜、异地恋互动的完美助攻神器。"
+        },
+        "rules": {
+          "title": "游戏规则",
+          "list": [
+            "准备阶段：双方（或多人）选择代表自己的颜色棋子，还可以选择不同的事件库模式（如热恋、私密、异地恋等）。",
+            "掷骰子：玩家轮流掷骰子。只有掷出 6 点，棋子才能从基地起飞进入棋盘。",
+            "行进与任务：根据骰子点数移动棋子。当棋子停留在某个格子上时，必须执行该格子对应的事件任务（如“亲吻对方”、“说出真心话”等）。",
+            "特殊机制：如果掷出 6 点，可以额外再掷一次。如果棋子移动终点刚好有对方棋子，可以将对方撞回基地（可视规则设定开启或关闭）。",
+            "胜利条件：率先将所有棋子移动到棋盘中心终点的玩家获胜。赢家通常可以获得输家提供的特别奖励（由双方约定）。"
+          ]
+        },
+        "faq": {
+          "title": "常见问题 (FAQ)",
+          "items": [
+            {
+              "q": "异地恋可以玩吗？",
+              "a": "当然可以！我们特别设计了“异地恋模式”事件库，包含专门针对视频通话场景的互动任务。利用内置的联机功能，双方只需进入同一个房间号，即可实时同步棋盘状态，跨越距离感受彼此的陪伴。"
+            },
+            {
+              "q": "需要下载 APP 吗？",
+              "a": "不需要。Lovegame 情侣飞行棋是基于网页的在线游戏（Web App），支持电脑、平板和手机浏览器直接访问。您可以将网页添加到手机主屏幕，享受类似 APP 的全屏流畅体验，既不占内存又方便快捷。"
+            }
+          ]
+        }
+      },
+      "fitnessEvents": {
+        "1-1": {
+          "name": "男方起點",
+          "description": "擲出6開始運動，出發前目前玩家先做10秒開合跳熱身"
+        },
+        "11-11": {
+          "name": "女方起點",
+          "description": "擲出6開始運動，出發前目前玩家先喊出今晚的健身口號"
+        },
+        "6-6": {
+          "name": "燃脂終點",
+          "description": "到達終點後，目前玩家做1組收操拉伸，並說出最想長期堅持的一項健康習慣"
+        },
+        "3-0": {
+          "name": "同步呼吸",
+          "description": "目前玩家站直身體，做5次緩慢深呼吸，另一人負責觀察節奏是否穩定"
+        },
+        "4-0": {
+          "name": "肩頸喚醒",
+          "description": "目前玩家做15秒肩頸繞環，另一人提醒TA不要聳肩"
+        },
+        "5-0": {
+          "name": "手臂拉伸",
+          "description": "目前玩家做一次手臂橫向拉伸，左右各保持8秒"
+        },
+        "6-0": {
+          "name": "腰背舒展",
+          "description": "目前玩家雙臂向上伸展，帶動腰背拉長並保持10秒"
+        },
+        "7-0": {
+          "name": "標準深蹲",
+          "description": "目前玩家完成8個標準深蹲，另一人負責數數"
+        },
+        "8-0": {
+          "name": "跳躍鼓勵",
+          "description": "目前玩家高舉雙手原地跳一次，另一人必須給出一句健身鼓勵"
+        },
+        "9-0": {
+          "name": "提膝啟動",
+          "description": "目前玩家原地交替提膝20次，節奏亂了就重新計數"
+        },
+        "9-1": {
+          "name": "手腕放鬆",
+          "description": "目前玩家左右手腕各轉動5圈，動作要輕緩"
+        },
+        "9-2": {
+          "name": "平板支撐",
+          "description": "目前玩家做15秒平板支撐，另一人負責計時"
+        },
+        "9-3": {
+          "name": "小腿拉伸",
+          "description": "目前玩家做弓步壓腿，小腿後側拉伸每邊保持8秒"
+        },
+        "10-3": {
+          "name": "喝水補給",
+          "description": "目前玩家喝一口水，再大聲說出「補水也是訓練的一部分」"
+        },
+        "11-3": {
+          "name": "靠牆靜蹲",
+          "description": "目前玩家背靠牆靜蹲15秒，另一人負責計時"
+        },
+        "12-3": {
+          "name": "站姿扭腰",
+          "description": "目前玩家雙手叉腰，左右轉體各10次"
+        },
+        "12-4": {
+          "name": "核心收緊",
+          "description": "目前玩家收緊核心10秒，另一人觀察是否塌腰"
+        },
+        "12-5": {
+          "name": "碰肘訓練",
+          "description": "目前玩家做10次站姿左右碰肘，結束後自己喊「完成」"
+        },
+        "12-6": {
+          "name": "背部伸展",
+          "description": "目前玩家雙手前伸、坐髖向後，完成一次背部拉伸並保持8秒"
+        },
+        "12-7": {
+          "name": "臀腿啟動",
+          "description": "目前玩家做10次後踢腿，左右腿都要完成"
+        },
+        "12-8": {
+          "name": "節奏踏步",
+          "description": "目前玩家原地踏步20秒，速度不能忽快忽慢"
+        },
+        "12-9": {
+          "name": "肩部控制",
+          "description": "目前玩家做6次站姿提肩再下沉，注意動作控制"
+        },
+        "11-9": {
+          "name": "半蹲停留",
+          "description": "目前玩家做10秒半蹲停留，感受大腿發力"
+        },
+        "10-9": {
+          "name": "核心測試",
+          "description": "目前玩家坐姿抬腳離地5秒，另一人負責看TA是否借力"
+        },
+        "9-9": {
+          "name": "心率檢查",
+          "description": "目前玩家數自己10秒脈搏，並說出現在是平穩還是偏快"
+        },
+        "9-10": {
+          "name": "頸側放鬆",
+          "description": "目前玩家做頸部側拉伸，左右各保持6秒"
+        },
+        "9-11": {
+          "name": "開肩拉伸",
+          "description": "目前玩家雙手在身後交扣，完成一次開肩拉伸並保持10秒"
+        },
+        "9-12": {
+          "name": "慢速深蹲",
+          "description": "目前玩家做6個慢速深蹲，下去三秒、起來三秒"
+        },
+        "8-12": {
+          "name": "坐姿抬膝",
+          "description": "目前玩家坐姿抬膝左右交替各10次，保持上身穩定"
+        },
+        "7-12": {
+          "name": "平衡挑戰",
+          "description": "目前玩家單腳站立8秒，落地就重新開始"
+        },
+        "6-12": {
+          "name": "側身拉伸",
+          "description": "目前玩家單手上舉做側彎拉伸，每邊保持8秒"
+        },
+        "5-12": {
+          "name": "加油口令",
+          "description": "目前玩家說一句給自己的健身鼓勵，再握拳喊「繼續」"
+        },
+        "4-12": {
+          "name": "後撤弓步",
+          "description": "目前玩家做左右交替後撤弓步各4次，膝蓋方向保持穩定"
+        },
+        "3-12": {
+          "name": "坐姿轉體",
+          "description": "目前玩家坐姿左右轉體各8次，動作要連貫"
+        },
+        "3-11": {
+          "name": "上肢啟動",
+          "description": "目前玩家雙掌用力互推10秒，感受胸肩發力"
+        },
+        "3-10": {
+          "name": "步伐協調",
+          "description": "目前玩家左右橫移各5步，結束後原地定住3秒"
+        },
+        "3-9": {
+          "name": "直腿前抬",
+          "description": "目前玩家完成10次直腿前抬，另一人負責數數"
+        },
+        "2-9": {
+          "name": "站姿後伸",
+          "description": "目前玩家雙手扶腰、打開胸口，輕輕向後伸展5秒"
+        },
+        "1-9": {
+          "name": "徒手划船",
+          "description": "目前玩家做8次徒手划船動作，注意肩胛後收"
+        },
+        "0-9": {
+          "name": "腹式呼吸",
+          "description": "目前玩家一手放在腹部，完成5次腹式呼吸"
+        },
+        "0-8": {
+          "name": "踝關節熱身",
+          "description": "目前玩家先踮腳10次，再做腳踝環繞左右各5圈"
+        },
+        "0-7": {
+          "name": "交替摸肩",
+          "description": "目前玩家做10次站姿交替摸肩，過程不能聳肩借力"
+        },
+        "0-6": {
+          "name": "抱膝拉伸",
+          "description": "目前玩家抱膝站立5秒，另一人負責提醒保持平衡"
+        },
+        "0-5": {
+          "name": "臀橋啟動",
+          "description": "目前玩家做8次臀橋，抬起時主動收緊臀部"
+        },
+        "0-4": {
+          "name": "腳尖點地",
+          "description": "目前玩家左右腳尖向前點地各10次"
+        },
+        "0-3": {
+          "name": "姿勢重置",
+          "description": "目前玩家收下巴、挺胸、沉肩，保持標準站姿8秒"
+        },
+        "1-3": {
+          "name": "高抬腿衝刺",
+          "description": "目前玩家做10次高抬腿，另一人負責喊節奏"
+        },
+        "2-3": {
+          "name": "健康問答",
+          "description": "目前玩家回答一個健身問題：你最想長期堅持的運動是什麼？"
+        },
+        "3-3": {
+          "name": "仰臥起坐",
+          "description": "目前玩家做6次仰臥起坐，起身時雙手向前伸直"
+        },
+        "3-2": {
+          "name": "側步燃脂",
+          "description": "目前玩家做12次側步點地，注意膝蓋不要內扣"
+        },
+        "3-1": {
+          "name": "恢復拍打",
+          "description": "目前玩家輕拍自己的大腿和小腿各10秒，做一次放鬆恢復"
+        },
+        "1-6": {
+          "name": "終線衝刺一",
+          "description": "目前玩家做20秒登山跑，結束後立刻深呼吸兩次"
+        },
+        "2-6": {
+          "name": "終線衝刺二",
+          "description": "目前玩家做平板支撐，同時完成左右肩交替點觸各5次"
+        },
+        "3-6": {
+          "name": "終線衝刺三",
+          "description": "目前玩家完成8次半蹲起立，注意核心保持收緊"
+        },
+        "4-6": {
+          "name": "終線衝刺四",
+          "description": "目前玩家做10次交替後撤弓步，另一人負責糾正動作"
+        },
+        "5-6": {
+          "name": "終線衝刺五",
+          "description": "目前玩家完成10次卷腹，起身時雙手碰到膝蓋"
+        },
+        "7-6": {
+          "name": "放鬆慢走",
+          "description": "目前玩家原地慢走15秒，讓呼吸慢慢降下來"
+        },
+        "8-6": {
+          "name": "大腿拉伸",
+          "description": "目前玩家做站姿股四頭肌拉伸，每邊保持8秒"
+        },
+        "9-6": {
+          "name": "今日最佳",
+          "description": "目前玩家指出自己今晚做得最標準的一個動作，並等另一人給出評價"
+        },
+        "10-6": {
+          "name": "汗水獎勵",
+          "description": "目前玩家擦一下汗，再做一個握拳慶祝動作"
+        },
+        "11-6": {
+          "name": "收操約定",
+          "description": "目前玩家做最後一次全身伸展，並說出下一次想健身的時間"
+        }
+      },
+      "fourPrivateEvents": {
+        "1-1": {
+          "name": "男方一號",
+          "description": "擲出6開始遊戲"
+        },
+        "11-11": {
+          "name": "女方一號",
+          "description": "擲出6開始遊戲"
+        },
+        "6-6": {
+          "name": "終點",
+          "description": "抵達終點，一起寫下今晚只屬於你們倆的心願"
+        },
+        "3-0": {
+          "name": "舉杯",
+          "description": "喝下一杯酒"
+        },
+        "4-0": {
+          "name": "探進20秒",
+          "description": "把手探進對方伴侶衣服裡，溫柔遊走20秒"
+        },
+        "5-0": {
+          "name": "交杯",
+          "description": "與對方伴侶一起喝一杯交杯酒"
+        },
+        "6-0": {
+          "name": "脫一件",
+          "description": "自己脫掉一件衣服"
+        },
+        "7-0": {
+          "name": "耳邊挑逗",
+          "description": "在對方伴侶耳後與耳根處逗弄10秒"
+        },
+        "8-0": {
+          "name": "嘴對嘴渡酒",
+          "description": "用嘴唇當橋，餵對方伴侶喝一口酒"
+        },
+        "9-0": {
+          "name": "輕吻一下",
+          "description": "給對方伴侶一個短暫的吻"
+        },
+        "9-1": {
+          "name": "幫脫一件",
+          "description": "幫對方伴侶脫掉一件衣服"
+        },
+        "9-2": {
+          "name": "深吻",
+          "description": "與對方伴侶來一個綿長深吻10秒"
+        },
+        "9-3": {
+          "name": "律動10秒",
+          "description": "與自己伴侶緊密、有節奏地律動10秒"
+        },
+        "10-3": {
+          "name": "小酌",
+          "description": "淺淺喝半杯酒"
+        },
+        "11-3": {
+          "name": "公主抱",
+          "description": "把對方伴侶抱起來托住10秒"
+        },
+        "12-3": {
+          "name": "脫一件",
+          "description": "脫掉一件衣服"
+        },
+        "12-4": {
+          "name": "大腿內側遊走",
+          "description": "在對方伴侶大腿內側曖昧停留10秒"
+        },
+        "12-5": {
+          "name": "小酌",
+          "description": "淺淺喝半杯酒"
+        },
+        "12-6": {
+          "name": "深吻",
+          "description": "與對方伴侶來一個綿長深吻10秒"
+        },
+        "12-7": {
+          "name": "探進20秒",
+          "description": "把手探進對方伴侶衣服裡，溫柔遊走20秒"
+        },
+        "12-8": {
+          "name": "臀部輕罰",
+          "description": "接受其他所有人各打一下輕拍懲罰"
+        },
+        "12-9": {
+          "name": "舉杯",
+          "description": "喝下一杯酒"
+        },
+        "11-9": {
+          "name": "脫一件",
+          "description": "脫掉一件衣服"
+        },
+        "10-9": {
+          "name": "嘴對嘴渡酒",
+          "description": "用嘴唇當橋，餵自己伴侶喝一口酒"
+        },
+        "9-9": {
+          "name": "胸前停留",
+          "description": "讓對方在自己伴侶胸前敏感部位停留30秒"
+        },
+        "9-10": {
+          "name": "幫脫一件",
+          "description": "幫對方伴侶脫掉一件衣服"
+        },
+        "9-11": {
+          "name": "深吻",
+          "description": "與對方伴侶來一個綿長深吻10秒"
+        },
+        "9-12": {
+          "name": "舉杯",
+          "description": "喝下一杯酒"
+        },
+        "8-12": {
+          "name": "探進20秒",
+          "description": "把手探進對方伴侶衣服裡，溫柔遊走20秒"
+        },
+        "7-12": {
+          "name": "留下印記",
+          "description": "指定自己身體一個部位，讓對方伴侶留下一個曖昧痕跡"
+        },
+        "6-12": {
+          "name": "脫一件",
+          "description": "脫掉一件衣服"
+        },
+        "5-12": {
+          "name": "小酌",
+          "description": "淺淺喝半杯酒"
+        },
+        "4-12": {
+          "name": "關門獨處",
+          "description": "與對方伴侶一起進洗手間關門獨處30秒"
+        },
+        "3-12": {
+          "name": "深吻",
+          "description": "與對方伴侶來一個綿長深吻10秒"
+        },
+        "3-11": {
+          "name": "小酌",
+          "description": "淺淺喝半杯酒"
+        },
+        "3-10": {
+          "name": "腳心挑逗",
+          "description": "在對方伴侶腳心或腳背逗弄10秒"
+        },
+        "3-9": {
+          "name": "私密邊界",
+          "description": "讓對方在自己伴侶最私密的邊緣地帶停留30秒"
+        },
+        "2-9": {
+          "name": "輕拍三下",
+          "description": "在對方伴侶臀部輕拍三下"
+        },
+        "1-9": {
+          "name": "探進30秒",
+          "description": "把手探進對方伴侶衣服裡，溫柔遊走30秒"
+        },
+        "0-9": {
+          "name": "小酌",
+          "description": "淺淺喝半杯酒"
+        },
+        "0-8": {
+          "name": "一路向下",
+          "description": "從對方伴侶耳後一路往下，緩慢停到胸前"
+        },
+        "0-7": {
+          "name": "後面擁抱",
+          "description": "從後面環抱對方伴侶，溫柔撫摸30秒"
+        },
+        "0-6": {
+          "name": "交杯",
+          "description": "與對方伴侶一起喝一杯交杯酒"
+        },
+        "0-5": {
+          "name": "幫脫一件",
+          "description": "幫對方伴侶脫掉一件衣服"
+        },
+        "0-4": {
+          "name": "震動玩具",
+          "description": "用震動小玩具給對方伴侶20秒微妙刺激"
+        },
+        "0-3": {
+          "name": "嘴對嘴渡酒",
+          "description": "用嘴唇當橋，餵對方伴侶喝一口酒"
+        },
+        "1-3": {
+          "name": "全身遊走",
+          "description": "讓對方伴侶從頭到腳慢慢遊走一次"
+        },
+        "2-3": {
+          "name": "胸前按摩",
+          "description": "在對方伴侶胸前溫柔按摩20秒"
+        },
+        "3-3": {
+          "name": "幫脫一件",
+          "description": "幫對方伴侶脫掉一件衣服"
+        },
+        "3-2": {
+          "name": "探進20秒",
+          "description": "把手探進對方伴侶衣服裡，溫柔遊走20秒"
+        },
+        "3-1": {
+          "name": "留下印記",
+          "description": "指定自己身體一個部位，讓對方伴侶留下一個曖昧痕跡"
+        },
+        "1-6": {
+          "name": "舉杯",
+          "description": "喝下一杯酒"
+        },
+        "2-6": {
+          "name": "隔衣磨蹭",
+          "description": "讓對方隔著衣服與自己伴侶若即若離磨蹭30秒"
+        },
+        "3-6": {
+          "name": "六杯挑戰",
+          "description": "喝6杯酒，每少喝一杯，對方可在自己伴侶胸前敏感處停留10秒"
+        },
+        "4-6": {
+          "name": "腳趾含玩",
+          "description": "含住對方伴侶腳趾玩弄30秒"
+        },
+        "5-6": {
+          "name": "一杯全脫",
+          "description": "喝下一杯酒，並把身上衣服全部脫光"
+        },
+        "7-6": {
+          "name": "一杯換裝",
+          "description": "喝下一杯酒，全脫後換上情趣內衣"
+        },
+        "8-6": {
+          "name": "臀部撫摸",
+          "description": "抬高臀部，讓對方伴侶撫摸30秒"
+        },
+        "9-6": {
+          "name": "後入式相擁",
+          "description": "與自己伴侶以後面相擁的方式纏綿30秒"
+        },
+        "10-6": {
+          "name": "口含春水",
+          "description": "含一口水，用唇舌為自己伴侶服務30秒"
+        },
+        "11-6": {
+          "name": "洗手間私語",
+          "description": "與對方伴侶進洗手間關門獨處30秒"
+        },
+        "6-11": {
+          "name": "洗手間私語",
+          "description": "與對方伴侶進洗手間關門獨處30秒"
+        },
+        "6-10": {
+          "name": "手部侍奉",
+          "description": "讓自己伴侶用手為自己溫柔撫慰30秒"
+        },
+        "6-9": {
+          "name": "俯臥撐挑戰",
+          "description": "趴在對方伴侶身上，做10個俯臥撐"
+        },
+        "6-8": {
+          "name": "六杯挑戰",
+          "description": "喝6杯酒，每少喝一杯，對方可在自己伴侶胸前敏感處停留10秒"
+        },
+        "6-7": {
+          "name": "一杯全脫",
+          "description": "喝下一杯酒，並把身上衣服全部脫光"
+        },
+        "6-5": {
+          "name": "一杯換裝",
+          "description": "喝下一杯酒，全脫後換上情趣內衣"
+        },
+        "6-4": {
+          "name": "唇舌服務",
+          "description": "用唇舌為自己伴侶服務30秒"
+        },
+        "6-3": {
+          "name": "後入式相擁",
+          "description": "與自己伴侶以後面相擁的方式纏綿30秒"
+        },
+        "6-2": {
+          "name": "女上位起伏",
+          "description": "與自己伴侶女上位相對，主動起伏至少50下"
+        },
+        "6-1": {
+          "name": "舉杯",
+          "description": "喝下一杯酒"
+        },
+        "1-11": {
+          "name": "男方二號",
+          "description": "擲出6開始遊戲"
+        },
+        "11-1": {
+          "name": "女方二號",
+          "description": "擲出6開始遊戲"
+        }
+      }
+    },
+    "truthOrDare": {
+      "title": "真心話大冒險輪盤",
+      "tagline": "轉盤抽選玩家與題目。朋友聚會、宿舍破冰、生日派對、團隊活動、修學旅行夜聊與情侶題庫，隨心切換。",
+      "playerCountLabel": "玩家人數",
+      "addPlayer": "新增玩家",
+      "defaultNamePrefix": "玩家",
+      "playerNamePlaceholder": "輸入暱稱",
+      "spinPlayer": "轉盤選人",
+      "nextPlayer": "下一位",
+      "sequentialMode": "按順序輪流",
+      "noRepeat": "結果不重複",
+      "noRepeatDescription": "本次遊戲中每道題只抽一次，重置後可重新抽取。",
+      "resetDrawHistory": "重置抽題紀錄",
+      "drawnPromptCount": "已抽取 {count} 道題",
+      "noRepeatExhausted": "這類題目已抽完，請重置抽題紀錄或選擇另一類。",
+      "chooseTruth": "真心話",
+      "chooseDare": "大冒險",
+      "spin": "旋轉",
+      "currentTurn": "當前回合",
+      "itsYourTurn": "輪到你了",
+      "close": "關閉",
+      "confirm": "知道了",
+      "modeChoiceTitle": "{name} 要真心話還是大冒險？",
+      "modeChoiceSubtitle": "選擇一項繼續揭曉挑戰。",
+      "truthResult": "{name} 的真心話",
+      "dareResult": "{name} 的大冒險",
+      "playerBadgeMale": "男玩家",
+      "playerBadgeFemale": "女玩家",
+      "playerBadgeDefault": "玩家",
+      "promptPlaceholder": "輸入自訂題目",
+      "promptControlsLabel": "題庫管理",
+      "promptControlsDescription": "點選題庫選擇聚會情境，再編輯真心話與大冒險，讓題目適合在場的每個人。",
+      "genericPlayer": "一位玩家",
+      "addTruth": "加入真心題",
+      "addDare": "加入冒險題",
+      "noPlayers": "至少新增一位玩家才能開始遊戲。",
+      "noPrompts": "多準備一些題目，讓激情延續。",
+      "editBuiltInTruths": "編輯系統真心題",
+      "editBuiltInDares": "編輯系統大冒險",
+      "truthManagerTitle": "編輯真心話題庫",
+      "dareManagerTitle": "編輯大冒險題庫",
+      "promptManagerDescription": "可以直接改寫內建題目，或重置為原始文案。",
+      "promptNumberLabel": "題目 {index}",
+      "resetPrompt": "重置",
+      "customTruthsTitle": "自訂真心話",
+      "customDaresTitle": "自訂大冒險",
+      "customPromptsEmpty": "暫未新增，可在下方新增。",
+      "customPromptNumberLabel": "自訂 {index}",
+      "customPromptAddLabel": "新增題目",
+      "removePrompt": "刪除",
+      "addPrompt": "新增題目",
+      "resetAllPrompts": "全部重置",
+      "exportPromptsButton": "匯出題庫 (TXT)",
+      "importPromptsButton": "匯入題库",
+      "transferErrors": {
+        "importEmpty": "匯入的檔案為空。",
+        "invalidJson": "檔案內容必須是題目陣列（JSON 格式）。",
+        "fileReadFailed": "檔案讀取失敗，請重試。",
+        "invalidBase64": "檔案內容無法完成 Base64 解碼。",
+        "unavailable": "當前環境不支援 Base64 編解碼。",
+        "generic": "匯入/匯出失敗，請稍後再試。"
+      },
+      "library": {
+        "title": "題庫",
+        "subtitle": "依情境選擇題庫，也能儲存自己的題目；任何人都可以跳過不想回答或完成的題目。",
+        "close": "關閉",
+        "newLabel": "將當前題目保存為新題庫",
+        "namePlaceholder": "輸入題庫名稱...",
+        "saveNew": "保存題庫",
+        "empty": "暫無題庫，先創建一個吧！",
+        "stats": "已保存 {count} 個題目",
+        "defaultContent": "25個真心話 + 25個大冒險（預設）",
+        "activeBadge": "正在使用",
+        "use": "切換",
+        "overwrite": "覆蓋當前庫",
+        "reload": "重新載入",
+        "delete": "刪除",
+        "deleteDefault": "預設題庫無法刪除。",
+        "deleteSuccess": "已刪除\"{name}\"題庫。",
+        "defaultName": "預設題庫",
+        "defaultBadge": "預設題庫",
+        "overwriteDefault": "預設題庫不可被覆蓋。",
+        "nameRequired": "請填寫題庫名稱。",
+        "nameExists": "已存在同名題庫。",
+        "saveSuccess": "已保存到\"{name}\"題庫。",
+        "switchSuccess": "已切換到\"{name}\"題庫。",
+        "overwriteSuccess": "\"{name}\"已更新為當前題目。",
+        "unnamed": "未命名題庫",
+        "privateName": "情侶私密庫 (2人)",
+        "icebreakerName": "破冰題庫",
+        "buttonLabel": "題庫",
+        "preview": "預覽題目",
+        "rename": "重新命名",
+        "current": "目前題庫：{name}",
+        "promptCounts": "{truths} 道真心話 + {dares} 道大冒險",
+        "loadError": "無法讀取已儲存的題庫，請檢查瀏覽器的儲存權限。",
+        "friendsName": "朋友聚會",
+        "dormName": "宿舍破冰",
+        "birthdayName": "生日派對",
+        "teamName": "團隊建立遊戲",
+        "schoolTripName": "修學旅行夜聊"
+      },
+      "truths": {
+        "0": "在場誰最符合你的理想型？",
+        "1": "你最受不了戀人的什麼行為？",
+        "2": "你現在是單身、戀愛中，還是有曖昧對象？",
+        "3": "如果要和在場一個人接吻，你會選誰？",
+        "4": "你的初戀是什麼時候？",
+        "5": "你談過幾次戀愛？",
+        "6": "你覺得在場誰最會撩人？",
+        "7": "你覺得一個人身體的哪個部位最有吸引力？",
+        "8": "你的初吻是在什麼時候？",
+        "9": "如果今晚可以和在場一個人獨處，你會選誰？",
+        "10": "說出一個你曾經對戀人說過的謊。",
+        "11": "你覺得男女之間有純友誼嗎？",
+        "12": "你理想中的約會是什麼樣？",
+        "13": "你做過最浪漫的事是什麼？",
+        "14": "你有沒有暗戀過在場的人？可以不說名字。",
+        "15": "你在戀愛中容易吃醋嗎？發生過什麼？",
+        "16": "你最喜歡戀人怎麼稱呼你？",
+        "17": "你為喜歡的人做過最瘋狂的事是什麼？",
+        "18": "你有沒有主動告白過？結果怎麼樣？",
+        "19": "你最想被親吻的部位是哪裡？",
+        "20": "你有沒有同時喜歡過兩個人？",
+        "21": "你能接受遠距離戀愛嗎？",
+        "22": "你會考慮和前任復合嗎？",
+        "23": "你最長的一段戀愛持續了多久？",
+        "24": "你會選擇喜歡你的人，還是你喜歡的人？"
+      },
+      "dares": {
+        "0": "邀請_PLAYER_和你對視 30 秒，誰都不能笑。",
+        "1": "在_PLAYER_耳邊說一句情話。",
+        "2": "邀請_PLAYER_和你牽手，直到下一輪。",
+        "3": "徵得_PLAYER_同意後，親一下對方的臉頰。",
+        "4": "邀請_PLAYER_和你擁抱 20 秒。",
+        "5": "雙方願意的話，和_PLAYER_接吻一下。",
+        "6": "徵得_PLAYER_同意後，摸摸對方的頭，說一句「真可愛」。",
+        "7": "徵得_PLAYER_同意後，給對方按摩肩膀 30 秒。",
+        "8": "徵得_PLAYER_同意後，親一下對方的額頭。",
+        "9": "雙方願意的話，和_PLAYER_臉貼臉，擺一個合照姿勢。",
+        "10": "邀請_PLAYER_和你互餵一口零食。",
+        "11": "徵得_PLAYER_同意後，從背後抱住對方 10 秒。",
+        "12": "看著_PLAYER_的眼睛，說出對方最吸引你的三個地方。",
+        "13": "走一段性感的模特兒台步。",
+        "14": "看著_PLAYER_，唱一段情歌。",
+        "15": "假裝向_PLAYER_告白，認真說一段告白的話。",
+        "16": "給_PLAYER_取一個甜蜜的暱稱，並這樣稱呼一輪。",
+        "17": "請_PLAYER_用手指在你的手心寫一個字，猜猜是什麼。",
+        "18": "用三種不同的語氣說「我愛你」。",
+        "19": "對_PLAYER_說一句你最拿手的老派情話。",
+        "20": "邀請_PLAYER_和你跳一小段雙人舞。",
+        "21": "邀請_PLAYER_和你用手比一個愛心，保持 10 秒。",
+        "22": "邀請_PLAYER_和你擺出《鐵達尼號》的經典張臂姿勢。",
+        "23": "假裝向_PLAYER_求婚，說一句求婚台詞。",
+        "24": "對_PLAYER_飛吻一下。"
+      },
+      "privateTruths": {
+        "0": "你最喜歡我身體的哪個部位？",
+        "1": "第一次見我時，你心裡在想什麼？",
+        "2": "有沒有哪個瞬間讓你覺得「非我不可」？",
+        "3": "你最希望我穿什麼樣的衣服（或不穿）？",
+        "4": "描述一個關於我的性幻想（如果覺得太露骨可以用比喻）。",
+        "5": "我們之間最讓你難忘的一次親密接觸是哪次？",
+        "6": "你覺得我在什麼時候最迷人/性感？",
+        "7": "如果我們可以去世界任何地方度蜜月，你想去哪裡？",
+        "8": "你最喜歡我的哪種吻法？",
+        "9": "有沒有什麼事是你一直想和我嘗試但還沒說出口的？",
+        "10": "你覺得我們的關係中，最讓你感到安全感的是什麼？",
+        "11": "如果要把我比作一種食物，你會比作什麼？為什麼？",
+        "12": "你手機裡藏著哪張我的照片是你最喜歡的？",
+        "13": "你覺得我做的哪件事最讓你感動？",
+        "14": "如果這週末我們整天都在床上度過，你想做什麼？",
+        "15": "你最喜歡我怎麼稱呼你？",
+        "16": "有沒有哪個電影/小說情節你想和我一起重演？",
+        "17": "你覺得我生氣的樣子可愛嗎？",
+        "18": "如果我們可以交換身體一天，你會做的第一件事是什麼？",
+        "19": "說出三個你覺得我很性感的時刻。"
+      },
+      "privateDares": {
+        "0": "深情地吻我一分鐘，不許停。",
+        "1": "用嘴餵我吃一樣東西（水果/零食）。",
+        "2": "給我做一個全身按摩（或者至少肩膀/背部5分鐘）。",
+        "3": "在我耳邊用最誘惑的聲音說「我愛你」。",
+        "4": "解開我領口的一顆釦子（或者幫我整理衣服）。",
+        "5": "抱著我做三個深蹲（或揹著我繞房間一圈）。",
+        "6": "在我的鎖骨/脖子上留下一個吻痕（或者假裝）。",
+        "7": "跳一支性感的（或搞笑的）舞給我看。",
+        "8": "脫掉一件衣服（如果環境允許）。",
+        "9": "讓我坐在你腿上兩分鐘。",
+        "10": "用手指在我的背上寫字讓我猜。",
+        "11": "和我對視30秒，眼神要充滿愛意。",
+        "12": "不僅要吻嘴唇，還要吻我的額頭、臉頰和鼻尖。",
+        "13": "用公主抱抱著我直到下一輪。",
+        "14": "讓我檢查你的手機瀏覽紀錄（或者是最近的一張照片）。",
+        "15": "從後面抱住我，在我耳邊吹氣。",
+        "16": "模仿我撒嬌或者是生氣的樣子。",
+        "17": "為我唱一首情歌，要看著我的眼睛。",
+        "18": "讓我用口紅（或筆）在你的臉上畫個愛心。",
+        "19": "躺在我腿上，讓我幫你掏耳朵或者按摩頭部。"
+      },
+      "friendsTruths": {
+        "0": "你做過最尷尬的事是什麼？",
+        "1": "你第一次暗戀別人是在什麼時候？",
+        "2": "你最近一次說謊是為了什麼？",
+        "3": "你有沒有假裝沒看到朋友的訊息？",
+        "4": "你對_PLAYER_的第一印象是什麼？",
+        "5": "你小時候最怕什麼？",
+        "6": "你有沒有喜歡過朋友的朋友？",
+        "7": "你最想改掉的一個壞習慣是什麼？",
+        "8": "你做過最衝動的事是什麼？",
+        "9": "你最近一次哭是因為什麼？",
+        "10": "如果中了樂透，你最先想做什麼？",
+        "11": "你有什麼一直沒告訴大家的小秘密？"
+      },
+      "friendsDares": {
+        "0": "唱一段你最拿手的歌。",
+        "1": "模仿一種動物，讓大家猜。",
+        "2": "跳一段 15 秒的舞。",
+        "3": "做一個鬼臉，保持 10 秒。",
+        "4": "說一段繞口令。",
+        "5": "模仿一位明星，讓大家猜是誰。",
+        "6": "走一段模特兒台步。",
+        "7": "用三種不同的語氣說「我沒事」。",
+        "8": "用動作比劃一個電影名，讓大家猜。",
+        "9": "接下來一輪說話都用唱的。",
+        "10": "說出_PLAYER_的三個優點。",
+        "11": "講一個笑話，試著把大家逗笑。"
+      },
+      "dormTruths": {
+        "0": "你睡覺會打呼或說夢話嗎？",
+        "1": "你最晚熬夜到幾點？",
+        "2": "你有沒有在上課時睡著過？",
+        "3": "你用過什麼藉口請假？",
+        "4": "你以前有什麼綽號？",
+        "5": "你第一次見到室友時是什麼感覺？",
+        "6": "你最近在追什麼劇或綜藝節目？",
+        "7": "你最拿手的一道菜是什麼？",
+        "8": "你有沒有為了打遊戲或追劇熬通宵？",
+        "9": "你最不喜歡吃什麼？",
+        "10": "你在學校經歷過最尷尬的事是什麼？",
+        "11": "你有沒有暗戀過同班同學？"
+      },
+      "dormDares": {
+        "0": "唱兩句你最喜歡的歌。",
+        "1": "模仿剛睡醒的樣子。",
+        "2": "用家鄉話簡單介紹一下自己。",
+        "3": "表演 10 秒機器人舞。",
+        "4": "連續說三遍你會的繞口令。",
+        "5": "模仿一種動物的表情和動作。",
+        "6": "講一個冷笑話，自己不能先笑。",
+        "7": "給大家表演一個你會的小才藝。",
+        "8": "用動作演出一種運動，讓大家猜。",
+        "9": "做出開心、生氣、驚訝三種表情。",
+        "10": "不看周圍，說出三樣房間裡的東西。",
+        "11": "用一種卡通人物的聲音說「晚安」。"
+      },
+      "birthdayTruths": {
+        "0": "你最想收到什麼生日禮物？",
+        "1": "你有沒有忘記過好朋友的生日？",
+        "2": "你最難忘的一次生日是怎麼過的？",
+        "3": "你收到過最意外的禮物是什麼？",
+        "4": "你小時候做過最傻的事是什麼？",
+        "5": "你有沒有假裝喜歡一份禮物？",
+        "6": "你和壽星是怎麼認識的？",
+        "7": "你第一次見到壽星時是什麼印象？",
+        "8": "你最近有什麼願望？",
+        "9": "你最捨不得刪的一張照片拍的是什麼？",
+        "10": "如果能回到某個年紀，你想回到幾歲？",
+        "11": "你做過最讓自己後悔的事是什麼？"
+      },
+      "birthdayDares": {
+        "0": "給壽星唱一段生日歌。",
+        "1": "對壽星說一句生日祝福。",
+        "2": "模仿一種動物的叫聲。",
+        "3": "跳一段你會的舞。",
+        "4": "說出壽星的三個優點。",
+        "5": "連續做出三個不同的鬼臉。",
+        "6": "不說話，用動作演出一個大家熟悉的角色。",
+        "7": "用三種語氣說「生日快樂」。",
+        "8": "講一個笑話，逗壽星笑。",
+        "9": "哼一段歌，讓大家猜歌名。",
+        "10": "用主播的語氣介紹自己。",
+        "11": "做一個搞笑的姿勢，保持 10 秒。"
+      },
+      "teamTruths": {
+        "0": "你小時候最想做什麼工作？",
+        "1": "你做過最尷尬的事是什麼？",
+        "2": "你有沒有把訊息傳錯人？",
+        "3": "你最不擅長什麼事情？",
+        "4": "你下班後最喜歡做什麼？",
+        "5": "你有沒有買過很後悔的東西？",
+        "6": "如果放一個月假，你最想做什麼？",
+        "7": "你上一次遲到是因為什麼？",
+        "8": "你有什麼大家不知道的興趣？",
+        "9": "你最怕哪種動物？",
+        "10": "你最想去哪個地方旅行？",
+        "11": "如果可以換一份工作體驗一天，你想做什麼？"
+      },
+      "teamDares": {
+        "0": "清唱一小段你喜歡的歌。",
+        "1": "說一段你會的繞口令。",
+        "2": "模仿一種運動，讓大家猜。",
+        "3": "模仿機器人走路 10 秒。",
+        "4": "用三種不同的表情說「大家好」。",
+        "5": "講一個冷笑話。",
+        "6": "用動作比劃一個職業，讓大家猜。",
+        "7": "走一段模特兒台步並擺個造型。",
+        "8": "10 秒內說出五種水果。",
+        "9": "說出_PLAYER_的一個優點。",
+        "10": "不用說話，表演刷牙的動作。",
+        "11": "保持微笑 20 秒，不能笑出聲。"
+      },
+      "schoolTripTruths": {
+        "0": "你現在有喜歡的人嗎？",
+        "1": "你第一次暗戀別人是在幾歲？",
+        "2": "你喜歡什麼類型的人？",
+        "3": "你有沒有偷偷給喜歡的人寫過信？",
+        "4": "你有沒有因為害羞而不敢和某個人說話？",
+        "5": "你在學校做過最尷尬的事是什麼？",
+        "6": "你有沒有在上課時被老師叫醒過？",
+        "7": "你最喜歡哪一門課？",
+        "8": "你和最好的朋友是怎麼認識的？",
+        "9": "這次旅行中，你覺得最好玩的一件事是什麼？",
+        "10": "畢業後，你最想做什麼？",
+        "11": "你有什麼一直想學卻還沒學會的東西？"
+      },
+      "schoolTripDares": {
+        "0": "小聲哼一段歌，讓大家猜歌名。",
+        "1": "做一個鬼臉，保持 10 秒。",
+        "2": "用動作模仿一種動物，不能出聲。",
+        "3": "小聲說一段繞口令。",
+        "4": "用一種卡通人物的聲音說「晚安」。",
+        "5": "說出_PLAYER_的一個優點。",
+        "6": "不說話，用動作演出刷牙的樣子。",
+        "7": "連續做出開心、驚訝、委屈三種表情。",
+        "8": "講一個冷笑話，自己不能先笑。",
+        "9": "用手比一個愛心，保持 5 秒。",
+        "10": "做出三個不同的拍照姿勢。",
+        "11": "用嘴型說一句話，讓大家猜。"
+      },
+      "icebreakerTruths": {
+        "0": "用三個詞形容自己。",
+        "1": "最近讓你開心的一件小事是什麼？",
+        "2": "你最喜歡的食物是什麼？",
+        "3": "如果現在能立刻去旅行，你想去哪？",
+        "4": "你最近在追的劇/綜藝/書是什麼？",
+        "5": "你最擅長的一個小技能是？",
+        "6": "學生時代做過最離譜的事是什麼？",
+        "7": "你最想學的一項新技能？",
+        "8": "你最喜歡的音樂/歌手？",
+        "9": "今天的幸運色是什麼？",
+        "10": "你最怕的一個小東西？",
+        "11": "講一個讓你尷尬的冷場瞬間。"
+      },
+      "icebreakerDares": {
+        "0": "用表情包式的誇張表情說「你好」。",
+        "1": "模仿一種動物走路 10 秒。",
+        "2": "用方言說一句「很高興認識你」。",
+        "3": "即興講一個 10 秒冷笑話。",
+        "4": "做一個 5 秒的開心舞步。",
+        "5": "和任意一位擊掌並交換座位。",
+        "6": "用歌聲/哼唱說出你的名字。",
+        "7": "展示手機裡最後一張截圖（不含隱私）。",
+        "8": "用「新聞播報」的語氣做自我介紹。",
+        "9": "用慢動作倒一杯水或假裝倒水。",
+        "10": "對著大家做一個勝利手勢。",
+        "11": "讓大家指定一個你會的表情或手勢並展示。"
+      }
+    },
+    "monopoly": {
+      "title": "午夜大富翁",
+      "tagline": "繞著棋盤冒險，每一站都有慾望事件等待完成。"
+    },
+    "dice": {
+      "title": "情趣骰子",
+      "tagline": "酒吧 KTV 必備。挑戰上家的點數，輸了就喝酒或大冒險。",
+      "roll": "擲骰子",
+      "pass": "過關/下一位",
+      "drawPenalty": "接受懲罰",
+      "restart": "重新開始",
+      "target": "上家點數",
+      "diceCount": "當前骰子數",
+      "currentSum": "擲出點數",
+      "winTitle": "酒神降臨！",
+      "winMessage": "{name} 竟然通關了 10 顆骰子！全場歡呼！",
+      "penaltyTitle": "懲罰時刻",
+      "penaltySubtitle": "願賭服輸",
+      "managePenalties": "管理懲罰庫",
+      "resetToDefaults": "恢復預設題庫",
+      "resetProgress": "重置遊戲進度",
+      "exportPenalties": "匯出題庫",
+      "importPenalties": "匯入題庫",
+      "importError": "匯入失敗，請檢查檔案格式。",
+      "addPenalty": "新增",
+      "penaltyPlaceholder": "輸入懲罰內容...",
+      "defaultPlayerName": "酒友",
+      "turnPrefix": "當前回合:",
+      "playersTitle": "酒局玩家",
+      "penaltiesTitle": "懲罰庫",
+      "edit": "編輯",
+      "cardsInDeck": "張卡片",
+      "done": "完成",
+      "clickToManage": "點擊管理懲罰庫",
+      "addPlayer": "新增酒友",
+      "configureStages": "設定階段",
+      "stageConfigTitle": "設定階段門檻",
+      "stage": "階段",
+      "stage1Label": "階段 1 → 2:",
+      "stage2Label": "階段 2 → 3:",
+      "stage3Label": "階段 3 → 4:",
+      "stage1Desc": "（輕度）",
+      "stage2Desc": "（中度）",
+      "stage3Desc": "（激烈）",
+      "stage4Desc": "（極限）",
+      "playsNeededStage2": "解鎖階段 2 所需遊玩次數",
+      "playsNeededStage3": "解鎖階段 3 所需遊玩次數",
+      "playsNeededStage4": "解鎖階段 4（極限挑戰）所需遊玩次數",
+      "currentProgress": "目前進度:",
+      "plays": "次遊玩",
+      "currentStage": "目前階段:",
+      "stageName1": "階段 1",
+      "stageName2": "階段 2",
+      "stageName3": "階段 3",
+      "stageName4": "階段 4 (最高)",
+      "stageProgress": "{current}/{total}",
+      "stageProgressMax": "{current}+",
+      "library": {
+        "title": "懲罰庫",
+        "subtitle": "保存並切換不同的懲罰集合。",
+        "close": "關閉",
+        "newLabel": "將當前懲罰保存為新庫",
+        "namePlaceholder": "輸入懲罰庫名稱...",
+        "saveNew": "保存懲罰庫",
+        "empty": "暫無懲罰庫，先創建一個吧！",
+        "stats": "已保存 {count} 個懲罰",
+        "activeBadge": "正在使用",
+        "use": "切換",
+        "overwrite": "覆蓋當前庫",
+        "reload": "重新載入",
+        "delete": "刪除",
+        "deleteDefault": "預設懲罰庫無法刪除。",
+        "deleteSuccess": "已刪除\"{name}\"懲罰庫。",
+        "defaultName": "預設懲罰庫",
+        "defaultBadge": "預設懲罰庫",
+        "overwriteDefault": "預設懲罰庫不可被覆蓋。",
+        "nameRequired": "請填寫懲罰庫名稱。",
+        "nameExists": "已存在同名懲罰庫。",
+        "saveSuccess": "已保存到\"{name}\"懲罰庫。",
+        "switchSuccess": "已切換到\"{name}\"懲罰庫。",
+        "overwriteSuccess": "\"{name}\"已更新為當前懲罰。",
+        "unnamed": "未命名懲罰庫",
+        "privateName": "情侶私密庫 (2人)"
+      },
+      "defaultPenalties": {
+        "0": "喝一杯酒。",
+        "1": "大家都喝一杯。",
+        "2": "指定一個人喝半杯。",
+        "3": "真心話：說說你的初吻是在幾歲。",
+        "4": "和左邊的人碰杯並對視5秒。",
+        "5": "餵右邊的人吃一口東西（或喝一口酒）。",
+        "6": "選一位異性，深情對視10秒，誰笑誰喝。",
+        "7": "讓左邊的人聞一下你的脖子/香水。",
+        "8": "被右邊的人壁咚10秒。",
+        "9": "真心話：你覺得在座誰最性感？",
+        "10": "親吻一位異性的臉頰。",
+        "11": "選一位異性，並在TA耳邊輕輕吹氣。",
+        "12": "允許右邊的人在你的鎖骨處種一顆草莓（假裝）。",
+        "13": "解開自己的一顆釦子（或脫一件外套）。",
+        "14": "選一位異性，模仿電影裡的借位接吻。",
+        "15": "和一位異性深情對視並鼻尖碰鼻尖30秒。",
+        "16": "選一位異性，用嘴餵TA喝完一杯酒。",
+        "17": "讓一位異性在你的大腿上寫字，你猜是什麼。",
+        "18": "選一位異性，隔著衣服聽TA的心跳（貼胸口）。",
+        "19": "選一位異性，兩人共用一張椅子坐一輪。",
+        "20": "誇讚右邊的人今天的穿著。",
+        "21": "模仿一種動物叫聲。",
+        "22": "讓大家檢查你的手機相簿最新一張照片。",
+        "23": "握住左邊的人的手直到下一輪。",
+        "24": "講一個冷笑話。",
+        "25": "選一個人玩剪刀石頭布，輸的喝酒。",
+        "26": "拍一張搞怪自拍發到限時動態（僅自己可見也可）。",
+        "27": "說出你最喜歡異性的哪個部位。",
+        "28": "給大家展示你包裡的一樣東西。",
+        "29": "讓大家投票誰的酒量最好，那個人喝一杯。",
+        "30": "摸一下左邊人的頭，說「乖」。",
+        "31": "和一位異性十指緊扣10秒。",
+        "32": "讓大家選一個動作，你保持這個姿勢一輪。",
+        "33": "給通訊錄最近聯繫的一位異性發「想你了」。",
+        "34": "選一個人，坐在TA腿上（或者讓TA坐你腿上）10秒。",
+        "35": "用嘴巴餵在座的一位異性吃水果/零食。",
+        "36": "選一位異性，兩人同吃一根餅乾/條狀食物直到剩下1cm。",
+        "37": "與上一位玩家喝交杯酒。",
+        "38": "接受在座一位異性的擁抱。",
+        "39": "親吻左邊人的手背。",
+        "40": "讓大家看到你的內衣顏色（或者說出來）。",
+        "41": "選一位異性，隔著紙巾嘴對嘴親吻。",
+        "42": "讓在座的一位異性幫你塗口紅（或者用手指抹嘴唇）。",
+        "43": "選一位異性，用撩人的姿勢挑起TA的下巴。",
+        "44": "在一位異性的脖子上留下唇印（可用口紅）。",
+        "45": "和一位異性深情擁抱30秒。",
+        "46": "躺在一位異性的腿上直到下一輪。",
+        "47": "選一位異性，面對面擁抱並擠爆一個氣球。",
+        "48": "讓在座的一位異性用皮帶/領帶綁住你的雙手一輪。",
+        "49": "發出一段誘人的聲音（如喘息）。",
+        "50": "選一位異性，公主抱/背起TA繞場一圈。",
+        "51": "讓一位異性坐在你背上做伏地挺身（或者你坐TA背上）。",
+        "52": "選一位異性，用嘴傳遞一張紙巾/撲克牌。",
+        "53": "在一位異性的耳邊呻吟一聲。",
+        "54": "選一位異性，兩人臉貼臉自拍一張做頭貼。",
+        "55": "讓一位異性把手伸進你的口袋裡拿東西。",
+        "56": "選一位異性，互相搔癢癢10秒。",
+        "57": "和一位異性模仿鐵達尼號經典動作。",
+        "58": "輕輕咬一下一位異性的手指。",
+        "59": "選一位異性，用手指在TA的手背上寫字，猜不出受罰。",
+        "60": "讓大家指定你和一位異性合唱一首情歌。",
+        "61": "選一位異性，深蹲抱起TA 5次。",
+        "62": "選一位異性，互相按摩肩膀1分鐘。",
+        "63": "選一位異性，用你的臉蹭TA的臉。",
+        "64": "和一位異性十指緊扣並親吻TA的手背。",
+        "65": "選一位異性，讓TA幫你脫掉外套。",
+        "66": "選一位異性，把頭靠在TA的肩膀上一輪。",
+        "67": "選一位異性，互相餵對方吃東西。",
+        "68": "選一位異性，在TA的背上寫字讓大家猜。",
+        "69": "喝完這杯酒，然後大聲喊「我愛你們」。"
+      },
+      "privatePenalties": {
+        "0": "深情擁抱對方1分鐘。",
+        "1": "說出對方最讓你心動的3個瞬間。",
+        "2": "親吻對方的額頭。",
+        "3": "真心話：第一次見到對方是什麼感覺？",
+        "4": "為對方倒一杯水/酒並餵TA喝。",
+        "5": "十指緊扣，深情對視20秒。",
+        "6": "用鼻子蹭對方的鼻子（鼻吻）。",
+        "7": "摸摸對方的頭，誇TA「真可愛」。",
+        "8": "背起對方（或公主抱）深蹲3次。",
+        "9": "真心話：最喜歡對方身體的哪個部位？",
+        "10": "給對方按摩肩膀3分鐘。",
+        "11": "親吻對方的臉頰3次。",
+        "12": "在對方耳邊輕聲說「我愛你」。",
+        "13": "解開對方領口的一顆釦子。",
+        "14": "用嘴餵對方吃一塊水果或零食。",
+        "15": "隔著衣服聽對方的心跳1分鐘。",
+        "16": "親吻對方的脖子。",
+        "17": "讓對方坐在你的腿上2分鐘。",
+        "18": "在對方的鎖骨處留下一個吻。",
+        "19": "用手指輕撫對方的嘴唇。",
+        "20": "誇讚對方今天的3個優點。",
+        "21": "模仿對方生氣時的樣子。",
+        "22": "給對方看你手機裡的一張私密照片（如果有）。",
+        "23": "一直牽著手直到下一輪結束。",
+        "24": "為對方唱一首情歌（可以只唱一段）。",
+        "25": "玩剪刀石頭布，輸的人親贏的人一下。",
+        "26": "拍一張兩人的親密合照。",
+        "27": "說出你最想和對方去的一個地方。",
+        "28": "分享一個關於對方的秘密幻想。",
+        "29": "承諾答應對方一個小小的願望。",
+        "30": "躺在對方腿上，讓TA幫你掏耳朵/按摩頭部。",
+        "31": "親吻對方的手心。",
+        "32": "從後面抱住對方，保持1分鐘。",
+        "33": "給對方發一條曖昧的簡訊。",
+        "34": "面對面坐著，雙腿交纏。",
+        "35": "用手指在對方背上寫字，讓TA猜。",
+        "36": "同吃一根餅乾，直到嘴唇碰到。",
+        "37": "喝交杯酒。",
+        "38": "把頭埋在對方的胸口1分鐘。",
+        "39": "親吻對方的耳垂。",
+        "40": "告訴對方你現在內衣的顏色。",
+        "41": "隔著一張紙巾親吻對方的嘴唇。",
+        "42": "幫對方整理頭髮或衣服。",
+        "43": "用下巴蹭對方的肩膀。",
+        "44": "在對方身上留下一個（假裝的）咬痕。",
+        "45": "緊緊擁抱，感受彼此的體溫。",
+        "46": "枕著對方的手臂休息一輪。",
+        "47": "擠爆放在兩人胸口中間的氣球。",
+        "48": "讓對方用皮帶/絲巾輕輕綁住你的手。",
+        "49": "在對方耳邊發出誘人的聲音。",
+        "50": "脫掉一件外套/上衣（如果環境允許）。",
+        "51": "做伏地挺身，對方坐在你的背上。",
+        "52": "用嘴對嘴傳遞一顆糖果或冰塊。",
+        "53": "輕咬對方的下嘴唇。",
+        "54": "兩人臉貼臉，保持距離小於1公分對視。",
+        "55": "讓對方的手伸進你的衣服裡暖手。",
+        "56": "互相搔癢癢，直到一方求饒。",
+        "57": "模仿電影裡的激情片段。",
+        "58": "含住對方的手指5秒。",
+        "59": "讓對方在你的敏感部位附近吹氣。",
+        "60": "深情舌吻10秒。",
+        "61": "用大腿夾住對方的腰。",
+        "62": "給對方做全身（隔著衣服）按摩。",
+        "63": "用舌頭舔一下對方的脖子。",
+        "64": "十指緊扣，把對方的手放在自己胸口。",
+        "65": "幫對方脫掉襪子（或一件衣物）。",
+        "66": "靠在對方身上，輕聲呻吟。",
+        "67": "互相餵食，不准用手。",
+        "68": "在對方大腿內側寫字。",
+        "69": "喝完這杯酒，然後深情接吻1分鐘。"
+      }
+    },
+    "slots": {
+      "title": "桃色老虎機",
+      "tagline": "一拉定情。地點、動作、部位，隨機組合你的下一個親密時刻。",
+      "spin": "開始旋轉",
+      "resultPrefix": "結果：",
+      "nextPlayer": "下一位玩家",
+      "playAgain": "再玩一局",
+      "resetToDefaults": "恢復預設內容",
+      "done": "完成",
+      "winTitle": "慾望達成！",
+      "winMessage": "{name} 的慾望條滿了！現在是享受勝利果實的時候了。",
+      "reels": {
+        "location": "地點",
+        "action": "動作",
+        "bodyPart": "部位"
+      },
+      "defaults": {
+        "locations": {
+          "balcony": "陽台",
+          "sofa": "沙發",
+          "kitchen": "廚房",
+          "bed": "床上",
+          "bathroom": "浴室"
+        },
+        "actions": {
+          "kiss": "親吻",
+          "massage": "按摩",
+          "lick": "舔舐",
+          "bite": "輕咬",
+          "touch": "撫摸",
+          "tickle": "搔癢",
+          "hug": "擁抱",
+          "blow": "吹氣",
+          "pinch": "輕捏",
+          "slap": "輕拍",
+          "rub": "磨蹭",
+          "stare": "凝視",
+          "smell": "聞一聞",
+          "scratch": "輕抓",
+          "hold": "緊握",
+          "squeeze": "揉捏"
+        },
+        "bodyParts": {
+          "neck": "脖子",
+          "ear": "耳朵",
+          "thigh": "大腿",
+          "lips": "嘴唇",
+          "chest": "胸口",
+          "hand": "手心",
+          "foot": "腳底",
+          "back": "後背",
+          "waist": "腰部",
+          "shoulder": "肩膀",
+          "hair": "頭髮",
+          "chin": "下巴",
+          "cheek": "臉頰",
+          "collarbone": "鎖骨",
+          "navel": "肚臍",
+          "wrist": "手腕",
+          "ankle": "腳踝"
+        },
+        "player1": "玩家 1",
+        "player2": "玩家 2"
+      },
+      "funny": {
+        "locations": {
+          "fridge": "冰箱前",
+          "sofa": "沙發上",
+          "bed": "床上",
+          "toilet": "馬桶上",
+          "balcony": "陽台",
+          "corner": "牆角",
+          "kitchen": "廚房",
+          "doorway": "門口"
+        },
+        "actions": {
+          "propose": "求婚",
+          "interview": "採訪",
+          "lecture": "講道理",
+          "dance": "邀舞",
+          "praise": "讚美",
+          "stare": "對視",
+          "confess": "表白",
+          "argue": "吵架",
+          "breakup": "提分手",
+          "worship": "膜拜",
+          "seduce": "挑逗",
+          "rap": "唱Rap",
+          "apologize": "認錯",
+          "negotiate": "談判",
+          "threaten": "威脅",
+          "kowtow": "磕頭"
+        },
+        "bodyParts": {
+          "soySauce": "醬油瓶",
+          "pillow": "枕頭",
+          "slipper": "拖鞋",
+          "remote": "遙控器",
+          "air": "空氣",
+          "tissue": "衛生紙",
+          "cup": "水杯",
+          "plant": "植物",
+          "trash": "垃圾桶",
+          "robot": "掃地機器人",
+          "toiletRoll": "捲筒衛生紙",
+          "toothbrush": "牙刷",
+          "spoon": "湯匙",
+          "banana": "香蕉",
+          "phone": "手機",
+          "sock": "襪子"
+        }
+      },
+      "editor": {
+        "title": "編輯老虎機內容",
+        "reels": "轉軸內容",
+        "players": "玩家設置",
+        "targetScore": "勝利分數",
+        "addNew": "添加新項",
+        "placeholder": "輸入內容...",
+        "newPlayer": "玩家",
+        "addPlayer": "添加玩家",
+        "editLabel": "編輯標籤名稱",
+        "labelPlaceholder": "輸入標籤名稱",
+        "resetLabel": "重置"
+      },
+      "hand": {
+        "777": "777!",
+        "luxury777": "豪華777!",
+        "luxuryThreeOfAKind": "豪華三條!",
+        "straightFlush": "同花順!",
+        "threeOfAKind": "三條!",
+        "straight": "順子!",
+        "flush": "同花!",
+        "pair": "對子!",
+        "noCombo": "無牌型",
+        "inm114": "114!",
+        "inm514": "514!"
+      },
+      "library": {
+        "title": "內容庫",
+        "subtitle": "保存並切換不同的內容集合。",
+        "close": "關閉",
+        "newLabel": "將當前內容保存為新庫",
+        "namePlaceholder": "輸入內容庫名稱...",
+        "saveNew": "保存內容庫",
+        "empty": "暫無內容庫，先創建一個吧！",
+        "stats": "已保存 {count} 項內容",
+        "activeBadge": "正在使用",
+        "use": "切換",
+        "overwrite": "覆蓋當前庫",
+        "reload": "重新載入",
+        "delete": "刪除",
+        "deleteDefault": "預設內容庫無法刪除。",
+        "deleteSuccess": "已刪除\"{name}\"內容庫。",
+        "defaultName": "預設內容庫",
+        "defaultBadge": "預設內容庫",
+        "overwriteDefault": "預設內容庫不可被覆蓋。",
+        "nameRequired": "請填寫內容庫名稱。",
+        "nameExists": "已存在同名內容庫。",
+        "saveSuccess": "已保存到\"{name}\"內容庫。",
+        "switchSuccess": "已切換到「{name}」事件庫。",
+        "overwriteSuccess": "「{name}」已更新為目前事件。",
+        "unnamed": "未命名事件庫",
+        "funnyName": "搞笑版"
+      },
+      "bomb": {
+        "exploded": "炸彈爆炸!",
+        "penalty": "分",
+        "progress": "蓄力炸彈: {count}/{max}"
+      }
+    },
+    "darkBeast": {
+      "title": "火辣暗獸棋",
+      "tagline": "翻牌、博弈、寬衣。心跳加速的策略對決。",
+      "multiplayer": {
+        "onlinePlay": "連線對戰",
+        "panelTitle": "連線暗獸棋",
+        "tabs": {
+          "create": "建立房間",
+          "join": "加入房間"
+        },
+        "labels": {
+          "onlineRoom": "連線房間：{roomId}",
+          "playersCount": "玩家：{count}/{max}",
+          "selectColor": "選擇顏色：",
+          "selecting": "選擇中...",
+          "you": "（你）",
+          "roomId": "房間號",
+          "passwordOptional": "密碼（可選）",
+          "password": "密碼",
+          "yourColor": "你的顏色"
+        },
+        "placeholders": {
+          "passwordOptional": "留空表示公開",
+          "roomId": "XXXXXX"
+        },
+        "actions": {
+          "minimize": "最小化",
+          "exit": "退出",
+          "copyId": "複製房間號",
+          "copied": "已複製",
+          "share": "分享",
+          "startGame": "開始遊戲",
+          "createRoom": "建立房間",
+          "joinRoom": "加入房間"
+        },
+        "confirmExit": "確定要退出房間嗎？退出後房間將解散。",
+        "status": {
+          "creatingRoom": "正在建立房間...",
+          "joiningRoom": "正在加入房間...",
+          "roomCreated": "房間已建立！房間號：{roomId}",
+          "joinedRoom": "已加入房間：{roomId}",
+          "reconnecting": "正在重新連線...",
+          "waitingForPlayers": "等待其他玩家加入...",
+          "waitingForHost": "等待房主開始...",
+          "waitingForYouSelectColor": "請先選擇你的顏色...",
+          "waitingForPlayerAct": "等待 {player} 操作..."
+        },
+        "overlay": {
+          "waiting": "等待其他玩家加入..."
+        },
+        "share": {
+          "title": "加入我的暗獸棋房間",
+          "text": "加入我的暗獸棋遊戲！房間號：{roomId}"
+        },
+        "errors": {
+          "connectionFailed": "連線失敗",
+          "reconnectFailed": "重新連線失敗",
+          "roomDisbanded": "房間已被解散。",
+          "roomNotFound": "房間不存在",
+          "invalidPassword": "密碼錯誤",
+          "colorAlreadyTaken": "顏色已被佔用",
+          "gameMismatch": "該房間屬於其他遊戲。",
+          "createRoomFailed": "建立房間失敗",
+          "onlyHostCanDisband": "只有房主可以解散房間",
+          "cannotDisbandLobby": "不能解散大廳",
+          "createRoomWrongTarget": "建立房間請求必須送到大廳",
+          "unknown": "發生錯誤"
+        }
+      },
+      "win": "{player} 獲勝！",
+      "penaltyHistory": "懲罰記錄",
+      "restart": "重新開始",
+      "settings": "遊戲設定",
+      "close": "關閉",
+      "loading": "載入遊戲中...",
+      "lost": "陣亡",
+      "howToPlay": "玩法說明",
+      "status": {
+        "active": "行動中",
+        "waiting": "等待中"
+      },
+      "rules": {
+        "title": "可選規則",
+        "diagonalLeopard": "獵豹疾馳 (豹可以斜向移動)",
+        "onlyCatEatsRat": "貓鼠遊戲 (只有貓能吃老鼠)"
+      },
+      "penalties": {
+        "title": "懲罰編輯",
+        "desc": "自訂每個等級棋子陣亡後的懲罰。",
+        "reset": "重置為預設",
+        "player1": "紅方懲罰庫",
+        "player2": "藍方懲罰庫",
+        "placeholder": "輸入懲罰內容..."
+      },
+      "log": {
+        "start": "遊戲開始！紅方先手。",
+        "flip": "{player} 翻開了 {piece}",
+        "move": "{player} 移動了 {piece}",
+        "eat": "{player} 用 {attacker} 吃掉了 {defender}！",
+        "mutual": "{p1} 和 {p2} 同歸於盡！"
+      },
+      "players": {
+        "player1": "女方",
+        "player2": "男方"
+      },
+      "pieces": {
+        "0": "鼠",
+        "1": "貓",
+        "2": "狗",
+        "3": "狼",
+        "4": "豹",
+        "5": "虎",
+        "6": "獅",
+        "7": "象"
+      },
+      "rulesSummary": "翻開棋子或移動。大吃小，鼠吃象。棋子被吃掉，接受相應懲罰！",
+      "defaultPenaltiesP1": {
+        "0": "脫掉一隻絲襪",
+        "1": "脫掉一件首飾",
+        "2": "脫掉鞋子",
+        "3": "脫掉外套",
+        "4": "脫掉上衣",
+        "5": "脫掉裙子",
+        "6": "脫掉內衣",
+        "7": "脫掉內褲"
+      },
+      "defaultPenaltiesP2": {
+        "0": "脫掉一隻襪子",
+        "1": "脫掉手錶",
+        "2": "脫掉鞋子",
+        "3": "脫掉外套",
+        "4": "脫掉皮帶",
+        "5": "脫掉襯衫",
+        "6": "脫掉褲子",
+        "7": "脫掉內褲"
+      },
+      "penaltyTitle": "懲罰時刻！",
+      "penaltyMessage": "{player} 的 {beast} 陣亡！",
+      "actionRequired": "請執行懲罰",
+      "removeAction": "請執行：{penalty}",
+      "confirmPenalty": "我已照做",
+      "winReward": "勝利獎勵",
+      "defaultRewardP1": "贏家可以要求30分鐘按摩",
+      "defaultRewardP2": "贏家可以許一個特別的願望",
+      "rewardPlaceholder": "輸入獎勵描述...",
+      "coinFlip": {
+        "firstTurn": "先手決定",
+        "decidingFate": "命運抉擇中..."
+      },
+      "seo": {
+        "about": {
+          "title": "什麼是火辣暗獸棋？",
+          "content": "火辣暗獸棋（Sexy Dark Beast）是一款結合了經典鬥獸棋邏輯與情趣懲罰的策略博弈遊戲。在這個充滿心跳的 4x4 棋盤上，每一張覆蓋的棋子都代表著未知的風險與機遇。從最強大的大象到最靈巧的老鼠，玩家需要在翻牌與移動之間做出抉擇。與傳統鬥獸棋不同，每一枚被吃掉的棋子都伴隨著一項由您自定義或系統隨機生成的趣味懲罰。這不僅是一場腦力的較量，更是一場讓感情迅速升溫的互動冒險，非常適合在私密空間增加約會樂趣。"
+        },
+        "rules": {
+          "title": "遊戲規則",
+          "list": [
+            "初始佈局：棋盤共有 16 個格子，雙方各擁有 8 枚棋子（等級 0-7）。遊戲開始時，所有棋子隨機洗牌並背面朝上放置。",
+            "玩家回合：玩家輪流行動，每回合可以選擇：a. 翻開一枚未開啟的棋子；b. 移動一枚已翻開的己方棋子（僅限上下左右一格，豹可斜行）。",
+            "等級壓制：大吃小（如 7 級象吃 6 級獅），同級可同歸於盡。特殊規則：最小的 0 級鼠可以吃掉最大的 7 級象。",
+            "懲罰機制：每當己方棋子被吃掉時，該棋子所屬的玩家必須執行對應的懲罰動作。懲罰內容可以在設置中自定義。",
+            "勝利條件：率先吃掉對方所有棋子，或對方無路可走時獲勝。贏家可獲得預設的「勝利獎勵」。"
+          ]
+        },
+        "faq": {
+          "title": "常見問題 (FAQ)",
+          "items": [
+            {
+              "q": "可以斜著走嗎？",
+              "a": "默認情況下只能上下左右移動。但在「設置」中開啟「獵豹疾馳」後，4 級棋子（豹）可以進行 8 個方向的移動。"
+            },
+            {
+              "q": "可以聯機對戰嗎？",
+              "a": "支持。點擊「聯機對戰」創建或加入房間，即可與伴侶進行遠程同步對弈。"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "common": {
+    "remove": "刪除",
+    "players": "玩家",
+    "truth": "真心話",
+    "dare": "大冒險",
+    "custom": "自訂"
+  },
+  "routes": {
+    "common": {
+      "back": "返回遊戲列表"
+    },
+    "ludo": {
+      "title": "情侶飛行棋",
+      "description": "情侶互動版情趣飛行棋，支援完全自訂每一格事件。 專為情侶夫妻打造的互動小遊戲。內建雙人與四人模式，支援遠端連線遊玩。收錄豐富的戀愛真心話大冒險題庫，是遠距離戀愛、七夕情人節約會、聚會破冰的必備神器。每一步都將解鎖全新的勁爆體驗或令人臉紅心跳的挑戰。",
+      "heading": "情侶飛行棋",
+      "intro": "擲骰前進、降落執行，任由一格格刺激指令挑動心弦。"
+    },
+    "truthOrDare": {
+      "title": "真心話大冒險輪盤｜朋友聚會、情侶互動與團隊遊戲",
+      "description": "免費線上真心話大冒險輪盤，提供生日聚會、團隊熱場、修學旅行夜聊及情侶題庫。支援自訂題目、隨機抽選玩家與依序輪流，打開網頁就能玩。",
+      "heading": "真心話大冒險輪盤",
+      "intro": "選擇適合聚會的題庫，加入玩家姓名，再用輪盤抽選真心話與大冒險。"
+    },
+    "monopoly": {
+      "title": "午夜大富翁 — 征服整座慾望之城",
+      "description": "繞行棋盤，收集每一次令人臉紅的事件。",
+      "heading": "午夜大富翁",
+      "intro": "雙骰出擊，囤積親密互動，在夜色棋盤上建立你的刺激帝國。",
+      "wipTitle": "功能開發中，歡迎加入 Discord 催更",
+      "wipCta": "加入 Discord"
+    },
+    "dice": {
+      "title": "情趣骰子 — 狂歡派對必備",
+      "description": "專為酒吧、夜店、KTV設計的聚會骰子遊戲。挑戰點數，輸者喝酒或大冒險。",
+      "heading": "情趣骰子",
+      "intro": "挑戰機率，活躍氣氛，讓每一次擲骰都成為全場焦點。"
+    },
+    "slots": {
+      "title": "桃色老虎機 — 隨機慾望組合",
+      "description": "充滿驚喜的情趣老虎機。隨機抽取地點、動作與身體部位，組合成意想不到的親密挑戰。",
+      "heading": "桃色老虎機",
+      "intro": "拉動拉桿，讓命運決定此時此刻的激情方式。"
+    },
+    "darkBeast": {
+      "title": "火辣暗獸棋",
+      "description": "經典暗獸棋的情趣變奏。翻牌、吃子、心理博弈。輸了的人，可是要接受「特別」懲罰的哦。"
+    }
+  },
+  "footer": {
+    "disclaimer": "請在充分溝通界線的前提下玩樂，確保每一步都建立在積極同意之上。"
+  },
+  "share": {
+    "button": "分享",
+    "installApp": "安裝 APP",
+    "systemShare": "系統分享",
+    "copyLink": "複製連結",
+    "qrCode": "產生 QR 碼",
+    "copied": "已複製！",
+    "back": "返回",
+    "scanQRCode": "掃碼分享"
+  },
+  "statistics": {
+    "title": "專屬親密報告",
+    "subtitle": "記錄你們的愛意點滴與激情時刻。",
+    "activePlayers": "遊戲場次",
+    "totalDares": "完成挑戰",
+    "totalKisses": "親密時刻",
+    "intimacyScore": "當前親密指數",
+    "gamePopularity": "偏好分佈",
+    "xp": "經驗值",
+    "level": "等級",
+    "levelTitles": {
+      "glimmeringFirstLove": "微光初戀",
+      "neonWhispers": "霓虹心語",
+      "emberLover": "餘燼戀人",
+      "crimsonGuardian": "緋紅守護",
+      "nocturneHeartseeker": "夜色心獵",
+      "sweetOdyssey": "甜蜜征途",
+      "heartbeatSentinel": "心動守望",
+      "trueLoveNavigator": "摯愛領航",
+      "starseaVow": "星海誓約",
+      "eternalDevotion": "永恆眷戀"
+    },
+    "shareButton": "分享",
+    "sharing": "正在生成…",
+    "shareImage": {
+      "title": "LoveGame 成就",
+      "subtitle": "掃碼查看我們的戀愛旅程",
+      "cta": "掃碼加入我們的戀愛旅程"
+    },
+    "weeklyRhythm": "每週節奏",
+    "achievementsTitle": "成就牆",
+    "progress": "進度",
+    "achievementsPanel": {
+      "progressTitle": "成就進度",
+      "progressSummary": "已解鎖 {unlocked} / {total}",
+      "viewAchievements": "查看成就",
+      "expand": "展開詳情",
+      "collapse": "收起詳情",
+      "sessionUnlockedTitle": "本局達成",
+      "sessionUnlockedEmpty": "暫無新成就，本局繼續累積進度。",
+      "upcomingTitle": "即將完成"
+    },
+    "days": {
+      "sun": "週日",
+      "mon": "週一",
+      "tue": "週二",
+      "wed": "週三",
+      "thu": "週四",
+      "fri": "週五",
+      "sat": "週六"
+    },
+    "achievements": {
+      "novice_explorer": "初出茅廬",
+      "party_starter": "派對之星",
+      "game_master": "遊戲大師",
+      "weekend_warrior": "週末戰士",
+      "dedicated_lover": "深情伴侶",
+      "risk_taker": "冒險家",
+      "open_book": "坦誠相見",
+      "night_owl": "夜貓子",
+      "early_bird": "早起的鳥兒",
+      "soulmates": "靈魂伴侶",
+      "on_fire": "激情似火",
+      "marathon_runner": "馬拉松選手",
+      "quickie": "速戰速決",
+      "variety_pack": "全能玩家",
+      "truth_seeker": "真理追尋者",
+      "daredevil": "無畏勇者",
+      "high_roller": "天選之子",
+      "slot_wizard": "老虎機巫師",
+      "dice_champion": "骰子冠軍",
+      "ludo_legend": "飛行棋傳奇",
+      "jackpot_hunter": "大獎獵人",
+      "perfect_match": "完美契合",
+      "flush_master": "同花大師",
+      "inm_master": "野獸先輩",
+      "unlocked": "解鎖成就"
+    },
+    "achievementsDesc": {
+      "novice_explorer": "累計完成1場遊戲。",
+      "party_starter": "累計完成50場遊戲。",
+      "game_master": "累計完成200場遊戲。",
+      "weekend_warrior": "連續打卡5天。",
+      "dedicated_lover": "連續打卡14天。",
+      "risk_taker": "選擇「大冒險」50次。",
+      "open_book": "選擇「真心話」50次。",
+      "night_owl": "在深夜（23:00-05:00）進行20次遊戲。",
+      "early_bird": "在清晨（05:00-12:00）進行20次遊戲。",
+      "soulmates": "親密指數達到395+。",
+      "on_fire": "激情指數達到395+。",
+      "marathon_runner": "累計遊戲時間超過10小時。",
+      "quickie": "單日完成10場遊戲。",
+      "variety_pack": "玩過所有類型的遊戲。",
+      "truth_seeker": "選擇「真心話」200次。",
+      "daredevil": "選擇「大冒險」200次。",
+      "high_roller": "在飛行棋中擲出6點200次。",
+      "slot_wizard": "旋轉老虎機500次。",
+      "dice_champion": "贏得骰子遊戲50次。",
+      "ludo_legend": "贏得飛行棋遊戲50次。",
+      "jackpot_hunter": "在老虎機中獲勝100次。",
+      "perfect_match": "在老虎機中獲得3次同花順。",
+      "flush_master": "在老虎機中獲得50次同花。",
+      "inm_master": "觸發隱藏的114或514牌型5次。"
+    },
+    "activityTrends": "近期活躍度",
+    "timeOfDay": "活躍時段分析",
+    "streak": "連續打卡 (天)",
+    "detailStats": "遊戲數據詳情",
+    "details": {
+      "truths": "選擇真心話",
+      "dares": "接受大冒險",
+      "rolls": "擲骰次數",
+      "moves": "飛行棋步數",
+      "ludoSixes": "飛行棋投出6",
+      "ludoWinner": "飛行棋獲勝",
+      "dicePenalties": "接受懲罰",
+      "diceWins": "骰子通關",
+      "slotsWins": "老虎機獲勝",
+      "ludoEvents": "觸發格子事件",
+      "slotsSpins": "老虎機旋轉",
+      "totalWeekendSessions": "週末遊戲場次"
+    },
+    "times": {
+      "morning": "清晨",
+      "afternoon": "午後",
+      "evening": "傍晚",
+      "night": "深夜"
+    },
+    "attributeAnalysis": "戀愛屬性雷達",
+    "charts": {
+      "romance": "浪漫",
+      "daring": "大膽",
+      "intimacy": "親密",
+      "fun": "趣味",
+      "passion": "激情",
+      "ludo": "飛行棋",
+      "truthOrDare": "真心話大冒險",
+      "monopoly": "大富翁",
+      "dice": "骰子",
+      "slots": "老虎機"
+    },
+    "backToHome": "返回首頁"
+  }
+}

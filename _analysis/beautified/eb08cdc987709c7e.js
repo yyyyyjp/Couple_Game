@@ -1,0 +1,1167 @@
+﻿(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([
+  "object" == typeof document ? document.currentScript : void 0,
+  8387,
+  (e) => {
+    "use strict";
+    var t = e.i(71645);
+    e.s([
+      "useGameSound",
+      0,
+      () => {
+        let e = (0, t.useRef)({ ctx: null, play: () => {}, startHeartbeat: () => {}, stopHeartbeat: () => {} });
+        (0, t.useEffect)(() => {
+          let t = window.AudioContext || window.webkitAudioContext;
+          if (!t) return;
+          let r = new t(),
+            s = null,
+            n = (e, t, s, n, o = 0.1) => {
+              let i = r.createOscillator(),
+                a = r.createGain();
+              ((i.type = e),
+                i.frequency.setValueAtTime(t, n),
+                a.gain.setValueAtTime(o, n),
+                a.gain.exponentialRampToValueAtTime(0.01, n + s),
+                i.connect(a),
+                a.connect(r.destination),
+                i.start(n),
+                i.stop(n + s));
+            },
+            o = () => {
+              if (!r) return;
+              let e = r.currentTime;
+              (n("sine", 60, 0.15, e, 0.3), n("triangle", 40, 0.1, e, 0.1), n("sine", 70, 0.1, e + 0.3, 0.25), n("triangle", 50, 0.1, e + 0.3, 0.1), (s = window.setTimeout(o, 1200)));
+            };
+          return (
+            (e.current = {
+              ctx: r,
+              play: (e) => {
+                if (!r) return;
+                "suspended" === r.state && r.resume();
+                let t = r.currentTime;
+                switch (e) {
+                  case "flip":
+                    (n("sine", 800, 0.1, t, 0.1), n("triangle", 1200, 0.05, t, 0.05));
+                    break;
+                  case "eat":
+                    (n("square", 150, 0.2, t, 0.15), n("sawtooth", 100, 0.3, t, 0.15), n("sine", 50, 0.4, t, 0.3));
+                    break;
+                  case "start":
+                    [220, 277, 330, 440].forEach((e, s) => {
+                      let n = r.createOscillator(),
+                        o = r.createGain();
+                      ((n.type = "sine"),
+                        n.frequency.setValueAtTime(e, t),
+                        n.frequency.linearRampToValueAtTime(1.02 * e, t + 1.5),
+                        o.gain.setValueAtTime(0, t),
+                        o.gain.linearRampToValueAtTime(0.1, t + 0.1 + 0.05 * s),
+                        o.gain.linearRampToValueAtTime(0, t + 2),
+                        n.connect(o),
+                        o.connect(r.destination),
+                        n.start(t),
+                        n.stop(t + 2));
+                    });
+                    break;
+                  case "win":
+                    [523.25, 659.25, 783.99, 1046.5, 1318.51, 1567.98].forEach((e, r) => {
+                      (n("triangle", e, 0.6, t + 0.08 * r, 0.1), n("sine", 2 * e, 0.8, t + 0.08 * r, 0.05));
+                    });
+                    break;
+                  case "tick":
+                    (n("square", 800, 0.03, t, 0.05), n("triangle", 2e3, 0.03, t, 0.02));
+                    break;
+                  case "select":
+                    (n("sine", 440, 0.15, t, 0.1), n("sine", 587.33, 0.2, t + 0.1, 0.1));
+                    break;
+                  case "fanfare":
+                    [523.25, 659.25, 783.99, 1046.5].forEach((e) => {
+                      (n("sawtooth", e, 0.4, t, 0.08), n("triangle", e, 0.4, t, 0.08));
+                    });
+                    break;
+                  case "roll":
+                    for (let e = 0; e < 5; e++) {
+                      let s = t + (e / 5) * 0.35 + 0.04 * Math.random(),
+                        n = 0.04 * r.sampleRate,
+                        o = r.createBuffer(1, n, r.sampleRate),
+                        i = o.getChannelData(0);
+                      for (let e = 0; e < n; e++) i[e] = 2 * Math.random() - 1;
+                      let a = r.createBufferSource();
+                      a.buffer = o;
+                      let l = r.createBiquadFilter();
+                      ((l.type = "lowpass"), (l.frequency.value = 1500 + 500 * Math.random()));
+                      let c = r.createGain();
+                      (c.gain.setValueAtTime(0.12, s), c.gain.exponentialRampToValueAtTime(0.001, s + 0.03), a.connect(l), l.connect(c), c.connect(r.destination), a.start(s));
+                      let d = r.createOscillator(),
+                        u = r.createGain();
+                      ((d.type = "triangle"),
+                        d.frequency.setValueAtTime(300 + 150 * Math.random(), s),
+                        u.gain.setValueAtTime(0.15, s),
+                        u.gain.exponentialRampToValueAtTime(0.001, s + 0.04),
+                        d.connect(u),
+                        u.connect(r.destination),
+                        d.start(s),
+                        d.stop(s + 0.04));
+                    }
+                    break;
+                  case "success":
+                    (n("sine", 659.25, 0.3, t, 0.1), n("sine", 880, 0.4, t + 0.1, 0.1));
+                    break;
+                  case "fail": {
+                    (n("sawtooth", 440, 0.4, t, 0.1), n("sawtooth", 311.13, 0.4, t + 0.1, 0.1));
+                    let e = r.createOscillator(),
+                      s = r.createGain();
+                    ((e.type = "triangle"),
+                      e.frequency.setValueAtTime(200, t),
+                      e.frequency.linearRampToValueAtTime(100, t + 0.4),
+                      s.gain.setValueAtTime(0.1, t),
+                      s.gain.linearRampToValueAtTime(0, t + 0.4),
+                      e.connect(s),
+                      s.connect(r.destination),
+                      e.start(t),
+                      e.stop(t + 0.4));
+                    break;
+                  }
+                  case "levelUp":
+                    [523.25, 659.25, 783.99, 1046.5].forEach((e, r) => {
+                      n("square", e, 0.1, t + 0.05 * r, 0.05);
+                    });
+                    break;
+                  case "spin":
+                    for (let e = 0; e < 15; e++) {
+                      let r = t + 0.06 * e,
+                        s = 500 + 200 * Math.random();
+                      (n("triangle", s, 0.04, r, 0.06), n("sine", 2 * s, 0.032, r, 0.03), n("square", 4 * s, 0.016, r, 0.012));
+                    }
+                    break;
+                  case "stop":
+                    (n("sine", 523.25, 0.18, t, 0.12), n("sine", 659.25, 0.22, t + 0.05, 0.08));
+                    break;
+                  case "jackpot":
+                    [1, 1.25, 1.5, 2, 1.5, 1.25, 1, 0.75, 1].forEach((e, r) => {
+                      let s = t + 0.15 * r;
+                      (n("square", 523.25 * e, 0.2, s, 0.1), n("sine", 523.25 * e * 2, 0.3, s, 0.05), r % 2 == 0 && n("sine", 2e3 + 500 * Math.random(), 0.05, s, 0.05));
+                    });
+                    break;
+                  case "move":
+                    (n("sine", 300, 0.05, t, 0.2), n("square", 150, 0.02, t, 0.1));
+                    break;
+                  case "fly": {
+                    let e = r.createBufferSource(),
+                      s = 0.5 * r.sampleRate,
+                      n = r.createBuffer(1, s, r.sampleRate),
+                      o = n.getChannelData(0);
+                    for (let e = 0; e < s; e++) o[e] = 2 * Math.random() - 1;
+                    e.buffer = n;
+                    let i = r.createBiquadFilter();
+                    ((i.type = "lowpass"), i.frequency.setValueAtTime(200, t), i.frequency.linearRampToValueAtTime(2e3, t + 0.4));
+                    let a = r.createGain();
+                    (a.gain.setValueAtTime(0.1, t), a.gain.linearRampToValueAtTime(0, t + 0.5), e.connect(i), i.connect(a), a.connect(r.destination), e.start(t));
+                    break;
+                  }
+                  case "land": {
+                    (n("sine", 100, 0.15, t, 0.3), n("triangle", 60, 0.2, t, 0.2));
+                    let e = r.createBufferSource(),
+                      s = 0.1 * r.sampleRate,
+                      o = r.createBuffer(1, s, r.sampleRate),
+                      i = o.getChannelData(0);
+                    for (let e = 0; e < s; e++) i[e] = 2 * Math.random() - 1;
+                    e.buffer = o;
+                    let a = r.createGain();
+                    (a.gain.setValueAtTime(0.1, t), a.gain.exponentialRampToValueAtTime(0.01, t + 0.1), e.connect(a), a.connect(r.destination), e.start(t));
+                  }
+                }
+              },
+              startHeartbeat: () => {
+                !r || ("suspended" === r.state && r.resume(), s || o());
+              },
+              stopHeartbeat: () => {
+                s && (window.clearTimeout(s), (s = null));
+              },
+            }),
+            () => {
+              (s && window.clearTimeout(s), "closed" !== r.state && r.close());
+            }
+          );
+        }, []);
+        let r = (0, t.useCallback)((t) => {
+          e.current.play && e.current.play(t);
+        }, []);
+        return {
+          play: r,
+          startHeartbeat: (0, t.useCallback)(() => {
+            e.current.startHeartbeat && e.current.startHeartbeat();
+          }, []),
+          stopHeartbeat: (0, t.useCallback)(() => {
+            e.current.stopHeartbeat && e.current.stopHeartbeat();
+          }, []),
+        };
+      },
+    ]);
+  },
+  16015,
+  (e, t, r) => {},
+  98547,
+  (e, t, r) => {
+    var s = e.i(47167);
+    e.r(16015);
+    var n = e.r(71645),
+      o = n && "object" == typeof n && "default" in n ? n : { default: n },
+      i = void 0 !== s.default && s.default.env && !0,
+      a = function (e) {
+        return "[object String]" === Object.prototype.toString.call(e);
+      },
+      l = (function () {
+        function e(e) {
+          var t = void 0 === e ? {} : e,
+            r = t.name,
+            s = void 0 === r ? "stylesheet" : r,
+            n = t.optimizeForSpeed,
+            o = void 0 === n ? i : n;
+          (c(a(s), "`name` must be a string"),
+            (this._name = s),
+            (this._deletedRulePlaceholder = "#" + s + "-deleted-rule____{}"),
+            c("boolean" == typeof o, "`optimizeForSpeed` must be a boolean"),
+            (this._optimizeForSpeed = o),
+            (this._serverSheet = void 0),
+            (this._tags = []),
+            (this._injected = !1),
+            (this._rulesCount = 0));
+          var l = "undefined" != typeof window && document.querySelector('meta[property="csp-nonce"]');
+          this._nonce = l ? l.getAttribute("content") : null;
+        }
+        var t,
+          r = e.prototype;
+        return (
+          (r.setOptimizeForSpeed = function (e) {
+            (c("boolean" == typeof e, "`setOptimizeForSpeed` accepts a boolean"),
+              c(0 === this._rulesCount, "optimizeForSpeed cannot be when rules have already been inserted"),
+              this.flush(),
+              (this._optimizeForSpeed = e),
+              this.inject());
+          }),
+          (r.isOptimizeForSpeed = function () {
+            return this._optimizeForSpeed;
+          }),
+          (r.inject = function () {
+            var e = this;
+            if ((c(!this._injected, "sheet already injected"), (this._injected = !0), "undefined" != typeof window && this._optimizeForSpeed)) {
+              ((this._tags[0] = this.makeStyleTag(this._name)),
+                (this._optimizeForSpeed = "insertRule" in this.getSheet()),
+                this._optimizeForSpeed || (i || console.warn("StyleSheet: optimizeForSpeed mode not supported falling back to standard mode."), this.flush(), (this._injected = !0)));
+              return;
+            }
+            this._serverSheet = {
+              cssRules: [],
+              insertRule: function (t, r) {
+                return ("number" == typeof r ? (e._serverSheet.cssRules[r] = { cssText: t }) : e._serverSheet.cssRules.push({ cssText: t }), r);
+              },
+              deleteRule: function (t) {
+                e._serverSheet.cssRules[t] = null;
+              },
+            };
+          }),
+          (r.getSheetForTag = function (e) {
+            if (e.sheet) return e.sheet;
+            for (var t = 0; t < document.styleSheets.length; t++) if (document.styleSheets[t].ownerNode === e) return document.styleSheets[t];
+          }),
+          (r.getSheet = function () {
+            return this.getSheetForTag(this._tags[this._tags.length - 1]);
+          }),
+          (r.insertRule = function (e, t) {
+            if ((c(a(e), "`insertRule` accepts only strings"), "undefined" == typeof window))
+              return ("number" != typeof t && (t = this._serverSheet.cssRules.length), this._serverSheet.insertRule(e, t), this._rulesCount++);
+            if (this._optimizeForSpeed) {
+              var r = this.getSheet();
+              "number" != typeof t && (t = r.cssRules.length);
+              try {
+                r.insertRule(e, t);
+              } catch (t) {
+                return (i || console.warn("StyleSheet: illegal rule: \n\n" + e + "\n\nSee https://stackoverflow.com/q/20007992 for more info"), -1);
+              }
+            } else {
+              var s = this._tags[t];
+              this._tags.push(this.makeStyleTag(this._name, e, s));
+            }
+            return this._rulesCount++;
+          }),
+          (r.replaceRule = function (e, t) {
+            if (this._optimizeForSpeed || "undefined" == typeof window) {
+              var r = "undefined" != typeof window ? this.getSheet() : this._serverSheet;
+              if ((t.trim() || (t = this._deletedRulePlaceholder), !r.cssRules[e])) return e;
+              r.deleteRule(e);
+              try {
+                r.insertRule(t, e);
+              } catch (s) {
+                (i || console.warn("StyleSheet: illegal rule: \n\n" + t + "\n\nSee https://stackoverflow.com/q/20007992 for more info"), r.insertRule(this._deletedRulePlaceholder, e));
+              }
+            } else {
+              var s = this._tags[e];
+              (c(s, "old rule at index `" + e + "` not found"), (s.textContent = t));
+            }
+            return e;
+          }),
+          (r.deleteRule = function (e) {
+            if ("undefined" == typeof window) return void this._serverSheet.deleteRule(e);
+            if (this._optimizeForSpeed) this.replaceRule(e, "");
+            else {
+              var t = this._tags[e];
+              (c(t, "rule at index `" + e + "` not found"), t.parentNode.removeChild(t), (this._tags[e] = null));
+            }
+          }),
+          (r.flush = function () {
+            ((this._injected = !1),
+              (this._rulesCount = 0),
+              "undefined" != typeof window
+                ? (this._tags.forEach(function (e) {
+                    return e && e.parentNode.removeChild(e);
+                  }),
+                  (this._tags = []))
+                : (this._serverSheet.cssRules = []));
+          }),
+          (r.cssRules = function () {
+            var e = this;
+            return "undefined" == typeof window
+              ? this._serverSheet.cssRules
+              : this._tags.reduce(function (t, r) {
+                  return (
+                    r
+                      ? (t = t.concat(
+                          Array.prototype.map.call(e.getSheetForTag(r).cssRules, function (t) {
+                            return t.cssText === e._deletedRulePlaceholder ? null : t;
+                          }),
+                        ))
+                      : t.push(null),
+                    t
+                  );
+                }, []);
+          }),
+          (r.makeStyleTag = function (e, t, r) {
+            t && c(a(t), "makeStyleTag accepts only strings as second parameter");
+            var s = document.createElement("style");
+            (this._nonce && s.setAttribute("nonce", this._nonce), (s.type = "text/css"), s.setAttribute("data-" + e, ""), t && s.appendChild(document.createTextNode(t)));
+            var n = document.head || document.getElementsByTagName("head")[0];
+            return (r ? n.insertBefore(s, r) : n.appendChild(s), s);
+          }),
+          (t = [
+            {
+              key: "length",
+              get: function () {
+                return this._rulesCount;
+              },
+            },
+          ]),
+          (function (e, t) {
+            for (var r = 0; r < t.length; r++) {
+              var s = t[r];
+              ((s.enumerable = s.enumerable || !1), (s.configurable = !0), "value" in s && (s.writable = !0), Object.defineProperty(e, s.key, s));
+            }
+          })(e.prototype, t),
+          e
+        );
+      })();
+    function c(e, t) {
+      if (!e) throw Error("StyleSheet: " + t + ".");
+    }
+    var d = function (e) {
+        for (var t = 5381, r = e.length; r;) t = (33 * t) ^ e.charCodeAt(--r);
+        return t >>> 0;
+      },
+      u = {};
+    function h(e, t) {
+      if (!t) return "jsx-" + e;
+      var r = String(t),
+        s = e + r;
+      return (u[s] || (u[s] = "jsx-" + d(e + "-" + r)), u[s]);
+    }
+    function m(e, t) {
+      "undefined" == typeof window && (t = t.replace(/\/style/gi, "\\/style"));
+      var r = e + t;
+      return (u[r] || (u[r] = t.replace(/__jsx-style-dynamic-selector/g, e)), u[r]);
+    }
+    var p = (function () {
+        function e(e) {
+          var t = void 0 === e ? {} : e,
+            r = t.styleSheet,
+            s = void 0 === r ? null : r,
+            n = t.optimizeForSpeed,
+            o = void 0 !== n && n;
+          ((this._sheet = s || new l({ name: "styled-jsx", optimizeForSpeed: o })),
+            this._sheet.inject(),
+            s && "boolean" == typeof o && (this._sheet.setOptimizeForSpeed(o), (this._optimizeForSpeed = this._sheet.isOptimizeForSpeed())),
+            (this._fromServer = void 0),
+            (this._indices = {}),
+            (this._instancesCounts = {}));
+        }
+        var t = e.prototype;
+        return (
+          (t.add = function (e) {
+            var t = this;
+            (void 0 === this._optimizeForSpeed &&
+              ((this._optimizeForSpeed = Array.isArray(e.children)), this._sheet.setOptimizeForSpeed(this._optimizeForSpeed), (this._optimizeForSpeed = this._sheet.isOptimizeForSpeed())),
+              "undefined" == typeof window ||
+                this._fromServer ||
+                ((this._fromServer = this.selectFromServer()),
+                (this._instancesCounts = Object.keys(this._fromServer).reduce(function (e, t) {
+                  return ((e[t] = 0), e);
+                }, {}))));
+            var r = this.getIdAndRules(e),
+              s = r.styleId,
+              n = r.rules;
+            if (s in this._instancesCounts) {
+              this._instancesCounts[s] += 1;
+              return;
+            }
+            var o = n
+              .map(function (e) {
+                return t._sheet.insertRule(e);
+              })
+              .filter(function (e) {
+                return -1 !== e;
+              });
+            ((this._indices[s] = o), (this._instancesCounts[s] = 1));
+          }),
+          (t.remove = function (e) {
+            var t = this,
+              r = this.getIdAndRules(e).styleId;
+            if (
+              ((function (e, t) {
+                if (!e) throw Error("StyleSheetRegistry: " + t + ".");
+              })(r in this._instancesCounts, "styleId: `" + r + "` not found"),
+              (this._instancesCounts[r] -= 1),
+              this._instancesCounts[r] < 1)
+            ) {
+              var s = this._fromServer && this._fromServer[r];
+              (s
+                ? (s.parentNode.removeChild(s), delete this._fromServer[r])
+                : (this._indices[r].forEach(function (e) {
+                    return t._sheet.deleteRule(e);
+                  }),
+                  delete this._indices[r]),
+                delete this._instancesCounts[r]);
+            }
+          }),
+          (t.update = function (e, t) {
+            (this.add(t), this.remove(e));
+          }),
+          (t.flush = function () {
+            (this._sheet.flush(), this._sheet.inject(), (this._fromServer = void 0), (this._indices = {}), (this._instancesCounts = {}));
+          }),
+          (t.cssRules = function () {
+            var e = this,
+              t = this._fromServer
+                ? Object.keys(this._fromServer).map(function (t) {
+                    return [t, e._fromServer[t]];
+                  })
+                : [],
+              r = this._sheet.cssRules();
+            return t.concat(
+              Object.keys(this._indices)
+                .map(function (t) {
+                  return [
+                    t,
+                    e._indices[t]
+                      .map(function (e) {
+                        return r[e].cssText;
+                      })
+                      .join(e._optimizeForSpeed ? "" : "\n"),
+                  ];
+                })
+                .filter(function (e) {
+                  return !!e[1];
+                }),
+            );
+          }),
+          (t.styles = function (e) {
+            var t, r;
+            return (
+              (t = this.cssRules()),
+              void 0 === (r = e) && (r = {}),
+              t.map(function (e) {
+                var t = e[0],
+                  s = e[1];
+                return o.default.createElement("style", { id: "__" + t, key: "__" + t, nonce: r.nonce ? r.nonce : void 0, dangerouslySetInnerHTML: { __html: s } });
+              })
+            );
+          }),
+          (t.getIdAndRules = function (e) {
+            var t = e.children,
+              r = e.dynamic,
+              s = e.id;
+            if (r) {
+              var n = h(s, r);
+              return {
+                styleId: n,
+                rules: Array.isArray(t)
+                  ? t.map(function (e) {
+                      return m(n, e);
+                    })
+                  : [m(n, t)],
+              };
+            }
+            return { styleId: h(s), rules: Array.isArray(t) ? t : [t] };
+          }),
+          (t.selectFromServer = function () {
+            return Array.prototype.slice.call(document.querySelectorAll('[id^="__jsx-"]')).reduce(function (e, t) {
+              return ((e[t.id.slice(2)] = t), e);
+            }, {});
+          }),
+          e
+        );
+      })(),
+      f = n.createContext(null);
+    function b() {
+      return new p();
+    }
+    function w() {
+      return n.useContext(f);
+    }
+    f.displayName = "StyleSheetContext";
+    var x = o.default.useInsertionEffect || o.default.useLayoutEffect,
+      g = "undefined" != typeof window ? b() : void 0;
+    function y(e) {
+      var t = g || w();
+      return (
+        t &&
+          ("undefined" == typeof window
+            ? t.add(e)
+            : x(
+                function () {
+                  return (
+                    t.add(e),
+                    function () {
+                      t.remove(e);
+                    }
+                  );
+                },
+                [e.id, String(e.dynamic)],
+              )),
+        null
+      );
+    }
+    ((y.dynamic = function (e) {
+      return e
+        .map(function (e) {
+          return h(e[0], e[1]);
+        })
+        .join(" ");
+    }),
+      (r.StyleRegistry = function (e) {
+        var t = e.registry,
+          r = e.children,
+          s = n.useContext(f),
+          i = n.useState(function () {
+            return s || t || b();
+          })[0];
+        return o.default.createElement(f.Provider, { value: i }, r);
+      }),
+      (r.createStyleRegistry = b),
+      (r.style = y),
+      (r.useStyleRegistry = w));
+  },
+  37902,
+  (e, t, r) => {
+    t.exports = e.r(98547).style;
+  },
+  15972,
+  43517,
+  26114,
+  87974,
+  (e) => {
+    "use strict";
+    var t = e.i(43476),
+      r = e.i(71645),
+      s = e.i(48148);
+    class n {
+      ws = null;
+      url;
+      handlers = new Set();
+      isConnected = !1;
+      suppressNextCloseEvent = !1;
+      connectedRoomId = null;
+      constructor(e = "ws://localhost:8080") {
+        this.url = e;
+      }
+      setBaseUrl(e) {
+        this.url = e;
+      }
+      generateId() {
+        return Math.random().toString(36).substring(2, 8).toUpperCase();
+      }
+      connect(e) {
+        return (
+          this.ws && this.disconnect({ silent: !0 }),
+          new Promise((t, r) => {
+            let s = e ? `${this.url}${this.url.includes("?") ? "&" : "?"}roomId=${e}` : this.url;
+            ((this.ws = new WebSocket(s)),
+              (this.connectedRoomId = e ?? null),
+              (this.ws.onopen = () => {
+                ((this.isConnected = !0), console.log("Connected to WebSocket server"), this.notify("CONNECTED", { roomId: e ?? null }), t());
+              }),
+              (this.ws.onerror = (e) => {
+                (console.error("WebSocket error:", e), r(e));
+              }),
+              (this.ws.onclose = (e) => {
+                ((this.isConnected = !1), console.log("Disconnected from WebSocket server"));
+                let t = { roomId: this.connectedRoomId, code: e.code, reason: e.reason, wasClean: e.wasClean },
+                  r = !this.suppressNextCloseEvent;
+                ((this.suppressNextCloseEvent = !1), r && this.notify("DISCONNECTED", t));
+              }),
+              (this.ws.onmessage = (e) => {
+                try {
+                  let t = JSON.parse(e.data);
+                  this.notify(t.type, t.payload);
+                } catch (e) {
+                  console.error("Failed to parse message:", e);
+                }
+              }));
+          })
+        );
+      }
+      disconnect(e) {
+        this.ws && (e?.silent && (this.suppressNextCloseEvent = !0), this.ws.close(), (this.ws = null));
+      }
+      subscribe(e) {
+        return (
+          this.handlers.add(e),
+          () => {
+            this.handlers.delete(e);
+          }
+        );
+      }
+      notify(e, t) {
+        this.handlers.forEach((r) => r(e, t));
+      }
+      send(e, t) {
+        this.ws && this.ws.readyState === WebSocket.OPEN ? this.ws.send(JSON.stringify({ type: e, payload: t })) : console.warn("WebSocket is not connected");
+      }
+      async createRoom(e, t, r) {
+        try {
+          (await this.connect(), this.send("CREATE_ROOM", { password: e, playerColor: t, gameType: r }));
+        } catch (e) {
+          throw (console.error("Failed to connect for create room", e), e);
+        }
+      }
+      async joinRoom(e, t, r) {
+        try {
+          (await this.connect(e), this.send("JOIN_ROOM", { roomId: e, password: t, gameType: r }));
+        } catch (e) {
+          throw (console.error("Failed to connect for join room", e), e);
+        }
+      }
+      async joinRoomWithResume(e, t, r, s) {
+        try {
+          (await this.connect(e), this.send("JOIN_ROOM", { roomId: e, password: t, resumeId: r, gameType: s }));
+        } catch (e) {
+          throw (console.error("Failed to connect for join room", e), e);
+        }
+      }
+      selectColor(e) {
+        this.send("SELECT_COLOR", { color: e });
+      }
+      assignColor(e, t) {
+        this.send("ASSIGN_COLOR", { playerId: e, color: t });
+      }
+      syncState(e) {
+        this.send("SYNC_STATE", { state: e });
+      }
+      syncStateSnapshot(e, t) {
+        this.send("SYNC_STATE", { state: e, broadcast: t?.broadcast });
+      }
+      syncSettings(e) {
+        this.send("SYNC_SETTINGS", { settings: e });
+      }
+      syncEvents(e) {
+        this.send("SYNC_EVENTS", { events: e });
+      }
+      syncTileEffects(e) {
+        this.send("SYNC_TILE_EFFECTS", { tileEffects: e });
+      }
+      syncEventsForMode(e, t) {
+        this.send("SYNC_EVENTS", { events: e, playerMode: t });
+      }
+      showEvent(e) {
+        this.send("GAME_ACTION", { type: "SHOW_EVENT", ...e });
+      }
+      closeEvent(e) {
+        this.send("GAME_ACTION", { type: "CLOSE_EVENT", sequence: e });
+      }
+      disbandRoom() {
+        this.send("DISBAND_ROOM", {});
+      }
+      sendGameAction(e) {
+        this.send("GAME_ACTION", e);
+      }
+      startGame() {
+        this.send("START_GAME", {});
+      }
+    }
+    let o = new n();
+    function i({
+      translationsNamespace: e = "games.ludo.multiplayer",
+      gameType: n,
+      isMultiplayer: i,
+      onToggleMode: a,
+      onRoomJoined: l,
+      onLeaveRoom: c,
+      onColorSelected: d,
+      onSetMyColor: u,
+      onAuthSubmit: h,
+      availableColors: m,
+      currentPlayerColor: p,
+      roomId: f,
+      players: b,
+      getPlayerDisplayName: w,
+      getPlayerDotClass: x,
+      isHost: g,
+      gameStarted: y,
+      onStartGame: v,
+      initialJoinId: S,
+      isReconnecting: _,
+      hasJoinParam: j,
+    }) {
+      let k = (0, s.useTranslations)(e),
+        N = "lovegame-mp-button-clicked-v1",
+        [R, C] = (0, r.useState)(null != S ? "join" : "create"),
+        [T, A] = (0, r.useState)(S || ""),
+        [E, O] = (0, r.useState)(""),
+        [I, F] = (0, r.useState)(m[0]),
+        [M, z] = (0, r.useState)(""),
+        [V, D] = (0, r.useState)(null),
+        [q, B] = (0, r.useState)(!1),
+        [G, L] = (0, r.useState)(!1),
+        [P, H] = (0, r.useState)(() => "true" !== window.localStorage.getItem(N)),
+        $ = (0, r.useRef)(null),
+        W = new Set(b.map((e) => e.color).filter(Boolean)),
+        U = m.length || 4,
+        Y = g && !y && b.length === U;
+      ((0, r.useEffect)(() => {
+        y && setTimeout(() => L(!0), 0);
+      }, [y]),
+        (0, r.useEffect)(() => {
+          (f && f !== $.current && setTimeout(() => L(!1), 0), ($.current = f));
+        }, [f]),
+        (0, r.useEffect)(() => {
+          let e = m[0] ?? "";
+          if (!e) {
+            "" !== I && setTimeout(() => F(""), 0);
+            return;
+          }
+          (I && m.includes(I)) || I === e || setTimeout(() => F(e), 0);
+        }, [m, I]));
+      let J = (0, r.useMemo)(() => (e) => (w ? w(e) : e || k("labels.selecting")), [w, k]),
+        K = (0, r.useMemo)(
+          () => (e) =>
+            x
+              ? x(e)
+              : { male: "bg-violet-600", female: "bg-rose-600", red: "bg-red-600", yellow: "bg-amber-500", blue: "bg-sky-600", green: "bg-emerald-600", gray: "bg-zinc-600" }[e || "gray"] ||
+                "bg-zinc-600",
+          [x],
+        ),
+        Z = (0, r.useMemo)(
+          () => (e) => {
+            switch (e?.code) {
+              case "ROOM_NOT_FOUND":
+                return k("errors.roomNotFound");
+              case "INVALID_PASSWORD":
+                return k("errors.invalidPassword");
+              case "COLOR_ALREADY_TAKEN":
+                return k("errors.colorAlreadyTaken");
+              case "GAME_MISMATCH":
+                return k("errors.gameMismatch");
+              case "CREATE_ROOM_FAILED":
+                return k("errors.createRoomFailed");
+              case "ONLY_HOST_CAN_DISBAND":
+                return k("errors.onlyHostCanDisband");
+              case "CANNOT_DISBAND_LOBBY":
+                return k("errors.cannotDisbandLobby");
+              case "CREATE_ROOM_WRONG_TARGET":
+                return k("errors.createRoomWrongTarget");
+              case "GAME_ALREADY_STARTED":
+                return e.message || k("errors.gameAlreadyStarted");
+              default:
+                return "string" == typeof e?.message && e.message.trim() ? e.message : k("errors.unknown");
+            }
+          },
+          [k],
+        ),
+        Q = async () => {
+          if (f)
+            try {
+              (await navigator.clipboard.writeText(f), B(!0), setTimeout(() => B(!1), 2e3));
+            } catch (e) {
+              console.error("Failed to copy:", e);
+            }
+        },
+        X = async () => {
+          if (!f) return;
+          let e = `${window.location.origin}${window.location.pathname}?join=${f}`,
+            t = k("share.text", { roomId: f });
+          if (navigator.share)
+            try {
+              await navigator.share({ title: k("share.title"), text: t, url: e });
+            } catch (e) {}
+          else
+            try {
+              (await navigator.clipboard.writeText(t), B(!0), setTimeout(() => B(!1), 2e3));
+            } catch (e) {
+              console.error("Failed to copy:", e);
+            }
+        };
+      (0, r.useEffect)(
+        () =>
+          o.subscribe((e, t) => {
+            "ROOM_CREATED" === e
+              ? (l(t.roomId, !0, ""), z(k("status.roomCreated", { roomId: t.roomId })))
+              : "JOINED_ROOM" === e
+                ? (l(t.roomId, !1, ""), z(k("status.joinedRoom", { roomId: t.roomId })))
+                : "ERROR" === e && (D(Z(t)), z(""));
+          }),
+        [l, Z, k],
+      );
+      let ee = j && _ && !f;
+      return !i || (f && G) || ee
+        ? (0, t.jsxs)("button", {
+            onClick: () => {
+              (window.localStorage.setItem(N, "true"), H(!1), i ? L(!1) : a(!0));
+            },
+            className: `cursor-pointer fixed top-20 right-6 z-[120] group flex items-center justify-center w-12 h-12 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 ${P ? "bg-gradient-to-br from-pink-500 to-pink-600 text-white shadow-pink-500/50" : "bg-gradient-to-br from-pink-500/40 to-pink-600/40 text-white/50 shadow-pink-500/20 hover:from-pink-500 hover:to-pink-600 hover:text-white hover:shadow-pink-500/70"}`,
+            title: f ? k("labels.onlineRoom", { roomId: f }) : k("onlinePlay"),
+            children: [
+              (0, t.jsxs)("svg", {
+                className: `w-6 h-6 drop-shadow-md ${f ? "text-emerald-200" : ""}`,
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                children: [
+                  (0, t.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                  (0, t.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
+                  (0, t.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" }),
+                ],
+              }),
+              f &&
+                (0, t.jsxs)("span", {
+                  className: "absolute -top-1 -right-1 flex h-3 w-3",
+                  children: [
+                    (0, t.jsx)("span", { className: "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" }),
+                    (0, t.jsx)("span", { className: "relative inline-flex rounded-full h-3 w-3 bg-emerald-500" }),
+                  ],
+                }),
+              P && (0, t.jsx)("span", { className: "absolute inset-0 rounded-full bg-pink-400 animate-ping opacity-20" }),
+            ],
+          })
+        : f
+          ? (0, t.jsxs)("div", {
+              className:
+                "fixed top-20 right-6 z-[120] bg-[#0b0714]/90 border border-white/20 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.5)] p-5 pb-8 rounded-3xl w-72 transition-all animate-in fade-in slide-in-from-top-2",
+              children: [
+                (0, t.jsxs)("div", {
+                  className: "flex justify-between items-center mb-4",
+                  children: [
+                    (0, t.jsxs)("h3", {
+                      className: "font-bold text-emerald-400 tracking-wide text-sm flex items-center gap-2",
+                      children: [(0, t.jsx)("span", { className: "w-2 h-2 rounded-full bg-emerald-500 animate-pulse" }), k("labels.onlineRoom", { roomId: f })],
+                    }),
+                    (0, t.jsx)("div", {
+                      className: "flex ml-2 gap-2 items-center",
+                      children: (0, t.jsx)("button", {
+                        onClick: c,
+                        className: "cursor-pointer text-xs font-medium text-white/40 hover:text-rose-400 transition-colors uppercase tracking-wider",
+                        children: k("actions.exit"),
+                      }),
+                    }),
+                  ],
+                }),
+                (0, t.jsxs)("div", {
+                  className: "flex gap-2 mb-5",
+                  children: [
+                    (0, t.jsx)("button", {
+                      onClick: Q,
+                      className: "cursor-pointer flex-1 bg-white/5 hover:bg-white/10 text-xs py-2 rounded-xl border border-white/10 transition-colors text-white/80 font-medium",
+                      children: q ? k("actions.copied") : k("actions.copyId"),
+                    }),
+                    (0, t.jsx)("button", {
+                      onClick: X,
+                      className: "cursor-pointer flex-1 bg-white/5 hover:bg-white/10 text-xs py-2 rounded-xl border border-white/10 transition-colors text-white/80 font-medium",
+                      children: k("actions.share"),
+                    }),
+                  ],
+                }),
+                (0, t.jsx)("div", { className: "text-xs mb-3 text-white/60 font-medium uppercase tracking-wider", children: k("labels.playersCount", { count: b.length, max: U }) }),
+                (0, t.jsx)("ul", {
+                  className: "space-y-2 mb-5",
+                  children: b.map((e, r) =>
+                    (0, t.jsxs)(
+                      "li",
+                      {
+                        className: "flex items-center gap-3 text-sm text-white/90 bg-white/5 p-2 rounded-lg border border-white/5",
+                        children: [
+                          (0, t.jsx)("span", { className: `w-3 h-3 rounded-full ${K(e.color)} shadow-sm` }),
+                          (0, t.jsx)("span", { className: "flex-1 font-medium", children: J(e.color) }),
+                          e.color === p && (0, t.jsx)("span", { className: "text-xs text-white/40", children: k("labels.you") }),
+                        ],
+                      },
+                      r,
+                    ),
+                  ),
+                }),
+                !p &&
+                  (0, t.jsxs)("div", {
+                    className: "mb-4 p-3 bg-white/5 rounded-xl border border-white/10",
+                    children: [
+                      (0, t.jsx)("p", { className: "text-xs mb-2 text-white/70", children: k("labels.selectColor") }),
+                      (0, t.jsx)("div", {
+                        className: "flex gap-2 flex-wrap justify-center",
+                        children: m.map((e) =>
+                          (0, t.jsx)(
+                            "button",
+                            {
+                              onClick: () => !W.has(e) && d(e),
+                              disabled: W.has(e),
+                              className: `w-8 h-8 rounded-full border-2 transition-all ${K(e)} ${W.has(e) ? "opacity-20 cursor-not-allowed border-transparent grayscale" : "cursor-pointer hover:scale-110 border-white/50 hover:border-white shadow-md"}`,
+                            },
+                            e,
+                          ),
+                        ),
+                      }),
+                    ],
+                  }),
+                g &&
+                  !y &&
+                  (0, t.jsx)("button", {
+                    onClick: v,
+                    disabled: !Y,
+                    className:
+                      "w-full cursor-pointer bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 disabled:from-zinc-700 disabled:to-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-full text-sm font-bold uppercase tracking-widest shadow-xl shadow-emerald-500/50 border border-white/20 transition-all active:scale-[0.98] hover:shadow-emerald-500/70 !mt-8 mb-2",
+                    children: k("actions.startGame"),
+                  }),
+                !y &&
+                  !g &&
+                  (0, t.jsx)("div", {
+                    className: "py-3 rounded-full text-sm shadow-emerald-500/50 border border-white/20 text-center text-amber-300/80 animate-pulse font-medium bg-amber-900/20 py-2 mb-2",
+                    children: k("status.waitingForHost"),
+                  }),
+                (0, t.jsx)("button", {
+                  onClick: () => L(!0),
+                  className:
+                    "absolute cursor-pointer mb-1 bottom-0 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors",
+                  title: k("actions.minimize"),
+                  children: (0, t.jsx)("svg", {
+                    className: "w-5 h-5",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                    viewBox: "0 0 24 24",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    children: (0, t.jsx)("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M5 15l7-7 7 7" }),
+                  }),
+                }),
+              ],
+            })
+          : (0, t.jsx)("div", {
+              className: "fixed inset-0 z-[120] flex items-center justify-center bg-black/60 backdrop-blur-sm",
+              children: (0, t.jsxs)("div", {
+                className: "relative w-full max-w-md rounded-3xl border border-white/20 bg-[#0b0714]/95 p-6 text-white shadow-[0_36px_100px_rgba(91,33,182,0.55)] backdrop-blur",
+                onClick: (e) => e.stopPropagation(),
+                children: [
+                  (0, t.jsx)("button", {
+                    onClick: () => a(!1),
+                    className:
+                      "absolute top-4 right-4 cursor-pointer rounded-full border border-white/25 w-8 h-8 flex items-center justify-center text-xs text-white/70 transition hover:border-white/40 hover:text-white",
+                    children: "✕",
+                  }),
+                  (0, t.jsxs)("h2", {
+                    className: "text-xl font-semibold tracking-wide text-center mb-6 flex items-center justify-center gap-2",
+                    children: [(0, t.jsx)("span", { children: "🌍" }), (0, t.jsx)("span", { children: k("panelTitle") })],
+                  }),
+                  (0, t.jsxs)("div", {
+                    className: "flex bg-white/5 rounded-2xl p-1 mb-6 border border-white/10",
+                    children: [
+                      (0, t.jsx)("button", {
+                        className: `cursor-pointer flex-1 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${"create" === R ? "bg-white/10 text-white shadow-sm border border-white/10" : "text-white/60 hover:text-white/90 hover:bg-white/5"}`,
+                        onClick: () => C("create"),
+                        children: k("tabs.create"),
+                      }),
+                      (0, t.jsx)("button", {
+                        className: `cursor-pointer flex-1 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all ${"join" === R ? "bg-white/10 text-white shadow-sm border border-white/10" : "text-white/60 hover:text-white/90 hover:bg-white/5"}`,
+                        onClick: () => C("join"),
+                        children: k("tabs.join"),
+                      }),
+                    ],
+                  }),
+                  V && (0, t.jsx)("div", { className: "bg-red-500/20 border border-red-500/50 text-red-200 px-4 py-2 rounded mb-4 text-sm", children: V }),
+                  "create" === R
+                    ? (0, t.jsxs)("div", {
+                        className: "space-y-5",
+                        children: [
+                          (0, t.jsxs)("div", {
+                            children: [
+                              (0, t.jsx)("label", { className: "block text-xs font-medium uppercase tracking-wider text-white/60 mb-2", children: k("labels.passwordOptional") }),
+                              (0, t.jsx)("input", {
+                                type: "text",
+                                value: E,
+                                onChange: (e) => O(e.target.value),
+                                className:
+                                  "w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white shadow-inner transition focus:border-purple-400/50 focus:outline-none focus:ring-1 focus:ring-purple-400/30 placeholder:text-white/20",
+                                placeholder: k("placeholders.passwordOptional"),
+                              }),
+                            ],
+                          }),
+                          (0, t.jsxs)("div", {
+                            children: [
+                              (0, t.jsx)("label", { className: "block text-xs font-medium uppercase tracking-wider text-white/60 mb-2 mt-2", children: k("labels.yourColor") }),
+                              (0, t.jsx)("div", {
+                                className: "flex gap-3 justify-center py-2",
+                                children: m.map((e) =>
+                                  (0, t.jsx)(
+                                    "button",
+                                    {
+                                      onClick: () => F(e),
+                                      className: `cursor-pointer w-10 h-10 rounded-full border-2 transition-transform shadow-lg ${I === e ? "scale-110 border-white shadow-[0_0_15px_white]" : "border-transparent opacity-70 hover:opacity-100 hover:scale-105"} ${K(e)}`,
+                                    },
+                                    e,
+                                  ),
+                                ),
+                              }),
+                            ],
+                          }),
+                          (0, t.jsx)("button", {
+                            onClick: () => {
+                              (D(null), z(k("status.creatingRoom")));
+                              let e = I || m[0] || "";
+                              if (!e) {
+                                (D(k("errors.unknown")), z(""));
+                                return;
+                              }
+                              (u(e), h?.({ kind: "create", password: E }), o.createRoom(E, e, n).catch(() => D(k("errors.connectionFailed"))));
+                            },
+                            className:
+                              "cursor-pointer w-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-xl shadow-purple-500/40 border border-white/20 transition hover:scale-[1.02] hover:shadow-purple-500/60 hover:border-white/40 active:scale-[0.98] mt-4",
+                            children: k("actions.createRoom"),
+                          }),
+                        ],
+                      })
+                    : (0, t.jsxs)("div", {
+                        className: "space-y-5",
+                        children: [
+                          (0, t.jsxs)("div", {
+                            children: [
+                              (0, t.jsx)("label", { className: "block text-xs font-medium uppercase tracking-wider text-white/60 mb-2", children: k("labels.roomId") }),
+                              (0, t.jsx)("input", {
+                                type: "text",
+                                value: T,
+                                onChange: (e) => {
+                                  let t = e.target.value;
+                                  if (e.nativeEvent instanceof InputEvent && "insertFromPaste" === e.nativeEvent.inputType) {
+                                    let e = t.match(/[A-Z0-9]{6}/);
+                                    e
+                                      ? A(e[0])
+                                      : A(
+                                          t
+                                            .replace(/[^A-Z0-9]/g, "")
+                                            .toUpperCase()
+                                            .substring(0, 6),
+                                        );
+                                  } else
+                                    A(
+                                      t
+                                        .toUpperCase()
+                                        .replace(/[^A-Z0-9]/g, "")
+                                        .substring(0, 6),
+                                    );
+                                },
+                                className:
+                                  "w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white shadow-inner transition focus:border-purple-400/50 focus:outline-none focus:ring-1 focus:ring-purple-400/30 placeholder:text-white/20 uppercase tracking-widest font-mono",
+                                placeholder: k("placeholders.roomId"),
+                              }),
+                            ],
+                          }),
+                          (0, t.jsxs)("div", {
+                            children: [
+                              (0, t.jsx)("label", { className: "block text-xs font-medium uppercase tracking-wider text-white/60 mb-2 mt-2", children: k("labels.password") }),
+                              (0, t.jsx)("input", {
+                                type: "text",
+                                value: E,
+                                onChange: (e) => O(e.target.value),
+                                className:
+                                  "w-full rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white shadow-inner transition focus:border-purple-400/50 focus:outline-none focus:ring-1 focus:ring-purple-400/30 placeholder:text-white/20",
+                              }),
+                            ],
+                          }),
+                          (0, t.jsx)("button", {
+                            onClick: () => {
+                              let e = T.trim().toUpperCase();
+                              (D(null), z(k("status.joiningRoom")), h?.({ kind: "join", roomId: e, password: E }), o.joinRoom(e, E, n).catch(() => D(k("errors.connectionFailed"))));
+                            },
+                            className:
+                              "cursor-pointer w-full rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-xl shadow-purple-500/40 border border-white/20 transition hover:scale-[1.02] hover:shadow-purple-500/60 hover:border-white/40 active:scale-[0.98] mt-4",
+                            children: k("actions.joinRoom"),
+                          }),
+                        ],
+                      }),
+                  M && (0, t.jsx)("p", { className: "text-center text-white/50 text-xs mt-4 animate-pulse", children: M }),
+                ],
+              }),
+            });
+    }
+    function a({ visible: e, message: r, subtitle: n, onCancel: o }) {
+      let i = (0, s.useTranslations)("games.ludo.multiplayer");
+      return e
+        ? (0, t.jsxs)("div", {
+            className: "fixed inset-0 z-40 bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center text-center p-8 rounded-xl animate-in fade-in duration-300",
+            children: [
+              (0, t.jsx)("div", { className: "w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-6" }),
+              (0, t.jsx)("h3", { className: "text-2xl font-bold text-white mb-2", children: r }),
+              !!n && (0, t.jsx)("p", { className: "text-zinc-400 mb-8 max-w-sm", children: n }),
+              (0, t.jsx)("button", { onClick: o, className: "px-6 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full border border-white/20 transition-colors", children: i("actions.exit") }),
+            ],
+          })
+        : null;
+    }
+    (e.s(["multiplayerClient", 0, o], 43517),
+      e.s(["MultiplayerControl", () => i], 15972),
+      e.s(["MultiplayerOverlay", () => a], 26114),
+      e.i(47167),
+      e.s(
+        [
+          "clearStoredMpSession",
+          0,
+          (e) => {
+            try {
+              window.localStorage.removeItem(e);
+            } catch {}
+          },
+          "readStoredMpSession",
+          0,
+          (e) => {
+            try {
+              let t = window.localStorage.getItem(e);
+              if (!t) return null;
+              let r = JSON.parse(t);
+              if (!r || "string" != typeof r.roomId) return null;
+              return {
+                roomId: r.roomId.trim(),
+                password: "string" == typeof r.password ? r.password : "",
+                color: "string" == typeof r.color ? r.color : null,
+                myPlayerId: "string" == typeof r.myPlayerId ? r.myPlayerId : null,
+              };
+            } catch {
+              return null;
+            }
+          },
+          "resolveMultiplayerWsUrl",
+          0,
+          () => "wss://lovegame-ws.hoothin.com/ws",
+          "writeStoredMpSession",
+          0,
+          (e, t) => {
+            try {
+              window.localStorage.setItem(e, JSON.stringify(t));
+            } catch {}
+          },
+        ],
+        87974,
+      ));
+  },
+]);
