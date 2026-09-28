@@ -440,11 +440,11 @@
     const w = window.innerWidth;
     const h = window.innerHeight;
     const isLandscape = w > h;
-    // 宽屏桌面端优先电脑经典大棋盘居中布局
-    if (w >= 1180 && h >= 700) {
+    // 宽屏桌面端大屏
+    if (w >= 1180 && h >= 680) {
       return "desktop";
     }
-    // 平板横屏或主流横屏状态优先双栏同屏
+    // 平板横屏或宽屏状态优先双栏同屏
     if (w >= 920 || (isLandscape && w >= 720 && h >= 460)) {
       return "tablet";
     }
@@ -462,7 +462,7 @@
     else if (w >= 768 || (isLandscape && w >= 640)) dev = "平板 / 横屏";
     else dev = "手机端";
 
-    const layoutName = eff === "desktop" ? "电脑经典" : eff === "tablet" ? "双栏同屏" : "紧凑竖屏";
+    const layoutName = eff === "desktop" ? "电脑全屏" : eff === "tablet" ? "平板双栏" : "紧凑竖屏";
     return `${dev} · ${layoutName}`;
   }
 
@@ -473,21 +473,33 @@
     const winH = window.innerHeight;
 
     let targetBoardSize;
-    if (eff === "desktop") {
-      // 电脑原版经典布局：棋盘最大约 680px 居中，控制台在下方居中
-      const availW = Math.min(winW - 48, 680);
-      const sz = Math.floor((availW - 32) / N);
-      CELL = Math.max(26, Math.min(50, sz));
-    } else if (eff === "tablet") {
-      // 平板双栏模式：右侧为控制卡片(约 320-380px)，左侧为棋盘
-      const sidebarW = Math.min(380, Math.max(300, Math.floor(winW * 0.32)));
-      const availW = winW - sidebarW - 64;
-      const availH = winH - 170;
-      targetBoardSize = Math.max(340, Math.min(availW, availH, 680));
+    if (eff === "desktop" || eff === "tablet") {
+      // 电脑与平板布局：【#board】在左边，设置和骰子在右边，页面内最大化棋盘尺寸
+      const sidebarW = eff === "desktop"
+        ? Math.min(390, Math.max(340, Math.floor(winW * 0.28)))
+        : Math.min(350, Math.max(310, Math.floor(winW * 0.32)));
+
+      // 可用水平宽度：总宽减去右侧侧边栏、间隙与页面内边距
+      const availW = Math.max(320, winW - sidebarW - 68);
+
+      // 可用垂直高度：视口高度减去顶部紧凑栏与安全边距
+      const topOffset = eff === "desktop" ? 105 : 95;
+      const availH = Math.max(320, winH - topOffset);
+
+      // 棋盘为正方形，尺寸严格取水平与垂直可用空间的较小值，以保证一屏内完全展示无需纵向滚轮
+      targetBoardSize = Math.min(availW, availH);
+
+      // 棋盘总宽 = 13 * CELL + 12 * 2px(gap) + 8px(padding) = 13 * CELL + 32px
       const sz = Math.floor((targetBoardSize - 32) / N);
-      CELL = Math.max(26, Math.min(50, sz));
+
+      // 突破旧版 50px 限制：电脑端大屏可扩展至 78px，平板端扩展至 60px
+      if (eff === "desktop") {
+        CELL = Math.max(26, Math.min(78, sz));
+      } else {
+        CELL = Math.max(26, Math.min(60, sz));
+      }
     } else {
-      // 手机紧凑模式：单栏居中，严格基于视口宽度防横向溢出
+      // 手机紧凑单栏模式：根据屏幕宽度缩放防横向溢出
       const availW = Math.min(winW - 20, 520);
       const availH = winH > 520 ? winH - 280 : winH - 120;
       targetBoardSize = Math.max(280, Math.min(availW, availH, 500));
@@ -516,13 +528,12 @@
     };
 
     return `
-    <div id="layout-switch-bar" class="w-full max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 px-3 py-2 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg">
-      <div class="flex items-center gap-2 text-xs text-white/70">
+    <div id="layout-switch-bar" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 px-2.5 py-1.5 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg select-none">
+      <div class="hidden xl:flex items-center gap-1.5 text-xs text-white/70 mr-1">
         <span class="text-sm">📐</span>
-        <span class="font-medium text-white/80">设备适配：</span>
-        <span class="text-[11px] font-mono text-pink-300 bg-pink-500/10 border border-pink-500/25 px-2.5 py-0.5 rounded-full">${getDeviceHintText()}</span>
+        <span class="text-[11px] font-mono text-pink-300 bg-pink-500/10 border border-pink-500/25 px-2 py-0.5 rounded-full">${getDeviceHintText()}</span>
       </div>
-      <div class="inline-flex flex-wrap justify-center p-1 rounded-xl bg-white/5 border border-white/10 gap-1 select-none">
+      <div class="inline-flex flex-wrap justify-center p-0.5 rounded-xl bg-white/5 border border-white/10 gap-1 select-none">
         ${btn("auto", "🔄", "自动适配")}
         ${btn("desktop", "💻", "电脑布局")}
         ${btn("tablet", "📟", "平板双栏")}
@@ -535,36 +546,76 @@
   function shell() {
     boardBound = false;
     const eff = getEffectiveLayoutMode();
-    const isTablet = eff === "tablet";
-    const isDesktop = eff === "desktop";
+    const isSideBySide = eff === "desktop" || eff === "tablet";
 
-    let mainCls = "w-full ";
-    if (isTablet) {
-      mainCls += "max-w-6xl flex flex-col lg:flex-row items-center lg:items-start justify-center gap-5 sm:gap-6";
-    } else if (isDesktop) {
-      mainCls += "max-w-[680px] flex flex-col items-center gap-4";
+    if (isSideBySide) {
+      root.innerHTML = `
+        <!-- 电脑/平板顶部紧凑栏：标题与切换按钮并列，最大限度留出垂直空间给棋盘 -->
+        <header id="ludo-top-bar" class="w-full flex flex-col sm:flex-row items-center justify-between gap-2.5 px-1 py-0.5">
+          <div class="flex items-center gap-3">
+            <h1 class="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
+            <span class="text-[11px] text-white/50 hidden md:inline-block">${esc(L("tagline"))}</span>
+          </div>
+          ${layoutSwitchBar()}
+        </header>
+
+        <!-- 主游戏区域：【#board】在左边，设置和骰子在右边 -->
+        <div id="game-main-area" class="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-5 lg:gap-6 mt-1">
+          
+          <!-- 左侧：棋盘主体区域 (尺寸最大化) -->
+          <div id="board-column" class="flex flex-col items-center justify-center shrink-0">
+            <div id="board-container" class="relative flex justify-center items-center">
+              <div id="board-wrap" class="relative rounded-2xl overflow-hidden shadow-[0_16px_50px_rgba(0,0,0,0.6)] border border-white/15 bg-black/60 backdrop-blur-xl">
+                ${settings.boardBg ? `<div class="absolute inset-0 bg-cover bg-center opacity-30 pointer-events-none" style="background-image:url('${esc(settings.boardBg)}')"></div>` : ""}
+                <div id="board" class="relative z-10 grid gap-0.5 p-1 select-none"></div>
+                <div id="piece-layer" class="absolute inset-0 pointer-events-none z-20"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧：玩家胶囊、骰子控制台与设置工具侧边栏 -->
+          <div id="control-column" class="w-full lg:w-[350px] xl:w-[380px] lg:sticky lg:top-3 flex flex-col gap-3 shrink-0">
+            <!-- 玩家指示胶囊 -->
+            <div id="player-capsules" class="flex flex-wrap items-center justify-center lg:justify-start gap-2"></div>
+            
+            <!-- 骰子与行动卡片 -->
+            ${controlCard()}
+            
+            <!-- 设置与工具卡片 -->
+            ${sidebarSettingsCard()}
+            
+            <!-- 贴心小提示 -->
+            ${tabletTipsCard()}
+          </div>
+        </div>
+
+        <!-- 悬停与触摸点击 Tooltip 浮窗 -->
+        <div id="cell-tooltip" class="fixed z-50 hidden max-w-xs rounded-2xl border border-white/20 bg-black/95 p-3.5 text-white shadow-[0_12px_40px_rgba(0,0,0,0.85)] backdrop-blur-md transition-opacity duration-150">
+          <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5 mb-1.5">
+            <div class="flex items-center gap-1.5">
+              <span id="tt-coord" class="text-[10px] uppercase tracking-wider text-pink-300 font-mono font-bold"></span>
+              <span id="tt-type" class="text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-white/70">格讯</span>
+            </div>
+            <button id="tt-close-btn" class="text-white/40 hover:text-white text-xs px-1">✕</button>
+          </div>
+          <div id="tt-title" class="text-sm font-bold text-white mt-0.5"></div>
+          <div id="tt-desc" class="text-xs text-white/75 mt-1 leading-relaxed whitespace-pre-line max-h-48 overflow-y-auto"></div>
+          <div id="tt-eff" class="mt-2 inline-block rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-amber-200"></div>
+        </div>
+      `;
     } else {
-      mainCls += "max-w-md flex flex-col items-center gap-4";
-    }
+      // 手机竖屏紧凑单栏布局
+      root.innerHTML = `
+        <header class="w-full text-center space-y-1.5">
+          <h1 class="text-2xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
+          <p class="text-xs text-white/70 max-w-xl mx-auto leading-relaxed">${esc(L("tagline"))}</p>
+        </header>
 
-    root.innerHTML = `
-      <header class="w-full text-center space-y-1.5 sm:space-y-2">
-        <h1 class="text-2xl sm:text-5xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
-        <p class="text-xs sm:text-sm text-white/70 max-w-xl mx-auto leading-relaxed">${esc(L("tagline"))}</p>
-      </header>
+        ${layoutSwitchBar()}
 
-      ${layoutSwitchBar()}
-      ${toolbar()}
-
-      <!-- 主游戏区域 (电脑经典居中 / 平板双栏 / 手机紧凑单栏) -->
-      <div id="game-main-area" class="${mainCls}">
-        
-        <!-- 棋盘主列 -->
-        <div id="board-column" class="flex flex-col items-center gap-3 w-full shrink-0">
-          <!-- 玩家指示胶囊 -->
-          <div id="player-capsules" class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5"></div>
-
-          <!-- 棋盘外层容器 (支持自适应与自定义背景) -->
+        <div id="game-main-area" class="w-full max-w-md flex flex-col items-center gap-3.5">
+          <div id="player-capsules" class="flex flex-wrap items-center justify-center gap-2"></div>
+          
           <div id="board-container" class="relative w-full flex justify-center">
             <div id="board-wrap" class="relative rounded-2xl overflow-hidden shadow-[0_16px_50px_rgba(0,0,0,0.6)] border border-white/15 bg-black/60 backdrop-blur-xl">
               ${settings.boardBg ? `<div class="absolute inset-0 bg-cover bg-center opacity-30 pointer-events-none" style="background-image:url('${esc(settings.boardBg)}')"></div>` : ""}
@@ -572,63 +623,75 @@
               <div id="piece-layer" class="absolute inset-0 pointer-events-none z-20"></div>
             </div>
           </div>
-        </div>
 
-        <!-- 右侧/下方控制面板列 -->
-        <div id="control-column" class="w-full ${isTablet ? "lg:w-[350px] xl:w-[380px] lg:sticky lg:top-4 flex flex-col gap-3.5 shrink-0" : "flex flex-col items-center gap-3"}">
-          ${controlCard()}
-          ${isTablet ? tabletTipsCard() : ""}
-        </div>
-      </div>
-
-      <!-- 悬停与触摸点击 Tooltip 浮窗 -->
-      <div id="cell-tooltip" class="fixed z-50 hidden max-w-xs rounded-2xl border border-white/20 bg-black/95 p-3.5 text-white shadow-[0_12px_40px_rgba(0,0,0,0.85)] backdrop-blur-md transition-opacity duration-150">
-        <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5 mb-1.5">
-          <div class="flex items-center gap-1.5">
-            <span id="tt-coord" class="text-[10px] uppercase tracking-wider text-pink-300 font-mono font-bold"></span>
-            <span id="tt-type" class="text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-white/70">格讯</span>
+          <div id="control-column" class="w-full flex flex-col items-center gap-3">
+            ${controlCard()}
+            ${sidebarSettingsCard()}
           </div>
-          <button id="tt-close-btn" class="text-white/40 hover:text-white text-xs px-1">✕</button>
         </div>
-        <div id="tt-title" class="text-sm font-bold text-white mt-0.5"></div>
-        <div id="tt-desc" class="text-xs text-white/75 mt-1 leading-relaxed whitespace-pre-line max-h-48 overflow-y-auto"></div>
-        <div id="tt-eff" class="mt-2 inline-block rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-amber-200"></div>
-      </div>
-    `;
+
+        <div id="cell-tooltip" class="fixed z-50 hidden max-w-xs rounded-2xl border border-white/20 bg-black/95 p-3.5 text-white shadow-[0_12px_40px_rgba(0,0,0,0.85)] backdrop-blur-md transition-opacity duration-150">
+          <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5 mb-1.5">
+            <div class="flex items-center gap-1.5">
+              <span id="tt-coord" class="text-[10px] uppercase tracking-wider text-pink-300 font-mono font-bold"></span>
+              <span id="tt-type" class="text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-white/70">格讯</span>
+            </div>
+            <button id="tt-close-btn" class="text-white/40 hover:text-white text-xs px-1">✕</button>
+          </div>
+          <div id="tt-title" class="text-sm font-bold text-white mt-0.5"></div>
+          <div id="tt-desc" class="text-xs text-white/75 mt-1 leading-relaxed whitespace-pre-line max-h-48 overflow-y-auto"></div>
+          <div id="tt-eff" class="mt-2 inline-block rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-amber-200"></div>
+        </div>
+      `;
+    }
   }
 
   function tabletTipsCard() {
     return `
-      <div class="hidden lg:block rounded-2xl border border-white/10 bg-white/5 p-3.5 text-xs text-white/70 space-y-1.5 backdrop-blur shadow-md">
-        <div class="flex items-center gap-1.5 font-bold text-pink-300">
-          <span>💡</span><span>双栏同屏适配</span>
+      <div class="hidden lg:block rounded-2xl border border-white/10 bg-white/5 p-3 text-xs text-white/70 space-y-1 backdrop-blur shadow-md">
+        <div class="flex items-center gap-1.5 font-bold text-pink-300 text-xs">
+          <span>💡</span><span>快捷提示</span>
         </div>
-        <p class="leading-relaxed text-[11px] text-white/60">• 专为 iPad 及华为等平板横屏设计，左侧棋盘与右侧操作台同屏显示，免去上下翻滚。</p>
-        <p class="leading-relaxed text-[11px] text-white/60">• 在触屏设备上，轻触任意格子可随时查看当前格的事件挑战详情。</p>
+        <p class="leading-relaxed text-[11px] text-white/60">• 棋盘已自适应最大化展现，轻触任意格子可随时查看事件详情。</p>
+        <p class="leading-relaxed text-[11px] text-white/60">• 右侧一站式集中控制掷骰与规则设置。</p>
       </div>`;
   }
 
-  function toolbar() {
+  function sidebarSettingsCard() {
     const btn = (id, icon, txt, highlight) =>
-      `<button id="${id}" class="inline-flex items-center gap-1.5 rounded-xl border ${highlight ? "border-amber-400/40 bg-amber-500/20 text-amber-200" : "border-white/10 bg-white/5 text-white/80"} px-3 py-2 text-xs font-semibold hover:bg-white/15 transition active:scale-95 shadow-sm">
-        <span>${icon}</span><span>${esc(txt)}</span>
+      `<button id="${id}" class="inline-flex items-center justify-center gap-1.5 rounded-xl border ${
+        highlight 
+          ? "border-amber-400/40 bg-amber-500/20 text-amber-200" 
+          : "border-white/10 bg-white/5 text-white/80"
+      } px-3 py-2 text-xs font-semibold hover:bg-white/15 transition active:scale-95 shadow-sm">
+        <span>${icon}</span><span class="truncate">${esc(txt)}</span>
       </button>`;
 
     return `
-    <div class="w-full max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-      ${btn("btn-edit", "✏️", L("buttons.enterEdit"))}
-      ${btn("btn-library", "📚", L("buttons.openLibrary"))}
-      ${btn("btn-rules", "⚙️", L("options.title"))}
-      ${btn("btn-ai-prompt", "🤖", L("buttons.aiGenerateEvents") || "AI生成事件", true)}
-      ${btn("btn-history", "🕘", L("history.title"))}
-      ${btn("btn-json", "🔧", L("buttons.openJson"))}
-      ${btn("btn-reset", "🔄", L("buttons.reset"))}
+    <div id="settings-card" class="w-full rounded-3xl border border-white/10 bg-black/40 p-3.5 backdrop-blur-md shadow-lg space-y-2.5">
+      <div class="flex items-center justify-between px-1 text-xs font-bold text-white/70">
+        <span class="flex items-center gap-1.5"><span class="text-sm">⚙️</span><span>游戏设置与工具</span></span>
+        <span class="text-[10px] text-pink-300 font-mono">自定义选项</span>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        ${btn("btn-rules", "⚙️", L("options.title"))}
+        ${btn("btn-library", "📚", L("buttons.openLibrary"))}
+        ${btn("btn-ai-prompt", "🤖", L("buttons.aiGenerateEvents") || "AI生成", true)}
+        ${btn("btn-edit", "✏️", L("buttons.enterEdit"))}
+        ${btn("btn-history", "🕘", L("history.title"))}
+        ${btn("btn-json", "🔧", L("buttons.openJson"))}
+      </div>
+      <div class="pt-0.5">
+        <button id="btn-reset" class="w-full inline-flex items-center justify-center gap-1.5 rounded-xl border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-xs font-semibold text-rose-200 hover:bg-rose-500/20 transition active:scale-95 shadow-sm">
+          <span>🔄</span><span>${esc(L("buttons.reset"))}</span>
+        </button>
+      </div>
     </div>`;
   }
 
   function controlCard() {
     return `
-    <div id="control-card" class="w-full max-w-md rounded-3xl border border-white/15 bg-gradient-to-b from-[#190a24]/95 to-[#0e0417]/95 p-4 sm:p-5 text-center shadow-[0_20px_60px_rgba(244,114,182,0.25)] backdrop-blur">
+    <div id="control-card" class="w-full rounded-3xl border border-white/15 bg-gradient-to-b from-[#190a24]/95 to-[#0e0417]/95 p-4 sm:p-5 text-center shadow-[0_20px_60px_rgba(244,114,182,0.25)] backdrop-blur">
       <div id="turn-label" class="text-sm font-semibold tracking-wide text-white/90"></div>
       <div id="dice-area" class="my-3 flex items-center justify-center min-h-[72px]"></div>
       <div id="roll-btn-wrap" class="min-h-[46px] flex items-center justify-center"></div>
@@ -695,12 +758,12 @@
         const eff = getEffect(r, c);
         const ev = getEvent(r, c);
 
-        // 动态根据当前 CELL 规格自适应文字与图标字号
-        const fontCenter = CELL >= 36 ? "text-sm sm:text-base" : (CELL >= 28 ? "text-xs" : "text-[10px]");
-        const fontFlight = CELL >= 36 ? "text-xs sm:text-sm" : (CELL >= 28 ? "text-[10px]" : "text-[9px]");
-        const fontEff = CELL >= 36 ? "text-[10px] sm:text-[11px]" : (CELL >= 28 ? "text-[8.5px]" : "text-[7.5px]");
-        const fontEv = CELL >= 38 ? "text-[9.5px] leading-tight" : (CELL >= 30 ? "text-[8.5px] leading-[1.1]" : "text-[7px] leading-none");
-        const fontArrow = CELL >= 36 ? "text-[8px] sm:text-[9px]" : (CELL >= 28 ? "text-[7px]" : "text-[6px]");
+        // 动态根据当前 CELL 规格自适应文字与图标字号 (支持小屏 21px 至超大屏 78px)
+        const fontCenter = CELL >= 52 ? "text-xl sm:text-2xl" : CELL >= 36 ? "text-sm sm:text-base" : (CELL >= 28 ? "text-xs" : "text-[10px]");
+        const fontFlight = CELL >= 52 ? "text-base sm:text-lg" : CELL >= 36 ? "text-xs sm:text-sm" : (CELL >= 28 ? "text-[10px]" : "text-[9px]");
+        const fontEff = CELL >= 52 ? "text-xs sm:text-sm" : CELL >= 36 ? "text-[10px] sm:text-[11px]" : (CELL >= 28 ? "text-[8.5px]" : "text-[7.5px]");
+        const fontEv = CELL >= 56 ? "text-[12px] leading-tight" : CELL >= 44 ? "text-[10.5px] leading-tight" : (CELL >= 34 ? "text-[9px] leading-[1.15]" : "text-[7.5px] leading-none");
+        const fontArrow = CELL >= 52 ? "text-[10px] sm:text-xs" : CELL >= 36 ? "text-[8px] sm:text-[9px]" : (CELL >= 28 ? "text-[7px]" : "text-[6px]");
 
         if (isCenter) {
           inner = `<span class="${fontCenter} leading-none">🏆</span>`;
