@@ -16,6 +16,14 @@
   <img src="https://img.shields.io/badge/License-MIT%20%2F%20Open-lightgrey?style=flat-square" alt="License" />
 </p>
 
+<p align="center">
+  <a href="https://yyyyyjp.github.io/Couple_Game/"><strong>🚀 在线体验 (GitHub Pages)</strong></a>
+  ·
+  <a href="https://github.com/yyyyyjp/Couple_Game"><strong>📦 GitHub 仓库</strong></a>
+  ·
+  <a href="#-游戏矩阵一览"><strong>🎮 游戏列表</strong></a>
+</p>
+
 ---
 
 ## 📖 项目简介与背景
@@ -152,8 +160,8 @@ npx http-server -p 8080
 - **GitHub Pages**：
   1. 将仓库推送到 GitHub。
   2. 进入仓库 **Settings** -> **Pages**。
-  3. Source 选择 **Deploy from a branch**，分支选择 `main` (或 `master`)，路径选择 `/ (root)`。
-  4. 保存后稍等片刻，即可通过 `https://<你的用户名>.github.io/<仓库名>/` 访问！
+  3. Source 选择 **Deploy from a branch**，分支选择 `main`，路径选择 `/ (root)`。
+  4. 保存后稍等片刻，即可通过 `https://yyyyyjp.github.io/Couple_Game/` 在线游玩！
 - **Vercel**：
   - 直接导入 GitHub 仓库，Framework Preset 选择 `Other`，根目录保持默认，一键部署完成。
 - **Cloudflare Pages**：
