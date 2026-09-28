@@ -705,7 +705,7 @@
       tl.innerHTML = `${esc(playerBadge(currentPlayer))} · <span class="text-white/60">${L("labels.currentPlayer")}</span>`;
     }
 
-    document.getElementById("dice-area").innerHTML = diceFace(diceVal);
+    renderDiceArea();
 
     const rbw = document.getElementById("roll-btn-wrap");
     if (!winner && !ui.needAck && !selectState) {
@@ -742,6 +742,27 @@
     }
   }
 
+  let dice3dInstance = null;
+  function renderDiceArea() {
+    const area = document.getElementById("dice-area");
+    if (!area) return;
+    if (window.Dice3D) {
+      if (!dice3dInstance || !area.contains(dice3dInstance.sceneEl)) {
+        area.innerHTML = "";
+        dice3dInstance = window.Dice3D.create(area, { initialValue: diceVal || 1 });
+        area.style.cursor = "pointer";
+        area.title = "点击直接掷骰";
+        area.onclick = () => {
+          if (!rolling && !winner && !ui.needAck && !selectState) doRoll();
+        };
+      } else if (diceVal) {
+        dice3dInstance.setValue(diceVal);
+      }
+    } else {
+      area.innerHTML = diceFace(diceVal);
+    }
+  }
+
   function render() {
     renderBoard();
     renderPieces();
@@ -764,22 +785,28 @@
       hasSix[pid] = true;
     }
 
-    // 掷骰动画
+    // 掷骰动画 (优先使用 Dice3D 真实物理翻滚)
     if (!silent) {
-      const iv = setInterval(() => {
-        diceVal = LG.dice1_6();
+      if (window.Dice3D && dice3dInstance) {
+        await dice3dInstance.roll(dice, 850);
+        diceVal = dice;
+      } else {
+        const iv = setInterval(() => {
+          diceVal = LG.dice1_6();
+          document.getElementById("dice-area").innerHTML = diceFace(diceVal);
+          sound.play("roll");
+        }, 100);
+        renderControl();
+        await sleep(750);
+        clearInterval(iv);
+        diceVal = dice;
         document.getElementById("dice-area").innerHTML = diceFace(diceVal);
-        sound.play("roll");
-      }, 100);
-      renderControl();
-      await sleep(750);
-      clearInterval(iv);
-      diceVal = dice;
-      document.getElementById("dice-area").innerHTML = diceFace(diceVal);
-      sound.play("stop");
-      await sleep(250);
+        sound.play("stop");
+        await sleep(250);
+      }
     } else {
       diceVal = dice;
+      if (dice3dInstance) dice3dInstance.setValue(dice);
     }
 
     const movable = ps[pid].tokens

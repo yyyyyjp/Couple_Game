@@ -434,7 +434,8 @@
     getStatistics: getStatistics, saveStatistics: saveStatistics,
     getAchievementProgress: getAchievementProgress,
     incrementGameSession: incrementGameSession, recordDetailStat: recordDetailStat,
-    toast: toast, openModal: openModal
+    toast: toast, openModal: openModal,
+    get dice3d() { return global.Dice3D; }
   };
 
   /* ---------------- 移动端语言切换器统一绑定 ---------------- */

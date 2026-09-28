@@ -154,6 +154,14 @@
     '</div>';
   }
   function renderDice(value, rolling, key) {
+    if (window.Dice3D) {
+      var h = window.Dice3D.buildDiceHtml(value, "dice-" + key);
+      if (rolling) {
+        h = h.replace('class="dice-3d-scene"', 'class="dice-3d-scene is-airborne"')
+             .replace('class="dice-3d-wrapper"', 'class="dice-3d-wrapper is-rolling"');
+      }
+      return h;
+    }
     var faces = "";
     for (var v = 1; v <= 6; v++) faces += diceFace(v, FACE_ROT[v]);
     var transform;
@@ -353,40 +361,34 @@
   function render() { renderMain(); renderModal(); }
 
   /* ---------- 核心动作 ---------- */
-  var rollTimer = null;
   function actRoll() {
     if (S.gameState === "rolling" || S.gameState === "settling") return;
     LG.recordDetailStat("diceRolls");
     S.gameState = "rolling";
     LG.sound.play("roll");
-    var ticks = 0;
-    rollTimer = setInterval(function () {
-      S.currentRolls = [];
-      for (var i = 0; i < S.diceCount; i++) S.currentRolls.push(LG.dice1_6());
-      S.rollTick++;
-      ticks++;
+    renderMain();
+
+    setTimeout(function () {
+      var final = [];
+      for (var j = 0; j < S.diceCount; j++) final.push(LG.dice1_6());
+      S.currentRolls = final;
+      S.gameState = "settling";
+      LG.sound.play("stop");
+      if (navigator.vibrate) navigator.vibrate(30);
       renderMain();
-      LG.sound.play("roll");
-      if (ticks >= 8) {
-        clearInterval(rollTimer);
-        var final = [];
-        for (var j = 0; j < S.diceCount; j++) final.push(LG.dice1_6());
-        S.currentRolls = final;
-        S.gameState = "settling";
-        renderMain();
-        setTimeout(function () {
-          var sum = sumRolls();
-          if (sum > S.targetNumber) {
-            if (S.diceCount >= 10) {
-              S.gameState = "win"; LG.sound.play("win");
-              LG.recordDetailStat("diceWins");
-              LG.incrementGameSession("dice", 10);
-            } else { S.gameState = "success"; LG.sound.play("success"); }
-          } else { S.gameState = "fail"; LG.sound.play("fail"); }
-          save(); render();
-        }, 1000);
-      }
-    }, 200);
+
+      setTimeout(function () {
+        var sum = sumRolls();
+        if (sum > S.targetNumber) {
+          if (S.diceCount >= 10) {
+            S.gameState = "win"; LG.sound.play("win");
+            LG.recordDetailStat("diceWins");
+            LG.incrementGameSession("dice", 10);
+          } else { S.gameState = "success"; LG.sound.play("success"); }
+        } else { S.gameState = "fail"; LG.sound.play("fail"); }
+        save(); render();
+      }, 750);
+    }, 850);
   }
   function actPass() {
     LG.sound.play("levelUp");
