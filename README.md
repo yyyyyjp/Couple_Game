@@ -132,7 +132,6 @@ Couple_Game/
 │   │   ├── statistics.js    # 战绩成就统计与图表展示
 │   │   ├── background.js    # 动态粒子 Canvas 背景
 │   │   ├── share.js         # 二维码与链接分享
-│   │   ├── alipay.js        # 赞赏弹窗逻辑
 │   │   ├── i18n.js          # 简体中文语言包
 │   │   ├── i18n.en.js       # 英文语言包
 │   │   ├── i18n.tw.js       # 正体中文语言包

@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const CN_DIR = path.resolve("../cn");
+const CN_DIR = path.resolve(import.meta.dirname, "../cn");
 const pages = fs.readdirSync(CN_DIR).filter((f) => f.endsWith(".html"));
 const langs = ["en", "tw", "ja", "ko"];
 const langLabel = { en: "En", tw: "正體", ja: "日本語", ko: "한국인", cn: "简体" };
@@ -43,7 +43,7 @@ function transform(html, lang, file) {
 }
 
 for (const lang of langs) {
-  const dir = path.resolve(`../${lang}`);
+  const dir = path.resolve(import.meta.dirname, `../${lang}`);
   fs.mkdirSync(dir, { recursive: true });
   for (const file of pages) {
     const src = fs.readFileSync(path.join(CN_DIR, file), "utf8");
