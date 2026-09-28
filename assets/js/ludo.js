@@ -1347,7 +1347,7 @@
 
   function playAlertSound() {
     try {
-      const audio = new Audio("../assets/media/bonus.mp3");
+      const audio = new Audio("assets/media/bonus.mp3");
       audio.play().catch(() => sound.play("fanfare"));
     } catch (e) {
       sound.play("fanfare");
@@ -1526,8 +1526,8 @@
           </div>
           <div class="mt-2 flex flex-wrap gap-2 text-[11px]">
             <button data-quickbg="" class="rounded-lg bg-white/5 px-2.5 py-1 text-white/60 hover:bg-white/10">无背景</button>
-            <button data-quickbg="../assets/img/bg.png" class="rounded-lg bg-white/5 px-2.5 py-1 text-white/60 hover:bg-white/10">浪漫星空</button>
-            <button data-quickbg="../assets/img/bg2.png" class="rounded-lg bg-white/5 px-2.5 py-1 text-white/60 hover:bg-white/10">幻紫霓虹</button>
+            <button data-quickbg="assets/img/bg.png" class="rounded-lg bg-white/5 px-2.5 py-1 text-white/60 hover:bg-white/10">浪漫星空</button>
+            <button data-quickbg="assets/img/bg2.png" class="rounded-lg bg-white/5 px-2.5 py-1 text-white/60 hover:bg-white/10">幻紫霓虹</button>
           </div>
         </div>
       </div>

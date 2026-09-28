@@ -1,0 +1,4113 @@
+window.MESSAGES = {
+  "meta": {
+    "title": "情侣互动小游戏合集 | 约会之夜前戏必备",
+    "base": "网页版情侣互动游戏",
+    "description": "探索专为情侣夫妻设计的情趣互动游戏，如情侣飞行棋、真心话大冒险、情趣骰子等，可自定义事件库。非常适合约会之夜，旨在加深情侣夫妻的感情联系。"
+  },
+  "navigation": {
+    "language": "语言"
+  },
+  "hero": {
+    "eyebrow": "18+ 体验",
+    "title": "燃情此刻，放肆尽兴",
+    "subtitle": "多款氛围火辣的私房游戏，专为敢玩敢爱的亲密情侣而设。",
+    "cta": "开始探索",
+    "installApp": "安装 APP",
+    "onlineNow": "当前在线：{count}"
+  },
+  "games": {
+    "sectionTitle": "游戏合集",
+    "sectionSubtitle": "挑一款游戏，跟随指令，让欲望引路。",
+    "viewGame": "进入游戏",
+    "backToCollection": "返回游戏列表",
+    "ludo": {
+      "title": "心动飞行棋",
+      "tagline": "经典飞行棋的情趣浪漫升级版，专为情侣设计的增进感情的情趣游戏。",
+      "roll": "掷骰前进",
+      "reset": "重新开始",
+      "position": "当前位置",
+      "instruction": "执行指令",
+      "multiplayer": {
+        "onlinePlay": "联机对战",
+        "panelTitle": "联机飞行棋",
+        "tabs": {
+          "create": "创建房间",
+          "join": "加入房间"
+        },
+        "labels": {
+          "onlineRoom": "联机房间：{roomId}",
+          "playersCount": "玩家：{count}/{max}",
+          "selectColor": "选择颜色：",
+          "selecting": "选择中...",
+          "you": "（你）",
+          "roomId": "房间号",
+          "passwordOptional": "密码（可选）",
+          "password": "密码",
+          "yourColor": "你的颜色"
+        },
+        "placeholders": {
+          "passwordOptional": "留空表示公开",
+          "roomId": "XXXXXX"
+        },
+        "actions": {
+          "minimize": "最小化",
+          "exit": "退出",
+          "copyId": "复制房间号",
+          "copied": "已复制",
+          "share": "分享",
+          "startGame": "开始游戏",
+          "createRoom": "创建房间",
+          "joinRoom": "加入房间"
+        },
+        "confirmExit": "确定要退出房间吗？退出后房间将解散。",
+        "status": {
+          "creatingRoom": "正在创建房间...",
+          "joiningRoom": "正在加入房间...",
+          "roomCreated": "房间已创建！房间号：{roomId}",
+          "joinedRoom": "已加入房间：{roomId}",
+          "reconnecting": "正在重连...",
+          "waitingForPlayers": "等待其他玩家加入...",
+          "waitingForHost": "等待房主开始...",
+          "waitingForYouSelectColor": "请先选择你的颜色...",
+          "waitingForPlayerAct": "等待 {player} 操作..."
+        },
+        "share": {
+          "title": "加入我的飞行棋房间",
+          "text": "加入我的飞行棋游戏！房间号：{roomId}"
+        },
+        "overlay": {
+          "waiting": "等待其他玩家加入..."
+        },
+        "errors": {
+          "connectionFailed": "连接失败",
+          "reconnectFailed": "重连失败",
+          "roomDisbanded": "房间已被解散。",
+          "roomNotFound": "房间不存在",
+          "invalidPassword": "密码错误",
+          "colorAlreadyTaken": "颜色已被占用",
+          "gameMismatch": "该房间属于其他游戏。",
+          "createRoomFailed": "创建房间失败",
+          "onlyHostCanDisband": "只有房主可以解散房间",
+          "cannotDisbandLobby": "不能解散大厅",
+          "createRoomWrongTarget": "创建房间请求必须发送到大厅",
+          "unknown": "发生错误"
+        }
+      },
+      "history": {
+        "title": "游戏记录",
+        "subtitle": "追踪每一步的精彩时刻",
+        "emptyTitle": "掷出第一颗骰子",
+        "emptySubtitle": "开始你们的激情之旅",
+        "restIcon": "休"
+      },
+      "emptyHistory": "掷出第一颗骰子，解锁今晚的第一份刺激。",
+      "events": {
+        "1-1": {
+          "name": "男方起点",
+          "description": "掷出6开始游戏"
+        },
+        "11-11": {
+          "name": "女方起点",
+          "description": "掷出6开始游戏"
+        },
+        "6-6": {
+          "name": "浪漫终点",
+          "description": "到达终点，写下今晚最想和TA一起实现的那个愿望，必须执行"
+        },
+        "3-0": {
+          "name": "温情探问",
+          "description": "把下巴搁在对方肩头，轻声问TA现在开不开心"
+        },
+        "4-0": {
+          "name": "指尖如吻",
+          "description": "用小拇指勾住对方的小拇指，轻轻晃动许下个小约定"
+        },
+        "5-0": {
+          "name": "额间温度",
+          "description": "闭眼额头相抵，安静感受彼此的体温五秒"
+        },
+        "6-0": {
+          "name": "呼吸同频",
+          "description": "握住双手对视，调整呼吸直到两人频率一致"
+        },
+        "7-0": {
+          "name": "耳畔私语",
+          "description": "贴着耳朵用气声说一句平时不好意思说的情话"
+        },
+        "8-0": {
+          "name": "颈侧游走",
+          "description": "指尖沿着对方耳后慢慢滑到锁骨窝，轻柔缓慢"
+        },
+        "9-0": {
+          "name": "静止拥抱",
+          "description": "什么都不做，紧紧抱住对方，听听彼此的心跳声"
+        },
+        "9-1": {
+          "name": "手背吻礼",
+          "description": "像骑士一样托起对方的手，在手背印下一个虔诚的吻"
+        },
+        "9-2": {
+          "name": "慢舞时光",
+          "description": "双手搭在对方肩颈，随意哼着歌，深情注视对方并慢慢摇晃身体"
+        },
+        "9-3": {
+          "name": "三点连吻",
+          "description": "在左脸、右脸、额头各落下一个轻柔的吻"
+        },
+        "10-3": {
+          "name": "心底秘密",
+          "description": "坦白一件最近觉得TA特别可爱但没说出口的小事"
+        },
+        "11-3": {
+          "name": "深情凝视",
+          "description": "不论谁笑场都要重来，深情对视直到看清对方眼里的自己"
+        },
+        "12-3": {
+          "name": "纸短情长",
+          "description": "在纸条写下TA最让你心动的瞬间，折好塞进TA口袋"
+        },
+        "12-4": {
+          "name": "掌心暗号",
+          "description": "在对方手心一笔一划写下“爱”字，让TA握拳抓住"
+        },
+        "12-5": {
+          "name": "耳根酥麻",
+          "description": "拨开头发，在敏感的耳根处落下一个湿润的吻"
+        },
+        "12-6": {
+          "name": "背后依赖",
+          "description": "从背后环抱住TA，下巴抵在肩膀，享受此刻的安全感"
+        },
+        "12-7": {
+          "name": "贴身慢摇",
+          "description": "身体紧贴，即使没有音乐，也跟随彼此的心跳摇摆"
+        },
+        "12-8": {
+          "name": "雨点轻吻",
+          "description": "像细雨一样，密集而轻柔地亲吻对方的脸颊"
+        },
+        "12-9": {
+          "name": "颈窝传情",
+          "description": "把脸埋进对方颈窝深呼吸，记住TA身上的味道"
+        },
+        "11-9": {
+          "name": "肌肤探险",
+          "description": "指尖像羽毛一样，从对方手腕内侧一路滑到掌心"
+        },
+        "10-9": {
+          "name": "十指连心",
+          "description": "掌心相对，十指慢慢扣紧，用拇指摩挲对方虎口"
+        },
+        "9-9": {
+          "name": "背靠背",
+          "description": "背靠背坐在地上，闭上眼，感受对方脊背的温度"
+        },
+        "9-10": {
+          "name": "暖心时刻",
+          "description": "喂对方喝一口水或饮料，顺手帮TA擦擦嘴角"
+        },
+        "9-11": {
+          "name": "亲密定格",
+          "description": "脸贴脸拍一张搞怪或甜蜜的合照，设为壁纸"
+        },
+        "9-12": {
+          "name": "腰际掌控",
+          "description": "双手扶住对方的腰，将TA轻轻拉向自己"
+        },
+        "8-12": {
+          "name": "后背依偎",
+          "description": "像无尾熊一样，整个人贴在对方背上撒个娇"
+        },
+        "7-12": {
+          "name": "鼻尖磨蹭",
+          "description": "像小动物一样，用鼻尖轻轻磨蹭对方的鼻尖"
+        },
+        "6-12": {
+          "name": "锁骨描摹",
+          "description": "用食指指腹沿着对方的锁骨线条慢慢描绘"
+        },
+        "5-12": {
+          "name": "大胆示爱",
+          "description": "用最诱惑的语气告诉对方，你此刻最想要TA做什么"
+        },
+        "4-12": {
+          "name": "唇角试探",
+          "description": "吻落在对方唇角，似有若无地停留"
+        },
+        "3-12": {
+          "name": "怦然心动",
+          "description": "一步步逼近对方直到身体贴合，感受彼此急促的心跳"
+        },
+        "3-11": {
+          "name": "蛮横拥抱",
+          "description": "不容分说地从背后紧紧箍住TA的腰，宣示主权"
+        },
+        "3-10": {
+          "name": "挑逗低语",
+          "description": "咬着耳朵说出一个让TA脸红心跳的大胆想法"
+        },
+        "3-9": {
+          "name": "肩头依靠",
+          "description": "拍拍自己的肩膀，示意TA靠上来休息一会儿"
+        },
+        "2-9": {
+          "name": "感恩此刻",
+          "description": "握紧对方的手，看着眼睛认真说：“有你在真好”"
+        },
+        "1-9": {
+          "name": "心灵交换",
+          "description": "贴着耳朵分享一个从未对人说过的脆弱时刻"
+        },
+        "0-9": {
+          "name": "颈侧印记",
+          "description": "在颈侧动脉跳动处，用力吸吮或轻咬一口"
+        },
+        "0-8": {
+          "name": "锁骨流连",
+          "description": "沿着锁骨起伏的线条，落下细碎而连贯的吻"
+        },
+        "0-7": {
+          "name": "背后温存",
+          "description": "从背后抱住，双手在身前交握，随性地左右轻晃"
+        },
+        "0-6": {
+          "name": "腰线抚触",
+          "description": "手掌贴着腰侧的曲线，带着温度缓慢地抚摸一圈"
+        },
+        "0-5": {
+          "name": "掌心听心",
+          "description": "拉着对方的手按在自己胸口：“你听，它为你跳得好快”"
+        },
+        "0-4": {
+          "name": "窒息拥抱",
+          "description": "像要把对方揉进身体里一样，用力地交叉拥抱"
+        },
+        "0-3": {
+          "name": "气息交融",
+          "description": "埋首在对方颈间或手腕，深深嗅闻属于TA的费洛蒙"
+        },
+        "1-3": {
+          "name": "惊喜突袭",
+          "description": "趁其不备从背后抱住，在耳边轻声说“抓住你了”"
+        },
+        "2-3": {
+          "name": "额头密语",
+          "description": "额头抵着额头，在极近的距离说一句只有你们懂的暗语"
+        },
+        "3-3": {
+          "name": "未来幻想",
+          "description": "描述一个你想和TA一起去尝试的大胆场景"
+        },
+        "3-2": {
+          "name": "蜻蜓点水",
+          "description": "快速地、调皮地在对方嘴唇上啄一下就跑"
+        },
+        "3-1": {
+          "name": "气息纠缠",
+          "description": "慢慢靠近，鼻尖几乎相触，交换彼此温热的呼吸"
+        },
+        "1-6": {
+          "name": "对视挑战",
+          "description": "鼻尖相抵，对视直到谁先忍不住吻上谁"
+        },
+        "2-6": {
+          "name": "膝上亲昵",
+          "description": "坐到对方腿上，双手环颈，感受大腿传来的温度"
+        },
+        "3-6": {
+          "name": "欲望清单",
+          "description": "贴在耳边，用气声逐一列举今晚想做的事"
+        },
+        "4-6": {
+          "name": "虔诚巡礼",
+          "description": "从额头开始，依次亲吻眉心、鼻尖、嘴唇、下巴"
+        },
+        "5-6": {
+          "name": "暧昧支撑",
+          "description": "将对方压在身下双手撑地，悬停在上方凝视，做5个慢速俯卧撑"
+        },
+        "7-6": {
+          "name": "掌心升温",
+          "description": "双手伸进对方后腰衣摆内，贴着肌肤慢慢收紧拥抱"
+        },
+        "8-6": {
+          "name": "心跳共鸣",
+          "description": "侧脸贴在对方左胸，安静地听那颗为你跳动的心"
+        },
+        "9-6": {
+          "name": "曲线赞美",
+          "description": "轻柔地抚摸对方的臀部曲线，低声夸赞TA的身材"
+        },
+        "10-6": {
+          "name": "迷人认证",
+          "description": "贴着脖颈，具体描述TA此刻哪个表情让你最受不了"
+        },
+        "11-6": {
+          "name": "深吻封缄",
+          "description": "不需要语言，用一个漫长、深入、缺氧的吻结束回合"
+        }
+      },
+      "longDistanceEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "调整好摄像头角度，掷出6开始"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "检查门锁与耳机，掷出6开始"
+        },
+        "6-6": {
+          "name": "云端极乐",
+          "description": "赢家指定输家使用一种道具或手法的全套Solo表演，直到结束"
+        },
+        "3-0": {
+          "name": "颅内高潮",
+          "description": "紧贴麦克风，用湿润的口腔音或急促呼吸持续轰炸对方耳朵15秒"
+        },
+        "4-0": {
+          "name": "远程遥控",
+          "description": "对方下达一个羞耻指令（如摆个M字腿），你必须保持该动作直到下一轮"
+        },
+        "5-0": {
+          "name": "自我指引",
+          "description": "看着镜头，手指在自己大腿内侧画圈，眼神必须时刻锁死对方"
+        },
+        "6-0": {
+          "name": "视觉剥夺",
+          "description": "戴上眼罩（或闭眼），听对方描述想对你做的事，不许发出声音，只能用身体反应"
+        },
+        "7-0": {
+          "name": "午夜电台",
+          "description": "用最情色的声线，详细描述你此刻内衣下的状态（湿度/硬度/颜色）"
+        },
+        "8-0": {
+          "name": "云端巡礼",
+          "description": "询问对方最想亲吻哪里，然后自己用手指代替对方的嘴唇，那里轻按三下"
+        },
+        "9-0": {
+          "name": "隔空拥抱",
+          "description": "双臂用力环抱自己，想象是对方的体温，发出满足的叹息声给对方听"
+        },
+        "9-1": {
+          "name": "指尖含吮",
+          "description": "将自己的一根手指含入口中，模拟口部吞吐动作，给对方特写"
+        },
+        "9-2": {
+          "name": "禁忌视角",
+          "description": "调整摄像头位置，给出一个平时很少展示的私密部位特写（如足底、腋下、臀底）"
+        },
+        "9-3": {
+          "name": "虚拟留痕",
+          "description": "用口红或笔，在自己身上对方最喜欢的位置画一个吻痕或记号"
+        },
+        "10-3": {
+          "name": "真心话",
+          "description": "说出上次做梦梦到对方时，具体的场景是什么"
+        },
+        "11-3": {
+          "name": "眼神拉丝",
+          "description": "脸贴近屏幕对视20秒，想象正在接吻，谁先回避视线谁脱一件"
+        },
+        "12-3": {
+          "name": "云端惩罚",
+          "description": "自己掌掴臀部三下，声音必须响亮到通过麦克风传过去"
+        },
+        "12-4": {
+          "name": "隔衣探险",
+          "description": "隔着衣物用力揉搓自己的敏感点，表情要表现出仿佛是对方在动手"
+        },
+        "12-5": {
+          "name": "舌尖诱惑",
+          "description": "伸出舌头，模拟舔舐动作，不仅要灵活还要有唾液拉丝的光泽"
+        },
+        "12-6": {
+          "name": "后背风景",
+          "description": "背对摄像头，撩起上衣/脱下上衣，展示背部线条并扭动腰肢"
+        },
+        "12-7": {
+          "name": "镜头贴合",
+          "description": "私密部位紧贴摄像头（隔着衣物或不隔），模拟骑在对方脸上的视角"
+        },
+        "12-8": {
+          "name": "全身扫描",
+          "description": "拿着手机从头到脚缓慢移动拍摄，如同对方的目光在巡视领地"
+        },
+        "12-9": {
+          "name": "冰火两重",
+          "description": "找一样冰的或热的物体（冰块/热茶杯），触碰自己的敏感带，展示反应"
+        },
+        "11-9": {
+          "name": "衣下乾坤",
+          "description": "掀起上衣下摆，仅露出胸部下缘或腹肌，保持10秒特写"
+        },
+        "10-9": {
+          "name": "束缚幻想",
+          "description": "用领带、数据线或皮带将自己的双手捆在身前或身后，持续一轮"
+        },
+        "9-9": {
+          "name": "特殊座椅",
+          "description": "想象自己坐在对方脸上或对方正坐在自己身上，摆出相应的姿势保持一轮"
+        },
+        "9-10": {
+          "name": "解开束缚",
+          "description": "慢动作解开自己领口的两颗扣子，或者拉开裤链展示内侧布料"
+        },
+        "9-11": {
+          "name": "私密特写",
+          "description": "将摄像头对准两腿之间，调整焦距，虽不裸露但要极尽诱惑"
+        },
+        "9-12": {
+          "name": "指痕盛宴",
+          "description": "双手用力抓挠自己的大腿或胸口，留下红色的指印给对方检查"
+        },
+        "8-12": {
+          "name": "坦诚相见",
+          "description": "双方各脱去一件衣物，如果已经没得脱，就做一个M腿开合动作"
+        },
+        "7-12": {
+          "name": "屏幕之吻",
+          "description": "缓慢靠近摄像头，直到嘴唇贴上镜头，留下雾气和吻痕"
+        },
+        "6-12": {
+          "name": "足尖撩拨",
+          "description": "抬起一只脚，在镜头前展示脚趾的灵活性，模拟夹住对方某处"
+        },
+        "5-12": {
+          "name": "大胆示爱",
+          "description": "在自己身上写下对方的名字，位置由对方指定（大腿内侧/胸口等）"
+        },
+        "4-12": {
+          "name": "唇齿交锋",
+          "description": "咬住下唇，用手指拉扯嘴唇，展示口腔内部的粉红与湿润"
+        },
+        "3-12": {
+          "name": "逼问真心",
+          "description": "看着镜头逼问对方：“此时此刻你想怎么弄坏我？”，对方需详细回答"
+        },
+        "3-11": {
+          "name": "手心温度",
+          "description": "将手伸进自己的衣服里游走，随着对方的指令停在某处不动"
+        },
+        "3-10": {
+          "name": "无声挑逗",
+          "description": "静音麦克风，仅通过肢体语言和口型，向对方索求或挑衅"
+        },
+        "3-9": {
+          "name": "肌肤之亲",
+          "description": "抚摸屏幕上对方的脸/身体，同时自己抚摸自己对应的部位，实现“通感”"
+        },
+        "2-9": {
+          "name": "主导权",
+          "description": "获得一张“截图卡”，对方必须摆出一个你指定的羞耻姿势供你截图保存"
+        },
+        "1-9": {
+          "name": "喉结/锁骨",
+          "description": "仰起头，给喉结（男）或锁骨窝（女）特写，并做吞咽动作"
+        },
+        "0-9": {
+          "name": "危险地带",
+          "description": "手在内裤边缘来回试探，偶尔伸进去一点点又立刻抽出来，持续20秒"
+        },
+        "0-8": {
+          "name": "足控福利",
+          "description": "将脚掌对准镜头，由远及近，直到占据整个屏幕"
+        },
+        "0-7": {
+          "name": "后背抓痕",
+          "description": "如果没有指甲，就用笔在后背/臀部画出抓痕的效果，展示给对方"
+        },
+        "0-6": {
+          "name": "线条勾勒",
+          "description": "用手指沾一点水或乳液，沿着自己的人鱼线/马甲线缓慢描绘高光"
+        },
+        "0-5": {
+          "name": "听听心跳",
+          "description": "将麦克风紧贴左胸，跳跃几下或揉捏几下，让对方听剧烈的心跳声"
+        },
+        "0-4": {
+          "name": "夹紧",
+          "description": "双腿用力夹紧（可夹枕头或被子），配合急促的呼吸，眼神迷离地看着镜头"
+        },
+        "0-3": {
+          "name": "费洛蒙",
+          "description": "把穿了一天的贴身衣物脱下来，盖在摄像头上，制造朦胧的色情感"
+        },
+        "1-3": {
+          "name": "背身突袭",
+          "description": "背对镜头，手反向伸到身后抚摸臀部或私处，给对方看背面视角"
+        },
+        "2-3": {
+          "name": "私密问答",
+          "description": "如果有机会见面，第一件事想在哪个地点做？（如玄关、厨房、车里）"
+        },
+        "3-3": {
+          "name": "角色扮演",
+          "description": "接下来3分钟，用“陌生人网聊”的语气对话，假装不认识但在调情"
+        },
+        "3-2": {
+          "name": "蜻蜓点水",
+          "description": "快速掀开内衣看一眼又盖上，让对方只看到残影，吊足胃口"
+        },
+        "3-1": {
+          "name": "吞吐练习",
+          "description": "找一根香蕉/手指/柱状物，对着镜头模拟深喉或舔舐动作"
+        },
+        "1-6": {
+          "name": "湿吻特写",
+          "description": "对着手背或空气进行湿吻，发出啧啧的水声，眼神要骚"
+        },
+        "2-6": {
+          "name": "骑乘视角",
+          "description": "跨坐在椅子或枕头上，上下起伏摩擦，模拟骑在对方身上的动作"
+        },
+        "3-6": {
+          "name": "欲望清单",
+          "description": "对着镜头念出3个你想让对方对自己使用的道具或姿势"
+        },
+        "4-6": {
+          "name": "连环爆破",
+          "description": "脱掉一件关键衣物，如果是最后一件，则对着镜头张开双腿3秒"
+        },
+        "5-6": {
+          "name": "俯卧撑",
+          "description": "对着手机做俯卧撑/深蹲，每次下压都要凑近屏幕亲吻对方"
+        },
+        "7-6": {
+          "name": "绝对领域",
+          "description": "手伸入两腿之间遮挡住关键部位，但在周边抚摸，留给对方无限遐想"
+        },
+        "8-6": {
+          "name": "心跳同频",
+          "description": "赤裸上身紧贴屏幕，挤压胸肌/乳肉，让对方看到变形的肉感"
+        },
+        "9-6": {
+          "name": "臀部掌控",
+          "description": "背对镜头，双手掰开臀瓣，给对方展示最深处的幽秘一瞬"
+        },
+        "10-6": {
+          "name": "意乱情迷",
+          "description": "自我抚慰30秒（不脱最后防线），伴随呻吟，然后展示私处的液体并摩擦发出粘腻的声音，之后张开手指使其拉丝"
+        },
+        "11-6": {
+          "name": "临门一脚",
+          "description": "手直接伸进内裤里，进行实质性的揉搓，必须让对方看到手腕的抽动频率"
+        }
+      },
+      "eventsThree": {
+        "1-1": {
+          "name": "雪菜",
+          "description": "温柔的学院偶像，试图维系这脆弱的三角关系。掷出6出发"
+        },
+        "11-1": {
+          "name": "春希",
+          "description": "爱管闲事的班长，在两个女孩之间摇摆不定。掷出6出发"
+        },
+        "11-11": {
+          "name": "冬马",
+          "description": "孤高的钢琴天才，隐藏着对他的深深爱意。掷出6出发"
+        },
+        "6-6": {
+          "name": "传达不到的爱恋",
+          "description": "到达终点。无论结局是CODA还是Closing，此刻三人紧紧拥抱。"
+        },
+        "3-0": {
+          "name": "轻音部成立",
+          "description": "三人一起喊出“轻音同好会，加油！”的口号"
+        },
+        "4-0": {
+          "name": "放学后的练习",
+          "description": "模仿乐器演奏动作，合奏一小段《White Album》"
+        },
+        "5-0": {
+          "name": "便利店的偶遇",
+          "description": "每人说出一种白色相簿2中出现的食物（如炸鸡块、布丁）"
+        },
+        "6-0": {
+          "name": "屋顶的午餐",
+          "description": "三人围坐在一起，分享彼此“便当”里的（想象）食物"
+        },
+        "7-0": {
+          "name": "黑板报帮忙",
+          "description": "一人假装写字，另外两人要在旁边夸奖TA字写得好看"
+        },
+        "8-0": {
+          "name": "第二音乐室",
+          "description": "安静地坐在一起，闭眼聆听周围的声音30秒"
+        },
+        "9-0": {
+          "name": "温泉合宿",
+          "description": "假装在泡温泉，互相给对方擦背（隔空动作）"
+        },
+        "9-1": {
+          "name": "试胆大会",
+          "description": "三人手牵手走过一段“黑暗”的路（闭眼走3步）"
+        },
+        "9-2": {
+          "name": "学园祭前夜",
+          "description": "以兴奋的语气讨论明天的演出计划"
+        },
+        "9-3": {
+          "name": "吉他的教学",
+          "description": "一人手把手教另一人弹吉他的姿势，第三人旁观"
+        },
+        "10-3": {
+          "name": "歌词的创作",
+          "description": "三人轮流接龙，创作一句“白色相簿”风格的歌词"
+        },
+        "11-3": {
+          "name": "补习时光",
+          "description": "互相考对方一个关于WA2的小问题，答不上来的被弹额头"
+        },
+        "12-3": {
+          "name": "雪中的等待",
+          "description": "模仿在雪中跺脚取暖等待对方的样子"
+        },
+        "12-4": {
+          "name": "卡拉OK包厢",
+          "description": "三人一起合唱一首喜欢的歌（不限于WA2）"
+        },
+        "12-5": {
+          "name": "家庭餐厅",
+          "description": "模拟在餐厅聊天，讨论未来的梦想"
+        },
+        "12-6": {
+          "name": "各怀心事",
+          "description": "每人做出一个忧郁的表情，另外两人猜测TA在想什么"
+        },
+        "12-7": {
+          "name": "真心话时刻",
+          "description": "模仿经典台词：“如果是我的话...” 说出一句真心话"
+        },
+        "12-8": {
+          "name": "相簿翻看",
+          "description": "三人头靠头，假装在看同一本相册"
+        },
+        "12-9": {
+          "name": "偷吻",
+          "description": "趁一人闭眼时，另外两人（或一人）偷偷亲TA脸颊一下"
+        },
+        "11-9": {
+          "name": "特殊的称呼",
+          "description": "为彼此取一个WA2风格的昵称，并在接下来的3轮中使用"
+        },
+        "10-9": {
+          "name": "发夹的礼物",
+          "description": "模仿互送礼物的场景，要表现出害羞"
+        },
+        "9-9": {
+          "name": "背靠背的依偎",
+          "description": "三人背靠背坐在地上，感受彼此的体温"
+        },
+        "9-10": {
+          "name": "感冒的探望",
+          "description": "一人装病，另外两人温柔地照顾TA（喂水、摸额头）"
+        },
+        "9-11": {
+          "name": "借宿一晚",
+          "description": "三人挤在一起（假装睡地铺），聊八卦"
+        },
+        "9-12": {
+          "name": "毕业的约定",
+          "description": "伸出小拇指，三人一起拉钩许下一个约定"
+        },
+        "8-12": {
+          "name": "打工的疲惫",
+          "description": "互相给对方捏肩捶背，缓解“打工”的疲劳"
+        },
+        "7-12": {
+          "name": "复杂的视线",
+          "description": "三人呈三角形站立，互相用复杂的眼神注视右边的人"
+        },
+        "6-12": {
+          "name": "误会的产生",
+          "description": "表演一段“你怎么能这样”的小剧场"
+        },
+        "5-12": {
+          "name": "和好的拥抱",
+          "description": "不管刚才发生了什么，现在三人紧紧拥抱在一起"
+        },
+        "4-12": {
+          "name": "圣诞派对",
+          "description": "假装交换圣诞礼物，并说一句祝福的话"
+        },
+        "3-12": {
+          "name": "新年的参拜",
+          "description": "三人双手合十，许下关于三个人关系的愿望"
+        },
+        "3-11": {
+          "name": "情书的发现",
+          "description": "假装发现了一封情书，三人一起朗读内容"
+        },
+        "3-10": {
+          "name": "吃醋的瞬间",
+          "description": "模仿吃醋的样子，哪怕很夸张"
+        },
+        "3-9": {
+          "name": "秘密的共享",
+          "description": "每人说出一个只有这三个人知道的秘密（现编也可以）"
+        },
+        "2-9": {
+          "name": "雨中的奔跑",
+          "description": "原地小跑，假装在躲雨，还要互相遮挡"
+        },
+        "1-9": {
+          "name": "借出的外套",
+          "description": "一人脱下外套给另一人披上，第三人表示羡慕"
+        },
+        "0-9": {
+          "name": "眼神交流",
+          "description": "不说话，只用眼神传达“我喜欢你”或“谢谢”"
+        },
+        "0-8": {
+          "name": "手指的触碰",
+          "description": "三人伸出食指，指尖触碰在一起，感受电流"
+        },
+        "0-7": {
+          "name": "同喝一杯水",
+          "description": "假装用同一根吸管喝饮料（间接接吻）"
+        },
+        "0-6": {
+          "name": "膝枕福利",
+          "description": "一人躺下，享受另外两人的膝枕（或大腿）"
+        },
+        "0-5": {
+          "name": "耳边吹气",
+          "description": "轮流在右边人的耳边吹一口气"
+        },
+        "0-4": {
+          "name": "心跳加速",
+          "description": "把手放在对方胸口，测试谁的心跳最快"
+        },
+        "0-3": {
+          "name": "深情告白",
+          "description": "模仿WA2名场面，对其中一人进行深情告白"
+        },
+        "1-3": {
+          "name": "谁是多余的",
+          "description": "开玩笑地讨论“谁是电灯泡”，最后得出结论“缺一不可”"
+        },
+        "2-3": {
+          "name": "羁绊的证明",
+          "description": "展示身上的一样东西，说明它对三人关系的意义"
+        },
+        "3-3": {
+          "name": "永远在一起",
+          "description": "三人手叠手，大喊“我们要永远在一起！”"
+        },
+        "3-2": {
+          "name": "梦中的婚礼",
+          "description": "描述一下如果三人结婚会是什么场景"
+        },
+        "3-1": {
+          "name": "最初的相遇",
+          "description": "回忆三人第一次见面的场景（或编造一个）"
+        },
+        "1-6": {
+          "name": "强颜欢笑的生日",
+          "description": "“虽然只有两个人...但还是要庆祝啊。” 露出那个最让人心疼的笑容。"
+        },
+        "2-6": {
+          "name": "届不到的恋歌",
+          "description": "在卡拉OK包厢里独自唱着《White Album》，等待那个不会来的人。"
+        },
+        "3-6": {
+          "name": "虚伪的温柔",
+          "description": "“我没关系的，你去吧。” 明明心在滴血，却还要把他推向另一个人。"
+        },
+        "4-6": {
+          "name": "坏掉的八音盒",
+          "description": "“为什么...为什么会变成这样...” 抱着坏掉的礼物哭泣。"
+        },
+        "5-6": {
+          "name": "雪中的独白",
+          "description": "“我不需要什么最好的朋友了，我只要你。” 终于说出了自私的愿望。"
+        },
+        "6-1": {
+          "name": "第二音乐室",
+          "description": "一切开始的地方。看着窗边的夕阳，回想起那两个人的背影。"
+        },
+        "6-2": {
+          "name": "背叛的初吻",
+          "description": "趁着她睡着的时候...“我到底在做什么...” 内心的罪恶感在蔓延。"
+        },
+        "6-3": {
+          "name": "无法做出的选择",
+          "description": "“两个我都不想伤害。” 结果却伤害了所有人。痛苦地抱头。"
+        },
+        "6-4": {
+          "name": "冬日的十字路口",
+          "description": "雪花飘落，站在分岔路口。一边是责任，一边是真爱。"
+        },
+        "6-5": {
+          "name": "最后的决断",
+          "description": "“对不起...” 哪怕背负骂名，也要迈出那一步。"
+        },
+        "11-6": {
+          "name": "被遗弃的小狗",
+          "description": "躲在连帽衫里，眼神躲闪。“别管我，反正我习惯一个人了。”"
+        },
+        "10-6": {
+          "name": "心跳漏了一拍",
+          "description": "为什么你会这么熟练啊！你和雪菜亲过多少次了啊!?你到底要把我甩开多远你才甘心啊!?"
+        },
+        "9-6": {
+          "name": "发烧的夜",
+          "description": "“别走...留下来。” 脆弱的时候，终于抓住了他的衣角。"
+        },
+        "8-6": {
+          "name": "离别的机场",
+          "description": "“不要看我！” 含泪的深吻，是最后的告别，也是永远的诅咒。"
+        },
+        "7-6": {
+          "name": "Strassburg的雪",
+          "description": "异国他乡的重逢。“这次，我绝不会再放手了。”"
+        }
+      },
+      "eventsFour": {
+        "1-1": {
+          "name": "玫瑰",
+          "description": "掷出6开始游戏。"
+        },
+        "1-11": {
+          "name": "翠绿",
+          "description": "掷出6开始游戏。"
+        },
+        "11-11": {
+          "name": "橙黄",
+          "description": "掷出6开始游戏。"
+        },
+        "11-1": {
+          "name": "碧空",
+          "description": "掷出6开始游戏。"
+        },
+        "6-6": {
+          "name": "友谊胜利",
+          "description": "第一个到达中心的玩家获胜！与朋友们一起庆祝胜利！"
+        },
+        "3-0": {
+          "name": "分享笑声",
+          "description": "讲一个有趣的笑话或幽默的故事，让大家开怀大笑。"
+        },
+        "4-0": {
+          "name": "赞美传递",
+          "description": "真诚地赞美你左边的玩家。"
+        },
+        "5-0": {
+          "name": "团队欢呼",
+          "description": "带领大家为所有玩家来一次简短的、充满鼓励的欢呼。"
+        },
+        "6-0": {
+          "name": "最爱回忆",
+          "description": "分享一个你和在座所有人最喜欢的回忆。"
+        },
+        "7-0": {
+          "name": "积极肯定",
+          "description": "说一些关于自己或团队的积极话语。"
+        },
+        "8-0": {
+          "name": "快速涂鸦",
+          "description": "为右边的玩家快速画一幅滑稽的肖像画。"
+        },
+        "9-0": {
+          "name": "趣味事实",
+          "description": "分享一个有趣且适合家庭的冷知识。"
+        },
+        "9-1": {
+          "name": "击掌庆祝！",
+          "description": "与桌上所有玩家击掌。"
+        },
+        "9-2": {
+          "name": "搞怪舞步",
+          "description": "展示你最滑稽的舞步，持续5秒。"
+        },
+        "9-3": {
+          "name": "团体合照姿势",
+          "description": "构思一个有趣的假想团体合照姿势。"
+        },
+        "10-3": {
+          "name": "友好挥手",
+          "description": "热情地向棋盘对面的玩家挥手。"
+        },
+        "11-3": {
+          "name": "模仿动物",
+          "description": "模仿你最喜欢的动物的叫声和动作。"
+        },
+        "12-3": {
+          "name": "幸运符",
+          "description": "告诉大家你个人专属的幸运符是什么。"
+        },
+        "12-4": {
+          "name": "最爱爱好",
+          "description": "用三个词描述你最喜欢的爱好。"
+        },
+        "12-5": {
+          "name": "梦想假期",
+          "description": "与大家分享你的梦想度假目的地。"
+        },
+        "12-6": {
+          "name": "最佳建议",
+          "description": "分享一条你收到过的最佳建议。"
+        },
+        "12-7": {
+          "name": "创意故事开场",
+          "description": "用一句话开启一个故事；下一位玩家继续。"
+        },
+        "12-8": {
+          "name": "昵称交换",
+          "description": "为对面的玩家提议一个有趣的新昵称。"
+        },
+        "12-9": {
+          "name": "最爱美食",
+          "description": "说出你最喜欢的一道安慰食物。"
+        },
+        "11-9": {
+          "name": "才艺展示",
+          "description": "展示一个不令人尴尬的才艺（例如：吹口哨、平衡物品）。"
+        },
+        "10-9": {
+          "name": "分享微笑",
+          "description": "与每位玩家对视，并给他们一个温暖的微笑。"
+        },
+        "9-9": {
+          "name": "团队抱团",
+          "description": "快速抱团并高喊“团队加油！”"
+        },
+        "9-10": {
+          "name": "最爱颜色",
+          "description": "告诉大家你最喜欢的颜色和原因。"
+        },
+        "9-11": {
+          "name": "快乐瞬间",
+          "description": "分享今天让你开心的一件事。"
+        },
+        "9-12": {
+          "name": "最爱季节",
+          "description": "你最喜欢哪个季节，为什么？"
+        },
+        "8-12": {
+          "name": "梦想宠物",
+          "description": "如果你能拥有任何宠物，会是什么？"
+        },
+        "7-12": {
+          "name": "最爱书籍/电影",
+          "description": "推荐一部你喜欢的适合家庭观看的书籍或电影。"
+        },
+        "6-12": {
+          "name": "最棒的旅行",
+          "description": "描述你经历过的最棒的一次旅行。"
+        },
+        "5-12": {
+          "name": "超能力愿望",
+          "description": "如果你有一种超能力，会是什么？"
+        },
+        "4-12": {
+          "name": "善举",
+          "description": "说一件你最近做过或计划做的小善举。"
+        },
+        "3-12": {
+          "name": "未来目标",
+          "description": "分享一个你对未来的激动人心的目标。"
+        },
+        "3-11": {
+          "name": "谜语解决者",
+          "description": "出个简单的谜语或脑筋急转弯让大家猜。"
+        },
+        "3-10": {
+          "name": "快乐歌曲",
+          "description": "哼唱几句让你感到快乐的歌曲。"
+        },
+        "3-9": {
+          "name": "感恩时刻",
+          "description": "表达你现在最感恩的一件事。"
+        },
+        "2-9": {
+          "name": "最爱游戏",
+          "description": "你最喜欢的棋盘游戏或纸牌游戏是什么？"
+        },
+        "1-9": {
+          "name": "童年梦想",
+          "description": "你小时候的梦想职业是什么？"
+        },
+        "0-9": {
+          "name": "最爱科目",
+          "description": "你学校里最喜欢的科目是什么？"
+        },
+        "0-8": {
+          "name": "动物声音接龙",
+          "description": "你先发出一种动物声音，下一个人发出另一种。"
+        },
+        "0-7": {
+          "name": "发明握手方式",
+          "description": "与旁边的玩家创造一个独特的握手方式。"
+        },
+        "0-6": {
+          "name": "最爱名言",
+          "description": "分享一句你喜欢的鼓舞人心或有趣的引言。"
+        },
+        "0-5": {
+          "name": "云朵形状",
+          "description": "抬头看看云朵，描述你看到的形状（室内则想象）"
+        },
+        "0-4": {
+          "name": "最佳技能",
+          "description": "你最擅长的一项技能是什么？"
+        },
+        "0-3": {
+          "name": "积极词语",
+          "description": "说一个以你名字首字母开头的积极词语。"
+        },
+        "1-3": {
+          "name": "快速伸展",
+          "description": "带领大家做一次快速、提神的伸展运动。"
+        },
+        "2-3": {
+          "name": "最爱甜点",
+          "description": "庆祝时你最喜欢吃什么甜点？"
+        },
+        "3-3": {
+          "name": "团队吉祥物",
+          "description": "想象我们的团队有一个吉祥物；它会是什么？"
+        },
+        "3-2": {
+          "name": "友谊誓言",
+          "description": "与所有玩家共同立下一个滑稽友好的友谊誓言。"
+        },
+        "3-1": {
+          "name": "拼图碎片",
+          "description": "把自己比作一个拼图碎片；你是如何融入的？"
+        },
+        "1-6": {
+          "name": "创意赞美",
+          "description": "给另一位玩家一个独特而富有创意的赞美。"
+        },
+        "2-6": {
+          "name": "友谊之歌",
+          "description": "哼唱一首让你想起友谊的短歌。"
+        },
+        "3-6": {
+          "name": "快乐舞蹈",
+          "description": "来一段庆祝友谊的快乐舞蹈。"
+        },
+        "4-6": {
+          "name": "团队精神",
+          "description": "大声喊出一个代表优秀团队精神的词语。"
+        },
+        "5-6": {
+          "name": "搞怪表情",
+          "description": "做出你最搞怪的表情给大家看。"
+        },
+        "7-6": {
+          "name": "最好的礼物",
+          "description": "你收到过或送出过的最好的礼物是什么？"
+        },
+        "8-6": {
+          "name": "梦想宠物名字",
+          "description": "如果你有一个梦想宠物，它的名字会是什么？"
+        },
+        "9-6": {
+          "name": "最爱季节活动",
+          "description": "你最喜欢的季节里，最喜欢做的事情是什么？"
+        },
+        "10-6": {
+          "name": "隐藏才艺",
+          "description": "分享一个适合家庭的隐藏才艺。"
+        },
+        "11-6": {
+          "name": "未来冒险",
+          "description": "描述一个你希望与朋友们一起进行的有趣冒险。"
+        },
+        "6-11": {
+          "name": "团体故事",
+          "description": "一人起头一句，下一个人接着讲，共同创作一个有趣的故事。"
+        },
+        "6-10": {
+          "name": "回忆小道",
+          "description": "分享一个你和朋友们之间有趣或甜蜜的回忆。"
+        },
+        "6-9": {
+          "name": "智力挑战",
+          "description": "提出一个简单有趣的谜语或脑筋急转弯让大家猜。"
+        },
+        "6-8": {
+          "name": "善行",
+          "description": "描述你最近做过的一件善事。"
+        },
+        "6-7": {
+          "name": "梦想之旅",
+          "description": "如果你和这些朋友一起进行史诗般的公路旅行，你会去哪里？"
+        },
+        "6-1": {
+          "name": "团队欢呼",
+          "description": "为团队创作一个简短有趣的欢呼。"
+        },
+        "6-2": {
+          "name": "最爱表情包",
+          "description": "你最常用的表情包是什么，为什么？"
+        },
+        "6-3": {
+          "name": "隐藏瑰宝",
+          "description": "分享一个酷但鲜为人知的事实或地方。"
+        },
+        "6-4": {
+          "name": "创意问候",
+          "description": "为团队发明一个全新的、友好的问候方式。"
+        },
+        "6-5": {
+          "name": "友谊干杯",
+          "description": "举起想象中的酒杯，为友谊干杯。"
+        }
+      },
+      "startLabels": {
+        "two": {
+          "north": "男方起点",
+          "south": "女方起点"
+        },
+        "four": {
+          "north": "红方起点",
+          "east": "绿方起点",
+          "south": "黄方起点",
+          "west": "蓝方起点"
+        }
+      },
+      "players": {
+        "male": {
+          "short": "男方",
+          "badge": "♂ 男方"
+        },
+        "female": {
+          "short": "女方",
+          "badge": "♀ 女方"
+        },
+        "red": {
+          "short": "红方",
+          "badge": "🔴 红方"
+        },
+        "yellow": {
+          "short": "黄方",
+          "badge": "🟡 黄方"
+        },
+        "blue": {
+          "short": "蓝方",
+          "badge": "🔵 蓝方"
+        },
+        "green": {
+          "short": "绿方",
+          "badge": "🟢 绿方"
+        },
+        "states": {
+          "started": "已出列",
+          "waiting": "未出列"
+        }
+      },
+      "effects": {
+        "forward2": {
+          "label": "⬆️ +2 前进",
+          "short": "⬆️+2",
+          "legend": "⬆️ 前进两格"
+        },
+        "backward2": {
+          "label": "⬇️ -2 后退",
+          "short": "⬇️-2",
+          "legend": "⬇️ 后退两格"
+        },
+        "rest": {
+          "label": "⏸️ 休息一轮",
+          "short": "⏸️休息",
+          "legend": "⏸️ 休息一回合"
+        }
+      },
+      "preStartActions": {
+        "kiss": "亲吻对方一口",
+        "sip": "喝一口酒",
+        "fitnessWarmup": "原地高抬腿10次",
+        "fitnessHydrate": "喝一口水",
+        "reroll": "再掷一次"
+      },
+      "messages": {
+        "restTurn": "{player} 休息一回合",
+        "needRest": "需要休息一回合",
+        "rollSixToStart": "掷出6开始游戏",
+        "waitingForSix": "等待掷出6开始",
+        "playerStarted": "{player} 成功出列！",
+        "rollAgain": "掷出6，再来一次！",
+        "rollAgainWithContext": "{context}（掷出6，再来一次！）",
+        "winnerReached": "{player} 抵达终点！ {description}",
+        "celebrationTitle": "浪漫终章",
+        "celebrationSubtitleDefault": "爱意与勇气终于抵达终点",
+        "resetCelebration": "重新开始庆典",
+        "acknowledge": "知道了",
+        "banner": "🎲 掷出6开始游戏 🎲",
+        "diceRolling": "掷骰中...",
+        "diceResult": "点数 {value}",
+        "diceWaiting": "等待掷骰",
+        "currentBadge": "{badge} 当前行动",
+        "winnerBadge": "{badge} 获胜",
+        "goalReached": "已到达终点！",
+        "needExactHomeEntry": "{player}需要刚好停在回家路径入口才能进入。",
+        "bumpSuccess": "{player}将{opponent}撞回了出生点！",
+        "noMovableTokens": "{player}没有可以移动的棋子",
+        "selectTokenToMove": "{player}请选择要移动的棋子",
+        "tokenMoved": "{player}移动了棋子"
+      },
+      "labels": {
+        "malePath": "男方路径",
+        "femalePath": "女方路径",
+        "overlapPath": "重叠路径",
+        "currentPlayer": "当前玩家",
+        "currentEvent": "🎯 当前事件"
+      },
+      "options": {
+        "title": "规则",
+        "enabled": "开启",
+        "disabled": "关闭",
+        "playerMode": {
+          "label": "玩家模式",
+          "two": "2人模式",
+          "three": "3人模式",
+          "four": "4人模式"
+        },
+        "pieceCount": {
+          "label": "棋子数量"
+        },
+        "requireExactHomeEntry": {
+          "label": "进入回家路径需刚好停留"
+        },
+        "enableBump": {
+          "label": "撞到对手将其送回出生点"
+        },
+        "boardBackground": {
+          "title": "棋盘背景",
+          "custom": "自定义背景",
+          "none": "无背景",
+          "urlPlaceholder": "输入棋盘背景图片URL",
+          "add": "添加",
+          "delete": "删除"
+        },
+        "eventBackground": {
+          "title": "事件背景",
+          "custom": "自定义背景",
+          "none": "无背景",
+          "urlPlaceholder": "输入事件背景图片URL",
+          "add": "添加",
+          "delete": "删除",
+          "randomPool": "随机池"
+        }
+      },
+      "buttons": {
+        "roll": "掷骰子",
+        "roll_aria": "为 {player} 掷骰子",
+        "enterEdit": "编辑",
+        "exitEdit": "退出编辑模式",
+        "openJson": "打开 JSON 面板",
+        "closeJson": "关闭 JSON 面板",
+        "openLibrary": "事件库",
+        "closeLibrary": "关闭事件库",
+        "reset": "重置游戏",
+        "confirm": "确定",
+        "aiGenerateEvents": "AI生成事件",
+        "promptCopied": "提示已复制！",
+        "generatePromptTitle": "将复制后的文字粘贴到任意ai聊天助手中，即可获得新的事件库",
+        "generatePromptTemplate": "请修改这个飞行棋事件库，替换新的事件。要求尺度最大化，目标用户是深层亲密关系的成年夫妻。\n具体要求：\n拒绝前戏和暧昧：去掉所有‘隔靴搔痒’的挑逗（如亲脸、闻味道、唱歌等）。\n直接进入正题：事件内容必须涉及实质性的行为。\n用词大胆直白：描述要具体、更有感官刺激，不要使用隐晦的词汇。\n保留JSON格式：保持原有的Key值不变。\n```json\n{json}\n```"
+      },
+      "editor": {
+        "title": "编辑格子事件",
+        "position": "位置 {coordinates}",
+        "nameLabel": "事件标题",
+        "namePlaceholder": "输入事件名称",
+        "descriptionLabel": "事件描述",
+        "descriptionPlaceholder": "输入事件详情",
+        "cancel": "取消",
+        "save": "保存",
+        "notice": "编辑模式已开启：点击棋盘上的格子将在屏幕中央弹出编辑窗口。留空标题与描述可移除该格子的事件。",
+        "messages": {
+          "saved": "已保存格子事件",
+          "importSuccess": "导入成功",
+          "importProtectedSuccess": "导入成功，事件内容已锁定",
+          "exportSuccess": "已导出 lovegame.txt",
+          "reset": "所有格子事件已恢复为默认设置"
+        },
+        "errors": {
+          "saveFailed": "保存失败",
+          "importFailed": "导入失败",
+          "exportFailed": "导出失败",
+          "emptyContent": "内容为空，无法导入",
+          "base64Decode": "导入内容解码失败",
+          "invalidFormat": "数据格式必须是对象",
+          "invalidEvent": "无效的事件：{key}"
+        }
+      },
+      "json": {
+        "title": "JSON 数据管理",
+        "subtitle": "支持直接编辑与智能导入。",
+        "import": "智能导入（JSON/编码文件）",
+        "export": "导出 lovegame.txt",
+        "exportAlt": "导出为 lovegame.txt",
+        "exportFileButton": "导出",
+        "importFileButton": "导入",
+        "exportFileTitle": "导出 lovegame.txt",
+        "importFileTitle": "导入 lovegame.txt",
+        "passwordExportPrompt": "为 lovegame.txt 设置密码。留空则不加密导出。",
+        "passwordHintExportPrompt": "可选：添加解锁提示词。留空则不添加。",
+        "compressExportPrompt": "导出为二进制文件吗？\n\n确定：导出为压缩后的二进制文件。\n取消：导出为压缩后的文本文件，内容仅包含数字和大小写字母。",
+        "passwordUnlockPrompt": "输入密码以显示事件内容。",
+        "passwordUnlockSuccess": "密码正确，事件内容现已显示。",
+        "passwordUnlockFailed": "密码错误。",
+        "passwordRelocked": "事件内容已重新隐藏。",
+        "urlImportSuccess": "URL 导入成功。",
+        "urlImportInvalid": "URL 导入失败：导入参数无效。",
+        "urlImportFetchFailed": "URL 导入失败：无法下载文件。",
+        "urlImportParseFailed": "URL 导入失败：文件内容无法解析。",
+        "passwordRequiredBeforeExport": "请先解锁此事件库，再导出完整内容。",
+        "passwordProtectedBadge": "密码保护",
+        "passwordProtectedLocked": "此事件库已设置密码保护。输入正确密码前，只会显示事件标题。",
+        "passwordProtectedUnlocked": "此事件库已解锁",
+        "passwordHintLabel": "解锁提示词：{hint}",
+        "passwordLockedContentPlaceholder": "输入密码解锁事件内容...",
+        "unlockProtectedButton": "输入密码解锁",
+        "relockProtectedButton": "重新隐藏内容",
+        "placeholder": "在此粘贴或编辑 JSON / 编码内容",
+        "close": "关闭"
+      },
+      "library": {
+        "title": "事件库",
+        "subtitle": "保存并切换不同模式的事件集合。",
+        "discordHint": "更多私密事件库请加入 Discord 获取",
+        "close": "关闭",
+        "newLabel": "将当前事件保存为新库",
+        "namePlaceholder": "输入事件库名称...",
+        "saveNew": "保存事件库",
+        "empty": "暂无事件库，先创建一个吧！",
+        "stats": "已保存 {count} 个事件格",
+        "activeBadge": "正在使用",
+        "use": "切换",
+        "overwrite": "覆盖当前库",
+        "rename": "重命名",
+        "reload": "重新载入",
+        "delete": "删除",
+        "deleteDefault": "默认事件库无法删除。",
+        "deleteSuccess": "已删除“{name}”事件库。",
+        "defaultName": "默认事件库",
+        "defaultBadge": "默认事件库",
+        "overwriteDefault": "默认事件库不可被覆盖。",
+        "nameRequired": "请填写事件库名称。",
+        "nameExists": "已存在同名事件库。",
+        "saveSuccess": "已保存到“{name}”事件库。",
+        "switchSuccess": "已切换到“{name}”事件库。",
+        "overwriteSuccess": "“{name}”已更新为当前事件。",
+        "unnamed": "未命名事件库",
+        "privateName": "私密事件库",
+        "funnyName": "搞笑版",
+        "longDistanceName": "异地恋版",
+        "drunkName": "酒后乱性",
+        "intenseName": "重度调教",
+        "fitnessName": "双人健身",
+        "fourPrivateName": "四人私密库"
+      },
+      "drunkEvents": {
+        "1-1": {
+          "name": "男方起点",
+          "description": "掷出6，开启微醺之夜"
+        },
+        "11-11": {
+          "name": "女方起点",
+          "description": "掷出6，步入醉人良宵"
+        },
+        "6-6": {
+          "name": "终点",
+          "description": "抵达彼岸，输家需为赢家发一个100元的“示爱红包”"
+        },
+        "3-0": {
+          "name": "宽衣解带",
+          "description": "动作轻柔地为对方脱去一件衣物"
+        },
+        "4-0": {
+          "name": "独饮半杯",
+          "description": "自己喝下半杯酒"
+        },
+        "5-0": {
+          "name": "耳畔温存",
+          "description": "用舌尖轻舔对方耳廓与耳根，细细品味十秒"
+        },
+        "6-0": {
+          "name": "以吻渡酒",
+          "description": "含一口酒，通过接吻慢慢喂给对方"
+        },
+        "7-0": {
+          "name": "轻拍臀部",
+          "description": "在对方臀部轻轻拍打一下"
+        },
+        "8-0": {
+          "name": "半杯消愁",
+          "description": "自己喝下半杯酒"
+        },
+        "9-0": {
+          "name": "再褪衣衫",
+          "description": "再次为对方脱去一件衣物"
+        },
+        "9-1": {
+          "name": "俯身受罚",
+          "description": "双手撑地俯身，翘起臀部让对方拍打一下"
+        },
+        "9-2": {
+          "name": "再次渡酒",
+          "description": "再次用嘴喂对方喝一口酒"
+        },
+        "9-3": {
+          "name": "私密爱抚",
+          "description": "手探入内衣/裤中，温柔抚摸敏感部位三十秒"
+        },
+        "10-3": {
+          "name": "主动宽衣",
+          "description": "自己脱掉一件衣物"
+        },
+        "11-3": {
+          "name": "畅饮半杯",
+          "description": "自己喝下半杯酒"
+        },
+        "12-3": {
+          "name": "留下吻痕",
+          "description": "在对方身上吸吮出一个清晰的吻痕（草莓印）"
+        },
+        "12-4": {
+          "name": "指尖抚慰",
+          "description": "用灵活的手指为对方的敏感部位服务一分钟"
+        },
+        "12-5": {
+          "name": "亲吻胸怀",
+          "description": "亲吻对方胸部肌肤，停留十秒"
+        },
+        "12-6": {
+          "name": "半杯助兴",
+          "description": "自己喝下半杯酒"
+        },
+        "12-7": {
+          "name": "深情拥吻",
+          "description": "与对方深情接吻，舌尖纠缠三十秒"
+        },
+        "12-8": {
+          "name": "豪饮一杯",
+          "description": "自己喝下一整杯酒"
+        },
+        "12-9": {
+          "name": "轻咬蓓蕾",
+          "description": "轻轻咬住对方乳头，温存逗弄十秒"
+        },
+        "11-9": {
+          "name": "再次拥吻",
+          "description": "再次与对方深情舌吻三十秒"
+        },
+        "10-9": {
+          "name": "大腿内侧",
+          "description": "用舌头舔舐对方大腿内侧娇嫩肌肤十秒"
+        },
+        "9-9": {
+          "name": "亲密口侍",
+          "description": "用嘴为对方服务，直到对方有明显的生理反应"
+        },
+        "9-10": {
+          "name": "一杯敬爱",
+          "description": "自己喝下一整杯酒"
+        },
+        "9-11": {
+          "name": "难舍难分",
+          "description": "与对方舌吻三十秒"
+        },
+        "9-12": {
+          "name": "探秘花园",
+          "description": "手探入内衣/裤中，抚摸敏感处三十秒"
+        },
+        "8-12": {
+          "name": "专属印记",
+          "description": "在指定位置吸吮出一个吻痕"
+        },
+        "7-12": {
+          "name": "微醺时刻",
+          "description": "自己喝下半杯酒"
+        },
+        "6-12": {
+          "name": "解除防线",
+          "description": "温柔地为对方脱去一件衣物"
+        },
+        "5-12": {
+          "name": "耳鬓厮磨",
+          "description": "舔舐对方耳根与颈侧十秒"
+        },
+        "4-12": {
+          "name": "齿间温柔",
+          "description": "轻咬对方乳头十秒，注意控制力度"
+        },
+        "3-12": {
+          "name": "受罚姿态",
+          "description": "背对对方翘起臀部，接受一下拍打"
+        },
+        "3-11": {
+          "name": "半杯入喉",
+          "description": "自己喝下半杯酒"
+        },
+        "3-10": {
+          "name": "温柔探寻",
+          "description": "手探入内衣/裤中，爱抚敏感处三十秒"
+        },
+        "3-9": {
+          "name": "一路向下",
+          "description": "从耳根一路亲吻舔舐直到胸口"
+        },
+        "2-9": {
+          "name": "坦诚相对",
+          "description": "自己脱掉一件衣物"
+        },
+        "1-9": {
+          "name": "私密留影",
+          "description": "露出隐私部位，允许对方拍一张照片（阅后即焚）"
+        },
+        "0-9": {
+          "name": "热烈激吻",
+          "description": "与对方激烈舌吻三十秒"
+        },
+        "0-8": {
+          "name": "含住要害",
+          "description": "用嘴含住对方最敏感的部位，轻柔吞吐三十秒"
+        },
+        "0-7": {
+          "name": "手部服务",
+          "description": "用手为对方的私密处提供一分钟的愉悦服务"
+        },
+        "0-6": {
+          "name": "肌肤相亲",
+          "description": "用私密部位轻蹭对方的脸颊或身体十秒"
+        },
+        "0-5": {
+          "name": "痛饮一杯",
+          "description": "自己喝下一整杯酒"
+        },
+        "0-4": {
+          "name": "缠绵之吻",
+          "description": "与对方舌吻三十秒"
+        },
+        "0-3": {
+          "name": "甜蜜舔食",
+          "description": "将酸奶或饮品涂在乳头上并舔舐干净"
+        },
+        "1-3": {
+          "name": "全身膜拜",
+          "description": "从耳后亲吻至脚趾，遍布全身"
+        },
+        "2-3": {
+          "name": "指间温热",
+          "description": "手探入内衣/裤中，抚摸三十秒"
+        },
+        "3-3": {
+          "name": "69式欢愉",
+          "description": "采取69姿势，互相用嘴为对方服务一分钟"
+        },
+        "3-2": {
+          "name": "吻之封印",
+          "description": "与对方舌吻三十秒"
+        },
+        "3-1": {
+          "name": "浅酌",
+          "description": "自己喝下半杯酒"
+        },
+        "1-6": {
+          "name": "后入冲刺",
+          "description": "采取后入姿势，进行一分钟的实质结合"
+        },
+        "2-6": {
+          "name": "背后温存",
+          "description": "从背后紧紧抱住，双手上下抚摸全身一分钟"
+        },
+        "3-6": {
+          "name": "深度口侍",
+          "description": "专注于为对方进行口部服务三分钟"
+        },
+        "4-6": {
+          "name": "金钱助兴",
+          "description": "对方喝酒，每喝一杯给对方转账13.14元"
+        },
+        "5-6": {
+          "name": "舔舐蓓蕾",
+          "description": "舔舐对方乳头一分钟"
+        },
+        "7-6": {
+          "name": "再次口侍",
+          "description": "为对方进行三分钟的口部服务"
+        },
+        "8-6": {
+          "name": "求爱红包",
+          "description": "自己喝酒，每喝一杯对方给自己转账52元"
+        },
+        "9-6": {
+          "name": "随心所欲",
+          "description": "选一个喜欢的姿势，进行实质结合并抽动至少10下"
+        },
+        "10-6": {
+          "name": "女权在手",
+          "description": "采取女上位（观音坐莲），女方主动起伏至少10下"
+        },
+        "11-6": {
+          "name": "交换津液",
+          "description": "喂对方喝一口自己的口水"
+        }
+      },
+      "intenseEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "脱去下半身衣物，保持兴奋状态开始"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "脱去下半身衣物，分开双腿等待"
+        },
+        "6-6": {
+          "name": "极乐终点",
+          "description": "赢家指定体位，立刻进行实质性的深入结合直至巅峰"
+        },
+        "3-0": {
+          "name": "吸吮乳尖",
+          "description": "用牙齿轻咬并用力吸吮乳头，持续二十秒"
+        },
+        "4-0": {
+          "name": "完全敞开",
+          "description": "平躺并最大程度张开双腿，展示私密处给对方检查"
+        },
+        "5-0": {
+          "name": "指尖律动",
+          "description": "手指探入体内，快速有力地抽动30下"
+        },
+        "6-0": {
+          "name": "蒙眼调教",
+          "description": "蒙上眼睛，任由对方用手指或玩具玩弄私处，不许出声"
+        },
+        "7-0": {
+          "name": "私密羞辱",
+          "description": "贴着耳朵，用露骨的语言描述对方现在的身体反应"
+        },
+        "8-0": {
+          "name": "直击根源",
+          "description": "直接含住对方的私密部位，吞吐舔舐三十秒"
+        },
+        "9-0": {
+          "name": "隔空摩擦",
+          "description": "脱去内裤，私密处直接贴合摩擦，但暂不进入"
+        },
+        "9-1": {
+          "name": "深喉模拟",
+          "description": "将对方手指想象成欲望本身，吞入喉咙深处用力吸吮"
+        },
+        "9-2": {
+          "name": "双峰夹击",
+          "description": "用胸部夹住对方的敏感部位，对方用力挺动"
+        },
+        "9-3": {
+          "name": "痛吻印记",
+          "description": "在大腿内侧或胸口用力吸吮，必须留下清晰红印"
+        },
+        "10-3": {
+          "name": "说出幻想",
+          "description": "详细描述一个想被对方粗暴对待的性幻想场景"
+        },
+        "11-3": {
+          "name": "69式互慰",
+          "description": "采取69姿势互相口舌侍奉，直到有人忍不住出声"
+        },
+        "12-3": {
+          "name": "掌掴臀肉",
+          "description": "翘起臀部，赢家用力拍打三下，需要打出红印"
+        },
+        "12-4": {
+          "name": "揉搓核心",
+          "description": "手探入内裤，用力揉搓最敏感的那一点二十秒"
+        },
+        "12-5": {
+          "name": "舔舐私处",
+          "description": "舌头从肚脐一路向下，直到舔遍私密处的每一寸"
+        },
+        "12-6": {
+          "name": "后入揉捏",
+          "description": "从背后抱住，模仿后入的节奏用力揉捏私处"
+        },
+        "12-7": {
+          "name": "赤裸撞击",
+          "description": "全裸紧紧拥抱，下体用力撞击对方，感受彼此温度"
+        },
+        "12-8": {
+          "name": "舔遍三角区",
+          "description": "亲吻舔舐大腿根部、会阴及后庭周围"
+        },
+        "12-9": {
+          "name": "冰火两重",
+          "description": "口含冰水（或热水），直接为对方进行口部服务"
+        },
+        "11-9": {
+          "name": "内部特写",
+          "description": "分开私密处，用闪光灯拍一张内部特写"
+        },
+        "10-9": {
+          "name": "强行深喉",
+          "description": "按住头部，强迫对方吞入私密处或手指，直达喉咙深处"
+        },
+        "9-9": {
+          "name": "骑脸",
+          "description": "一方平躺，另一方跨坐在脸上，用私处摩擦口鼻"
+        },
+        "9-10": {
+          "name": "一丝不挂",
+          "description": "脱掉最后一件遮挡物，完全赤裸相对"
+        },
+        "9-11": {
+          "name": "舌尖弹动",
+          "description": "埋头在两腿之间，快速用舌头弹动敏感点"
+        },
+        "9-12": {
+          "name": "后庭探秘",
+          "description": "润滑手指，尝试探入后庭深处一指关节"
+        },
+        "8-12": {
+          "name": "赤身待机",
+          "description": "双方完全赤裸，之后的惩罚都不许穿衣"
+        },
+        "7-12": {
+          "name": "喂食津液",
+          "description": "深吻时将口水渡给对方，命令对方咽下"
+        },
+        "6-12": {
+          "name": "足部爱抚",
+          "description": "用脚掌和脚趾踩踏、夹弄对方的私密部位"
+        },
+        "5-12": {
+          "name": "精油手作",
+          "description": "将精油倒在私处，用手掌大面积用力套弄揉搓"
+        },
+        "4-12": {
+          "name": "激烈舌吻",
+          "description": "互相啃咬嘴唇，舌头用力交缠，模仿结合的频率"
+        },
+        "3-12": {
+          "name": "站立模拟",
+          "description": "将对方按在墙上，撩起腿，隔空模拟冲刺动作"
+        },
+        "3-11": {
+          "name": "当面自慰",
+          "description": "看着对方自我抚慰，并发出声音，直到对方喊停"
+        },
+        "3-10": {
+          "name": "边缘寸止",
+          "description": "口交或手淫至快要释放时停下，重复两次"
+        },
+        "3-9": {
+          "name": "肉体拍打",
+          "description": "赤裸身体快速撞击，发出响亮的啪啪声"
+        },
+        "2-9": {
+          "name": "高潮命令",
+          "description": "获得特权，可随时命令对方通过自慰达到高潮"
+        },
+        "1-9": {
+          "name": "深喉挑战",
+          "description": "尝试将私密处或道具吞入喉咙最深处，坚持十秒"
+        },
+        "0-9": {
+          "name": "边缘磨蹭",
+          "description": "只在入口处摩擦不进去，忍耐三十秒"
+        },
+        "0-8": {
+          "name": "足上朝圣",
+          "description": "从脚趾舔到大腿，最后含住私密部位"
+        },
+        "0-7": {
+          "name": "痛感助兴",
+          "description": "口交/手淫时，另一只手用力掐对方大腿或臀肉"
+        },
+        "0-6": {
+          "name": "涂抹爱液",
+          "description": "将私处的体液涂在嘴唇上，亲吻使其均匀"
+        },
+        "0-5": {
+          "name": "乳间欢愉",
+          "description": "胸部涂抹润滑油，夹住对方私处套弄"
+        },
+        "0-4": {
+          "name": "私处研磨",
+          "description": "双腿张开，私密处紧贴互相研磨挤压"
+        },
+        "0-3": {
+          "name": "闻香识味",
+          "description": "脸埋进私处深呼吸闻味道，然后舔一下"
+        },
+        "1-3": {
+          "name": "背后突袭",
+          "description": "手从背后伸到身前，握住要害大力套弄"
+        },
+        "2-3": {
+          "name": "隐秘拷问",
+          "description": "诚实回答：现在最想让对方对自己做什么过分的事"
+        },
+        "3-3": {
+          "name": "主奴游戏",
+          "description": "未来三分钟，赢家是主人，输家是奴隶，听凭摆布"
+        },
+        "3-2": {
+          "name": "一触即分",
+          "description": "仅用敏感点轻碰对方一下，立刻分开"
+        },
+        "3-1": {
+          "name": "口对口喂水",
+          "description": "喂水给对方，若有漏出需舔舐干净"
+        },
+        "1-6": {
+          "name": "互慰比赛",
+          "description": "互相用手为对方服务，谁先忍不住出声谁输"
+        },
+        "2-6": {
+          "name": "隔空骑乘",
+          "description": "跨坐在身上，对准私处摩擦，严禁实质进入"
+        },
+        "3-6": {
+          "name": "体位点单",
+          "description": "赢家指定接下来结合时必须使用的三个体位"
+        },
+        "4-6": {
+          "name": "赤裸深蹲",
+          "description": "全裸做10个深蹲，正面直视对方脸庞"
+        },
+        "5-6": {
+          "name": "69悬空",
+          "description": "69式，输家在上方支撑身体并为下方服务"
+        },
+        "7-6": {
+          "name": "双指探洞",
+          "description": "两根手指伸入体内模拟抽插，直到对方喘息"
+        },
+        "8-6": {
+          "name": "玩弄蓓蕾",
+          "description": "用力捏、拉乳头，直到充血挺立"
+        },
+        "9-6": {
+          "name": "拍打私处",
+          "description": "用手掌用力拍打私密部位，发出清脆声音"
+        },
+        "10-6": {
+          "name": "高潮封印",
+          "description": "快高潮时强行按住不许释放"
+        },
+        "11-6": {
+          "name": "半入静止",
+          "description": "只结合一半深度，静止不动，保持三十秒"
+        }
+      },
+      "privateEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "掷出6开始游戏"
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "掷出6开始游戏"
+        },
+        "6-6": {
+          "name": "极乐终点",
+          "description": "赢家可以要求输家无条件服务一次"
+        },
+        "3-0": {
+          "name": "耳鬓厮磨",
+          "description": "含住对方耳垂轻咬、吹气，持续15秒"
+        },
+        "4-0": {
+          "name": "绝对服从",
+          "description": "对方指定你做一个羞耻的动作或发出一种声音"
+        },
+        "5-0": {
+          "name": "指尖挑逗",
+          "description": "用指尖在对方大腿内侧画圈，直到对方忍不住出声"
+        },
+        "6-0": {
+          "name": "视觉剥夺",
+          "description": "戴上眼罩（或闭眼），任由对方在身上任意部位亲吻一分钟"
+        },
+        "7-0": {
+          "name": "湿热低语",
+          "description": "贴着耳孔用湿热的呼吸描述你现在最想对对方做的坏事"
+        },
+        "8-0": {
+          "name": "敏感带巡礼",
+          "description": "询问对方最敏感的部位，并用舌头轻舔三下"
+        },
+        "9-0": {
+          "name": "紧窒拥抱",
+          "description": "正面紧紧拥抱，用力让身体严丝合缝，感受彼此的反应"
+        },
+        "9-1": {
+          "name": "指尖含吮",
+          "description": "将对方的一根手指含入口中，模仿某种节奏吮吸"
+        },
+        "9-2": {
+          "name": "胸膛游走",
+          "description": "手伸进对方上衣里，抚摸胸肌或柔软处30秒"
+        },
+        "9-3": {
+          "name": "种下草莓",
+          "description": "在对方脖颈或锁骨处用力吸出一个吻痕（如果不介意的话）"
+        },
+        "10-3": {
+          "name": "真心话",
+          "description": "说出对方身体上你最渴望触碰的一个部位"
+        },
+        "11-3": {
+          "name": "深情对视",
+          "description": "对视20秒，期间谁先眨眼或脸红，谁就脱一件衣服"
+        },
+        "12-3": {
+          "name": "所谓惩罚",
+          "description": "轻打对方屁股三下，力度由对方决定"
+        },
+        "12-4": {
+          "name": "神秘探险",
+          "description": "隔着衣物抚摸对方敏感处10秒，观察对方的表情"
+        },
+        "12-5": {
+          "name": "舌尖试探",
+          "description": "用舌尖沿着对方的下颌线一路舔到耳根"
+        },
+        "12-6": {
+          "name": "背后掌控",
+          "description": "从背后抱住，双手直接覆上心口揉捏"
+        },
+        "12-7": {
+          "name": "下半身贴合",
+          "description": "下半身紧贴对方，缓慢摩擦摇摆15秒"
+        },
+        "12-8": {
+          "name": "全身巡吻",
+          "description": "亲吻对方身上三个不同的敏感部位（唇、颈、腹等）"
+        },
+        "12-9": {
+          "name": "温差游戏",
+          "description": "含一口冰水（或热水），然后亲吻对方的脖子"
+        },
+        "11-9": {
+          "name": "衣下风景",
+          "description": "掀起对方上衣，用手机拍一张局部特写（仅供二人欣赏）"
+        },
+        "10-9": {
+          "name": "十指相扣",
+          "description": "将对方双手压在头顶或背后，强势亲吻"
+        },
+        "9-9": {
+          "name": "特殊的椅子",
+          "description": "一方坐在另一方腿上，保持这个姿势直到下一轮"
+        },
+        "9-10": {
+          "name": "解开束缚",
+          "description": "替对方解开一颗扣子，或者是松开腰带/解开内衣扣"
+        },
+        "9-11": {
+          "name": "大腿枕头",
+          "description": "躺在对方大腿之间，脸朝里，保持10秒"
+        },
+        "9-12": {
+          "name": "腰窝盛宴",
+          "description": "双手掐住对方的腰，从后方啃咬对方的肩膀和后颈"
+        },
+        "8-12": {
+          "name": "坦诚相见",
+          "description": "双方各脱去一件衣物（如果是最后一件可保留或通过惩罚抵消）"
+        },
+        "7-12": {
+          "name": "鼻尖磨蹭",
+          "description": "鼻尖蹭鼻尖，然后慢慢向下蹭过嘴唇、下巴直到锁骨"
+        },
+        "6-12": {
+          "name": "足尖撩拨",
+          "description": "用脚趾去蹭对方的小腿，一路向上滑到大腿根部"
+        },
+        "5-12": {
+          "name": "大胆示爱",
+          "description": "用手在对方身上任意部位写下“我要你”三个字"
+        },
+        "4-12": {
+          "name": "唇齿交锋",
+          "description": "互相轻咬对方的下嘴唇，看谁先受不了"
+        },
+        "3-12": {
+          "name": "步步紧逼",
+          "description": "将对方逼到墙角或床边，壁咚并深吻"
+        },
+        "3-11": {
+          "name": "手心的温度",
+          "description": "握住对方的手，引导对方触碰自己身体某个部位"
+        },
+        "3-10": {
+          "name": "无声挑逗",
+          "description": "不许说话，用眼神和肢体动作让对方产生反应"
+        },
+        "3-9": {
+          "name": "肌肤之亲",
+          "description": "撩起衣服，肌肤直接相贴，感受彼此体温20秒"
+        },
+        "2-9": {
+          "name": "主导权",
+          "description": "获得一张“命令卡”，游戏中随时可使用，命令对方做任何事一次"
+        },
+        "1-9": {
+          "name": "喉结/锁骨",
+          "description": "舔舐对方的喉结（男）或锁骨窝（女）"
+        },
+        "0-9": {
+          "name": "危险地带",
+          "description": "手在对方胖次边缘游走画圈，但不进去，持续15秒"
+        },
+        "0-8": {
+          "name": "虔诚膜拜",
+          "description": "从脚踝开始，一路向上亲吻到膝盖内侧"
+        },
+        "0-7": {
+          "name": "后背抓痕",
+          "description": "指甲轻轻划过对方整个后背，引起一阵颤栗"
+        },
+        "0-6": {
+          "name": "人鱼线/马甲线",
+          "description": "沿着对方腹部肌肉线条舔舐或用手指描绘"
+        },
+        "0-5": {
+          "name": "听听心跳",
+          "description": "脸贴在左胸，手伸进衣服里揉捏抚摸"
+        },
+        "0-4": {
+          "name": "交缠",
+          "description": "双腿交缠在一起，尽量靠近对方的敏感部位摩擦"
+        },
+        "0-3": {
+          "name": "费洛蒙",
+          "description": "闻对方腋下、颈后或胸口的味道，并评价"
+        },
+        "1-3": {
+          "name": "背后突袭",
+          "description": "从背后抱住，手不安分地游走全身"
+        },
+        "2-3": {
+          "name": "私密问答",
+          "description": "询问对方性幻想的一个场景，对方必须诚实回答"
+        },
+        "3-3": {
+          "name": "角色扮演",
+          "description": "接下来3分钟，称呼对方为“主人/女王”或其他指定称呼"
+        },
+        "3-2": {
+          "name": "蜻蜓点水",
+          "description": "亲吻对方大腿内侧一下，然后迅速离开"
+        },
+        "3-1": {
+          "name": "气息交换",
+          "description": "嘴对嘴喂对方吃一样东西（水果/饮料/空气）"
+        },
+        "1-6": {
+          "name": "法式热吻",
+          "description": "舌吻30秒，手不能闲着，必须抚摸对方身体"
+        },
+        "2-6": {
+          "name": "坐拥入怀",
+          "description": "跨坐在对方身上，双方隔着衣物摩擦"
+        },
+        "3-6": {
+          "name": "欲望清单",
+          "description": "在耳边列举3个今晚想尝试的姿势"
+        },
+        "4-6": {
+          "name": "连环爆破",
+          "description": "脱掉一件衣服，如果没有衣服可脱，做10个深蹲（对方在面前看）"
+        },
+        "5-6": {
+          "name": "俯卧撑",
+          "description": "对方躺下，你在上面做俯卧撑，每次下去都要亲到嘴"
+        },
+        "7-6": {
+          "name": "绝对领域",
+          "description": "手探入对方两腿之间，轻轻按压或抚摸"
+        },
+        "8-6": {
+          "name": "心跳同频",
+          "description": "赤裸上身紧贴，感受对方胸前的硬度和心跳"
+        },
+        "9-6": {
+          "name": "臀部掌控",
+          "description": "用力揉捏对方臀部，并发出清脆的拍打声"
+        },
+        "10-6": {
+          "name": "意乱情迷",
+          "description": "互相抚摸对方一个部位，持续30秒，看谁先受不了求饶"
+        },
+        "11-6": {
+          "name": "临门一脚",
+          "description": "深喉吻或将手伸入衣服中进行实质性抚摸，作为最后的预热"
+        }
+      },
+      "fitnessEvents": {
+        "1-1": {
+          "name": "男方起点",
+          "description": "掷出6开始运动，出发前当前玩家先做10秒开合跳热身"
+        },
+        "11-11": {
+          "name": "女方起点",
+          "description": "掷出6开始运动，出发前当前玩家先喊出今晚的健身口号"
+        },
+        "6-6": {
+          "name": "燃脂终点",
+          "description": "到达终点后当前玩家做1组收操拉伸，并说出最想长期坚持的一项健康习惯"
+        },
+        "3-0": {
+          "name": "同步呼吸",
+          "description": "当前玩家站直身体，做5次缓慢深呼吸，另一人负责观察节奏是否稳定"
+        },
+        "4-0": {
+          "name": "肩颈唤醒",
+          "description": "当前玩家做15秒肩颈绕环，另一人提醒TA不要耸肩"
+        },
+        "5-0": {
+          "name": "手臂拉伸",
+          "description": "当前玩家做一次手臂横拉伸，左右各保持8秒"
+        },
+        "6-0": {
+          "name": "腰背舒展",
+          "description": "当前玩家双臂向上伸展，带动腰背拉长并保持10秒"
+        },
+        "7-0": {
+          "name": "默契深蹲",
+          "description": "当前玩家完成8个标准深蹲，另一人负责数数"
+        },
+        "8-0": {
+          "name": "击掌鼓励",
+          "description": "当前玩家高举双手原地跳一次，另一人必须给出一句健身鼓励"
+        },
+        "9-0": {
+          "name": "提膝快启动",
+          "description": "当前玩家原地交替提膝20次，节奏乱了就重新计数"
+        },
+        "9-1": {
+          "name": "手腕放松",
+          "description": "当前玩家左右手腕各转动5圈，动作要轻缓"
+        },
+        "9-2": {
+          "name": "平板对望",
+          "description": "当前玩家做15秒平板支撑，另一人负责计时"
+        },
+        "9-3": {
+          "name": "小腿拉伸",
+          "description": "当前玩家做弓步压腿，小腿后侧拉伸每边保持8秒"
+        },
+        "10-3": {
+          "name": "喝水补给",
+          "description": "当前玩家喝一口水，再大声说出“补水也算训练的一部分”"
+        },
+        "11-3": {
+          "name": "靠墙静蹲",
+          "description": "当前玩家背靠墙静蹲15秒，另一人负责计时"
+        },
+        "12-3": {
+          "name": "站姿扭腰",
+          "description": "当前玩家双手叉腰，左右转体各10次"
+        },
+        "12-4": {
+          "name": "腹部收紧",
+          "description": "当前玩家收紧核心坚持10秒，另一人观察是否塌腰"
+        },
+        "12-5": {
+          "name": "双人碰肘",
+          "description": "当前玩家做10次站姿左右碰肘，动作结束后自己喊“完成”"
+        },
+        "12-6": {
+          "name": "背部伸展",
+          "description": "当前玩家双手前伸、坐髋向后，完成一次背部拉伸并保持8秒"
+        },
+        "12-7": {
+          "name": "臀腿激活",
+          "description": "当前玩家做10次后踢腿，左右腿都要完成"
+        },
+        "12-8": {
+          "name": "节奏踏步",
+          "description": "当前玩家原地踏步20秒，速度不能忽快忽慢"
+        },
+        "12-9": {
+          "name": "肩碰肩",
+          "description": "当前玩家做6次站姿提肩再下沉，注意动作控制"
+        },
+        "11-9": {
+          "name": "背背支撑",
+          "description": "当前玩家做10秒半蹲停留，感受大腿发力"
+        },
+        "10-9": {
+          "name": "核心测试",
+          "description": "当前玩家坐姿抬脚离地5秒，另一人负责看TA是否借力"
+        },
+        "9-9": {
+          "name": "心率检查",
+          "description": "当前玩家数自己10秒脉搏，并说出现在是平稳还是偏快"
+        },
+        "9-10": {
+          "name": "颈侧放松",
+          "description": "当前玩家做颈部侧拉伸，左右各保持6秒"
+        },
+        "9-11": {
+          "name": "双人开肩",
+          "description": "当前玩家双手在身后交扣，完成一次开肩拉伸并保持10秒"
+        },
+        "9-12": {
+          "name": "进阶深蹲",
+          "description": "当前玩家做6个慢速深蹲，下去三秒起来三秒"
+        },
+        "8-12": {
+          "name": "膝碰膝",
+          "description": "当前玩家坐姿抬膝左右交替各10次，保持上身稳定"
+        },
+        "7-12": {
+          "name": "平衡挑战",
+          "description": "当前玩家单脚站立8秒，落地就重新开始"
+        },
+        "6-12": {
+          "name": "侧身拉伸",
+          "description": "当前玩家一手上举做侧弯拉伸，每边保持8秒"
+        },
+        "5-12": {
+          "name": "加油口令",
+          "description": "当前玩家说一句给自己的健身鼓励，再握拳喊“继续”"
+        },
+        "4-12": {
+          "name": "箭步同步",
+          "description": "当前玩家做左右交替箭步蹲各4次，膝盖方向保持稳定"
+        },
+        "3-12": {
+          "name": "双人转体",
+          "description": "当前玩家坐姿左右转体各8次，动作要连贯"
+        },
+        "3-11": {
+          "name": "上肢激活",
+          "description": "当前玩家双掌用力互推10秒，感受胸肩发力"
+        },
+        "3-10": {
+          "name": "步伐协调",
+          "description": "当前玩家左右横移各5步，动作结束后原地定住3秒"
+        },
+        "3-9": {
+          "name": "直腿抬腿",
+          "description": "当前玩家完成10次直腿前抬，另一人负责数数"
+        },
+        "2-9": {
+          "name": "站姿后伸",
+          "description": "当前玩家双手扶腰，胸口打开，轻轻向后伸展5秒"
+        },
+        "1-9": {
+          "name": "双人划船",
+          "description": "当前玩家做8次徒手划船动作，注意肩胛后收"
+        },
+        "0-9": {
+          "name": "腹式呼吸",
+          "description": "当前玩家一只手放腹部，完成5次腹式呼吸"
+        },
+        "0-8": {
+          "name": "踝关节热身",
+          "description": "当前玩家先踮脚10次，再做脚踝环绕左右各5圈"
+        },
+        "0-7": {
+          "name": "交叉触肩",
+          "description": "当前玩家做10次站姿交替摸肩，过程不能耸肩借力"
+        },
+        "0-6": {
+          "name": "抱膝拉伸",
+          "description": "当前玩家抱膝站立5秒，另一人负责提醒保持平衡"
+        },
+        "0-5": {
+          "name": "臀桥准备",
+          "description": "当前玩家做8次臀桥，抬起时主动收紧臀部"
+        },
+        "0-4": {
+          "name": "脚尖点地",
+          "description": "当前玩家左右脚尖向前点地各10次"
+        },
+        "0-3": {
+          "name": "肩背挺直",
+          "description": "当前玩家收下巴、挺胸、沉肩，保持标准站姿8秒"
+        },
+        "1-3": {
+          "name": "高抬腿接力",
+          "description": "当前玩家做10次高抬腿，另一人负责喊节奏"
+        },
+        "2-3": {
+          "name": "健康问答",
+          "description": "当前玩家回答一个健身问题：你最想长期坚持的运动是什么"
+        },
+        "3-3": {
+          "name": "双人仰卧起坐",
+          "description": "当前玩家做6次仰卧起坐，起身时双手向前伸直"
+        },
+        "3-2": {
+          "name": "侧步燃脂",
+          "description": "当前玩家做12次侧步点地，注意膝盖不要内扣"
+        },
+        "3-1": {
+          "name": "恢复拍打",
+          "description": "当前玩家轻拍自己的大腿和小腿各10秒，做一次放松恢复"
+        },
+        "1-6": {
+          "name": "终线冲刺一",
+          "description": "当前玩家做20秒登山跑，结束后立刻深呼吸两次"
+        },
+        "2-6": {
+          "name": "终线冲刺二",
+          "description": "当前玩家做平板支撑，同时完成左右肩交替点触各5次"
+        },
+        "3-6": {
+          "name": "终线冲刺三",
+          "description": "当前玩家完成8次半蹲起立，注意核心保持收紧"
+        },
+        "4-6": {
+          "name": "终线冲刺四",
+          "description": "当前玩家做10次交替后撤弓步，另一人负责纠正动作"
+        },
+        "5-6": {
+          "name": "终线冲刺五",
+          "description": "当前玩家完成10次卷腹，起身时双手触碰膝盖"
+        },
+        "7-6": {
+          "name": "放松步行",
+          "description": "当前玩家原地慢走15秒，让呼吸慢慢降下来"
+        },
+        "8-6": {
+          "name": "大腿拉伸",
+          "description": "当前玩家做站姿拉伸股四头肌，每边保持8秒"
+        },
+        "9-6": {
+          "name": "今日最佳",
+          "description": "当前玩家指出自己今晚做得最标准的一个动作，并等另一人给出评价"
+        },
+        "10-6": {
+          "name": "汗水奖励",
+          "description": "当前玩家擦一下汗，再做一个碰拳庆祝动作"
+        },
+        "11-6": {
+          "name": "收操约定",
+          "description": "当前玩家做最后一次全身伸展，并说出下一次想健身的时间"
+        }
+      },
+      "fourPrivateEvents": {
+        "1-1": {
+          "name": "男方一号",
+          "description": "掷出6开始游戏"
+        },
+        "11-11": {
+          "name": "女方一号",
+          "description": "掷出6开始游戏"
+        },
+        "6-6": {
+          "name": "终点",
+          "description": "到达终点，一起写下今晚只属于彼此的心愿"
+        },
+        "3-0": {
+          "name": "举杯",
+          "description": "饮下一杯酒"
+        },
+        "4-0": {
+          "name": "探入20秒",
+          "description": "将手探入对方伴侣衣料之内，温柔流连20秒"
+        },
+        "5-0": {
+          "name": "交盏",
+          "description": "与对方伴侣共饮一杯交盏酒"
+        },
+        "6-0": {
+          "name": "褪去一层",
+          "description": "由自己褪下一件衣物"
+        },
+        "7-0": {
+          "name": "耳畔流连",
+          "description": "在对方伴侣耳后与耳根处停留挑逗10秒"
+        },
+        "8-0": {
+          "name": "唇间渡酒",
+          "description": "以唇为桥，给对方伴侣送上一口酒"
+        },
+        "9-0": {
+          "name": "落吻",
+          "description": "给对方伴侣留下一枚短暂的吻"
+        },
+        "9-1": {
+          "name": "解开一层",
+          "description": "替对方伴侣褪下一件衣物"
+        },
+        "9-2": {
+          "name": "深吻",
+          "description": "与对方伴侣交换一个绵长的深吻10秒"
+        },
+        "9-3": {
+          "name": "律动10秒",
+          "description": "与自己伴侣进行10秒紧密而有节奏的律动"
+        },
+        "10-3": {
+          "name": "浅酌",
+          "description": "浅浅饮下半杯酒"
+        },
+        "11-3": {
+          "name": "怀中托起",
+          "description": "将对方伴侣揽入怀中托起10秒"
+        },
+        "12-3": {
+          "name": "褪去一层",
+          "description": "褪下一件衣物"
+        },
+        "12-4": {
+          "name": "腿侧流连",
+          "description": "在对方伴侣大腿内侧暧昧停驻10秒"
+        },
+        "12-5": {
+          "name": "浅酌",
+          "description": "浅浅饮下半杯酒"
+        },
+        "12-6": {
+          "name": "深吻",
+          "description": "与对方伴侣交换一个绵长的深吻10秒"
+        },
+        "12-7": {
+          "name": "探入20秒",
+          "description": "将手探入对方伴侣衣料之内，温柔流连20秒"
+        },
+        "12-8": {
+          "name": "臀侧轻罚",
+          "description": "接受其他所有人各一下轻拍惩罚"
+        },
+        "12-9": {
+          "name": "举杯",
+          "description": "饮下一杯酒"
+        },
+        "11-9": {
+          "name": "褪去一层",
+          "description": "褪下一件衣物"
+        },
+        "10-9": {
+          "name": "唇间渡酒",
+          "description": "以唇为桥，给对方伴侣送上一口酒"
+        },
+        "9-9": {
+          "name": "胸前试探",
+          "description": "让对方在自己伴侣胸前敏感处停留30秒"
+        },
+        "9-10": {
+          "name": "解开一层",
+          "description": "替对方伴侣褪下一件衣物"
+        },
+        "9-11": {
+          "name": "深吻",
+          "description": "与对方伴侣交换一个绵长的深吻10秒"
+        },
+        "9-12": {
+          "name": "举杯",
+          "description": "饮下一杯酒"
+        },
+        "8-12": {
+          "name": "探入20秒",
+          "description": "将手探入对方伴侣衣料之内，温柔流连20秒"
+        },
+        "7-12": {
+          "name": "留下印记",
+          "description": "指定自己身体的一个部位，让对方伴侣留下一枚暧昧印记"
+        },
+        "6-12": {
+          "name": "褪去一层",
+          "description": "褪下一件衣物"
+        },
+        "5-12": {
+          "name": "浅酌",
+          "description": "浅浅饮下半杯酒"
+        },
+        "4-12": {
+          "name": "闭门共处",
+          "description": "与对方伴侣去洗手间关门独处30秒"
+        },
+        "3-12": {
+          "name": "深吻",
+          "description": "与对方伴侣交换一个绵长的深吻10秒"
+        },
+        "3-11": {
+          "name": "浅酌",
+          "description": "浅浅饮下半杯酒"
+        },
+        "3-10": {
+          "name": "足尖流连",
+          "description": "在对方伴侣的脚心或脚背处停留挑逗10秒"
+        },
+        "3-9": {
+          "name": "深处试探",
+          "description": "让对方在自己伴侣最私密的边界处停留30秒"
+        },
+        "2-9": {
+          "name": "轻拍三下",
+          "description": "在对方伴侣臀侧落下三下轻拍"
+        },
+        "1-9": {
+          "name": "探入30秒",
+          "description": "将手探入对方伴侣衣料之内，温柔流连30秒"
+        },
+        "0-9": {
+          "name": "浅酌",
+          "description": "浅浅饮下半杯酒"
+        },
+        "0-8": {
+          "name": "一路流连",
+          "description": "沿着对方伴侣耳后一路向下，缓慢停驻至胸前"
+        },
+        "0-7": {
+          "name": "背后温存",
+          "description": "从背后环住对方伴侣，并温柔抚触30秒"
+        },
+        "0-6": {
+          "name": "交盏",
+          "description": "与对方伴侣共饮一杯交盏酒"
+        },
+        "0-5": {
+          "name": "解开一层",
+          "description": "替对方伴侣褪下一件衣物"
+        },
+        "0-4": {
+          "name": "震颤道具",
+          "description": "用震颤小道具为对方伴侣带去20秒微妙刺激"
+        },
+        "0-3": {
+          "name": "唇间渡酒",
+          "description": "以唇为桥，给对方伴侣送上一口酒"
+        },
+        "1-3": {
+          "name": "游走全身",
+          "description": "让对方伴侣从头到脚缓慢游走一遍"
+        },
+        "2-3": {
+          "name": "胸前按摩",
+          "description": "在对方伴侣胸前柔缓按摩20秒"
+        },
+        "3-3": {
+          "name": "解开一层",
+          "description": "替对方伴侣褪下一件衣物"
+        },
+        "3-2": {
+          "name": "探入20秒",
+          "description": "将手探入对方伴侣衣料之内，温柔流连20秒"
+        },
+        "3-1": {
+          "name": "留下印记",
+          "description": "指定自己身体的一个部位，让对方伴侣留下一枚暧昧印记"
+        },
+        "1-6": {
+          "name": "举杯",
+          "description": "饮下一杯酒"
+        },
+        "2-6": {
+          "name": "隔衣厮磨",
+          "description": "让对方隔着衣料与自己伴侣进行30秒若即若离的厮磨"
+        },
+        "3-6": {
+          "name": "六杯考验",
+          "description": "喝6杯酒，每少喝一杯，对方便可在自己伴侣胸前敏感处停留10秒"
+        },
+        "4-6": {
+          "name": "足尖含玩",
+          "description": "对着对方伴侣的脚趾含玩30秒"
+        },
+        "5-6": {
+          "name": "一饮尽褪",
+          "description": "饮下一杯酒，并将衣物尽数褪去"
+        },
+        "7-6": {
+          "name": "一饮换装",
+          "description": "饮下一杯酒，褪去所有衣物并换上情趣内衣"
+        },
+        "8-6": {
+          "name": "臀侧抚触",
+          "description": "抬高臀线，让对方伴侣抚触30秒"
+        },
+        "9-6": {
+          "name": "身后相拥",
+          "description": "与自己伴侣以身后相拥的方式纠缠30秒"
+        },
+        "10-6": {
+          "name": "口中春潮",
+          "description": "含一口水，以唇舌为自己伴侣服务30秒"
+        },
+        "11-6": {
+          "name": "闭门私语",
+          "description": "与对方伴侣去洗手间闭门独处30秒"
+        },
+        "6-11": {
+          "name": "闭门私语",
+          "description": "与对方伴侣去洗手间闭门独处30秒"
+        },
+        "6-10": {
+          "name": "手中流连",
+          "description": "让自己伴侣用手为自己温柔流连30秒"
+        },
+        "6-9": {
+          "name": "悬身试力",
+          "description": "伏在对方伴侣身上，完成10个俯卧撑"
+        },
+        "6-8": {
+          "name": "六杯考验",
+          "description": "喝6杯酒，每少喝一杯，对方便可在自己伴侣胸前敏感处停留10秒"
+        },
+        "6-7": {
+          "name": "一饮尽褪",
+          "description": "饮下一杯酒，并将衣物尽数褪去"
+        },
+        "6-5": {
+          "name": "一饮换装",
+          "description": "饮下一杯酒，褪去所有衣物并换上情趣内衣"
+        },
+        "6-4": {
+          "name": "唇舌侍奉",
+          "description": "以唇舌为自己伴侣服务30秒"
+        },
+        "6-3": {
+          "name": "身后相拥",
+          "description": "与自己伴侣以身后相拥的方式纠缠30秒"
+        },
+        "6-2": {
+          "name": "莲上起舞",
+          "description": "与自己伴侣以莲座相对，主动起伏至少50下"
+        },
+        "6-1": {
+          "name": "举杯",
+          "description": "饮下一杯酒"
+        },
+        "1-11": {
+          "name": "男方二号",
+          "description": "掷出6开始游戏"
+        },
+        "11-1": {
+          "name": "女方二号",
+          "description": "掷出6开始游戏"
+        }
+      },
+      "funnyEvents": {
+        "1-1": {
+          "name": "男方",
+          "description": "掷出6出发，出发前必须大喊一声\"我是猪猪侠\""
+        },
+        "11-11": {
+          "name": "女方",
+          "description": "掷出6出发，出发前必须模仿一种灵长类动物的叫声"
+        },
+        "6-6": {
+          "name": "冤家终点",
+          "description": "赢家可以指定输家做一个必须保持10分钟的丑脸，并拍照留念（禁止修图）"
+        },
+        "3-0": {
+          "name": "塑料夸奖",
+          "description": "用最虚伪、最做作的语气，夸奖对方的鼻毛或者是双下巴很性感"
+        },
+        "4-0": {
+          "name": "金鸡独立",
+          "description": "单脚站立，模仿奥特曼发射光线动作，坚持20秒不许笑"
+        },
+        "5-0": {
+          "name": "眼神斗法",
+          "description": "双方斗鸡眼对视，谁先恢复正常或笑场，谁就做5个深蹲"
+        },
+        "6-0": {
+          "name": "人工除味",
+          "description": "捧起对方的脚（或者是袜子），深吸一口气，并用美食家的口吻评价味道"
+        },
+        "7-0": {
+          "name": "土味情话",
+          "description": "必须用极其油腻的霸道总裁语气，对墙壁说一句土味情话"
+        },
+        "8-0": {
+          "name": "屁股写字",
+          "description": "背对对方，用屁股在空中写出对方的名字，让对方辨认"
+        },
+        "9-0": {
+          "name": "静止发呆",
+          "description": "张大嘴巴发呆10秒，期间口水流出来算输（如果没有流出来，对方可以负责逗笑）"
+        },
+        "9-1": {
+          "name": "大佬敬茶",
+          "description": "单膝下跪（或蹲下），用太监的声音请对方喝水：\"皇上/娘娘，请用膳\""
+        },
+        "9-2": {
+          "name": "群魔乱舞",
+          "description": "没有任何音乐，必须跳一段老年迪斯科，表情要极其享受"
+        },
+        "9-3": {
+          "name": "洗脑循环",
+          "description": "用美声唱法唱儿歌《两只老虎》，必须要唱出歌剧的感觉"
+        },
+        "10-3": {
+          "name": "真心话大冒险",
+          "description": "坦白一件做过的蠢事，如果对方觉得不够蠢，需要重说一件"
+        },
+        "11-3": {
+          "name": "丑照鉴赏",
+          "description": "手机相册里翻出一张自己最丑的照片给对方看，展示3秒"
+        },
+        "12-3": {
+          "name": "商业互吹",
+          "description": "握住对方的手，深情感谢TA当年\"瞎了眼\"才看上自己"
+        },
+        "12-4": {
+          "name": "挠痒挑战",
+          "description": "被对方挠痒痒10秒钟，如果发出笑声，就要学三声狗叫"
+        },
+        "12-5": {
+          "name": "耳边魔音",
+          "description": "贴着对方耳朵，用最大的音量喊一声\"收破烂喽——\""
+        },
+        "12-6": {
+          "name": "人肉靠垫",
+          "description": "趴在地上当靠垫，让对方把脚搁在你背上休息1分钟"
+        },
+        "12-7": {
+          "name": "相扑推手",
+          "description": "模仿相扑选手准备动作（拍大腿、顿脚），然后互推手掌，脚动者输"
+        },
+        "12-8": {
+          "name": "暴雨梨花",
+          "description": "用手指在对方头顶疯狂乱抓，把对方发型搞成鸟窝状"
+        },
+        "12-9": {
+          "name": "闻香识人",
+          "description": "闻对方的咯吱窝，并大声喊出：\"这就是自由的味道！\""
+        },
+        "11-9": {
+          "name": "指尖酷刑",
+          "description": "对方可以用手指轻轻弹你的脑瓜崩，响度不够要重来"
+        },
+        "10-9": {
+          "name": "掰手腕",
+          "description": "只能用小拇指进行掰手腕比赛，输的人要做鬼脸"
+        },
+        "9-9": {
+          "name": "背靠背",
+          "description": "背靠背站立，必须同时下蹲再站起，失败了就一起学鸭子走一圈"
+        },
+        "9-10": {
+          "name": "卑微服务",
+          "description": "给对方捶腿1分钟，并且每捶一下都要问一句\"力道合适吗老板？\""
+        },
+        "9-11": {
+          "name": "颜值崩塌",
+          "description": "用前置摄像头，必须用极其诡异的角度（如下巴视角）拍一张合照发给死党"
+        },
+        "9-12": {
+          "name": "人肉轿子",
+          "description": "尝试背起对方（背不动就抱起一只腿），在房间里走两步并喊\"起轿\""
+        },
+        "8-12": {
+          "name": "树袋熊",
+          "description": "抱着对方的大腿不撒手，还要假装哭诉：\"不要赶我走！\""
+        },
+        "7-12": {
+          "name": "猪鼻拱拱",
+          "description": "用手指把自己的鼻孔推成猪鼻子，然后去拱对方的手臂"
+        },
+        "6-12": {
+          "name": "锁骨弹琴",
+          "description": "在对方锁骨上假装弹钢琴，嘴里还要自带极其难听的配乐"
+        },
+        "5-12": {
+          "name": "大胆挑衅",
+          "description": "用手指勾起对方下巴，说：\"妞/爷，给大爷笑一个，不笑就打你屁股\""
+        },
+        "4-12": {
+          "name": "唇语猜谜",
+          "description": "不能出声，用夸张口型说一个成语，对方猜不出就一直做"
+        },
+        "3-12": {
+          "name": "心脏暴击",
+          "description": "突然大喊一声吓唬对方，如果对方没被吓到，自己做10个俯卧撑"
+        },
+        "3-11": {
+          "name": "强人锁男",
+          "description": "从背后锁喉（轻点），并威胁对方交出今天的零食/私房钱"
+        },
+        "3-10": {
+          "name": "加密通话",
+          "description": "含一口水在嘴里（不能咽），尝试说清楚\"吃葡萄不吐葡萄皮\""
+        },
+        "3-9": {
+          "name": "难兄难弟",
+          "description": "像武侠片里结拜一样，单膝跪地抱拳：\"大哥/二弟，受小弟一拜！\""
+        },
+        "2-9": {
+          "name": "感恩时刻",
+          "description": "握着对方的手，深情地说：\"谢谢你，这么多年没打死我。\""
+        },
+        "1-9": {
+          "name": "秘密交换",
+          "description": "告诉对方自己上厕所时的一个怪癖，越怪越好"
+        },
+        "0-9": {
+          "name": "狠狠咬住",
+          "description": "咬住空气，模仿疯狗的样子摇头晃脑，持续5秒"
+        },
+        "0-8": {
+          "name": "锁骨存水",
+          "description": "往对方锁骨窝里倒一点点水（或假装倒），然后尝试用嘴吸出来（发出很大声音）"
+        },
+        "0-7": {
+          "name": "背后捣乱",
+          "description": "跳到对方背上（或者是假装），大喊\"驾！驾！\"，让对方带你跑两步"
+        },
+        "0-6": {
+          "name": "痒痒肉攻击",
+          "description": "精准攻击对方最怕痒的地方，直到对方求饶喊\"爸爸/妈妈\""
+        },
+        "0-5": {
+          "name": "听诊器",
+          "description": "把耳朵贴在对方肚子上，听听有没有屎在滚动的声音，并如实汇报"
+        },
+        "0-4": {
+          "name": "大力金刚",
+          "description": "给对方展示你的肱二头肌，并摆出健美先生/小姐的油腻Pose"
+        },
+        "0-3": {
+          "name": "气味鉴赏",
+          "description": "对方哈一口气，你必须深吸并评价这口气是韭菜味还是大蒜味"
+        },
+        "1-3": {
+          "name": "伏地魔",
+          "description": "在地上爬行一圈，还要模仿扫地机器人的声音"
+        },
+        "2-3": {
+          "name": "头铁神功",
+          "description": "轻轻用头撞对方的头，比比谁的头更硬，并发出金属撞击的配音"
+        },
+        "3-3": {
+          "name": "白日做梦",
+          "description": "大声描述如果中了五百万，你会怎么把对方换掉"
+        },
+        "3-2": {
+          "name": "蜻蜓点水",
+          "description": "用手指沾点口水，迅速抹在对方脸上然后逃跑"
+        },
+        "3-1": {
+          "name": "人中比拼",
+          "description": "尽量拉长自己的人中，模仿猴子，保持这个表情合照"
+        },
+        "1-6": {
+          "name": "瞪眼比赛",
+          "description": "互瞪，期间可以做鬼脸干扰，谁先眨眼谁负责洗下次的碗"
+        },
+        "2-6": {
+          "name": "膝盖跪碎",
+          "description": "模仿犯错跪搓衣板的姿势，跪在沙发上，大声朗诵一遍九九乘法表"
+        },
+        "3-6": {
+          "name": "奇葩清单",
+          "description": "列举对方身上三个最让你受不了的毛病，说完立刻抱头蹲防挨打"
+        },
+        "4-6": {
+          "name": "脸部按摩",
+          "description": "用手把对方的脸挤压成变形（比如金鱼嘴），并拍照存证"
+        },
+        "5-6": {
+          "name": "人体平板",
+          "description": "做平板支撑，对方可以坐在你背上（或者放重物），坚持15秒"
+        },
+        "7-6": {
+          "name": "暖手宝宝",
+          "description": "把冰冷的手伸进对方的脖子里取暖，对方不许躲"
+        },
+        "8-6": {
+          "name": "心跳过速",
+          "description": "快速原地高抬腿30秒，然后气喘吁吁地对着对方脸哈热气"
+        },
+        "9-6": {
+          "name": "曲线赞美",
+          "description": "拍拍对方的肚子，夸奖道：\"这手感，也是没谁了，几个月了？\""
+        },
+        "10-6": {
+          "name": "迷人认证",
+          "description": "模仿对方平时生气或撒娇的样子，要极其夸张，直到对方承认像为止"
+        },
+        "11-6": {
+          "name": "窒息深吻",
+          "description": "并不是亲吻！是用手捏住对方嘴巴成鸭子状，强迫对方说\"我是大嘴怪\""
+        }
+      },
+      "seo": {
+        "about": {
+          "title": "什么是情侣飞行棋？",
+          "content": "情侣飞行棋（Couples Ludo）是经典飞行棋的浪漫升级版，专为亲密伴侣设计。与普通飞行棋不同，棋盘上的每一个格子都藏着精心设计的互动任务，从真心话大冒险到亲密接触，旨在打破隔阂、升温感情。无论是热恋期的情侣，还是相伴多年的夫妻，都能在游戏中找到新鲜感和刺激。游戏支持自定义事件库，您可以根据双方的接受程度和喜好，量身定制专属的私密挑战。无需下载APP，打开网页即可即时体验，是约会之夜、异地恋互动的完美助攻神器。"
+        },
+        "rules": {
+          "title": "游戏规则",
+          "list": [
+            "准备阶段：双方（或多人）选择代表自己的颜色棋子，还可以选择不同的事件库模式（如热恋、私密、异地恋等）。",
+            "掷骰子：玩家轮流掷骰子。只有掷出 6 点，棋子才能从基地起飞进入棋盘。",
+            "行进与任务：根据骰子点数移动棋子。当棋子停留在某个格子上时，必须执行该格子对应的事件任务（如“亲吻对方”、“说出真心话”等）。",
+            "特殊机制：如果掷出 6 点，可以额外再掷一次。如果棋子移动终点刚好有对方棋子，可以将对方撞回基地（可视规则设定开启或关闭）。",
+            "胜利条件：率先将所有棋子移动到棋盘中心终点的玩家获胜。赢家通常可以获得输家提供的特别奖励（由双方约定）。"
+          ]
+        },
+        "faq": {
+          "title": "常见问题 (FAQ)",
+          "items": [
+            {
+              "q": "异地恋可以玩吗？",
+              "a": "当然可以！我们特别设计了“异地恋模式”事件库，包含专门针对视频通话场景的互动任务。利用内置的联机功能，双方只需进入同一个房间号，即可实时同步棋盘状态，跨越距离感受彼此的陪伴。"
+            },
+            {
+              "q": "需要下载 APP 吗？",
+              "a": "不需要。情侣飞行棋是基于网页的在线游戏（Web App），支持电脑、平板和手机浏览器直接访问。您可以将网页添加到手机主屏幕，享受类似 APP 的全屏流畅体验，既不占内存又方便快捷。"
+            }
+          ]
+        }
+      }
+    },
+    "truthOrDare": {
+      "title": "真心话大冒险转盘",
+      "tagline": "转盘抽选玩家与题目。朋友聚会、宿舍破冰、生日派对、团建游戏、修学旅行夜聊与情侣题库，随心切换。",
+      "playerCountLabel": "玩家人数",
+      "addPlayer": "新增玩家",
+      "defaultNamePrefix": "玩家",
+      "playerNamePlaceholder": "输入昵称",
+      "spinPlayer": "转盘选人",
+      "nextPlayer": "下一位",
+      "sequentialMode": "按顺序轮流",
+      "noRepeat": "结果不重复",
+      "noRepeatDescription": "本次游戏中每道题只抽一次，重置后可重新抽取。",
+      "resetDrawHistory": "重置抽题记录",
+      "drawnPromptCount": "已抽取 {count} 道题",
+      "noRepeatExhausted": "这类题目已抽完，请重置抽题记录或选择另一类。",
+      "chooseTruth": "真心话",
+      "chooseDare": "大冒险",
+      "spin": "旋转",
+      "currentTurn": "当前回合",
+      "itsYourTurn": "轮到你了",
+      "close": "关闭",
+      "confirm": "知道了",
+      "modeChoiceTitle": "{name} 要真心话还是大冒险？",
+      "modeChoiceSubtitle": "选择一项继续揭晓挑战。",
+      "truthResult": "{name} 的真心话",
+      "dareResult": "{name} 的大冒险",
+      "playerBadgeMale": "男玩家",
+      "playerBadgeFemale": "女玩家",
+      "playerBadgeDefault": "玩家",
+      "promptPlaceholder": "输入自定义题目",
+      "promptControlsLabel": "题库管理",
+      "promptControlsDescription": "点击题库选择聚会场景，再编辑真心话与大冒险，让题目适合在场的每个人。",
+      "genericPlayer": "一位玩家",
+      "addTruth": "加入真心题",
+      "addDare": "加入冒险题",
+      "noPlayers": "至少添加一位玩家才能开始游戏。",
+      "noPrompts": "多准备一些题目，让激情延续。",
+      "editBuiltInTruths": "编辑系统真心题",
+      "editBuiltInDares": "编辑系统大冒险",
+      "truthManagerTitle": "编辑真心话题库",
+      "dareManagerTitle": "编辑大冒险题库",
+      "promptManagerDescription": "可以直接改写内建题目，或重置为原始文案。",
+      "promptNumberLabel": "题目 {index}",
+      "resetPrompt": "重置",
+      "customTruthsTitle": "自定义真心话",
+      "customDaresTitle": "自定义大冒险",
+      "customPromptsEmpty": "暂未添加，可在下方新增。",
+      "customPromptNumberLabel": "自定义 {index}",
+      "customPromptAddLabel": "新增题目",
+      "removePrompt": "删除",
+      "addPrompt": "新增题目",
+      "resetAllPrompts": "全部重置",
+      "exportPromptsButton": "导出题库 (TXT)",
+      "importPromptsButton": "导入题库",
+      "transferErrors": {
+        "importEmpty": "导入的文件为空。",
+        "invalidJson": "文件内容必须是题目数组（JSON 格式）。",
+        "fileReadFailed": "文件读取失败，请重试。",
+        "invalidBase64": "文件内容无法完成 Base64 解码。",
+        "unavailable": "当前环境不支持 Base64 编解码。",
+        "generic": "导入/导出失败，请稍后再试。"
+      },
+      "library": {
+        "title": "题库",
+        "subtitle": "按场景选择题库，也能保存自己的题目；任何人都可以跳过不想回答或完成的题目。",
+        "close": "关闭",
+        "newLabel": "将当前题目保存为新题库",
+        "namePlaceholder": "输入题库名称...",
+        "saveNew": "保存题库",
+        "empty": "暂无题库，先创建一个吧！",
+        "stats": "已保存 {count} 个题目",
+        "defaultContent": "25个真心话 + 25个大冒险（默认）",
+        "activeBadge": "正在使用",
+        "use": "切换",
+        "overwrite": "覆盖当前库",
+        "reload": "重新载入",
+        "delete": "删除",
+        "deleteDefault": "默认题库无法删除。",
+        "deleteSuccess": "已删除\"{name}\"题库。",
+        "defaultName": "默认题库",
+        "defaultBadge": "默认题库",
+        "overwriteDefault": "默认题库不可被覆盖。",
+        "nameRequired": "请填写题库名称。",
+        "nameExists": "已存在同名题库。",
+        "saveSuccess": "已保存到\"{name}\"题库。",
+        "switchSuccess": "已切换到\"{name}\"题库。",
+        "overwriteSuccess": "\"{name}\"已更新为当前题目。",
+        "unnamed": "未命名题库",
+        "privateName": "情侣私密库 (2人)",
+        "icebreakerName": "破冰题库",
+        "buttonLabel": "题库",
+        "preview": "预览题目",
+        "rename": "重命名",
+        "current": "当前题库：{name}",
+        "promptCounts": "{truths} 道真心话 + {dares} 道大冒险",
+        "loadError": "无法读取已保存的题库，请检查浏览器的存储权限。",
+        "friendsName": "朋友聚会",
+        "dormName": "宿舍破冰",
+        "birthdayName": "生日派对",
+        "teamName": "团建游戏",
+        "schoolTripName": "修学旅行夜聊"
+      },
+      "truths": {
+        "0": "在场谁最符合你的理想型？",
+        "1": "你最受不了恋人的什么行为？",
+        "2": "你现在是单身、恋爱中，还是有暧昧对象？",
+        "3": "如果要和在场一个人接吻，你会选谁？",
+        "4": "你的初恋是什么时候？",
+        "5": "你谈过几次恋爱？",
+        "6": "你觉得在场谁最会撩人？",
+        "7": "你觉得一个人身体的哪个部位最有吸引力？",
+        "8": "你的初吻是在什么时候？",
+        "9": "如果今晚可以和在场一个人独处，你会选谁？",
+        "10": "说出一个你曾经对恋人撒过的谎。",
+        "11": "你觉得男女之间有纯友谊吗？",
+        "12": "你理想中的约会是什么样？",
+        "13": "你做过最浪漫的事是什么？",
+        "14": "你有没有暗恋过在场的人？可以不说名字。",
+        "15": "你在恋爱中容易吃醋吗？发生过什么？",
+        "16": "你最喜欢恋人怎么称呼你？",
+        "17": "你为喜欢的人做过最疯狂的事是什么？",
+        "18": "你有没有主动表白过？结果怎么样？",
+        "19": "你最想被亲吻的部位是哪里？",
+        "20": "你有没有同时喜欢过两个人？",
+        "21": "你能接受异地恋吗？",
+        "22": "你会考虑和前任复合吗？",
+        "23": "你最长的一段恋爱持续了多久？",
+        "24": "你会选择喜欢你的人，还是你喜欢的人？"
+      },
+      "dares": {
+        "0": "邀请_PLAYER_和你对视 30 秒，谁都不能笑。",
+        "1": "在_PLAYER_耳边说一句情话。",
+        "2": "邀请_PLAYER_和你牵手，直到下一轮。",
+        "3": "征得_PLAYER_同意后，亲一下对方的脸颊。",
+        "4": "邀请_PLAYER_和你拥抱 20 秒。",
+        "5": "双方愿意的话，和_PLAYER_接吻一下。",
+        "6": "征得_PLAYER_同意后，摸摸对方的头，说一句“真可爱”。",
+        "7": "征得_PLAYER_同意后，给对方按摩肩膀 30 秒。",
+        "8": "征得_PLAYER_同意后，亲一下对方的额头。",
+        "9": "双方愿意的话，和_PLAYER_脸贴脸，摆一个合照姿势。",
+        "10": "邀请_PLAYER_和你互喂一口零食。",
+        "11": "征得_PLAYER_同意后，从背后抱住对方 10 秒。",
+        "12": "看着_PLAYER_的眼睛，说出对方最吸引你的三个地方。",
+        "13": "走一段性感的模特步。",
+        "14": "看着_PLAYER_，唱一段情歌。",
+        "15": "假装向_PLAYER_告白，认真说一段表白的话。",
+        "16": "给_PLAYER_起一个甜蜜的昵称，并这样称呼一轮。",
+        "17": "请_PLAYER_用手指在你的手心写一个字，猜猜是什么。",
+        "18": "用三种不同的语气说“我爱你”。",
+        "19": "对_PLAYER_说一句你最拿手的土味情话。",
+        "20": "邀请_PLAYER_和你跳一小段双人舞。",
+        "21": "邀请_PLAYER_和你用手比一个爱心，保持 10 秒。",
+        "22": "邀请_PLAYER_和你摆出《泰坦尼克号》的经典张臂姿势。",
+        "23": "假装向_PLAYER_求婚，说一句求婚台词。",
+        "24": "对_PLAYER_飞吻一下。"
+      },
+      "privateTruths": {
+        "0": "你最喜欢我身体的哪个部位？",
+        "1": "第一次见我时，你心里在想什么？",
+        "2": "有没有哪个瞬间让你觉得“非我不可”？",
+        "3": "你最希望我穿什么样的衣服（或不穿）？",
+        "4": "描述一个关于我的性幻想（如果觉得太露骨可以用比喻）。",
+        "5": "我们之间最让你难忘的一次亲密接触是哪次？",
+        "6": "你觉得我在什么时候最迷人/性感？",
+        "7": "如果我们可以去世界任何地方度蜜月，你想去哪里？",
+        "8": "你最喜欢我的哪种吻法？",
+        "9": "有没有什么事是你一直想和我尝试但还没说出口的？",
+        "10": "你觉得我们的关系中，最让你感到安全感的是什么？",
+        "11": "如果要把我比作一种食物，你会比作什么？为什么？",
+        "12": "你手机里藏着哪张我的照片是你最喜欢的？",
+        "13": "你觉得我做的哪件事最让你感动？",
+        "14": "如果这周末我们整天都在床上度过，你想做什么？",
+        "15": "你最喜欢我怎么称呼你？",
+        "16": "有没有哪个电影/小说情节你想和我一起重演？",
+        "17": "你觉得我生气的样子可爱吗？",
+        "18": "如果我们可以交换身体一天，你会做的第一件事是什么？",
+        "19": "说出三个你觉得我很性感的时刻。"
+      },
+      "privateDares": {
+        "0": "深情地吻我一分钟，不许停。",
+        "1": "用嘴喂我吃一样东西（水果/零食）。",
+        "2": "给我做一个全身按摩（或者至少肩膀/背部5分钟）。",
+        "3": "在我耳边用最诱惑的声音说“我爱你”。",
+        "4": "解开我领口的一颗扣子（或者帮我整理衣服）。",
+        "5": "抱着我做三个深蹲（或背着我绕房间一圈）。",
+        "6": "在我的锁骨/脖子上留下一个吻痕（或者假装）。",
+        "7": "跳一支性感的（或搞笑的）舞给我看。",
+        "8": "脱掉一件衣服（如果环境允许）。",
+        "9": "让我坐在你腿上两分钟。",
+        "10": "用手指在我的背上写字让我猜。",
+        "11": "和我对视30秒，眼神要充满爱意。",
+        "12": "不仅要吻嘴唇，还要吻我的额头、脸颊和鼻尖。",
+        "13": "用公主抱抱着我直到下一轮。",
+        "14": "让我检查你的手机浏览记录（或者是最近的一张照片）。",
+        "15": "从后面抱住我，在我耳边吹气。",
+        "16": "模仿我撒娇或者是生气的样子。",
+        "17": "为我唱一首情歌，要看着我的眼睛。",
+        "18": "让我用口红（或笔）在你的脸上画个爱心。",
+        "19": "躺在我腿上，让我帮你掏耳朵或者按摩头部。"
+      },
+      "friendsTruths": {
+        "0": "你做过最尴尬的事是什么？",
+        "1": "你第一次暗恋别人是在什么时候？",
+        "2": "你最近一次撒谎是为了什么？",
+        "3": "你有没有假装没看到朋友的消息？",
+        "4": "你对_PLAYER_的第一印象是什么？",
+        "5": "你小时候最怕什么？",
+        "6": "你有没有喜欢过朋友的朋友？",
+        "7": "你最想改掉的一个坏习惯是什么？",
+        "8": "你做过最冲动的事是什么？",
+        "9": "你最近一次哭是因为什么？",
+        "10": "如果中了彩票，你最先想做什么？",
+        "11": "你有什么一直没告诉大家的小秘密？"
+      },
+      "friendsDares": {
+        "0": "唱一段你最拿手的歌。",
+        "1": "模仿一种动物，让大家猜。",
+        "2": "跳一段 15 秒的舞。",
+        "3": "做一个鬼脸，保持 10 秒。",
+        "4": "说一段绕口令。",
+        "5": "模仿一位明星，让大家猜是谁。",
+        "6": "走一段模特步。",
+        "7": "用三种不同的语气说“我没事”。",
+        "8": "用动作比划一个电影名，让大家猜。",
+        "9": "接下来一轮说话都用唱的。",
+        "10": "说出_PLAYER_的三个优点。",
+        "11": "讲一个笑话，试着把大家逗笑。"
+      },
+      "dormTruths": {
+        "0": "你睡觉会打呼噜或说梦话吗？",
+        "1": "你最晚熬夜到几点？",
+        "2": "你有没有在上课时睡着过？",
+        "3": "你用过什么借口请假？",
+        "4": "你以前有什么外号？",
+        "5": "你第一次见到室友时是什么感觉？",
+        "6": "你最近在追什么剧或综艺？",
+        "7": "你最拿手的一道菜是什么？",
+        "8": "你有没有为了打游戏或追剧熬通宵？",
+        "9": "你最不喜欢吃什么？",
+        "10": "你在学校经历过最尴尬的事是什么？",
+        "11": "你有没有暗恋过同班同学？"
+      },
+      "dormDares": {
+        "0": "唱两句你最喜欢的歌。",
+        "1": "模仿刚睡醒的样子。",
+        "2": "用家乡话简单介绍一下自己。",
+        "3": "表演 10 秒机器人舞。",
+        "4": "连续说三遍你会的绕口令。",
+        "5": "模仿一种动物的表情和动作。",
+        "6": "讲一个冷笑话，自己不能先笑。",
+        "7": "给大家表演一个你会的小才艺。",
+        "8": "用动作演出一种运动，让大家猜。",
+        "9": "做出开心、生气、惊讶三种表情。",
+        "10": "不看周围，说出三样房间里的东西。",
+        "11": "用一种卡通人物的声音说“晚安”。"
+      },
+      "birthdayTruths": {
+        "0": "你最想收到什么生日礼物？",
+        "1": "你有没有忘记过好朋友的生日？",
+        "2": "你最难忘的一次生日是怎么过的？",
+        "3": "你收到过最意外的礼物是什么？",
+        "4": "你小时候做过最傻的事是什么？",
+        "5": "你有没有假装喜欢一份礼物？",
+        "6": "你和寿星是怎么认识的？",
+        "7": "你第一次见到寿星时是什么印象？",
+        "8": "你最近有什么愿望？",
+        "9": "你最舍不得删的一张照片拍的是什么？",
+        "10": "如果能回到某个年纪，你想回到几岁？",
+        "11": "你做过最让自己后悔的事是什么？"
+      },
+      "birthdayDares": {
+        "0": "给寿星唱一段生日歌。",
+        "1": "对寿星说一句生日祝福。",
+        "2": "模仿一种动物的叫声。",
+        "3": "跳一段你会的舞。",
+        "4": "说出寿星的三个优点。",
+        "5": "连续做出三个不同的鬼脸。",
+        "6": "不说话，用动作演出一个大家熟悉的角色。",
+        "7": "用三种语气说“生日快乐”。",
+        "8": "讲一个笑话，逗寿星笑。",
+        "9": "哼一段歌，让大家猜歌名。",
+        "10": "用播音员的语气介绍自己。",
+        "11": "做一个搞笑的姿势，保持 10 秒。"
+      },
+      "teamTruths": {
+        "0": "你小时候最想做什么工作？",
+        "1": "你做过最尴尬的事是什么？",
+        "2": "你有没有把消息发错人？",
+        "3": "你最不擅长什么事情？",
+        "4": "你下班后最喜欢做什么？",
+        "5": "你有没有买过很后悔的东西？",
+        "6": "如果放一个月假，你最想做什么？",
+        "7": "你上一次迟到是因为什么？",
+        "8": "你有什么大家不知道的爱好？",
+        "9": "你最怕哪种动物？",
+        "10": "你最想去哪个地方旅行？",
+        "11": "如果可以换一份工作体验一天，你想做什么？"
+      },
+      "teamDares": {
+        "0": "清唱一小段你喜欢的歌。",
+        "1": "说一段你会的绕口令。",
+        "2": "模仿一种运动，让大家猜。",
+        "3": "模仿机器人走路 10 秒。",
+        "4": "用三种不同的表情说“大家好”。",
+        "5": "讲一个冷笑话。",
+        "6": "用动作比划一个职业，让大家猜。",
+        "7": "走一段模特步并摆个造型。",
+        "8": "10 秒内说出五种水果。",
+        "9": "说出_PLAYER_的一个优点。",
+        "10": "不用说话，表演刷牙的动作。",
+        "11": "保持微笑 20 秒，不能笑出声。"
+      },
+      "schoolTripTruths": {
+        "0": "你现在有喜欢的人吗？",
+        "1": "你第一次暗恋别人是在几岁？",
+        "2": "你喜欢什么类型的人？",
+        "3": "你有没有偷偷给喜欢的人写过信？",
+        "4": "你有没有因为害羞而不敢和某个人说话？",
+        "5": "你在学校做过最尴尬的事是什么？",
+        "6": "你有没有在上课时被老师叫醒过？",
+        "7": "你最喜欢哪一门课？",
+        "8": "你和最好的朋友是怎么认识的？",
+        "9": "这次旅行中，你觉得最好玩的一件事是什么？",
+        "10": "毕业后，你最想做什么？",
+        "11": "你有什么一直想学却还没学会的东西？"
+      },
+      "schoolTripDares": {
+        "0": "小声哼一段歌，让大家猜歌名。",
+        "1": "做一个鬼脸，保持 10 秒。",
+        "2": "用动作模仿一种动物，不能出声。",
+        "3": "小声说一段绕口令。",
+        "4": "用一种卡通人物的声音说“晚安”。",
+        "5": "说出_PLAYER_的一个优点。",
+        "6": "不说话，用动作演出刷牙的样子。",
+        "7": "连续做出开心、惊讶、委屈三种表情。",
+        "8": "讲一个冷笑话，自己不能先笑。",
+        "9": "用手比一个爱心，保持 5 秒。",
+        "10": "做出三个不同的拍照姿势。",
+        "11": "用口型说一句话，让大家猜。"
+      },
+      "icebreakerTruths": {
+        "0": "用三个词形容自己。",
+        "1": "最近让你开心的一件小事是什么？",
+        "2": "你最喜欢的食物是什么？",
+        "3": "如果可以立刻去旅行，你想去哪？",
+        "4": "你最近在追的剧/综艺/书是什么？",
+        "5": "你最擅长的一个小技能是？",
+        "6": "学生时代做过最离谱的事是什么？",
+        "7": "你最想学的一项新技能？",
+        "8": "你最喜欢的音乐/歌手？",
+        "9": "今天的幸运色是什么？",
+        "10": "你最怕的一个小东西？",
+        "11": "讲一个让你尴尬的冷场瞬间。"
+      },
+      "icebreakerDares": {
+        "0": "用表情包式的夸张表情说“你好”。",
+        "1": "模仿一种动物走路 10 秒。",
+        "2": "用方言说一句“很高兴认识你”。",
+        "3": "即兴讲一个 10 秒的冷笑话。",
+        "4": "做一个 5 秒的开心舞步。",
+        "5": "和任意一位击掌并交换座位。",
+        "6": "用歌声/哼唱说出你的名字。",
+        "7": "给大家展示手机里的最后一张截图（无隐私内容）。",
+        "8": "用“新闻播报”的语气说一句自我介绍。",
+        "9": "用慢动作倒一杯水或假装倒水。",
+        "10": "对着大家做一个胜利手势。",
+        "11": "让大家指定一个你会的表情或手势并展示。"
+      }
+    },
+    "monopoly": {
+      "title": "午夜大富翁",
+      "tagline": "绕着棋盘冒险，每一站都有欲望事件等待完成。"
+    },
+    "dice": {
+      "title": "情趣骰子",
+      "tagline": "喝酒助兴必备。挑战上家的点数，输了就喝酒或大冒险。",
+      "roll": "掷骰子",
+      "pass": "过关/下一位",
+      "drawPenalty": "接受惩罚",
+      "restart": "重新开始",
+      "target": "上家点数",
+      "diceCount": "当前骰子数",
+      "currentSum": "掷出点数",
+      "winTitle": "酒神降临！",
+      "winMessage": "{name} 竟然通关了 10 颗骰子！全场欢呼！",
+      "penaltyTitle": "惩罚时刻",
+      "penaltySubtitle": "愿赌服输",
+      "managePenalties": "管理惩罚库",
+      "resetToDefaults": "恢复默认题库",
+      "resetProgress": "重置游戏进度",
+      "exportPenalties": "导出题库",
+      "importPenalties": "导入题库",
+      "importError": "导入失败，请检查文档格式。",
+      "addPenalty": "新增",
+      "penaltyPlaceholder": "输入惩罚内容...",
+      "defaultPlayerName": "酒友",
+      "turnPrefix": "当前回合:",
+      "playersTitle": "酒局玩家",
+      "penaltiesTitle": "惩罚库",
+      "edit": "编辑",
+      "cardsInDeck": "张卡片",
+      "done": "完成",
+      "clickToManage": "点击管理惩罚库",
+      "addPlayer": "添加酒友",
+      "configureStages": "配置阶段",
+      "stageConfigTitle": "配置阶段门槛",
+      "stage": "阶段",
+      "stage1Label": "阶段 1 → 2:",
+      "stage2Label": "阶段 2 → 3:",
+      "stage3Label": "阶段 3 → 4:",
+      "stage1Desc": "（轻度）",
+      "stage2Desc": "（中度）",
+      "stage3Desc": "（激烈）",
+      "stage4Desc": "（极限）",
+      "playsNeededStage2": "解锁阶段 2 所需游玩次数",
+      "playsNeededStage3": "解锁阶段 3 所需游玩次数",
+      "playsNeededStage4": "解锁阶段 4（极限挑战）所需游玩次数",
+      "currentProgress": "当前进度:",
+      "plays": "次游玩",
+      "currentStage": "当前阶段:",
+      "stageName1": "阶段 1",
+      "stageName2": "阶段 2",
+      "stageName3": "阶段 3",
+      "stageName4": "阶段 4 (最高)",
+      "stageProgress": "{current}/{total}",
+      "stageProgressMax": "{current}+",
+      "library": {
+        "title": "惩罚库",
+        "subtitle": "保存并切换不同的惩罚集合。",
+        "close": "关闭",
+        "newLabel": "将当前惩罚保存为新库",
+        "namePlaceholder": "输入惩罚库名称...",
+        "saveNew": "保存惩罚库",
+        "empty": "暂无惩罚库，先创建一个吧！",
+        "stats": "已保存 {count} 个惩罚",
+        "activeBadge": "正在使用",
+        "use": "切换",
+        "overwrite": "覆盖当前库",
+        "reload": "重新载入",
+        "delete": "删除",
+        "deleteDefault": "默认惩罚库无法删除。",
+        "deleteSuccess": "已删除\"{name}\"惩罚库。",
+        "defaultName": "默认惩罚库",
+        "defaultBadge": "默认惩罚库",
+        "overwriteDefault": "默认惩罚库不可被覆盖。",
+        "nameRequired": "请填写惩罚库名称。",
+        "nameExists": "已存在同名惩罚库。",
+        "saveSuccess": "已保存到\"{name}\"惩罚库。",
+        "switchSuccess": "已切换到\"{name}\"惩罚库。",
+        "overwriteSuccess": "\"{name}\"已更新为当前内容。",
+        "unnamed": "未命名内容库",
+        "privateName": "情侣私密库 (2人)"
+      },
+      "defaultPenalties": {
+        "0": "喝一杯酒。",
+        "1": "大家都喝一杯。",
+        "2": "指定一个人喝半杯。",
+        "3": "真心话：说说你的初吻是在几岁。",
+        "4": "和左边的人碰杯并对视5秒。",
+        "5": "喂右边的人吃一口东西（或喝一口酒）。",
+        "6": "选一位异性，深情对视10秒，谁笑谁喝。",
+        "7": "让左边的人闻一下你的脖子/香水。",
+        "8": "被右边的人壁咚10秒。",
+        "9": "真心话：你觉得在座谁最性感？",
+        "10": "亲吻一位异性的脸颊。",
+        "11": "选一位异性，并在TA耳边轻轻吹气。",
+        "12": "允许右边的人在你的锁骨处种一颗草莓（假装）。",
+        "13": "解开自己的一颗扣子（或脱一件外套）。",
+        "14": "选一位异性，模仿电影里的借位接吻。",
+        "15": "和一位异性深情对视并鼻尖碰鼻尖30秒。",
+        "16": "选一位异性，用嘴喂TA喝完一杯酒。",
+        "17": "让一位异性在你的大腿上写字，你猜是什么。",
+        "18": "选一位异性，隔着衣服听TA的心跳（贴胸口）。",
+        "19": "选一位异性，两人共用一张椅子坐一轮。",
+        "20": "夸赞右边的人今天的穿着。",
+        "21": "模仿一种动物叫声。",
+        "22": "让大家检查你的手机相册最新一张照片。",
+        "23": "握住左边的人的手直到下一轮。",
+        "24": "讲一个冷笑话。",
+        "25": "选一个人玩石头剪刀布，输的喝酒。",
+        "26": "拍一张搞怪自拍发到朋友圈（仅自己可见也可）。",
+        "27": "说出你最喜欢异性的哪个部位。",
+        "28": "给大家展示你包里的一样东西。",
+        "29": "让大家投票谁的酒量最好，那个人喝一杯。",
+        "30": "摸一下左边人的头，说“乖”。",
+        "31": "和一位异性十指紧扣10秒。",
+        "32": "让大家选一个动作，你保持这个姿势一轮。",
+        "33": "给通讯录最近联系的一位异性发“想你了”。",
+        "34": "选一个人，坐在TA腿上（或者让TA坐你腿上）10秒。",
+        "35": "用嘴巴喂在座的一位异性吃水果/零食。",
+        "36": "选一位异性，两人同吃一根饼干/条状食物直到剩下1cm。",
+        "37": "与上一位玩家喝交杯酒。",
+        "38": "接受在座一位异性的拥抱。",
+        "39": "亲吻左边人的手背。",
+        "40": "让大家看到你的内衣颜色（或者说出来）。",
+        "41": "选一位异性，隔着纸巾嘴对嘴亲吻。",
+        "42": "让在座的一位异性帮你涂口红（或者用手指抹嘴唇）。",
+        "43": "选一位异性，用撩人的姿势挑起TA的下巴。",
+        "44": "在一位异性的脖子上留下唇印（可用口红）。",
+        "45": "和一位异性深情拥抱30秒。",
+        "46": "躺在一位异性的腿上直到下一轮。",
+        "47": "选一位异性，面对面拥抱并挤爆一个气球。",
+        "48": "让在座的一位异性用皮带/领带绑住你的双手一轮。",
+        "49": "发出一段诱人的声音（如喘息）。",
+        "50": "选一位异性，公主抱/背起TA绕场一周。",
+        "51": "让一位异性坐在你背上做俯卧撑（或者你坐TA背上）。",
+        "52": "选一位异性，用嘴传递一张纸巾/扑克牌。",
+        "53": "在一位异性的耳边呻吟一声。",
+        "54": "选一位异性，两人脸贴脸自拍一张做头像。",
+        "55": "让一位异性把手伸进你的口袋里拿东西。",
+        "56": "选一位异性，互相挠痒痒10秒。",
+        "57": "和一位异性模仿泰坦尼克号经典动作。",
+        "58": "轻轻咬一下一位异性的手指。",
+        "59": "选一位异性，用手指在TA的手背上写字，猜不出受罚。",
+        "60": "让大家指定你和一位异性合唱一首情歌。",
+        "61": "选一位异性，深蹲抱起TA 5次。",
+        "62": "选一位异性，互相按摩肩膀1分钟。",
+        "63": "选一位异性，用你的脸蹭TA的脸。",
+        "64": "和一位异性十指紧扣并亲吻TA的手背。",
+        "65": "选一位异性，让TA帮你脱掉外套。",
+        "66": "选一位异性，把头靠在TA的肩膀上一轮。",
+        "67": "选一位异性，互相喂对方吃东西。",
+        "68": "选一位异性，在TA的背上写字让大家猜。",
+        "69": "喝完这杯酒，然后大声喊“我爱你们”。"
+      },
+      "privatePenalties": {
+        "0": "深情拥抱对方1分钟。",
+        "1": "说出对方最让你心动的3个瞬间。",
+        "2": "亲吻对方的额头。",
+        "3": "真心话：第一次见到对方是什么感觉？",
+        "4": "为对方倒一杯水/酒并喂TA喝。",
+        "5": "十指紧扣，深情对视20秒。",
+        "6": "用鼻子蹭对方的鼻子（鼻吻）。",
+        "7": "摸摸对方的头，夸TA“真可爱”。",
+        "8": "背起对方（或公主抱）深蹲3次。",
+        "9": "真心话：最喜欢对方身体的哪个部位？",
+        "10": "给对方按摩肩膀3分钟。",
+        "11": "亲吻对方的脸颊3次。",
+        "12": "在对方耳边轻声说“我爱你”。",
+        "13": "解开对方领口的一颗扣子。",
+        "14": "用嘴喂对方吃一块水果或零食。",
+        "15": "隔着衣服听对方的心跳1分钟。",
+        "16": "亲吻对方的脖子。",
+        "17": "让对方坐在你的腿上2分钟。",
+        "18": "在对方的锁骨处留下一个吻。",
+        "19": "用手指轻抚对方的嘴唇。",
+        "20": "夸赞对方今天的3个优点。",
+        "21": "模仿对方生气时的样子。",
+        "22": "给对方看你手机里的一张私密照片（如果有）。",
+        "23": "一直牵着手直到下一轮结束。",
+        "24": "为对方唱一首情歌（可以只唱一段）。",
+        "25": "玩石头剪刀布，输的人亲赢的人一下。",
+        "26": "拍一张两人的亲密合照。",
+        "27": "说出你最想和对方去的一个地方。",
+        "28": "分享一个关于对方的秘密幻想。",
+        "29": "承诺答应对方一个小小的愿望。",
+        "30": "躺在对方腿上，让TA帮你掏耳朵/按摩头部。",
+        "31": "亲吻对方的手心。",
+        "32": "从后面抱住对方，保持1分钟。",
+        "33": "给对方发一条暧昧的短信。",
+        "34": "面对面坐着，双腿交缠。",
+        "35": "用手指在对方背上写字，让TA猜。",
+        "36": "同吃一根饼干，直到嘴唇碰到。",
+        "37": "喝交杯酒。",
+        "38": "把头埋在对方的胸口1分钟。",
+        "39": "亲吻对方的耳垂。",
+        "40": "告诉对方你现在内衣的颜色。",
+        "41": "隔着一张纸巾亲吻对方的嘴唇。",
+        "42": "帮对方整理头发或衣服。",
+        "43": "用下巴蹭对方的肩膀。",
+        "44": "在对方身上留下一个（假装的）咬痕。",
+        "45": "紧紧拥抱，感受彼此的体温。",
+        "46": "枕着对方的手臂休息一轮。",
+        "47": "挤爆放在两人胸口中间的气球。",
+        "48": "让对方用皮带/丝巾轻轻绑住你的手。",
+        "49": "在对方耳边发出诱人的声音。",
+        "50": "脱掉一件外套/上衣（如果环境允许）。",
+        "51": "做俯卧撑，对方坐在你的背上。",
+        "52": "用嘴对嘴传递一颗糖果或冰块。",
+        "53": "轻咬对方的下嘴唇。",
+        "54": "两人脸贴脸，保持距离小于1厘米对视。",
+        "55": "让对方的手伸进你的衣服里暖手。",
+        "56": "互相挠痒痒，直到一方求饶。",
+        "57": "模仿电影里的激情片段。",
+        "58": "含住对方的手指5秒。",
+        "59": "让对方在你的敏感部位附近吹气。",
+        "60": "深情舌吻10秒。",
+        "61": "用大腿夹住对方的腰。",
+        "62": "给对方做全身（隔着衣服）按摩。",
+        "63": "用舌头舔一下对方的脖子。",
+        "64": "十指紧扣，把对方的手放在自己胸口。",
+        "65": "帮对方脱掉袜子（或一件衣物）。",
+        "66": "靠在对方身上，轻声呻吟。",
+        "67": "互相喂食，不准用手。",
+        "68": "在对方大腿内侧写字。",
+        "69": "喝完这杯酒，然后深情接吻1分钟。"
+      }
+    },
+    "darkBeast": {
+      "title": "火辣暗兽棋",
+      "tagline": "翻牌、博弈、宽衣。心跳加速的策略对决。",
+      "multiplayer": {
+        "onlinePlay": "联机对战",
+        "panelTitle": "联机暗兽棋",
+        "tabs": {
+          "create": "创建房间",
+          "join": "加入房间"
+        },
+        "labels": {
+          "onlineRoom": "联机房间：{roomId}",
+          "playersCount": "玩家：{count}/{max}",
+          "selectColor": "选择颜色：",
+          "selecting": "选择中...",
+          "you": "（你）",
+          "roomId": "房间号",
+          "passwordOptional": "密码（可选）",
+          "password": "密码",
+          "yourColor": "你的颜色"
+        },
+        "placeholders": {
+          "passwordOptional": "留空表示公开",
+          "roomId": "XXXXXX"
+        },
+        "actions": {
+          "minimize": "最小化",
+          "exit": "退出",
+          "copyId": "复制房间号",
+          "copied": "已复制",
+          "share": "分享",
+          "startGame": "开始游戏",
+          "createRoom": "创建房间",
+          "joinRoom": "加入房间"
+        },
+        "confirmExit": "确定要退出房间吗？退出后房间将解散。",
+        "status": {
+          "creatingRoom": "正在创建房间...",
+          "joiningRoom": "正在加入房间...",
+          "roomCreated": "房间已创建！房间号：{roomId}",
+          "joinedRoom": "已加入房间：{roomId}",
+          "reconnecting": "正在重连...",
+          "waitingForPlayers": "等待其他玩家加入...",
+          "waitingForHost": "等待房主开始...",
+          "waitingForYouSelectColor": "请先选择你的颜色...",
+          "waitingForPlayerAct": "等待 {player} 操作..."
+        },
+        "overlay": {
+          "waiting": "等待其他玩家加入..."
+        },
+        "share": {
+          "title": "加入我的暗兽棋房间",
+          "text": "加入我的暗兽棋游戏！房间号：{roomId}"
+        },
+        "errors": {
+          "connectionFailed": "连接失败",
+          "reconnectFailed": "重连失败",
+          "roomDisbanded": "房间已被解散。",
+          "roomNotFound": "房间不存在",
+          "invalidPassword": "密码错误",
+          "colorAlreadyTaken": "颜色已被占用",
+          "gameMismatch": "该房间属于其他游戏。",
+          "createRoomFailed": "创建房间失败",
+          "onlyHostCanDisband": "只有房主可以解散房间",
+          "cannotDisbandLobby": "不能解散大厅",
+          "createRoomWrongTarget": "创建房间请求必须发送到大厅",
+          "unknown": "发生错误"
+        }
+      },
+      "win": "{player} 获胜！",
+      "penaltyHistory": "惩罚记录",
+      "restart": "重新开始",
+      "settings": "游戏设置",
+      "close": "关闭",
+      "loading": "加载游戏中...",
+      "lost": "阵亡",
+      "howToPlay": "玩法说明",
+      "status": {
+        "active": "行动中",
+        "waiting": "等待中"
+      },
+      "rules": {
+        "title": "可选规则",
+        "diagonalLeopard": "猎豹疾驰 (豹可以斜向移动)",
+        "onlyCatEatsRat": "猫鼠游戏 (只有猫能吃老鼠)"
+      },
+      "penalties": {
+        "title": "惩罚编辑",
+        "desc": "自定义每个等级棋子阵亡后的惩罚。",
+        "reset": "重置为默认",
+        "player1": "红方惩罚库",
+        "player2": "蓝方惩罚库",
+        "placeholder": "输入惩罚内容..."
+      },
+      "log": {
+        "start": "游戏开始！红方先手。",
+        "flip": "{player} 翻开了 {piece}",
+        "move": "{player} 移动了 {piece}",
+        "eat": "{player} 用 {attacker} 吃掉了 {defender}！",
+        "mutual": "{p1} 和 {p2} 同归于尽！"
+      },
+      "players": {
+        "player1": "女方",
+        "player2": "男方"
+      },
+      "pieces": {
+        "0": "鼠",
+        "1": "猫",
+        "2": "狗",
+        "3": "狼",
+        "4": "豹",
+        "5": "虎",
+        "6": "狮",
+        "7": "象"
+      },
+      "rulesSummary": "翻开棋子或移动。大吃小，鼠吃象。棋子被吃掉，接受相应惩罚！",
+      "defaultPenaltiesP1": {
+        "0": "卷下丝袜",
+        "1": "摘下首饰",
+        "2": "踢掉鞋子",
+        "3": "褪去外套",
+        "4": "脱掉上衣",
+        "5": "拉下裙子",
+        "6": "解开文胸",
+        "7": "褪去底裤"
+      },
+      "defaultPenaltiesP2": {
+        "0": "脱掉袜子",
+        "1": "摘下手表",
+        "2": "脱掉鞋子",
+        "3": "脱掉外套",
+        "4": "解开皮带",
+        "5": "脱掉上衣",
+        "6": "褪去长裤",
+        "7": "除去内裤"
+      },
+      "penaltyTitle": "惩罚时刻！",
+      "penaltyMessage": "{player} 的 {beast} 阵亡！",
+      "actionRequired": "请执行惩罚",
+      "removeAction": "请执行：{penalty}",
+      "confirmPenalty": "我已照做",
+      "winReward": "胜利奖励",
+      "defaultRewardP1": "赢家可以要求30分钟按摩",
+      "defaultRewardP2": "赢家可以许一个特别的愿望",
+      "rewardPlaceholder": "输入奖励描述...",
+      "coinFlip": {
+        "firstTurn": "先手决定",
+        "decidingFate": "命运抉择中..."
+      },
+      "seo": {
+        "about": {
+          "title": "什么是火辣暗兽棋？",
+          "content": "火辣暗兽棋（Sexy Dark Beast）是一款结合了经典斗兽棋逻辑与情趣惩罚的策略博弈游戏。在这个充满心跳的 4x4 棋盘上，每一张覆盖的棋子都代表着未知的风险与机遇。从最强大的大象到最灵巧的老鼠，玩家需要在翻牌与移动之间做出抉择。与传统斗兽棋不同，每一枚被吃掉的棋子都伴随着一项由您自定义或系统随机生成的趣味惩罚。这不仅是一场脑力的较量，更是一场让感情迅速升温的互动冒险，非常适合在私密空间增加约会乐趣。"
+        },
+        "rules": {
+          "title": "游戏规则",
+          "list": [
+            "初始布局：棋盘共有 16 个格子，双方各拥有 8 枚棋子（等级 0-7）。游戏开始时，所有棋子随机洗牌并背面朝上放置。",
+            "玩家回合：玩家轮流行动，每回合可以选择：a. 翻开一枚未开启的棋子；b. 移动一枚已翻开的己方棋子（仅限上下左右一格，豹可斜行）。",
+            "等级压制：大吃小（如 7 级象吃 6 级狮），同级可同归于尽。特殊规则：最小的 0 级鼠可以吃掉最大的 7 级象。",
+            "惩罚机制：每当己方棋子被吃掉时，该棋子所属的玩家必须执行对应的惩罚动作。惩罚内容可以在设置中自定义。",
+            "胜利条件：率先吃掉对方所有棋子，或对方无路可走时获胜。赢家可获得预设的“胜利奖励”。"
+          ]
+        },
+        "faq": {
+          "title": "常见问题 (FAQ)",
+          "items": [
+            {
+              "q": "可以斜着走吗？",
+              "a": "默认情况下只能上下左右移动。但在“设置”中开启“猎豹疾驰”后，4 级棋子（豹）可以进行 8 个方向的移动。"
+            },
+            {
+              "q": "可以联机对战吗？",
+              "a": "支持。点击“联机对战”创建或加入房间，即可与伴侣进行远程同步对弈。"
+            }
+          ]
+        }
+      }
+    },
+    "slots": {
+      "title": "桃色老虎机",
+      "tagline": "一拉定情。地点、动作、部位，随机组合你的下一个亲密时刻。先集满欲望条者胜。",
+      "spin": "开始旋转",
+      "resultPrefix": "结果：",
+      "nextPlayer": "下一位玩家",
+      "playAgain": "再玩一局",
+      "resetToDefaults": "恢复默认内容",
+      "done": "完成",
+      "winTitle": "欲望达成！",
+      "winMessage": "{name} 的欲望条满了！现在是享受胜利果实的时候了。",
+      "reels": {
+        "location": "地点",
+        "action": "动作",
+        "bodyPart": "部位"
+      },
+      "defaults": {
+        "locations": {
+          "balcony": "阳台",
+          "sofa": "沙发",
+          "kitchen": "厨房",
+          "bed": "床上",
+          "bathroom": "浴室"
+        },
+        "actions": {
+          "kiss": "亲吻",
+          "massage": "按摩",
+          "lick": "舔舐",
+          "bite": "轻咬",
+          "touch": "抚摸",
+          "tickle": "挠痒痒",
+          "hug": "拥抱",
+          "blow": "吹气",
+          "pinch": "轻捏",
+          "slap": "轻拍",
+          "rub": "磨蹭",
+          "stare": "凝视",
+          "smell": "闻一闻",
+          "scratch": "轻抓",
+          "hold": "紧握",
+          "squeeze": "揉捏"
+        },
+        "bodyParts": {
+          "neck": "脖子",
+          "ear": "耳朵",
+          "thigh": "大腿",
+          "lips": "嘴唇",
+          "chest": "胸口",
+          "hand": "手心",
+          "foot": "脚底",
+          "back": "后背",
+          "waist": "腰部",
+          "shoulder": "肩膀",
+          "hair": "头发",
+          "chin": "下巴",
+          "cheek": "脸颊",
+          "collarbone": "锁骨",
+          "navel": "肚脐",
+          "wrist": "手腕",
+          "ankle": "脚踝"
+        },
+        "player1": "玩家 1",
+        "player2": "玩家 2"
+      },
+      "funny": {
+        "locations": {
+          "fridge": "冰箱",
+          "sofa": "沙发",
+          "bed": "床",
+          "toilet": "厕所",
+          "balcony": "阳台",
+          "corner": "墙角",
+          "kitchen": "厨房",
+          "doorway": "门口"
+        },
+        "actions": {
+          "propose": "求婚",
+          "interview": "采访",
+          "lecture": "讲道理",
+          "dance": "邀舞",
+          "praise": "赞美",
+          "stare": "对视",
+          "confess": "表白",
+          "argue": "吵架",
+          "breakup": "提分手",
+          "worship": "膜拜",
+          "seduce": "挑逗",
+          "rap": "唱Rap",
+          "apologize": "认错",
+          "negotiate": "谈判",
+          "threaten": "威胁",
+          "kowtow": "磕头"
+        },
+        "bodyParts": {
+          "soySauce": "酱油瓶",
+          "pillow": "枕头",
+          "slipper": "拖鞋",
+          "remote": "遥控器",
+          "air": "空气",
+          "tissue": "抽纸",
+          "cup": "水杯",
+          "plant": "植物",
+          "trash": "垃圾桶",
+          "robot": "扫地机",
+          "toiletRoll": "卷纸",
+          "toothbrush": "牙刷",
+          "spoon": "勺子",
+          "banana": "香蕉",
+          "phone": "手机",
+          "sock": "袜子"
+        }
+      },
+      "editor": {
+        "title": "编辑老虎机内容",
+        "reels": "转轴内容",
+        "players": "玩家设置",
+        "targetScore": "胜利分数",
+        "addNew": "添加新项",
+        "placeholder": "输入内容...",
+        "newPlayer": "玩家",
+        "addPlayer": "添加玩家",
+        "editLabel": "编辑标签名称",
+        "labelPlaceholder": "输入标签名称",
+        "resetLabel": "重置"
+      },
+      "hand": {
+        "777": "777!",
+        "luxury777": "豪华777!",
+        "luxuryThreeOfAKind": "豪华三条!",
+        "straightFlush": "同花顺!",
+        "threeOfAKind": "三条!",
+        "straight": "顺子!",
+        "flush": "同花!",
+        "pair": "对子!",
+        "noCombo": "无牌型",
+        "inm114": "114!",
+        "inm514": "514!"
+      },
+      "library": {
+        "title": "内容库",
+        "subtitle": "保存并切换不同的内容集合。",
+        "close": "关闭",
+        "newLabel": "将当前内容保存为新库",
+        "namePlaceholder": "输入内容库名称...",
+        "saveNew": "保存内容库",
+        "empty": "暂无内容库，先创建一个吧！",
+        "stats": "已保存 {count} 项内容",
+        "activeBadge": "正在使用",
+        "use": "切换",
+        "overwrite": "覆盖当前库",
+        "reload": "重新载入",
+        "delete": "删除",
+        "deleteDefault": "默认内容库无法删除。",
+        "deleteSuccess": "已删除\"{name}\"内容库。",
+        "defaultName": "默认内容库",
+        "defaultBadge": "默认内容库",
+        "overwriteDefault": "默认内容库不可被覆盖。",
+        "nameRequired": "请填写内容库名称。",
+        "nameExists": "已存在同名内容库。",
+        "saveSuccess": "已保存到\"{name}\"内容库。",
+        "switchSuccess": "已切换到\"{name}\"内容库。",
+        "overwriteSuccess": "\"{name}\"已更新为当前内容。",
+        "unnamed": "未命名内容库",
+        "funnyName": "搞笑内容库"
+      },
+      "bomb": {
+        "exploded": "炸弹爆炸!",
+        "penalty": "分",
+        "progress": "蓄力炸弹: {count}/{max}"
+      }
+    }
+  },
+  "common": {
+    "remove": "删除",
+    "players": "玩家",
+    "truth": "真心话",
+    "dare": "大冒险",
+    "custom": "自定义"
+  },
+  "routes": {
+    "common": {
+      "back": "返回游戏列表"
+    },
+    "ludo": {
+      "title": "心动飞行棋 — 情侣真心话大冒险在线玩",
+      "description": "互动版情趣飞行棋，可自定义每一格事件，支持异地联机。包含丰富的恋爱真心话大冒险题目，是异地恋、情人节约会、聚会破冰的必备神器。",
+      "heading": "心动飞行棋",
+      "intro": "掷骰前进、降落执行，任由一格格刺激指令挑动心弦。"
+    },
+    "truthOrDare": {
+      "title": "真心话大冒险转盘｜朋友聚会、情侣互动与团建游戏",
+      "description": "免费在线真心话大冒险转盘，提供生日聚会、团建热场、修学旅行夜聊及情侣题库。支持自定义题目、随机抽选玩家与按顺序轮流，打开网页即可玩。",
+      "heading": "真心话大冒险转盘",
+      "intro": "选择适合聚会的题库，添加玩家姓名，再用转盘抽选真心话与大冒险。"
+    },
+    "monopoly": {
+      "title": "午夜大富翁 — 征服整座欲望之城",
+      "description": "绕行棋盘，收集每一次令人脸红的事件。",
+      "heading": "午夜大富翁",
+      "intro": "双骰出击，囤积亲密互动，在夜色棋盘上建立你的刺激帝国。",
+      "wipTitle": "功能开发中，欢迎加入 Discord 催更",
+      "wipCta": "加入 Discord"
+    },
+    "dice": {
+      "title": "情趣骰子 — 狂欢派对必备",
+      "description": "专为酒吧、夜店、KTV设计的聚会骰子游戏。挑战点数，输者喝酒或大冒险。",
+      "heading": "情趣骰子",
+      "intro": "挑战概率，活跃气氛，让每一次掷骰都成为全场焦点。"
+    },
+    "darkBeast": {
+      "title": "火辣暗兽棋",
+      "description": "经典暗兽棋的情趣变奏。翻牌、吃子、心理博弈。输了的人，可是要接受“特别”惩罚的哦。"
+    },
+    "slots": {
+      "title": "桃色老虎机 — 随机欲望组合",
+      "description": "充满惊喜的情趣老虎机。随机抽取地点、动作与身体部位，组合出意想不到的亲密挑战。",
+      "heading": "桃色老虎机",
+      "intro": "拉动拉杆，让命运决定此时此刻的激情方式。"
+    }
+  },
+  "statistics": {
+    "title": "专属亲密报告",
+    "subtitle": "记录你们的爱意点滴与激情时刻。",
+    "activePlayers": "游戏场次",
+    "totalDares": "完成挑战",
+    "totalKisses": "亲密时刻",
+    "intimacyScore": "当前亲密指数",
+    "gamePopularity": "偏好分布",
+    "xp": "经验值",
+    "level": "等级",
+    "levelTitles": {
+      "glimmeringFirstLove": "微光初恋",
+      "neonWhispers": "霓虹心语",
+      "emberLover": "余烬恋人",
+      "crimsonGuardian": "绯红守护",
+      "nocturneHeartseeker": "夜色心猎",
+      "sweetOdyssey": "甜蜜征途",
+      "heartbeatSentinel": "心动守望",
+      "trueLoveNavigator": "挚爱领航",
+      "starseaVow": "星海誓约",
+      "eternalDevotion": "永恒眷恋"
+    },
+    "shareButton": "分享",
+    "sharing": "正在生成…",
+    "shareImage": {
+      "title": "LoveGame 成就",
+      "subtitle": "扫码查看我们的恋爱旅程",
+      "cta": "扫码加入我们的恋爱旅程"
+    },
+    "weeklyRhythm": "每周节奏",
+    "achievementsTitle": "成就墙",
+    "progress": "进度",
+    "achievementsPanel": {
+      "progressTitle": "成就进度",
+      "progressSummary": "已解锁 {unlocked} / {total}",
+      "viewAchievements": "查看成就",
+      "expand": "展开详情",
+      "collapse": "收起详情",
+      "sessionUnlockedTitle": "本局达成",
+      "sessionUnlockedEmpty": "暂无新成就，本局继续累积进度。",
+      "upcomingTitle": "即将完成"
+    },
+    "days": {
+      "sun": "周日",
+      "mon": "周一",
+      "tue": "周二",
+      "wed": "周三",
+      "thu": "周四",
+      "fri": "周五",
+      "sat": "周六"
+    },
+    "achievements": {
+      "unlocked": "解锁成就",
+      "novice_explorer": "初出茅庐",
+      "party_starter": "派对之星",
+      "game_master": "游戏大师",
+      "weekend_warrior": "周末战士",
+      "dedicated_lover": "深情伴侣",
+      "risk_taker": "冒险家",
+      "open_book": "坦诚相见",
+      "night_owl": "夜猫子",
+      "early_bird": "早起的鸟儿",
+      "soulmates": "灵魂伴侣",
+      "on_fire": "激情似火",
+      "marathon_runner": "马拉松选手",
+      "quickie": "速战速决",
+      "variety_pack": "全能玩家",
+      "truth_seeker": "真理追寻者",
+      "daredevil": "无畏勇者",
+      "high_roller": "天选之子",
+      "slot_wizard": "老虎机巫师",
+      "dice_champion": "骰子冠军",
+      "ludo_legend": "飞行棋传奇",
+      "jackpot_hunter": "大奖猎人",
+      "perfect_match": "完美契合",
+      "flush_master": "同花大师",
+      "inm_master": "野兽先辈"
+    },
+    "achievementsDesc": {
+      "novice_explorer": "累计完成1场游戏。",
+      "party_starter": "累计完成50场游戏。",
+      "game_master": "累计完成200场游戏。",
+      "weekend_warrior": "连续打卡5天。",
+      "dedicated_lover": "连续打卡14天。",
+      "risk_taker": "选择“大冒险”50次。",
+      "open_book": "选择“真心话”50次。",
+      "night_owl": "在深夜（23:00-05:00）进行20次游戏。",
+      "early_bird": "在清晨（05:00-12:00）进行20次游戏。",
+      "soulmates": "亲密指数达到395+。",
+      "on_fire": "激情指数达到395+。",
+      "marathon_runner": "累计游戏时间超过10小时。",
+      "quickie": "单日完成10场游戏。",
+      "variety_pack": "玩过所有类型的游戏。",
+      "truth_seeker": "选择“真心话”200次。",
+      "daredevil": "选择“大冒险”200次。",
+      "high_roller": "在飞行棋中掷出6点200次。",
+      "slot_wizard": "旋转老虎机500次。",
+      "dice_champion": "赢得骰子游戏50次。",
+      "ludo_legend": "赢得飞行棋游戏50次。",
+      "jackpot_hunter": "在老虎机中获胜100次。",
+      "perfect_match": "在老虎机中获得3次同花顺。",
+      "flush_master": "在老虎机中获得50次同花。",
+      "inm_master": "触发隐藏的114或514牌型5次。"
+    },
+    "activityTrends": "近期活跃度",
+    "timeOfDay": "活跃时段分析",
+    "streak": "连续打卡 (天)",
+    "detailStats": "游戏数据详情",
+    "details": {
+      "truths": "选择真心话",
+      "dares": "接受大冒险",
+      "rolls": "掷骰次数",
+      "moves": "飞行棋步数",
+      "ludoSixes": "飞行棋投出6",
+      "ludoWinner": "飞行棋获胜",
+      "dicePenalties": "接受惩罚",
+      "diceWins": "骰子通关",
+      "slotsWins": "老虎机获胜",
+      "ludoEvents": "触发格子事件",
+      "slotsSpins": "老虎机旋转",
+      "totalWeekendSessions": "周末游戏场次"
+    },
+    "times": {
+      "morning": "清晨",
+      "afternoon": "午后",
+      "evening": "傍晚",
+      "night": "深夜"
+    },
+    "attributeAnalysis": "恋爱属性雷达",
+    "charts": {
+      "romance": "浪漫",
+      "daring": "大胆",
+      "intimacy": "亲密",
+      "fun": "趣味",
+      "passion": "激情",
+      "ludo": "飞行棋",
+      "truthOrDare": "真心话大冒险",
+      "monopoly": "大富翁",
+      "dice": "骰子",
+      "slots": "老虎机"
+    },
+    "backToHome": "返回首页"
+  },
+  "footer": {
+    "disclaimer": "请在充分沟通界限的前提下玩乐，确保每一步都建立在积极同意之上。"
+  },
+  "share": {
+    "button": "分享",
+    "installApp": "安装 APP",
+    "systemShare": "系统分享",
+    "copyLink": "复制链接",
+    "qrCode": "生成二维码",
+    "copied": "已复制！",
+    "back": "返回",
+    "scanQRCode": "扫码分享"
+  }
+};

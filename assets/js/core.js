@@ -438,22 +438,19 @@
     get dice3d() { return global.Dice3D; }
   };
 
-  /* ---------------- 移动端语言切换器统一绑定 ---------------- */
+  /* ---------------- 语言切换器统一绑定 ---------------- */
   function initLangSelects() {
-    var selects = document.querySelectorAll("select[aria-label='语言']");
+    var selects = document.querySelectorAll("select[data-lang-select], select[aria-label='语言'], select[aria-label='Language']");
     selects.forEach(function (sel) {
-      sel.addEventListener("change", function () {
-        var targetLang = sel.value;
-        if (!targetLang) return;
-        var pathname = window.location.pathname;
-        var parts = pathname.split("/").filter(Boolean);
-        var currentFile = parts.length > 0 ? parts[parts.length - 1] : "index.html";
-        var langDirs = ["cn", "en", "ja", "ko", "tw"];
-        if (langDirs.indexOf(currentFile) !== -1 || !currentFile.endsWith(".html")) {
-          currentFile = "index.html";
-        }
-        window.location.href = "../" + targetLang + "/" + currentFile;
-      });
+      if (global.CURRENT_LANG) sel.value = global.CURRENT_LANG;
+      if (!sel.dataset.bound) {
+        sel.dataset.bound = "1";
+        sel.addEventListener("change", function () {
+          if (typeof global.setLanguage === "function") {
+            global.setLanguage(sel.value);
+          }
+        });
+      }
     });
   }
   if (document.readyState === "loading") {

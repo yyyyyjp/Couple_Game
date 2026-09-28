@@ -164,8 +164,8 @@
   })();
 
   /* ---------------- 音频 ---------------- */
-  var bombAudio = new Audio("../assets/media/bomb.mp3");
-  var bonusAudio = new Audio("../assets/media/bonus.mp3");
+  var bombAudio = new Audio("assets/media/bomb.mp3");
+  var bonusAudio = new Audio("assets/media/bonus.mp3");
   var spinSoundTimer = null;
 
   /* ---------------- 转轴 Reel ---------------- */

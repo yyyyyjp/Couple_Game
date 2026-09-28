@@ -27,7 +27,7 @@
             '<span class="relative z-10 inline-flex max-w-full items-center gap-2 rounded-full bg-transparent py-0 text-sm font-semibold leading-tight text-pink-100 sm:bg-white/10 sm:px-3 sm:py-1 sm:text-xs sm:uppercase sm:tracking-widest sm:text-pink-200">' + LG.escapeHtml(title) + '</span>' +
             '<p class="overflow-hidden text-[11px] leading-snug text-white/60 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:block sm:text-sm sm:leading-relaxed sm:text-white/70">' + LG.escapeHtml(tagline) + '</p>' +
           '</div>' +
-          '<div class="relative z-10 mt-3 flex items-center gap-1.5 text-xs font-semibold text-pink-200 transition group-hover:text-pink-100 sm:mt-6 sm:gap-2 sm:text-sm">进入游戏<span aria-hidden="true">→</span></div>' +
+          '<div class="relative z-10 mt-3 flex items-center gap-1.5 text-xs font-semibold text-pink-200 transition group-hover:text-pink-100 sm:mt-6 sm:gap-2 sm:text-sm">' + LG.escapeHtml((window.MESSAGES && window.MESSAGES.games && window.MESSAGES.games.viewGame) || "进入游戏") + '<span aria-hidden="true">→</span></div>' +
         '</a>'
       );
     }).join("");
@@ -67,7 +67,10 @@
     var num = document.getElementById("online-num");
     var full = document.getElementById("online-full");
     if (num) num.textContent = count;
-    if (full) full.textContent = "当前在线：" + count;
+    if (full) {
+      var tpl = (window.t && window.t("hero.onlineNow", { count: count })) || ("当前在线：" + count);
+      full.textContent = tpl;
+    }
   }
   var presenceClosed = false, presenceAttempts = 0, presenceTimer = null, presenceWs = null;
   function clearPresenceTimer() {

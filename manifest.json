@@ -3,7 +3,7 @@
   "short_name": "情侣游戏",
   "description": "多款氛围火辣的私房情侣互动小游戏：情侣飞行棋、真心话大冒险、情趣骰子、暗兽棋、老虎机。",
   "scope": "./",
-  "start_url": "./cn/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#050512",
   "theme_color": "#ec4899",

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    (function () {
+      var p = window.location.pathname;
+      var m = p.match(/\/(cn|en|tw|ja|ko)\/([^/]*)$/);
+      if (m) {
+        var lang = m[1];
+        var file = m[2] || "index.html";
+        if (file === "" || file === "index.html") {
+          window.location.replace("../?lang=" + lang + window.location.hash);
+        } else {
+          window.location.replace("../" + file + "?lang=" + lang + window.location.hash);
+        }
+      } else {
+        window.location.replace("./");
+      }
+    })();
+  </script>
+</head>
+<body>
+</body>
+</html>
