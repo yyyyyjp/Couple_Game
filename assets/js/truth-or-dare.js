@@ -171,8 +171,8 @@
     return text.replace(PLACEHOLDER_RE, function () { var p = order[i % order.length]; i++; return p.name; });
   }
 
-  /* ---------- 转盘渲染 ---------- */
-  function renderWheel(items, rotation, spinning, label, spinLabel) {
+  /* ---------- 转盘数据构建 ---------- */
+  function buildWheelSegments(items) {
     items = items || [];
     var seg;
     if (items.length) {
@@ -187,33 +187,47 @@
     var labels = items.length ? items.map(function (it, i) {
       var ang = (i + 0.5) * (360 / items.length) - 90;
       var shown = it.length > 10 ? it.slice(0, 9) + "…" : it;
-      return '<div class="absolute inset-0" style="transform:rotate(' + ang + 'deg)">' +
-        '<span class="absolute left-1/2 top-[4%] -translate-x-1/2 text-center text-xs font-semibold uppercase tracking-wide text-white/90 drop-shadow sm:text-sm lg:text-lg" style="writing-mode:vertical-lr;text-orientation:mixed">' + LG.escapeHtml(shown) + "</span></div>";
+      return '<div class="absolute inset-0 pointer-events-none" style="transform:rotate(' + ang + 'deg)">' +
+        '<span class="absolute left-1/2 top-[4%] -translate-x-1/2 text-center text-xs font-bold uppercase tracking-wide text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] sm:text-sm lg:text-base select-none" style="writing-mode:vertical-lr;text-orientation:mixed">' + LG.escapeHtml(shown) + "</span></div>";
     }).join("") : "";
+
+    return { bg: bg, labels: labels };
+  }
+
+  /* ---------- 转盘渲染 ---------- */
+  function renderWheel(items, rotation, spinning, label, spinLabel) {
+    items = items || [];
+    var segs = buildWheelSegments(items);
 
     return '<div class="relative flex w-full flex-col items-center gap-6 py-4">' +
       '<div class="relative mx-auto flex w-full items-center justify-center">' +
         '<div class="absolute inset-0 scale-110 animate-pulse rounded-full bg-purple-500/20 blur-3xl"></div>' +
         '<div class="relative w-full max-w-[24rem] rounded-full bg-gradient-to-b from-gray-800 to-black p-3 shadow-2xl ring-1 ring-white/10 lg:max-w-[32rem]" style="aspect-ratio:1 / 1">' +
-          '<div class="absolute inset-3 rounded-full shadow-inner" style="background:' + bg + ";transform:rotate(" + rotation + "deg);transition:transform " +
-            (spinning ? "6000ms cubic-bezier(0.2,0.8,0.2,1)" : "0.6s cubic-bezier(0.2,0.8,0.2,1)") + ";box-shadow:inset 0 0 20px rgba(0,0,0,0.5)\">" +
-            '<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-white/10 to-transparent opacity-50 pointer-events-none"></div>' + labels +
+          '<div id="wheel-disc" class="absolute inset-3 rounded-full shadow-inner will-change-transform" style="background:' + segs.bg + ";transform:rotate(" + rotation + "deg);box-shadow:inset 0 0 24px rgba(0,0,0,0.6)\">" +
+            '<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-white/15 to-transparent opacity-60 pointer-events-none"></div>' + segs.labels +
           "</div>" +
-          /* 中心指针按钮 */
+          /* 物理指针 */
+          '<div id="wheel-pointer" class="pointer-events-none absolute -top-[28px] left-1/2 -translate-x-1/2 z-30 drop-shadow-[0_4px_12px_rgba(244,63,94,0.6)]" style="transform-origin: 50% 85%; transition: transform 0.06s ease-out;">' +
+            '<svg width="42" height="56" viewBox="0 0 42 56" fill="none">' +
+              '<path d="M21 0L2 48L21 42V0Z" fill="#f43f5e"/>' +
+              '<path d="M21 0L40 48L21 42V0Z" fill="#be123c"/>' +
+              '<path d="M21 0V42" stroke="#fda4af" stroke-width="0.8"/>' +
+              '<circle cx="21" cy="42" r="3.5" fill="#fbbf24" stroke="#ffffff" stroke-width="1.2"/>' +
+            '</svg>' +
+          "</div>" +
+          /* 中心按钮 */
           '<button type="button" data-wheel-center ' + (spinning ? "disabled" : "") + ' aria-label="' + label + '" class="cursor-pointer group absolute inset-0 z-20 flex items-center justify-center disabled:cursor-not-allowed">' +
             '<div class="relative flex aspect-square items-center justify-center transition-transform group-hover:scale-105 group-active:scale-95" style="width:clamp(3.5rem,28%,5rem)">' +
-              '<div class="absolute -top-[30px] left-1/2 -translate-x-1/2 z-0 drop-shadow">' +
-                '<svg width="40" height="55" viewBox="0 0 40 55" fill="none"><path d="M20 0L0 50L20 45V0Z" fill="#374151"/><path d="M20 0L40 50L20 45V0Z" fill="#1F2937"/><path d="M20 0V45" stroke="#4B5563" stroke-width="0.5"/></svg>' +
-              "</div>" +
-              '<div class="relative z-10 flex h-full w-full items-center justify-center rounded-full border-4 border-gray-800 bg-gradient-to-br from-gray-900 to-black shadow-xl">' +
-                '<span class="text-xs font-black uppercase tracking-widest text-white/90">' + (spinning ? "..." : spinLabel) + "</span>" +
+              '<div class="relative z-10 flex h-full w-full items-center justify-center rounded-full border-4 border-gray-800 bg-gradient-to-br from-gray-900 to-black shadow-xl ring-2 ring-white/10">' +
+                '<span id="wheel-center-text" class="text-xs font-black uppercase tracking-widest text-white/90">' + (spinning ? "..." : spinLabel) + "</span>" +
               "</div>" +
             "</div>" +
           "</button>" +
         "</div>" +
       "</div>" +
       '<div class="flex items-center gap-2 rounded-full bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white/80 backdrop-blur border border-white/10">' +
-        '<span class="inline-block size-2 animate-pulse rounded-full bg-emerald-400"></span>' + label + "</div>" +
+        '<span class="inline-block size-2 animate-pulse rounded-full bg-emerald-400"></span>' +
+        '<span id="wheel-status-badge">' + label + "</span></div>" +
       (items.length ? '<ul class="custom-scrollbar mt-1 grid max-h-[150px] w-full gap-2 overflow-y-auto rounded-xl border border-white/5 bg-black/20 p-3 text-xs text-white/80 sm:grid-cols-2">' +
         items.map(function (it, i) {
           return '<li class="flex items-center gap-3 rounded-lg border border-white/5 bg-white/5 px-3 py-2"><span class="size-2 shrink-0 rounded-full" style="background:' + WHEEL_COLORS[i % WHEEL_COLORS.length] + '"></span><span class="flex-1 truncate">' + LG.escapeHtml(it) + "</span></li>";
@@ -221,46 +235,118 @@
     "</div>";
   }
 
-  /* ---------- 旋转 ---------- */
+  /* ---------- 物理转盘音画同步 ---------- */
   var spinTimeout = null, tickTimers = [];
   function clearSpinTimers() {
     if (spinTimeout) { clearTimeout(spinTimeout); spinTimeout = null; }
     tickTimers.forEach(clearTimeout); tickTimers = [];
   }
-  function startTicks() {
-    var e2 = 20, r = [];
-    for (var i = 0; i < e2; i++) { var l = i / (e2 - 1); r.push(50 + l * l * 350); }
-    var total = r.reduce(function (a, b) { return a + b; }, 0);
-    var s = 6000 / total;
-    function a(i) {
-      if (i >= e2) return;
-      LG.sound.play("tick");
-      tickTimers.push(setTimeout(function () { a(i + 1); }, r[i] * s));
+
+  function startTicks(duration) {
+    duration = duration || 5200;
+    var tickCount = 26, r = [];
+    for (var i = 0; i < tickCount; i++) {
+      var l = i / (tickCount - 1);
+      r.push(35 + Math.pow(l, 2.4) * 480);
     }
-    a(0);
+    var total = r.reduce(function (a, b) { return a + b; }, 0);
+    var scale = duration / total;
+    var pointer = document.getElementById("wheel-pointer");
+
+    function playTick(i) {
+      if (i >= tickCount || !S.spinning) return;
+      LG.sound.play("tick");
+      if (pointer) {
+        pointer.style.transform = "translateX(-50%) rotate(-14deg)";
+        setTimeout(function () {
+          if (pointer) pointer.style.transform = "translateX(-50%) rotate(0deg)";
+        }, 45);
+      }
+      tickTimers.push(setTimeout(function () { playTick(i + 1); }, r[i] * scale));
+    }
+    playTick(0);
   }
+
+  function updateControlButtons(spinning) {
+    var spinPlayerBtn = document.querySelector('[data-act="spin-player"]');
+    var truthBtn = document.querySelector('[data-act="choose-truth"]');
+    var dareBtn = document.querySelector('[data-act="choose-dare"]');
+    var centerBtn = document.querySelector('[data-wheel-center]');
+    var centerText = document.getElementById("wheel-center-text");
+    var badge = document.getElementById("wheel-status-badge");
+
+    if (spinPlayerBtn) spinPlayerBtn.disabled = spinning;
+    if (truthBtn) truthBtn.disabled = spinning || !S.currentPlayer;
+    if (dareBtn) dareBtn.disabled = spinning || !S.currentPlayer;
+    if (centerBtn) centerBtn.disabled = spinning;
+    if (centerText) centerText.textContent = spinning ? "..." : e("spin");
+    if (badge) {
+      var wheelLabel = S.phase === "truth" ? e("chooseTruth") : S.phase === "dare" ? e("chooseDare") : e("spinPlayer");
+      badge.textContent = wheelLabel + (spinning ? " (" + e("spin") + "...)" : "");
+    }
+  }
+
   function spinWheel(entries, purpose, onEmpty, onComplete) {
     if (S.spinning) return;
     var a = entries.map(function (x) { return x.trim(); }).filter(Boolean);
     if (!a.length) { onEmpty(); S.phase = "idle"; S.wheelItems = []; render(); return; }
+
     S.phase = purpose;
     var generic = e("genericPlayer");
     var display = a;
-    if (purpose === "truth" || purpose === "dare") display = a.map(function (x) { return x.replace(PLACEHOLDER_RE, generic); });
+    if (purpose === "truth" || purpose === "dare") {
+      display = a.map(function (x) { return x.replace(PLACEHOLDER_RE, generic); });
+    }
     S.wheelItems = display;
+
     var n = 360 / a.length;
     var o = LG.randInt(a.length);
-    var d = 3 + Math.floor(2 * Math.random());
-    var u = 0.35 * n * (2 * Math.random() - 1);
+    var spins = 5 + Math.floor(Math.random() * 2); // 5~6 圈平滑飞旋
+    var u = 0.32 * n * (2 * Math.random() - 1);
     var p = mod360(-(-90 + o * n + n / 2 + u));
-    S.spinning = true;
     var delta = mod360(p - mod360(S.rotation));
-    S.rotation = S.rotation + 360 * d + delta;
-    render();
-    startTicks();
+    var targetRotation = S.rotation + 360 * spins + delta;
+    var startRotation = S.rotation;
+    S.rotation = targetRotation;
+    S.spinning = true;
+
+    // 确保转盘在 DOM 中
+    var disc = document.getElementById("wheel-disc");
+    if (!disc) {
+      render();
+      disc = document.getElementById("wheel-disc");
+    }
+
+    // 1. 如果转盘内容变化，平滑切换扇区并定格在 startRotation
+    var segs = buildWheelSegments(display);
+    if (disc) {
+      disc.style.background = segs.bg;
+      disc.innerHTML = '<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-white/15 to-transparent opacity-60 pointer-events-none"></div>' + segs.labels;
+      disc.style.transition = "none";
+      disc.style.transform = "rotate(" + startRotation + "deg)";
+      void disc.offsetWidth; // 关键：强制重绘，确保起点确立！
+    }
+
+    // 2. 禁用操作按钮
+    updateControlButtons(true);
+
+    // 3. 启动高帧率减速贝塞尔飞旋 (5.2 秒)
+    var spinDuration = 5200;
+    if (disc) {
+      disc.style.transition = "transform " + spinDuration + "ms cubic-bezier(0.12, 0.85, 0.2, 1)";
+      disc.style.transform = "rotate(" + targetRotation + "deg)";
+    }
+
+    // 4. 指针物理抖动与递减 Tick 音效
+    startTicks(spinDuration);
+
     spinTimeout = setTimeout(function () {
-      clearSpinTimers(); S.spinning = false; onComplete(o, a[o]); render();
-    }, 6000);
+      clearSpinTimers();
+      S.spinning = false;
+      updateControlButtons(false);
+      onComplete(o, a[o]);
+      renderModal();
+    }, spinDuration + 100);
   }
 
   /* ---------- 选玩家 ---------- */
@@ -547,6 +633,7 @@
 
   /* ---------- 主界面事件 ---------- */
   document.getElementById("tod-root").addEventListener("click", function (ev) {
+    if (S.spinning) return;
     var el = ev.target.closest("[data-act]");
     if (!el) {
       // 中心指针
@@ -569,7 +656,8 @@
     else if (a === "open-libs") { S.modal = "libs"; S.libError = null; try { localStorage.setItem(K.visited, "true"); } catch (e) {} }
     else if (a === "edit-truths") { S.modal = "editor"; S.editorType = "truth"; S.editorError = null; }
     else if (a === "edit-dares") { S.modal = "editor"; S.editorType = "dare"; S.editorError = null; }
-    savePlayers(); saveWorking(); render();
+    savePlayers(); saveWorking();
+    if (!S.spinning) render();
   });
 
   /* 玩家 input */
