@@ -429,17 +429,22 @@
   }
 
   /* ================= 布局模式与动态尺寸计算 ================= */
-  // 布局模式支持 'auto' (自动适配) | 'tablet' (平板双栏) | 'mobile' (手机紧凑)
+  // 布局模式支持 'auto' (自动适配) | 'desktop' (电脑布局) | 'tablet' (平板双栏) | 'mobile' (手机紧凑)
   let userLayoutMode = LG.loadJSON("lovegame-ludo-layout-mode", "auto");
 
   function getEffectiveLayoutMode() {
+    if (userLayoutMode === "desktop") return "desktop";
     if (userLayoutMode === "tablet") return "tablet";
     if (userLayoutMode === "mobile") return "mobile";
     // 自动适配检测：
-    // 宽屏/桌面 (>= 920px) 或 平板横屏 (宽 >= 720px 且 高 >= 460px 且 处于横屏)
     const w = window.innerWidth;
     const h = window.innerHeight;
     const isLandscape = w > h;
+    // 宽屏桌面端优先电脑经典大棋盘居中布局
+    if (w >= 1180 && h >= 700) {
+      return "desktop";
+    }
+    // 平板横屏或主流横屏状态优先双栏同屏
     if (w >= 920 || (isLandscape && w >= 720 && h >= 460)) {
       return "tablet";
     }
@@ -452,12 +457,12 @@
     const isLandscape = w > h;
     const eff = getEffectiveLayoutMode();
 
-    let dev = "手机设备";
-    if (w >= 1024) dev = "PC / 大屏";
+    let dev = "手机端";
+    if (w >= 1024) dev = "电脑 / 大屏";
     else if (w >= 768 || (isLandscape && w >= 640)) dev = "平板 / 横屏";
     else dev = "手机端";
 
-    const layoutName = eff === "tablet" ? "双栏同屏" : "紧凑竖屏";
+    const layoutName = eff === "desktop" ? "电脑经典" : eff === "tablet" ? "双栏同屏" : "紧凑竖屏";
     return `${dev} · ${layoutName}`;
   }
 
@@ -468,24 +473,25 @@
     const winH = window.innerHeight;
 
     let targetBoardSize;
-    if (eff === "tablet") {
+    if (eff === "desktop") {
+      // 电脑原版经典布局：棋盘最大约 680px 居中，控制台在下方居中
+      const availW = Math.min(winW - 48, 680);
+      const sz = Math.floor((availW - 32) / N);
+      CELL = Math.max(26, Math.min(50, sz));
+    } else if (eff === "tablet") {
       // 平板双栏模式：右侧为控制卡片(约 320-380px)，左侧为棋盘
       const sidebarW = Math.min(380, Math.max(300, Math.floor(winW * 0.32)));
       const availW = winW - sidebarW - 64;
       const availH = winH - 170;
       targetBoardSize = Math.max(340, Math.min(availW, availH, 680));
+      const sz = Math.floor((targetBoardSize - 32) / N);
+      CELL = Math.max(26, Math.min(50, sz));
     } else {
       // 手机紧凑模式：单栏居中，严格基于视口宽度防横向溢出
       const availW = Math.min(winW - 20, 520);
       const availH = winH > 520 ? winH - 280 : winH - 120;
       targetBoardSize = Math.max(280, Math.min(availW, availH, 500));
-    }
-
-    // 棋盘总宽 = 13 * CELL + 12 * 2px(gap) + 8px(padding) = 13 * CELL + 32px
-    const sz = Math.floor((targetBoardSize - 32) / N);
-    if (eff === "tablet") {
-      CELL = Math.max(26, Math.min(50, sz));
-    } else {
+      const sz = Math.floor((targetBoardSize - 32) / N);
       CELL = Math.max(21, Math.min(38, sz));
     }
   }
@@ -498,14 +504,14 @@
     const btn = (val, icon, label) => {
       const active = mode === val;
       return `
-        <button data-layout-mode="${val}" class="relative px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+        <button data-layout-mode="${val}" class="relative px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap ${
           active
             ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_4px_16px_rgba(244,63,94,0.4)] scale-100 ring-1 ring-white/30"
             : "text-white/60 hover:text-white hover:bg-white/10"
         }">
           <span>${icon}</span>
           <span>${label}</span>
-          ${val === "auto" ? `<span class="hidden sm:inline-block text-[10px] opacity-75 font-normal">(${eff === "tablet" ? "平板" : "手机"})</span>` : ""}
+          ${val === "auto" ? `<span class="hidden sm:inline-block text-[10px] opacity-75 font-normal">(${eff === "desktop" ? "电脑" : eff === "tablet" ? "平板" : "手机"})</span>` : ""}
         </button>`;
     };
 
@@ -516,8 +522,9 @@
         <span class="font-medium text-white/80">设备适配：</span>
         <span class="text-[11px] font-mono text-pink-300 bg-pink-500/10 border border-pink-500/25 px-2.5 py-0.5 rounded-full">${getDeviceHintText()}</span>
       </div>
-      <div class="inline-flex p-1 rounded-xl bg-white/5 border border-white/10 gap-1 select-none">
+      <div class="inline-flex flex-wrap justify-center p-1 rounded-xl bg-white/5 border border-white/10 gap-1 select-none">
         ${btn("auto", "🔄", "自动适配")}
+        ${btn("desktop", "💻", "电脑布局")}
         ${btn("tablet", "📟", "平板双栏")}
         ${btn("mobile", "📱", "手机紧凑")}
       </div>
@@ -529,6 +536,16 @@
     boardBound = false;
     const eff = getEffectiveLayoutMode();
     const isTablet = eff === "tablet";
+    const isDesktop = eff === "desktop";
+
+    let mainCls = "w-full ";
+    if (isTablet) {
+      mainCls += "max-w-6xl flex flex-col lg:flex-row items-center lg:items-start justify-center gap-5 sm:gap-6";
+    } else if (isDesktop) {
+      mainCls += "max-w-[680px] flex flex-col items-center gap-4";
+    } else {
+      mainCls += "max-w-md flex flex-col items-center gap-4";
+    }
 
     root.innerHTML = `
       <header class="w-full text-center space-y-1.5 sm:space-y-2">
@@ -539,8 +556,8 @@
       ${layoutSwitchBar()}
       ${toolbar()}
 
-      <!-- 主游戏区域 (平板双栏或手机紧凑单栏) -->
-      <div id="game-main-area" class="w-full ${isTablet ? "max-w-6xl flex flex-col lg:flex-row items-center lg:items-start justify-center gap-5 sm:gap-6" : "max-w-md flex flex-col items-center gap-4"}">
+      <!-- 主游戏区域 (电脑经典居中 / 平板双栏 / 手机紧凑单栏) -->
+      <div id="game-main-area" class="${mainCls}">
         
         <!-- 棋盘主列 -->
         <div id="board-column" class="flex flex-col items-center gap-3 w-full shrink-0">
@@ -1982,8 +1999,13 @@
         userLayoutMode = mode;
         LG.saveJSON("lovegame-ludo-layout-mode", userLayoutMode);
         rebuildShell();
-        const modeName = mode === "tablet" ? "平板双栏模式" : mode === "mobile" ? "手机紧凑模式" : "自动适配模式";
-        LG.toast(`已切换为：${modeName}`);
+        const modeNames = {
+          desktop: "电脑布局",
+          tablet: "平板双栏模式",
+          mobile: "手机紧凑模式",
+          auto: "自动适配模式"
+        };
+        LG.toast(`已切换为：${modeNames[mode] || mode}`);
       };
     });
   }
