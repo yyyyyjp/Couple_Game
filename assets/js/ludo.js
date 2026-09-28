@@ -428,52 +428,167 @@
     return (LD.players && LD.players[pid] && LD.players[pid].badge) || playerName(pid);
   }
 
-  /* ================= 动态响应式尺寸计算 ================= */
+  /* ================= 布局模式与动态尺寸计算 ================= */
+  // 布局模式支持 'auto' (自动适配) | 'tablet' (平板双栏) | 'mobile' (手机紧凑)
+  let userLayoutMode = LG.loadJSON("lovegame-ludo-layout-mode", "auto");
+
+  function getEffectiveLayoutMode() {
+    if (userLayoutMode === "tablet") return "tablet";
+    if (userLayoutMode === "mobile") return "mobile";
+    // 自动适配检测：
+    // 宽屏/桌面 (>= 920px) 或 平板横屏 (宽 >= 720px 且 高 >= 460px 且 处于横屏)
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const isLandscape = w > h;
+    if (w >= 920 || (isLandscape && w >= 720 && h >= 460)) {
+      return "tablet";
+    }
+    return "mobile";
+  }
+
+  function getDeviceHintText() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const isLandscape = w > h;
+    const eff = getEffectiveLayoutMode();
+
+    let dev = "手机设备";
+    if (w >= 1024) dev = "PC / 大屏";
+    else if (w >= 768 || (isLandscape && w >= 640)) dev = "平板 / 横屏";
+    else dev = "手机端";
+
+    const layoutName = eff === "tablet" ? "双栏同屏" : "紧凑竖屏";
+    return `${dev} · ${layoutName}`;
+  }
+
   let CELL = 46;
   function updateCellSize() {
-    const wrap = document.getElementById("board-container");
-    if (!wrap) return;
-    const avail = Math.min(window.innerWidth - 32, wrap.clientWidth || 640);
-    // 留出 8px padding
-    const sz = Math.floor((avail - 16) / N);
-    CELL = Math.max(24, Math.min(50, sz));
+    const eff = getEffectiveLayoutMode();
+    const winW = window.innerWidth;
+    const winH = window.innerHeight;
+
+    let targetBoardSize;
+    if (eff === "tablet") {
+      // 平板双栏模式：右侧为控制卡片(约 320-380px)，左侧为棋盘
+      const sidebarW = Math.min(380, Math.max(300, Math.floor(winW * 0.32)));
+      const availW = winW - sidebarW - 64;
+      const availH = winH - 170;
+      targetBoardSize = Math.max(340, Math.min(availW, availH, 680));
+    } else {
+      // 手机紧凑模式：单栏居中，严格基于视口宽度防横向溢出
+      const availW = Math.min(winW - 20, 520);
+      const availH = winH > 520 ? winH - 280 : winH - 120;
+      targetBoardSize = Math.max(280, Math.min(availW, availH, 500));
+    }
+
+    // 棋盘总宽 = 13 * CELL + 12 * 2px(gap) + 8px(padding) = 13 * CELL + 32px
+    const sz = Math.floor((targetBoardSize - 32) / N);
+    if (eff === "tablet") {
+      CELL = Math.max(26, Math.min(50, sz));
+    } else {
+      CELL = Math.max(21, Math.min(38, sz));
+    }
+  }
+
+  /* ================= 布局模式切换条 ================= */
+  function layoutSwitchBar() {
+    const mode = userLayoutMode;
+    const eff = getEffectiveLayoutMode();
+
+    const btn = (val, icon, label) => {
+      const active = mode === val;
+      return `
+        <button data-layout-mode="${val}" class="relative px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+          active
+            ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-[0_4px_16px_rgba(244,63,94,0.4)] scale-100 ring-1 ring-white/30"
+            : "text-white/60 hover:text-white hover:bg-white/10"
+        }">
+          <span>${icon}</span>
+          <span>${label}</span>
+          ${val === "auto" ? `<span class="hidden sm:inline-block text-[10px] opacity-75 font-normal">(${eff === "tablet" ? "平板" : "手机"})</span>` : ""}
+        </button>`;
+    };
+
+    return `
+    <div id="layout-switch-bar" class="w-full max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 px-3 py-2 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md shadow-lg">
+      <div class="flex items-center gap-2 text-xs text-white/70">
+        <span class="text-sm">📐</span>
+        <span class="font-medium text-white/80">设备适配：</span>
+        <span class="text-[11px] font-mono text-pink-300 bg-pink-500/10 border border-pink-500/25 px-2.5 py-0.5 rounded-full">${getDeviceHintText()}</span>
+      </div>
+      <div class="inline-flex p-1 rounded-xl bg-white/5 border border-white/10 gap-1 select-none">
+        ${btn("auto", "🔄", "自动适配")}
+        ${btn("tablet", "📟", "平板双栏")}
+        ${btn("mobile", "📱", "手机紧凑")}
+      </div>
+    </div>`;
   }
 
   /* ================= 主体框架渲染 ================= */
   function shell() {
+    boardBound = false;
+    const eff = getEffectiveLayoutMode();
+    const isTablet = eff === "tablet";
+
     root.innerHTML = `
-      <header class="w-full text-center space-y-2">
-        <h1 class="text-3xl sm:text-5xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
+      <header class="w-full text-center space-y-1.5 sm:space-y-2">
+        <h1 class="text-2xl sm:text-5xl font-black tracking-tight bg-gradient-to-r from-pink-300 via-rose-200 to-fuchsia-300 bg-clip-text text-transparent drop-shadow-md">${esc(L("title"))}</h1>
         <p class="text-xs sm:text-sm text-white/70 max-w-xl mx-auto leading-relaxed">${esc(L("tagline"))}</p>
       </header>
 
+      ${layoutSwitchBar()}
       ${toolbar()}
 
-      <div class="w-full flex flex-col items-center gap-4">
-        <!-- 玩家指示胶囊 -->
-        <div id="player-capsules" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3"></div>
+      <!-- 主游戏区域 (平板双栏或手机紧凑单栏) -->
+      <div id="game-main-area" class="w-full ${isTablet ? "max-w-6xl flex flex-col lg:flex-row items-center lg:items-start justify-center gap-5 sm:gap-6" : "max-w-md flex flex-col items-center gap-4"}">
+        
+        <!-- 棋盘主列 -->
+        <div id="board-column" class="flex flex-col items-center gap-3 w-full shrink-0">
+          <!-- 玩家指示胶囊 -->
+          <div id="player-capsules" class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5"></div>
 
-        <!-- 棋盘外层容器 (支持自适应与自定义背景) -->
-        <div id="board-container" class="relative w-full max-w-[680px] flex justify-center">
-          <div id="board-wrap" class="relative rounded-2xl overflow-hidden shadow-[0_16px_50px_rgba(0,0,0,0.6)] border border-white/15 bg-black/60 backdrop-blur-xl">
-            ${settings.boardBg ? `<div class="absolute inset-0 bg-cover bg-center opacity-30 pointer-events-none" style="background-image:url('${esc(settings.boardBg)}')"></div>` : ""}
-            <div id="board" class="relative z-10 grid gap-0.5 p-1 sm:p-2"></div>
-            <div id="piece-layer" class="absolute inset-0 pointer-events-none z-20"></div>
+          <!-- 棋盘外层容器 (支持自适应与自定义背景) -->
+          <div id="board-container" class="relative w-full flex justify-center">
+            <div id="board-wrap" class="relative rounded-2xl overflow-hidden shadow-[0_16px_50px_rgba(0,0,0,0.6)] border border-white/15 bg-black/60 backdrop-blur-xl">
+              ${settings.boardBg ? `<div class="absolute inset-0 bg-cover bg-center opacity-30 pointer-events-none" style="background-image:url('${esc(settings.boardBg)}')"></div>` : ""}
+              <div id="board" class="relative z-10 grid gap-0.5 p-1 select-none"></div>
+              <div id="piece-layer" class="absolute inset-0 pointer-events-none z-20"></div>
+            </div>
           </div>
         </div>
 
-        <!-- 底部控制面板 -->
-        ${controlCard()}
+        <!-- 右侧/下方控制面板列 -->
+        <div id="control-column" class="w-full ${isTablet ? "lg:w-[350px] xl:w-[380px] lg:sticky lg:top-4 flex flex-col gap-3.5 shrink-0" : "flex flex-col items-center gap-3"}">
+          ${controlCard()}
+          ${isTablet ? tabletTipsCard() : ""}
+        </div>
       </div>
 
-      <!-- 悬停 Tooltip 浮窗 -->
-      <div id="cell-tooltip" class="pointer-events-none fixed z-50 hidden max-w-xs rounded-xl border border-white/20 bg-black/90 p-3 text-white shadow-2xl backdrop-blur-md transition-opacity duration-200">
-        <div id="tt-coord" class="text-[10px] uppercase tracking-wider text-pink-300 font-mono"></div>
+      <!-- 悬停与触摸点击 Tooltip 浮窗 -->
+      <div id="cell-tooltip" class="fixed z-50 hidden max-w-xs rounded-2xl border border-white/20 bg-black/95 p-3.5 text-white shadow-[0_12px_40px_rgba(0,0,0,0.85)] backdrop-blur-md transition-opacity duration-150">
+        <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1.5 mb-1.5">
+          <div class="flex items-center gap-1.5">
+            <span id="tt-coord" class="text-[10px] uppercase tracking-wider text-pink-300 font-mono font-bold"></span>
+            <span id="tt-type" class="text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-white/70">格讯</span>
+          </div>
+          <button id="tt-close-btn" class="text-white/40 hover:text-white text-xs px-1">✕</button>
+        </div>
         <div id="tt-title" class="text-sm font-bold text-white mt-0.5"></div>
-        <div id="tt-desc" class="text-xs text-white/70 mt-1 leading-relaxed whitespace-pre-line"></div>
+        <div id="tt-desc" class="text-xs text-white/75 mt-1 leading-relaxed whitespace-pre-line max-h-48 overflow-y-auto"></div>
         <div id="tt-eff" class="mt-2 inline-block rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-amber-200"></div>
       </div>
     `;
+  }
+
+  function tabletTipsCard() {
+    return `
+      <div class="hidden lg:block rounded-2xl border border-white/10 bg-white/5 p-3.5 text-xs text-white/70 space-y-1.5 backdrop-blur shadow-md">
+        <div class="flex items-center gap-1.5 font-bold text-pink-300">
+          <span>💡</span><span>双栏同屏适配</span>
+        </div>
+        <p class="leading-relaxed text-[11px] text-white/60">• 专为 iPad 及华为等平板横屏设计，左侧棋盘与右侧操作台同屏显示，免去上下翻滚。</p>
+        <p class="leading-relaxed text-[11px] text-white/60">• 在触屏设备上，轻触任意格子可随时查看当前格的事件挑战详情。</p>
+      </div>`;
   }
 
   function toolbar() {
@@ -563,21 +678,28 @@
         const eff = getEffect(r, c);
         const ev = getEvent(r, c);
 
+        // 动态根据当前 CELL 规格自适应文字与图标字号
+        const fontCenter = CELL >= 36 ? "text-sm sm:text-base" : (CELL >= 28 ? "text-xs" : "text-[10px]");
+        const fontFlight = CELL >= 36 ? "text-xs sm:text-sm" : (CELL >= 28 ? "text-[10px]" : "text-[9px]");
+        const fontEff = CELL >= 36 ? "text-[10px] sm:text-[11px]" : (CELL >= 28 ? "text-[8.5px]" : "text-[7.5px]");
+        const fontEv = CELL >= 38 ? "text-[9.5px] leading-tight" : (CELL >= 30 ? "text-[8.5px] leading-[1.1]" : "text-[7px] leading-none");
+        const fontArrow = CELL >= 36 ? "text-[8px] sm:text-[9px]" : (CELL >= 28 ? "text-[7px]" : "text-[6px]");
+
         if (isCenter) {
-          inner = `<span class="text-xs sm:text-base leading-none">🏆</span>`;
+          inner = `<span class="${fontCenter} leading-none">🏆</span>`;
         } else if (FLIGHT_MAP[k]) {
-          inner = `<span class="text-xs sm:text-sm animate-pulse">✈️</span>`;
+          inner = `<span class="${fontFlight} animate-pulse">✈️</span>`;
         } else if (eff) {
           const effShort = eff === "forward2" ? "⬆️+2" : eff === "backward2" ? "⬇️-2" : "⏸️休";
           const effColor = eff === "forward2" ? "text-emerald-300" : eff === "backward2" ? "text-amber-300" : "text-violet-300";
-          inner = `<span class="text-[9px] sm:text-[11px] font-black ${effColor} leading-none tracking-tighter">${effShort}</span>`;
+          inner = `<span class="${fontEff} font-black ${effColor} leading-none tracking-tighter">${effShort}</span>`;
         } else if (ev && ev.name) {
-          inner = `<span class="text-[8px] sm:text-[10px] leading-tight text-center font-bold px-0.5 line-clamp-2 break-all opacity-95">${esc(ev.name)}</span>`;
+          inner = `<span class="${fontEv} text-center font-bold px-0.5 line-clamp-2 break-all opacity-95">${esc(ev.name)}</span>`;
         }
 
         // 顺时针方向指示箭头 (位于格子右下角或背景微显)
         const arrowTag = (arrow && !isCenter)
-          ? `<span class="absolute bottom-0 right-0 text-[7px] sm:text-[9px] text-white/30 font-bold pointer-events-none p-0.5 leading-none select-none">${arrow}</span>`
+          ? `<span class="absolute bottom-0 right-0 ${fontArrow} text-white/30 font-bold pointer-events-none p-0.5 leading-none select-none">${arrow}</span>`
           : "";
 
         html += `<div data-cell="${k}" class="${cls}" style="width:${CELL}px;height:${CELL}px">${arrowTag}${inner}</div>`;
@@ -1346,8 +1468,7 @@
     const applyBg = (url) => {
       settings.boardBg = url.trim();
       LG.saveJSON("lovegame-ludo-settings", settings);
-      shell();
-      render();
+      rebuildShell();
       LG.toast("棋盘背景已更新");
     };
     el.querySelector("#set-bg-apply").onclick = () => applyBg(el.querySelector("#set-bg-inp").value);
@@ -1548,18 +1669,24 @@
     };
   }
 
-  /* ================= 格子 Hover Tooltip ================= */
+  /* ================= 格子 Hover 与触摸 Tooltip ================= */
   let tooltipEl = null;
+  let activeTouchCell = null;
   function bindCellHover() {
     tooltipEl = document.getElementById("cell-tooltip");
     const board = document.getElementById("board");
     if (!board || !tooltipEl) return;
 
-    board.addEventListener("mouseover", (e) => {
-      if (editMode) return;
-      const cell = e.target.closest("[data-cell]");
-      if (!cell) return;
+    const closeBtn = document.getElementById("tt-close-btn");
+    if (closeBtn) {
+      closeBtn.onclick = (e) => {
+        e.stopPropagation();
+        tooltipEl.classList.add("hidden");
+        activeTouchCell = null;
+      };
+    }
 
+    const showTooltipFor = (cell, clientX, clientY) => {
       const [r, c] = cell.getAttribute("data-cell").split("-").map(Number);
       const ev = getEvent(r, c);
       const eff = getEffect(r, c);
@@ -1570,35 +1697,81 @@
         return;
       }
 
-      document.getElementById("tt-coord").textContent = `坐标 [${r + 1}, ${c + 1}]`;
-      document.getElementById("tt-title").textContent = ev ? (ev.name || "未命名格子") : (isFlight ? "近道航线" : "特殊格");
-      document.getElementById("tt-desc").textContent = ev ? (ev.description || "无详细描述") : "";
-
+      const coordEl = document.getElementById("tt-coord");
+      const typeEl = document.getElementById("tt-type");
+      const titleEl = document.getElementById("tt-title");
+      const descEl = document.getElementById("tt-desc");
       const effEl = document.getElementById("tt-eff");
-      if (eff) {
-        effEl.classList.remove("hidden");
-        effEl.textContent = eff === "forward2" ? "⬆️ 奖励：前进 2 格" : eff === "backward2" ? "⬇️ 惩罚：后退 2 格" : "⏸️ 休息：暂停 1 回合";
-      } else if (isFlight) {
-        effEl.classList.remove("hidden");
-        effEl.textContent = "✈️ 专属近道：直达对角目标格";
-      } else {
-        effEl.classList.add("hidden");
+
+      if (coordEl) coordEl.textContent = `坐标 [${r + 1}, ${c + 1}]`;
+      if (typeEl) typeEl.textContent = isFlight ? "航线" : eff ? "特殊" : "事件";
+      if (titleEl) titleEl.textContent = ev ? (ev.name || "未命名格子") : (isFlight ? "近道航线" : "特殊格");
+      if (descEl) descEl.textContent = ev ? (ev.description || "无详细描述") : "";
+
+      if (effEl) {
+        if (eff) {
+          effEl.classList.remove("hidden");
+          effEl.textContent = eff === "forward2" ? "⬆️ 奖励：前进 2 格" : eff === "backward2" ? "⬇️ 惩罚：后退 2 格" : "⏸️ 休息：暂停 1 回合";
+        } else if (isFlight) {
+          effEl.classList.remove("hidden");
+          effEl.textContent = "✈️ 专属近道：直达对角目标格";
+        } else {
+          effEl.classList.add("hidden");
+        }
       }
 
-      tooltipEl.classList.remove("hidden");
-    });
+      const rect = cell.getBoundingClientRect();
+      const posX = clientX || (rect.left + rect.width / 2);
+      const posY = clientY || rect.top;
 
-    board.addEventListener("mousemove", (e) => {
-      if (!tooltipEl || tooltipEl.classList.contains("hidden")) return;
-      const x = Math.min(window.innerWidth - 260, Math.max(16, e.clientX + 14));
-      const y = Math.min(window.innerHeight - 150, Math.max(16, e.clientY + 14));
+      let x = Math.min(window.innerWidth - 270, Math.max(16, posX + 12));
+      let y = posY + 16;
+      if (y + 190 > window.innerHeight) {
+        y = Math.max(16, posY - 190);
+      }
+
       tooltipEl.style.left = `${x}px`;
       tooltipEl.style.top = `${y}px`;
-    });
+      tooltipEl.classList.remove("hidden");
+    };
 
-    board.addEventListener("mouseleave", () => {
-      if (tooltipEl) tooltipEl.classList.add("hidden");
-    });
+    board.onmouseover = (e) => {
+      if (editMode) return;
+      const cell = e.target.closest("[data-cell]");
+      if (!cell) return;
+      showTooltipFor(cell, e.clientX, e.clientY);
+    };
+
+    board.onmousemove = (e) => {
+      if (!tooltipEl || tooltipEl.classList.contains("hidden")) return;
+      if (activeTouchCell) return;
+      const x = Math.min(window.innerWidth - 270, Math.max(16, e.clientX + 14));
+      const y = Math.min(window.innerHeight - 170, Math.max(16, e.clientY + 14));
+      tooltipEl.style.left = `${x}px`;
+      tooltipEl.style.top = `${y}px`;
+    };
+
+    board.onmouseleave = () => {
+      if (tooltipEl && !activeTouchCell) tooltipEl.classList.add("hidden");
+    };
+
+    // 移动端与平板触屏轻触格子检视事件
+    board.onclick = (e) => {
+      if (editMode) return;
+      if (e.target.closest("[data-piece]")) return;
+      const cell = e.target.closest("[data-cell]");
+      if (!cell) return;
+      activeTouchCell = cell;
+      showTooltipFor(cell, e.clientX, e.clientY);
+    };
+
+    document.onclick = (e) => {
+      if (!tooltipEl || tooltipEl.classList.contains("hidden")) return;
+      if (!e.target.closest("#board") && !e.target.closest("#cell-tooltip")) {
+        tooltipEl.classList.add("hidden");
+        activeTouchCell = null;
+      }
+    };
   }
 
   /* ================= 单格事件编辑器 ================= */
@@ -1798,15 +1971,47 @@
     });
   }
 
-  /* ================= 窗口尺寸监听与初始化 ================= */
+  /* ================= 布局切换与屏幕方向监听 ================= */
+  function bindLayoutSwitcher() {
+    const bar = document.getElementById("layout-switch-bar");
+    if (!bar) return;
+    bar.querySelectorAll("[data-layout-mode]").forEach((btn) => {
+      btn.onclick = () => {
+        const mode = btn.getAttribute("data-layout-mode");
+        if (userLayoutMode === mode) return;
+        userLayoutMode = mode;
+        LG.saveJSON("lovegame-ludo-layout-mode", userLayoutMode);
+        rebuildShell();
+        const modeName = mode === "tablet" ? "平板双栏模式" : mode === "mobile" ? "手机紧凑模式" : "自动适配模式";
+        LG.toast(`已切换为：${modeName}`);
+      };
+    });
+  }
+
+  function rebuildShell() {
+    shell();
+    render();
+    bindToolbar();
+    bindLayoutSwitcher();
+  }
+
   let resizeTimer = null;
-  window.addEventListener("resize", () => {
+  let lastEffMode = getEffectiveLayoutMode();
+  function handleResizeOrOrientation() {
     if (resizeTimer) clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      renderBoard();
-      renderPieces();
-    }, 150);
-  });
+      const curEff = getEffectiveLayoutMode();
+      if (userLayoutMode === "auto" && curEff !== lastEffMode) {
+        lastEffMode = curEff;
+        rebuildShell();
+      } else {
+        renderBoard();
+        renderPieces();
+      }
+    }, 120);
+  }
+  window.addEventListener("resize", handleResizeOrOrientation);
+  window.addEventListener("orientationchange", handleResizeOrOrientation);
 
   // 绑定工具栏按钮
   function bindToolbar() {
@@ -1842,8 +2047,6 @@
 
   // 启动运行
   resetGameState();
-  shell();
-  render();
-  bindToolbar();
+  rebuildShell();
 
 })();

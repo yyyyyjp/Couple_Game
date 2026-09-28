@@ -293,3 +293,37 @@ input[type="number"] { -moz-appearance: textfield; }
   will-change: transform;
 }
 
+/* ============================================================
+ * 情侣飞行棋 - 多端触控与平板双栏布局优化 (iPad / 华为平板 / 手机端)
+ * ============================================================ */
+#board-wrap, #board {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#board [data-cell] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+#piece-layer [data-piece] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 工具栏与切换按钮防双击缩放 */
+#layout-switch-bar button,
+button, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 平板双栏控制台吸顶支撑 */
+@media (min-width: 1024px) {
+  #control-column {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
